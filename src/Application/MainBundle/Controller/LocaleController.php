@@ -33,7 +33,8 @@ class LocaleController extends Controller
         $session = $request->getSession();
         $session->set('_locale', $locale);
 
-        $referer = $request->server->get('HTTP_REFERER');
+    
+        $referer = $request->headers->get('referer');  
 
         // Handling dev environent when no referer was found.
         if($referer === null) {

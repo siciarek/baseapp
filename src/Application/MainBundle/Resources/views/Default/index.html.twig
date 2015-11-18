@@ -4,4 +4,9 @@
     <h1>OK, Allright, You Win!</h1>
 
     <p>{{ 'user.signin'|trans }}</p>
+    
+    <ul>
+        <li><a href="{{ path('locale.switch', { locale: 'pl' }) }}">pl</a></li>
+        <li><a href="{{ path('locale.switch', { locale: 'en' }) }}">en</a></li>
+    </ul>
 {% endblock %}
