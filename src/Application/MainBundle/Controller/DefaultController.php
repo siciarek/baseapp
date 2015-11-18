@@ -14,8 +14,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $url = $this->get('router')->generate('sonata_admin_dashboard');
-        
-        return $this->redirect($url);
+        return $this->redirectToRoute('sonata_admin_dashboard');
+        // return [];
     }
 }

@@ -8,6 +8,7 @@
         }
     },
     "require": {
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
         "sonata-project/datagrid-bundle": "dev-master",
         "sonata-project/user-bundle": "dev-master",
         "sonata-project/admin-bundle": "dev-master",
@@ -24,6 +25,7 @@
         "incenteev/composer-parameter-handler": "~2.0"
     },
     "require-dev": {
+        "willdurand/faker-bundle": "@stable",
         "sensio/generator-bundle": "~2.3"
     },
     "scripts": {
