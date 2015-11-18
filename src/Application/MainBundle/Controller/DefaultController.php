@@ -14,7 +14,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->redirectToRoute('sonata_admin_dashboard');
-        // return [];
+        // return $this->redirectToRoute('sonata_admin_dashboard');
+        return [];
     }
 }
