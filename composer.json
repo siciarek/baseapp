@@ -8,6 +8,11 @@
         }
     },
     "require": {
+        "friendsofsymfony/jsrouting-bundle": "dev-master",
+        "siciarek/jstrans-bundle": "dev-master",
+        "knplabs/knp-paginator-bundle": "dev-master",
+        "knplabs/knp-snappy-bundle": "dev-master",
+        "knplabs/doctrine-behaviors": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "sonata-project/datagrid-bundle": "dev-master",
         "sonata-project/user-bundle": "dev-master",
