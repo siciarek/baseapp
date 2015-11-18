@@ -16,8 +16,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        var_dump($_SESSION);
-        // return $this->redirectToRoute('sonata_admin_dashboard');
-        return [];
+        return $this->redirectToRoute('sonata_admin_dashboard');
+        // return [];
     }
 }
