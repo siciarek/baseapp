@@ -1,11 +1,7 @@
 services:
 
-    locale.listener:
+    app.locale_listener:
         class: Application\MainBundle\EventListener\LocaleListener
-        arguments:
-            - @kernel
+        arguments: [ "%kernel.default_locale%" ]
         tags:
-            -
-                name:   kernel.event_listener
-                event:  kernel.controller
-                method: handleCoreController
+            - { name: kernel.event_subscriber }

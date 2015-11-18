@@ -31,19 +31,21 @@ class LocaleController extends Controller
     /**
      * @Route("/switch/{locale}", name="locale.switch", requirements = {"locale"="^[a-z]{2}$"})
      */
-    public function changeLocaleAction($locale) {
+    public function changeLocaleAction(Request $request) {
+
+        $locale = $request->get('locale');
 
         $locale = in_array($locale, array_keys(self:: $locales)) ? $locale : $this->default_locale;
 
-        $session = $this->getRequest()->getSession();
-        $session->set('locale', $locale);
+        $session = $request->getSession();
+        $session->set('_locale', $locale);
 
-        $referer = $this->getRequest()->server->get('HTTP_REFERER');
+        $referer = $request->server->get('HTTP_REFERER');
 
         // Handling dev environent when no referer was found.
         if($referer === null) {
-            $script_name = $this->getRequest()->getScriptName();
-            $referer = $this->getRequest()->getSchemeAndHttpHost();
+            $script_name = $request->getScriptName();
+            $referer = $request->getSchemeAndHttpHost();
             $referer .= preg_match('/dev/', $script_name) > 0 ? $script_name . '/' : '';
         }
 
