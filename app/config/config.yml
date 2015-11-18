@@ -8,6 +8,9 @@ imports:
     - { resource: sonata-project/block-bundle.yml }
     - { resource: sonata-project/admin-bundle.yml }
     - { resource: sonata-project/user-bundle.yml }
+    - { resource: knplabs/knp-paginator-bundle.yml }
+    - { resource: knplabs/doctrine-behaviors.yml }
+    - { resource: ../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration

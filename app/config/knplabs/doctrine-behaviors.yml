@@ -1,0 +1,2 @@
+parameters:
+    knp.doctrine_behaviors.blameable_subscriber.user_entity: Application\Sonata\UserBundle\Entity\User
