@@ -3,5 +3,6 @@ doctrine:
         entity_managers:
             default:
                 mappings:
+                    FOSUserBundle: ~
                     ApplicationSonataUserBundle: ~
                     SonataUserBundle: ~

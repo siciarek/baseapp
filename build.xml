@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
+
+<project name="baseapp" default="cc" basedir=".">
+
+    <loadproperties srcFile="properties.conf"/>
+
+    <target name="ccx" depends="cc" description="Czyszczenie katalogu cache (alias)"/>
+
+    <target name="ge" description="Generowanie encji">
+        <exec executable="${php}">
+            <arg line="app/console doctrine:generate:entities ApplicationMainBundle --no-backup"/>
+        </exec>
+    </target>
+    
+    <target name="fix" depends="db" description="Wprowadzenie danych domyślnych do bazy">
+        <exec executable="${php}">
+            <arg line="app/console doctrine:fixtures:load --no-interaction"/>
+        </exec>
+    </target>
+
+    <target name="cc" description="Czyszczenie katalogu cache">
+        <delete includeemptydirs="true" verbose="true" >
+            <fileset dir="app/cache" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="app/logs" includes="**/*" excludes=".gitkeep"/>
+        </delete>
+    </target>
+
+    <target name="db" depends="cc" description="Reset bazy danych">
+        <exec executable="${php}">
+            <arg line="app/console doctrine:database:drop --force"/>
+        </exec>
+        <exec executable="${php}">
+            <arg line="app/console doctrine:database:create"/>
+        </exec>
+        <exec executable="${php}">
+            <arg line="app/console doctrine:schema:update --force"/>
+        </exec>
+    </target>
+
+</project>
