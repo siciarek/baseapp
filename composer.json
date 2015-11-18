@@ -8,6 +8,8 @@
         }
     },
     "require": {
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master",
         "php": ">=5.3.9",
         "symfony/symfony": "2.7.*",
         "doctrine/orm": "^2.4.8",
