@@ -16,14 +16,7 @@ class LocaleController extends Controller
     public static $locales = array(
         'pl' => 'Polski',
         'en' => 'English',
-//        'cz' => 'Čeština',
-//        'sl' => 'Slovenský',
-//        'de' => 'Deutsch',
-//        'ru' => '???????',
-//        'hu' => 'Magyar',
-//        'sv' => 'Svenska',
-//        'ro' => 'Român',
-//        'uk' => '???????????',
+        'de' => 'Deutsch',
     );
 
     protected $default_locale = 'en';
