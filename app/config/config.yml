@@ -5,6 +5,7 @@ imports:
 
     - { resource: twig.yml }
     - { resource: doctrine.yml }
+    - { resource: ivory/ckeditor-bundle.yml }
     - { resource: friendsofsymfony/user-bundle.yml }
     - { resource: friendsofsymfony/jsrouting-bundle.yml }
     - { resource: sonata-project/block-bundle.yml }

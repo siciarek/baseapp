@@ -17,8 +17,8 @@ class CollectionAdmin extends Admin {
                 'editable' => true,
             ])
             ->addIdentifier('id')
+            ->addIdentifier('version')
             ->addIdentifier('name')
-            ->add('version')
             ->add('description')
             ->add('createdAt')
             ->add('_action', 'actions', [
@@ -34,10 +34,14 @@ class CollectionAdmin extends Admin {
             ->with('collection.name')
             ->add('enabled')
             ->add('name')
-            ->add('description')
+            ->add('description', 'ckeditor', [
+                'required' => false,
+            ])
+            ->end()
+            ->with('collection.element.name_plural')
             ->add('elements', 'sonata_type_collection',
                 [
-                    'label' => 'collection.element.name_plural',
+                    'label' => false,
                     'required' => false,
                     'by_reference' => false
                 ],
