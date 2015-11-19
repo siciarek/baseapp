@@ -36,6 +36,11 @@ class CollectionElement
     // private $slug;
 
     /**
+     * @ORM\Column(name="enabled", type="boolean")
+     */
+    private $enabled = true;
+
+    /**
      * @ORM\Column(name="name")
      */
     private $name;
@@ -130,5 +135,29 @@ class CollectionElement
     public function getCollection()
     {
         return $this->collection;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     *
+     * @return CollectionElement
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
     }
 }

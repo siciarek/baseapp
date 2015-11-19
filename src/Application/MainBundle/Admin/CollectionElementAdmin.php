@@ -13,6 +13,9 @@ class CollectionElementAdmin extends Admin {
     
     protected function configureListFields(ListMapper $listMapper) {
         $listMapper
+            ->add('enabled', 'boolean', [
+                'editable' => true,
+            ])
             ->addIdentifier('id')
             ->addIdentifier('name')
             ->add('description')
@@ -28,10 +31,11 @@ class CollectionElementAdmin extends Admin {
     
     protected function configureFormFields(FormMapper $formMapper) {
         $formMapper
-                ->with('collection.element.name')
-                ->add('name')
-                ->add('description')
-                ->end()
+            ->with('collection.element.name')
+            ->add('enabled')
+            ->add('name')
+            ->add('description')
+            ->end()
         ;
     }
 }

@@ -13,6 +13,9 @@ class CollectionAdmin extends Admin {
     
     protected function configureListFields(ListMapper $listMapper) {
         $listMapper
+            ->add('enabled', 'boolean', [
+                'editable' => true,
+            ])
             ->addIdentifier('id')
             ->addIdentifier('name')
             ->add('version')
@@ -28,20 +31,22 @@ class CollectionAdmin extends Admin {
     
     protected function configureFormFields(FormMapper $formMapper) {
         $formMapper
-                ->with('collection.name')
-                ->add('name')
-                ->add('description')
-                ->add('elements', 'sonata_type_collection',
-                    [
-                        'by_reference' => false
-                    ],
-                    [
-                        'edit' => 'inline',
-                        'inline' => 'table',
-                        'sortable' => 'id',
-                    ]
-                )
-                ->end()
+            ->with('collection.name')
+            ->add('enabled')
+            ->add('name')
+            ->add('description')
+            ->add('elements', 'sonata_type_collection',
+                [
+                    'label' => 'collection.element.name_plural',
+                    'required' => false,
+                    'by_reference' => false
+                ],
+                [
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                ]
+            )
+            ->end()
         ;
     }
 }

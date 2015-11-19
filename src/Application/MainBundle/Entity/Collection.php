@@ -34,7 +34,12 @@ class Collection
     //  * @Gedmo\Slug(fields={"name", "version"})
     //  */
     // private $slug;
-    
+
+    /**
+     * @ORM\Column(name="enabled", type="boolean")
+     */
+    private $enabled = true;
+
     /**
      * @ORM\Column(name="name")
      */
@@ -51,6 +56,7 @@ class Collection
     private $description;
 
     /**
+     * @ORM\OrderBy({"enabled" = "DESC", "id" = "DESC"})
      * @ORM\OneToMany(targetEntity="CollectionElement", mappedBy="collection", cascade={ "all" }, orphanRemoval=true)
      */
     private $elements;
@@ -177,5 +183,29 @@ class Collection
     public function getElements()
     {
         return $this->elements;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     *
+     * @return Collection
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
     }
 }
