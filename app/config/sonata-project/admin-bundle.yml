@@ -2,24 +2,24 @@ sonata_admin:
     title: Admin
     title_logo: bundles/sonataadmin/logo_title.png
 
-    dashboard:
-        groups:
-
-            sonata.user:
-                label: users
-                label_catalogue: SonataUserBundle
-                items:
-                   - sonata.user.admin.user
-                   - sonata.user.admin.group
-                item_adds:            []
-                roles:
-                    - ROLE_SUPER_ADMIN
-
-        blocks:
-
-            -
-                position: right
-                type: sonata.admin.block.admin_list
-                settings:
-                    groups:
-                        - sonata.user
+#    dashboard:
+#        groups:
+#
+#            sonata.user:
+#                label: users
+#                label_catalogue: SonataUserBundle
+#                items:
+#                   - sonata.user.admin.user
+#                   - sonata.user.admin.group
+#                item_adds:            []
+#                roles:
+#                    - ROLE_SUPER_ADMIN
+#
+#        blocks:
+#
+#            -
+#                position: right
+#                type: sonata.admin.block.admin_list
+#                settings:
+#                    groups:
+#                        - sonata.user

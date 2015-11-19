@@ -8,6 +8,7 @@ imports:
     - { resource: friendsofsymfony/jsrouting-bundle.yml }
     - { resource: sonata-project/block-bundle.yml }
     - { resource: sonata-project/admin-bundle.yml }
+    - { resource: sonata-project/admin-bundle-services.yml }
     - { resource: sonata-project/user-bundle.yml }
     - { resource: knplabs/knp-paginator-bundle.yml }
     - { resource: knplabs/doctrine-behaviors.yml }
