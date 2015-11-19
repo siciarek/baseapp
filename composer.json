@@ -4,10 +4,12 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "": "src/",
+            "Application": "app/"
         }
     },
     "require": {
+        "egeloen/ckeditor-bundle": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "dev-master",
         "siciarek/jstrans-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "dev-master",
