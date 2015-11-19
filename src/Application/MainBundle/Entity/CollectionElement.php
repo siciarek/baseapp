@@ -16,8 +16,7 @@ class CollectionElement
 {
     use ORMBehaviors\Blameable\Blameable;
     use ORMBehaviors\Timestampable\Timestampable;
-//    use ORMBehaviors\SoftDeletable\SoftDeletable;
-    
+
     public function __toString() {
         return $this->getName() ? : '-';
     }
