@@ -4,7 +4,10 @@
     {{ parent() }}
     
     <script>
+        console.log('siciarek/jstrans-bundle');
         console.log('user.signin'.trans());
+        console.log('friendsofsymfony/jsrouting-bundle');
+        console.log(Routing.generate('sonata_admin_dashboard', { }, true));
     </script>
 {% endblock %}
 
