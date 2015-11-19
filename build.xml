@@ -5,6 +5,8 @@
 
     <loadproperties srcFile="properties.conf"/>
 
+    <target name="install" depends="db, as" description="Podstawowa instalacja"/>
+
     <target name="ccx" depends="cc" description="Czyszczenie katalogu cache (alias)"/>
 
     <target name="ge" description="Generowanie encji">
