@@ -1,3 +1,4 @@
+nbproject
 .idea
 
 # Cache and logs (Symfony2)
@@ -42,3 +43,4 @@
 /composer.lock
 
 /properties.conf
+/nbproject/private/

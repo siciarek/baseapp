@@ -7,7 +7,11 @@
 
     <target name="ins" depends="db, fix, as" description="Podstawowa instalacja"/>
 
-    <target name="ccx" depends="cc" description="Czyszczenie katalogu cache (alias)"/>
+    <target name="up" description="Instalacja aplikacji">
+        <exec executable="${composer}">
+            <arg line="update --verbose"/>
+        </exec>
+    </target>
 
     <target name="ge" description="Generowanie encji">
         <exec executable="${php}">
@@ -34,6 +38,12 @@
     </target>
 
     <target name="cc" description="Czyszczenie katalogu cache">
+        <delete includeemptydirs="true" verbose="true" >
+            <fileset dir="app/cache" includes="**/*" excludes=".gitkeep"/>
+        </delete>
+    </target>
+
+    <target name="ccx" description="Czyszczenie katalogów cache i logs">
         <delete includeemptydirs="true" verbose="true" >
             <fileset dir="app/cache" includes="**/*" excludes=".gitkeep"/>
             <fileset dir="app/logs" includes="**/*" excludes=".gitkeep"/>
