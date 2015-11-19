@@ -2,7 +2,6 @@
 
 namespace Application\MainBundle\Admin;
 
-use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
@@ -11,7 +10,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 use Knp\Menu\ItemInterface as MenuItemInterface;
 use Sonata\AdminBundle\Admin\AdminInterface;
 
-class DefaultAdmin extends Admin
+class Admin extends \Sonata\AdminBundle\Admin\Admin
 {
     protected $exportDateFormat = 'Y-m-d H:i';
     protected $maxPerPage = 25;

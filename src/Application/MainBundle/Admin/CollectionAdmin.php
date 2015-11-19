@@ -1,7 +1,7 @@
 <?php
 
 namespace Application\MainBundle\Admin;
-use Sonata\AdminBundle\Admin\Admin;
+
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\DoctrineORMAdminBundle\Datagrid\ProxyQuery;
 
-class CollectionAdmin extends DefaultAdmin {
+class CollectionAdmin extends Admin {
     
     protected function configureListFields(ListMapper $listMapper) {
         $listMapper
