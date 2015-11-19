@@ -16,7 +16,7 @@ class CollectionElement
 {
     use ORMBehaviors\Blameable\Blameable;
     use ORMBehaviors\Timestampable\Timestampable;
-    use ORMBehaviors\SoftDeletable\SoftDeletable;
+//    use ORMBehaviors\SoftDeletable\SoftDeletable;
     
     public function __toString() {
         return $this->getName() ? : '-';
@@ -46,7 +46,7 @@ class CollectionElement
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Collection", inversedBy="elements", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Collection", inversedBy="elements", cascade={ "all" })
      */
     private $collection;
 
@@ -117,7 +117,6 @@ class CollectionElement
      */
     public function setCollection(\Application\MainBundle\Entity\Collection $collection = null)
     {
-        $collection->addElement($this);
         $this->collection = $collection;
 
         return $this;

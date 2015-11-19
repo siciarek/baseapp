@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\DoctrineORMAdminBundle\Datagrid\ProxyQuery;
 
-class CollectionAdmin extends Admin {
+class CollectionAdmin extends DefaultAdmin {
     
     protected function configureListFields(ListMapper $listMapper) {
         $listMapper
@@ -18,7 +18,6 @@ class CollectionAdmin extends Admin {
             ->add('version')
             ->add('description')
             ->add('createdAt')
-            ->add('updatedAt')
             ->add('_action', 'actions', [
                 'actions' => [
                     'edit' => [],
@@ -32,26 +31,17 @@ class CollectionAdmin extends Admin {
                 ->with('collection.name')
                 ->add('name')
                 ->add('description')
-                ->add('elements', 'sonata_type_collection', array(
-                'type_options' => array(
-                    // Prevents the "Delete" option from being displayed
-                    'delete' => true,
-                    'delete_options' => array(
-                        // You may otherwise choose to put the field but hide it
-                        'type'         => 'hidden',
-                        // In that case, you need to fill in the options as well
-                        'type_options' => array(
-                            'mapped'   => false,
-                            'required' => false,
-                        )
-                    )
+                ->add('elements', 'sonata_type_collection',
+                    [
+                        'by_reference' => false
+                    ],
+                    [
+                        'edit' => 'inline',
+                        'inline' => 'table',
+                        'sortable' => 'id',
+                    ]
                 )
-            ), [
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable' => 'position',
-            ])
-            ->end()
+                ->end()
         ;
     }
 }

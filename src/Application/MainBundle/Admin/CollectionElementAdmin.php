@@ -9,15 +9,15 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\DoctrineORMAdminBundle\Datagrid\ProxyQuery;
 
-class CollectionElementAdmin extends Admin {
+class CollectionElementAdmin extends DefaultAdmin {
     
     protected function configureListFields(ListMapper $listMapper) {
         $listMapper
             ->addIdentifier('id')
             ->addIdentifier('name')
             ->add('description')
+            ->add('collection')
             ->add('createdAt')
-            ->add('updatedAt')
             ->add('_action', 'actions', [
                 'actions' => [
                     'edit' => [],

@@ -51,7 +51,7 @@ class Collection
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="CollectionElement", mappedBy="collection", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="CollectionElement", mappedBy="collection", cascade={ "all" }, orphanRemoval=true)
      */
     private $elements;
     /**
@@ -153,6 +153,7 @@ class Collection
      */
     public function addElement(\Application\MainBundle\Entity\CollectionElement $element)
     {
+        $element->setCollection($this);
         $this->elements[] = $element;
 
         return $this;
