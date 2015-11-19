@@ -12,6 +12,18 @@
             <arg line="app/console doctrine:generate:entities ApplicationMainBundle --no-backup"/>
         </exec>
     </target>
+
+    <target name="as" depends="cc" description="Wygenerowanie wszystkich assetsów">
+        <exec executable="${php}">
+            <arg line="app/console assets:install --symlink"/>
+        </exec>
+        <exec executable="${php}">
+            <arg line="app/console assetic:dump --env=prod"/>
+        </exec>
+        <exec executable="${php}">
+            <arg line="app/console fos:js-routing:dump --env=prod"/>
+        </exec>
+    </target>
     
     <target name="fix" depends="db" description="Wprowadzenie danych domyślnych do bazy">
         <exec executable="${php}">

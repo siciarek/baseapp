@@ -8,6 +8,8 @@
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {{ translations() }}
+        {% block javascripts %}
+        {% endblock %}
     </body>
 </html>

@@ -1,5 +1,13 @@
 {% extends '::base.html.twig' %}
 
+{% block javascripts %}
+    {{ parent() }}
+    
+    <script>
+        console.log('user.signin'.trans());
+    </script>
+{% endblock %}
+
 {% block body %}
     <h1>OK, Allright, You Win!</h1>
 

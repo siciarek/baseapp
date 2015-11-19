@@ -5,6 +5,7 @@ imports:
 
     - { resource: doctrine.yml }
     - { resource: friendsofsymfony/user-bundle.yml }
+    - { resource: friendsofsymfony/jsrouting-bundle.yml }
     - { resource: sonata-project/block-bundle.yml }
     - { resource: sonata-project/admin-bundle.yml }
     - { resource: sonata-project/user-bundle.yml }
