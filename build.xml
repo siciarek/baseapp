@@ -5,7 +5,7 @@
 
     <loadproperties srcFile="properties.conf"/>
 
-    <target name="install" depends="db, as" description="Podstawowa instalacja"/>
+    <target name="ins" depends="db, fix, as" description="Podstawowa instalacja"/>
 
     <target name="ccx" depends="cc" description="Czyszczenie katalogu cache (alias)"/>
 
