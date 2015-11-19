@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
 
+    - { resource: twig.yml }
     - { resource: doctrine.yml }
     - { resource: friendsofsymfony/user-bundle.yml }
     - { resource: friendsofsymfony/jsrouting-bundle.yml }
