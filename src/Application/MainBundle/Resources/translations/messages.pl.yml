@@ -1,3 +1,10 @@
+# Phrases
+
+unknown: Nieznany
+basic: Podstawowy
+enhanced: Wzbogacony
+advanced: Zaawansowany
+
 user:
     signin: Zaloguj się
     signout: Wyloguj się

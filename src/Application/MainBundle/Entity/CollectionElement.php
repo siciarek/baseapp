@@ -50,6 +50,11 @@ class CollectionElement
     private $info;
 
     /**
+     * @ORM\Column(name="type", nullable=false)
+     */
+    private $type = 'unknown'; // ["unknown", "basic", "enhanced", "advanced" ]
+
+    /**
      * @ORM\ManyToOne(targetEntity="Collection", inversedBy="elements", cascade={ "all" })
      */
     private $collection;
@@ -182,5 +187,29 @@ class CollectionElement
     public function getInfo()
     {
         return $this->info;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return CollectionElement
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

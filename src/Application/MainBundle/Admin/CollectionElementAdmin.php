@@ -17,8 +17,9 @@ class CollectionElementAdmin extends Admin {
                 'editable' => true,
             ])
             ->addIdentifier('id')
+            ->add('type')
             ->addIdentifier('name')
-            ->add('info')
+            ->addIdentifier('info')
             ->add('collection')
             ->add('createdAt')
             ->add('_action', 'actions', [
@@ -33,6 +34,14 @@ class CollectionElementAdmin extends Admin {
         $formMapper
             ->with('collection.element.name')
             ->add('enabled')
+            ->add('type', 'choice', [
+                'choices' => [
+                    'unknown' => 'unknown',
+                    'basic' => 'basic',
+                    'enhanced' => 'enhanced',
+                    'advanced' => 'advanced',
+                ],
+            ])
             ->add('name')
             ->add('info')
             ->end()

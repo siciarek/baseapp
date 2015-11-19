@@ -12,6 +12,7 @@ class LoadCollectionData extends BasicFixture {
      * @var numeric 
      */
     protected $order = 3;
+    protected $limit = 200;
 
     /**
      * {@inheritDoc}
@@ -22,7 +23,7 @@ class LoadCollectionData extends BasicFixture {
         $c->setName('Pierwsza');
         $c->setInfo('Krótka informacja na temat pierwszej kolekcji.');
         
-        foreach(range(1, 10) as $i) {
+        foreach(range(1, $this->limit) as $i) {
             $e = new E\CollectionElement();
             $e->setName('Element nr ' . $i);
             $e->setInfo('Opis elementu nr ' . $i);
