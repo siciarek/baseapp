@@ -28,11 +28,11 @@ class CollectionElement
      */
     private $id;
 
-    // /**
-    //  * @ORM\Column(name="slug", length=128)
-    //  * @Gedmo\Slug(fields={"name"})
-    //  */
-    // private $slug;
+     /**
+      * @ORM\Column(name="slug", length=128, unique=true)
+      * @Gedmo\Slug(fields={"name"})
+      */
+     private $slug;
 
     /**
      * @ORM\Column(name="enabled", type="boolean")
@@ -158,5 +158,29 @@ class CollectionElement
     public function getEnabled()
     {
         return $this->enabled;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return CollectionElement
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }
