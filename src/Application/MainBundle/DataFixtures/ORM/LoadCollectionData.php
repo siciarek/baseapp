@@ -20,12 +20,12 @@ class LoadCollectionData extends BasicFixture {
         
         $c = new E\Collection();
         $c->setName('Pierwsza');
-        $c->setDescription('Opis pierwszej kolekcji.');
+        $c->setInfo('Krótka informacja na temat pierwszej kolekcji.');
         
         foreach(range(1, 10) as $i) {
             $e = new E\CollectionElement();
             $e->setName('Element nr ' . $i);
-            $e->setDescription('Opis elementu nr ' . $i);
+            $e->setInfo('Opis elementu nr ' . $i);
             $e->setCollection($c);
             
             $c->addElement($e);

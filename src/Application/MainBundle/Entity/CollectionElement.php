@@ -45,9 +45,9 @@ class CollectionElement
     private $name;
 
     /**
-     * @ORM\Column(name="description", type="text", nullable=true)
+     * @ORM\Column(name="info", nullable=true)
      */
-    private $description;
+    private $info;
 
     /**
      * @ORM\ManyToOne(targetEntity="Collection", inversedBy="elements", cascade={ "all" })
@@ -86,30 +86,6 @@ class CollectionElement
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return CollectionElement
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 
     /**
@@ -182,5 +158,29 @@ class CollectionElement
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set info
+     *
+     * @param string $info
+     *
+     * @return CollectionElement
+     */
+    public function setInfo($info)
+    {
+        $this->info = $info;
+
+        return $this;
+    }
+
+    /**
+     * Get info
+     *
+     * @return string
+     */
+    public function getInfo()
+    {
+        return $this->info;
     }
 }

@@ -51,6 +51,11 @@ class Collection
     private $version = 1;
 
     /**
+     * @ORM\Column(name="info", nullable=true)
+     */
+    private $info;
+
+    /**
      * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
@@ -231,5 +236,29 @@ class Collection
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set info
+     *
+     * @param string $info
+     *
+     * @return Collection
+     */
+    public function setInfo($info)
+    {
+        $this->info = $info;
+
+        return $this;
+    }
+
+    /**
+     * Get info
+     *
+     * @return string
+     */
+    public function getInfo()
+    {
+        return $this->info;
     }
 }

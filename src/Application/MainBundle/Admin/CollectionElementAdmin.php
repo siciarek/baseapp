@@ -18,7 +18,7 @@ class CollectionElementAdmin extends Admin {
             ])
             ->addIdentifier('id')
             ->addIdentifier('name')
-            ->add('description')
+            ->add('info')
             ->add('collection')
             ->add('createdAt')
             ->add('_action', 'actions', [
@@ -34,7 +34,7 @@ class CollectionElementAdmin extends Admin {
             ->with('collection.element.name')
             ->add('enabled')
             ->add('name')
-            ->add('description')
+            ->add('info')
             ->end()
         ;
     }

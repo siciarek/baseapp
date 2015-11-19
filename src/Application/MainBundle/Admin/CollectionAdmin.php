@@ -19,7 +19,7 @@ class CollectionAdmin extends Admin {
             ->addIdentifier('id')
             ->addIdentifier('version')
             ->addIdentifier('name')
-            ->add('description')
+            ->add('info')
             ->add('createdAt')
             ->add('_action', 'actions', [
                 'actions' => [
@@ -34,6 +34,7 @@ class CollectionAdmin extends Admin {
             ->with('collection.name')
             ->add('enabled')
             ->add('name')
+            ->add('info')
             ->add('description', 'ckeditor', [
                 'required' => false,
             ])
