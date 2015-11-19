@@ -29,11 +29,11 @@ class CollectionElement
      */
     private $id;
 
-    /**
-     * @ORM\Column(name="slug", length=128)
-     * @Gedmo\Slug(fields={"name"})
-     */
-    private $slug;
+    // /**
+    //  * @ORM\Column(name="slug", length=128)
+    //  * @Gedmo\Slug(fields={"name"})
+    //  */
+    // private $slug;
 
     /**
      * @ORM\Column(name="name")
@@ -41,7 +41,7 @@ class CollectionElement
     private $name;
 
     /**
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
@@ -58,30 +58,6 @@ class CollectionElement
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return CollectionElement
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
     }
 
     /**
@@ -141,6 +117,7 @@ class CollectionElement
      */
     public function setCollection(\Application\MainBundle\Entity\Collection $collection = null)
     {
+        $collection->addElement($this);
         $this->collection = $collection;
 
         return $this;

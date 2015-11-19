@@ -1,3 +1,10 @@
 user:
     signin: Zaloguj się
     signout: Wyloguj się
+    
+collection:
+    name: Kolekcja
+    name_plural: Kolekcje
+    element:
+        name: Element
+        name_plural: Elementy

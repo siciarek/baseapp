@@ -1,0 +1,31 @@
+services:
+
+    app.admin.collection:
+        class: Application\MainBundle\Admin\CollectionAdmin
+        tags:
+            -
+                group: collection.name_plural
+                icon: '<i class="fa fa-star-o"></i>'
+                label_catalogue: messages
+                name: sonata.admin
+                manager_type: orm
+                label: collection.name_plural
+        arguments:
+            - ~
+            - Application\MainBundle\Entity\Collection
+            - ~
+            
+    app.admin.collection.element:
+        class: Application\MainBundle\Admin\CollectionElementAdmin
+        tags:
+            -
+                group: collection.name_plural
+                icon: '<i class="fa fa-star-o"></i>'
+                label_catalogue: messages
+                name: sonata.admin
+                manager_type: orm
+                label: collection.element.name_plural
+        arguments:
+            - ~
+            - Application\MainBundle\Entity\CollectionElement
+            - ~            

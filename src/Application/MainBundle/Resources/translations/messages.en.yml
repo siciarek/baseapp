@@ -1,3 +1,10 @@
 user:
     signin: Sign in
     signout: Sign out
+
+collection:
+    name: Collection
+    name_plural: Collections
+    element:
+        name: Element
+        name_plural: Elements

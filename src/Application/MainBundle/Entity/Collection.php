@@ -29,11 +29,11 @@ class Collection
      */
     private $id;
 
-    /**
-     * @ORM\Column(name="slug", length=128)
-     * @Gedmo\Slug(fields={"name", "version"})
-     */
-    private $slug;
+    // /**
+    //  * @ORM\Column(name="slug", length=128)
+    //  * @Gedmo\Slug(fields={"name", "version"})
+    //  */
+    // private $slug;
     
     /**
      * @ORM\Column(name="name")
@@ -43,10 +43,10 @@ class Collection
     /**
      * @ORM\Column(name="version", type="integer")
      */
-    private $version;
+    private $version = 1;
 
     /**
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
@@ -70,30 +70,6 @@ class Collection
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return Collection
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
     }
 
     /**
