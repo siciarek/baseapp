@@ -60,6 +60,9 @@
         <exec executable="${php}">
             <arg line="app/console doctrine:schema:update --force"/>
         </exec>
+        <exec executable="${php}">
+            <arg line="app/console doctrine:schema:validate"/>
+        </exec>
     </target>
 
 </project>
