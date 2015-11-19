@@ -2,6 +2,8 @@ sonata_admin:
     title: Admin
     title_logo: bundles/sonataadmin/logo_title.png
 
+    persist_filters: true
+
     assets:
         stylesheets:
             - bundles/sonatacore/vendor/bootstrap/dist/css/bootstrap.min.css
