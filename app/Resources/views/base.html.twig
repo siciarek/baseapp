@@ -35,11 +35,10 @@
 
         {% block javascripts %}
             <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-            
-            {% if app.environment == 'dev' %}
-                <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-            {% else %}
+            {% if app.environment == 'prod' %}
                 <script src="{{ asset('js/fos_js_routes.js') }}"></script>
+            {% else %}
+                <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
             {% endif %}
 
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
