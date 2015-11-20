@@ -70,7 +70,7 @@ doctrine:
             json: Sonata\Doctrine\Types\JsonType
         connections:
             default:
-#                mapping_types:
+                mapping_types: ~
 #                    enum: string
                 driver:   pdo_mysql
                 host:     "%database_host%"
