@@ -2,15 +2,8 @@ doctrine:
     dbal:
         types:
             json: Sonata\Doctrine\Types\JsonType
-        mapping_types:
-            enum: string
-            set: string
-            varbinary: string
-            tinyblob: text
-            tinyint: boolean
-            smallint: smallint
-            mediumint: integer
-            int: integer
+            collection_type: Application\MainBundle\Doctrine\DBAL\Types\CollectionTypeType
+            collection_element_type: Application\MainBundle\Doctrine\DBAL\Types\CollectionElementTypeType
     orm:
         entity_managers:
             default:
