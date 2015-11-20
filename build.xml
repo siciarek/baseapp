@@ -50,7 +50,22 @@
         </delete>
     </target>
 
-    <target name="db" depends="cc" description="Reset bazy danych">
+    <target name="ccxm" description="Czyszczenie katalogów cache logs i uploads">
+        <delete includeemptydirs="true" verbose="true" >
+            <fileset dir="app/cache" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="app/logs" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="web/uploads/media" includes="**/*" excludes=".gitkeep"/>
+        </delete>
+    </target>
+
+    <target name="ccm" description="Czyszczenie katalogów cache logs i uploads">
+        <delete includeemptydirs="true" verbose="true" >
+            <fileset dir="app/cache" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="web/uploads/media" includes="**/*" excludes=".gitkeep"/>
+        </delete>
+    </target>
+
+    <target name="db" depends="ccm" description="Reset bazy danych">
         <exec executable="${php}">
             <arg line="app/console doctrine:database:drop --force"/>
         </exec>
