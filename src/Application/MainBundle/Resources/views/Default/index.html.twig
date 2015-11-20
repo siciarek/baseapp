@@ -27,6 +27,15 @@
     
     <hr/>
     
+    <ul>
+    <li>truncate(12) - {{ 'Lorem ipsum dolor sit ammet.' | truncate(12) }}</li>
+    <li>highlight('dolor') - {{ 'Lorem ipsum dolor sit ammet.' | highlight('dolor') }}</li>
+    <li>wrap(5) - <pre>{{ 'Lorem ipsum dolor sit ammet.' | wrap(5) }}</pre></li>
+    <li>excerpt(dolor, 5) - {{ 'Lorem ipsum dolor sit ammet.' | excerpt('dolor', 5) }}</li>
+    </ul>
+    
+    <hr/>
+    
     <a href="{{ path('sonata_admin_dashboard') }}" class="btn btn-success">
         <i class="fa fa-cog fa-lg"></i> Admin
     </a>
