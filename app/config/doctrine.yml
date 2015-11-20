@@ -1,4 +1,16 @@
 doctrine:
+    dbal:
+        types:
+            json: Sonata\Doctrine\Types\JsonType
+        mapping_types:
+            enum: string
+            set: string
+            varbinary: string
+            tinyblob: text
+            tinyint: boolean
+            smallint: smallint
+            mediumint: integer
+            int: integer
     orm:
         entity_managers:
             default:
