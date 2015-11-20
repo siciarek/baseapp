@@ -30,6 +30,8 @@ nbproject
 /web/uploads/
 /web/js
 /web/css
+/web/uploads/media/*
+!web/uploads/media/.gitkeep
 
 # PHPUnit
 /app/phpunit.xml

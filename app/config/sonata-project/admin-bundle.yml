@@ -44,6 +44,8 @@ sonata_admin:
             - bundles/sonataadmin/treeview.js
 
             - bundles/applicationmain/js/sonataadmin.js # enhances admin view
+            - bundles/fosjsrouting/js/router.js
+            - js/fos_js_routes.js
             
 #    dashboard:
 #        groups:

@@ -8,6 +8,8 @@
         }
     },
     "require": {
+        "sonata-project/classification-bundle": "dev-master",
+        "sonata-project/media-bundle": "dev-master",
         "liuggio/excelbundle": "dev-master",
         "a2lix/translation-form-bundle": "dev-master",
         "excelwebzone/text-bundle": "dev-master",

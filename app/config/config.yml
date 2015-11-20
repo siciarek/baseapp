@@ -13,6 +13,7 @@ imports:
     - { resource: sonata-project/admin-bundle.yml }
     - { resource: sonata-project/admin-bundle-services.yml }
     - { resource: sonata-project/user-bundle.yml }
+    - { resource: sonata-project/media-bundle.yml }
     - { resource: knplabs/knp-paginator-bundle.yml }
     - { resource: knplabs/doctrine-behaviors.yml }
     - { resource: ../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml }
@@ -90,6 +91,11 @@ doctrine:
                     FOSUserBundle: ~
                     ApplicationSonataUserBundle: ~
                     SonataUserBundle: ~
+                    ApplicationSonataMediaBundle: ~
+                    SonataMediaBundle: ~
+                    ApplicationSonataClassificationBundle: ~
+                    SonataClassificationBundle: ~
+                    
 
 # Swiftmailer Configuration
 swiftmailer:
