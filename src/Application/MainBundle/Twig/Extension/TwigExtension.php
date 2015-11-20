@@ -67,27 +67,9 @@ class TwigExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            'settings' => new \Twig_Function_Method($this, 'settings', array('is_safe' => array('html'))),
-            'display_datetime' => new \Twig_SimpleFunction('display_datetime', array($this, 'displayDatetime'), array('needs_environment' => true, 'is_safe' => array('html'))),
             'mailto' => new \Twig_Function_Method($this, 'mailto', array('is_safe' => array('html'))),
             'pre'    => new \Twig_Function_Method($this, 'pre', array('is_safe' => array('html'))),
         );
-    }
-
-    /**
-     * @param \Twig_Environment $twig
-     * @param \DateTime $datetime
-     * @param string|null $format
-     * @return string
-     */
-    public function displayDatetime(\Twig_Environment $twig, $datetime, $format = null, $emptyMessage = null) {
-
-        if ($datetime instanceof \DateTime) {
-            $format = $format === null ? $twig->getGlobals()['default_date_format'] : $format;
-            return $datetime->format($format);
-        }
-
-        return $emptyMessage ?: sprintf('<span class="not-set">%s</span>', $this->container->get('translator')->trans('not set'));
     }
 
     /**
