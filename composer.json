@@ -8,7 +8,6 @@
         }
     },
     "require": {
-        "fresh/doctrine-enum-bundle": "v3.2",
         "liuggio/excelbundle": "dev-master",
         "a2lix/translation-form-bundle": "dev-master",
         "excelwebzone/text-bundle": "dev-master",

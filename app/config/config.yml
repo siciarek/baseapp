@@ -70,8 +70,6 @@ doctrine:
             json: Sonata\Doctrine\Types\JsonType
         connections:
             default:
-                mapping_types: ~
-#                    enum: string
                 driver:   pdo_mysql
                 host:     "%database_host%"
                 port:     "%database_port%"
@@ -79,6 +77,7 @@ doctrine:
                 user:     "%database_user%"
                 password: "%database_password%"
                 charset:  UTF8
+    
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         entity_managers:

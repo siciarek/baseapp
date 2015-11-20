@@ -4,7 +4,6 @@ namespace Application\MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Application\MainBundle\Doctrine\DBAL\Types\CollectionElementTypeType;
 
 /**
  * Application\MainBundle\Entity\CollectionElement
@@ -53,7 +52,7 @@ class CollectionElement
     /**
      * @ORM\Column(name="type", type="string", nullable=false)
      */
-    private $type = CollectionElementTypeType::UNKNOWN;
+    private $type = 'unknown'; // [ "unknown", "basic", "enhanced", "advanced" ]
 
     /**
      * @ORM\ManyToOne(targetEntity="Collection", inversedBy="elements", cascade={ "all" })

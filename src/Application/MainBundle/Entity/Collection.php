@@ -46,6 +46,11 @@ class Collection
     private $name;
 
     /**
+     * @ORM\Column(name="type", type="string", nullable=false)
+     */
+    private $type = 'draft'; // [ "draft", "regular", "test" ]
+
+    /**
      * @ORM\Column(name="version", type="integer")
      */
     private $version = 1;
@@ -260,5 +265,29 @@ class Collection
     public function getInfo()
     {
         return $this->info;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Collection
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

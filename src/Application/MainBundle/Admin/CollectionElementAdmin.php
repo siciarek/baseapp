@@ -6,10 +6,32 @@ use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
-use Sonata\CoreBundle\Validator\ErrorElement;
-use Sonata\DoctrineORMAdminBundle\Datagrid\ProxyQuery;
 
 class CollectionElementAdmin extends Admin {
+    
+    protected function configureDatagridFilters(DatagridMapper $datagrid) {
+        $datagrid
+            ->add('enabled')
+            ->add('collection')
+            ->add('type')
+            ->add('name')
+        ;
+    }
+    
+    protected function configureShowFields(ShowMapper $showMapper) {
+        $showMapper
+            ->add('id')
+            ->add('enabled')
+            ->add('collection')
+            ->add('type')
+            ->add('name')
+            ->add('info')
+            ->add('createdAt')
+            ->add('createdBy')
+            ->add('updatedAt')
+            ->add('updatedBy')
+        ;
+    }
     
     protected function configureListFields(ListMapper $listMapper) {
         $listMapper
@@ -26,6 +48,7 @@ class CollectionElementAdmin extends Admin {
                 'actions' => [
                     'edit' => [],
                     'delete' => [],
+                    'show' => [],
                 ],
         ]);
     }
