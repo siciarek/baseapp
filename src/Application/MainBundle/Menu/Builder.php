@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Translation\DataCollectorTranslator;
 use Symfony\Component\Security\Core\SecurityContext;
+use Application\MainBundle\Controller\LocaleController;
 
 class Builder
 {
@@ -34,6 +35,10 @@ class Builder
         $menu->addChild('Info', [ 'route' => 'default.info', 'label' =>  $this->translator->trans('Info') ]);
         $menu->addChild('About', [ 'route' => 'default.about', 'label' =>  $this->translator->trans('About') ]);
         $menu->addChild('Contact', [ 'route' => 'default.contact', 'label' =>  $this->translator->trans('Contact') ]);
+
+        if($this->securityContext->isGranted('ROLE_ADMIN')) {
+            $menu->addChild('Admin', [ 'route' => 'sonata_admin_dashboard', 'label' =>  $this->translator->trans('Admin') ]);
+        }
         
         if($this->securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             $menu->addChild('Sign out', [ 'route' => 'fos_user_security_logout', 'label' =>  $this->translator->trans('Sign out') ]);
@@ -41,6 +46,22 @@ class Builder
         else {
             $menu->addChild('Sign in', [ 'route' => 'fos_user_security_login', 'label' =>  $this->translator->trans('Sign in') ]);
         }
+
+        // TODO: redesign into dropdown menu
+        foreach(LocaleController::$locales as $locale => $name) {
+            $menu->addChild($name, [ 'route' => 'locale.switch', 'routeParameters' => [ 'locale' => $locale ]]);
+        }
+
+        // $menu->addChild('Language', ['uri' => '#'])
+        //      ->setAttribute('class', 'dropdown')
+            //  ->setChildrenAttribute('class', 'dropdown-toggle')
+            //  ->setChildrenAttribute('data-toggle', 'dropdown')
+            //  ->setChildrenAttribute('role', 'button')
+            //  ->setChildrenAttribute('aria-haspopup', 'true')
+            //  ->setChildrenAttribute('aria-expanded', 'true')
+            //  ->setChildrenAttribute('class', 'dropdown-menu');
+        // $menu['Language']->addChild('Deutsch', array('uri' => '#'));
+        // $menu['Language']->addChild('English', array('uri' => '#'));
 
         return $menu;
     }

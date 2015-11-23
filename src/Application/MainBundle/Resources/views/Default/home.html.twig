@@ -4,38 +4,16 @@
     {{ parent() }}
     
     <script>
-        console.log('siciarek/jstrans-bundle');
-        console.log('user.signin'.trans());
-        console.log('friendsofsymfony/jsrouting-bundle');
-        console.log(Routing.generate('sonata_admin_dashboard', { }, true));
     </script>
 {% endblock %}
 
 {% block body %}
-    
-    <h1 class="page-header">
-        <i class="fa fa-home fa-lg fa-fw text-muted"></i>
-        {{ 'Home'|trans }}
-    </h1>
 
-    <ul>
-        <li><a href="{{ path('locale.switch', { locale: 'pl' }) }}">pl</a></li>
-        <li><a href="{{ path('locale.switch', { locale: 'en' }) }}">en</a></li>
-    </ul>
-    
-    <hr/>
-    
-    <ul>
-    <li>truncate(12) - {{ 'Lorem ipsum dolor sit ammet.' | truncate(12) }}</li>
-    <li>highlight('dolor') - {{ 'Lorem ipsum dolor sit ammet.' | highlight('dolor') }}</li>
-    <li>wrap(5) - <pre>{{ 'Lorem ipsum dolor sit ammet.' | wrap(5) }}</pre></li>
-    <li>excerpt(dolor, 5) - {{ 'Lorem ipsum dolor sit ammet.' | excerpt('dolor', 5) }}</li>
-    </ul>
-    
-    <hr/>
-    
-    <a href="{{ path('sonata_admin_dashboard') }}" class="btn btn-success">
-        <i class="fa fa-cog fa-lg"></i> Admin
-    </a>
-    
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="page-header">{{ app_name|trans }}</h1>
+            <p>{{ app_description|trans }}</p>
+        </div>
+    </div>
+
 {% endblock %}
