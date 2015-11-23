@@ -24,7 +24,13 @@
     </head>
 
     <body>
-        
+
+        <div class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                {{ knp_menu_render('main') }}
+            </div>
+        </div>
+            
         <div class="container">
             {% block body %}
                  {% block fos_user_content %}{% endblock %}

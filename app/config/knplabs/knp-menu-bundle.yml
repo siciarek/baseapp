@@ -13,6 +13,7 @@ services:
         arguments:
             - @knp_menu.factory
             - @translator
+            - @security.context
         tags:
             -
                 name: knp_menu.menu_builder
