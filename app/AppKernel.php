@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
 
             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
+            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),

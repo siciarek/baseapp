@@ -42,7 +42,7 @@ security:
         # This firewall is used to handle the public login area
         # This part is handled by the FOS User Bundle
         main:
-            pattern:             .*
+            pattern:             /.*
             context:             user
             form_login:
                 provider:       fos_userbundle
@@ -68,7 +68,5 @@ security:
         # This config requires being logged for the whole site and having the admin role for the admin part.
         # Change these rules to adapt them to your needs
         - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
-
-        - { path: ^/private, role: [ROLE_USER] }
 
         - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }

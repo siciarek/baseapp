@@ -17,6 +17,7 @@ use JMS\SecurityExtraBundle\Annotation\Secure;
 class PrivateController extends Controller
 {
     /**
+     * @Secure(roles="ROLE_USER")
      * @Route("/", name="private.index")
      * @Template()
      */
@@ -25,6 +26,7 @@ class PrivateController extends Controller
      }
      
     /**
+     * @Secure(roles="ROLE_USER")
      * @Route("/spreadsheet", name="private.spreadsheet")
      */
     public function spreadsheetAction()
