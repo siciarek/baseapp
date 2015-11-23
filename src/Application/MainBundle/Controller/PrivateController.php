@@ -32,9 +32,6 @@ class PrivateController extends Controller {
      */
     public function spreadsheetAction(Request $request) {
 
-        $title = 'Elements';
-        $category = 'Collections';
-
         $repository = $this->getDoctrine()
                 ->getRepository('ApplicationMainBundle:CollectionElement');
 
@@ -45,13 +42,14 @@ class PrivateController extends Controller {
                 ->andWhere('t.locale = :locale')->setParameter('locale', $request->getLocale())
                 ->getQuery();
 
+        $title = 'Elements';
         $headers = ['id', 'enabled', 'type', 'name', 'info'];
         $data = $query->getResult(Query::HYDRATE_ARRAY);
 
-        return $this->returnXlsResponse($data, $headers, $category, $title);
+        return $this->returnXlsResponse($data, $headers, $title);
     }
 
-    protected function returnXlsResponse($data, $headers, $category, $title, $fileName = 'spreadsheet.xls') {
+    protected function returnXlsResponse($data, $headers, $title = 'Data', $fileName = 'spreadsheet.xls') {
 
         $srv = $this->get('phpexcel');
 
@@ -60,11 +58,12 @@ class PrivateController extends Controller {
 
         $phpExcelObject->getProperties()->setCreator($this->getUser()->getUsername())
                 ->setLastModifiedBy($this->getUser()->getFullName())
-                ->setTitle("Office 2005 XLSX Test Document")
-                ->setSubject("Office 2005 XLSX Test Document")
-                ->setDescription("Test document for Office 2005 XLSX, generated using PHP classes.")
-                ->setKeywords("office 2005 openxml php")
-                ->setCategory($category);
+//                ->setTitle("Office 2005 XLSX Test Document")
+//                ->setSubject("Office 2005 XLSX Test Document")
+//                ->setDescription("Test document for Office 2005 XLSX, generated using PHP classes.")
+//                ->setKeywords("office 2005 openxml php")
+//                ->setCategory("Category")
+                ;
 
 
         $phpExcelObject->setActiveSheetIndex(0);
