@@ -13,13 +13,13 @@
 
 {% block body %}
     
+    {{ knp_menu_render('main') }}
+    
     <h1 class="page-header">
         <i class="fa fa-home fa-lg fa-fw text-muted"></i>
-        Home
+        {{ 'Home'|trans }}
     </h1>
 
-    <h3>{{ 'user.signin'|trans }}</h3>
-    
     <ul>
         <li><a href="{{ path('locale.switch', { locale: 'pl' }) }}">pl</a></li>
         <li><a href="{{ path('locale.switch', { locale: 'en' }) }}">en</a></li>

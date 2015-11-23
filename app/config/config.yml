@@ -14,6 +14,7 @@ imports:
     - { resource: sonata-project/admin-bundle-services.yml }
     - { resource: sonata-project/user-bundle.yml }
     - { resource: sonata-project/media-bundle.yml }
+    - { resource: knplabs/knp-menu-bundle.yml }
     - { resource: knplabs/knp-paginator-bundle.yml }
     - { resource: knplabs/doctrine-behaviors.yml }
     - { resource: ../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml }

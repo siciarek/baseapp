@@ -11,11 +11,38 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/", name="default.home")
      * @Template()
      */
-    public function indexAction(Request $request)
+    public function homeAction(Request $request)
     {
         return [];
     }
+
+    /**
+     * @Route("/info", name="default.info")
+     * @Template()
+     */
+    public function infoAction(Request $request)
+    {
+        return [];
+    }
+    
+    /**
+     * @Route("/about", name="default.about")
+     * @Template()
+     */
+    public function aboutAction(Request $request)
+    {
+        return [];
+    }
+    
+    /**
+     * @Route("/contact", name="default.contact")
+     * @Template()
+     */
+    public function contactAction(Request $request)
+    {
+        return [];
+    }    
 }
