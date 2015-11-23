@@ -31,6 +31,14 @@ class PrivateController extends Controller
      */
     public function spreadsheetAction()
     {
+        $title = 'The Beatles';
+        $headers = ['Id', 'First name', 'Last name' ];
+        $data = [ $headers ];
+        $data[] = [1, 'John', 'Lennon'];
+        $data[] = [2, 'Paul', 'McCartney'];
+        $data[] = [3, 'George', 'Harrison'];
+        $data[] = [4, 'Ringo', 'Star'];
+        
         $fileName = 'spreadsheet.xls';
         
         // ask the service for a Excel5
@@ -43,12 +51,9 @@ class PrivateController extends Controller
             ->setDescription("Test document for Office 2005 XLSX, generated using PHP classes.")
             ->setKeywords("office 2005 openxml php")
             ->setCategory("Test result file");
-            
-        $phpExcelObject->setActiveSheetIndex(0)
-            ->setCellValue('A1', 'Hello')
-            ->setCellValue('B2', 'world!');
-            
-        $phpExcelObject->getActiveSheet()->setTitle('Simple');
+
+        $phpExcelObject->setActiveSheetIndex(0)->fromArray($data, null, 'A1');            
+        $phpExcelObject->getActiveSheet()->setTitle($title);
         
         // Set active sheet index to the first sheet, so Excel opens this as the first sheet
         $phpExcelObject->setActiveSheetIndex(0);
