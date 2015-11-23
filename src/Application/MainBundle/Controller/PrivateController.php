@@ -47,14 +47,16 @@ class PrivateController extends Controller {
 
         $headers = ['id', 'enabled', 'type', 'name', 'info'];
         $data = $query->getResult(Query::HYDRATE_ARRAY);
-        
+
         return $this->returnXlsResponse($data, $headers, $category, $title);
     }
 
     protected function returnXlsResponse($data, $headers, $category, $title, $fileName = 'spreadsheet.xls') {
-         
+
+        $srv = $this->get('phpexcel');
+
         // ask the service for a Excel5
-        $phpExcelObject = $this->get('phpexcel')->createPHPExcelObject();
+        $phpExcelObject = $srv->createPHPExcelObject();
 
         $phpExcelObject->getProperties()->setCreator($this->getUser()->getUsername())
                 ->setLastModifiedBy($this->getUser()->getFullName())
@@ -64,19 +66,21 @@ class PrivateController extends Controller {
                 ->setKeywords("office 2005 openxml php")
                 ->setCategory($category);
 
-        
-        $phpExcelObject->setActiveSheetIndex(0)->fromArray($headers, null, 'A1');
-        $phpExcelObject->setActiveSheetIndex(0)->fromArray($data, null, 'A2');
+
+        $phpExcelObject->setActiveSheetIndex(0);
+
+        $phpExcelObject->getActiveSheet()->fromArray($headers, null, 'A1');
+        $phpExcelObject->getActiveSheet()->fromArray($data, null, 'A2');
         $phpExcelObject->getActiveSheet()->setTitle($title);
 
         // Set active sheet index to the first sheet, so Excel opens this as the first sheet
         $phpExcelObject->setActiveSheetIndex(0);
 
         // create the writer
-        $writer = $this->get('phpexcel')->createWriter($phpExcelObject, 'Excel5');
+        $writer = $srv->createWriter($phpExcelObject, 'Excel5');
 
         // create the response
-        $response = $this->get('phpexcel')->createStreamedResponse($writer);
+        $response = $srv->createStreamedResponse($writer);
 
         // adding headers
         $dispositionHeader = $response->headers->makeDisposition(
