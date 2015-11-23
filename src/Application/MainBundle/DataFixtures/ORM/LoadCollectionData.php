@@ -25,10 +25,11 @@ class LoadCollectionData extends BasicFixture {
         
         foreach(range(1, $this->limit) as $i) {
             $e = new E\CollectionElement();
-            $e->setName('Element nr ' . $i);
-            $e->setInfo('Opis elementu nr ' . $i);
+            $e->translate('pl')->setName('Element nr ' . $i);
+            $e->translate('pl')->setInfo('Opis elementu nr ' . $i);
+            $e->mergeNewTranslations();
             $e->setCollection($c);
-            
+
             $c->addElement($e);
         }
 

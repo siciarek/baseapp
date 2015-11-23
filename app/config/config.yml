@@ -18,6 +18,7 @@ imports:
     - { resource: knplabs/knp-paginator-bundle.yml }
     - { resource: knplabs/doctrine-behaviors.yml }
     - { resource: ../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml }
+    - { resource: a2lix/translation-form-bundle.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration

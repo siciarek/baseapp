@@ -14,7 +14,6 @@ class CollectionElementAdmin extends Admin {
             ->add('enabled')
             ->add('collection')
             ->add('type')
-            ->add('name')
         ;
     }
     
@@ -65,8 +64,17 @@ class CollectionElementAdmin extends Admin {
                     'advanced' => 'advanced',
                 ],
             ])
-            ->add('name')
-            ->add('info')
+            ->add('translations', 'a2lix_translations', [
+                'label' => false,
+                'fields' => [
+                    'name' => [
+                        'field_type' => 'text',
+                    ],
+                    'info' => [
+                        'field_type' => 'text',
+                    ]
+                ]
+            ])
             ->end()
         ;
     }

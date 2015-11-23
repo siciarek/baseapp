@@ -16,11 +16,8 @@ class CollectionElement
 {
     use ORMBehaviors\Blameable\Blameable;
     use ORMBehaviors\Timestampable\Timestampable;
+    use ORMBehaviors\Translatable\Translatable;
 
-    public function __toString() {
-        return $this->getName() ? : '-';
-    }
-    
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -28,26 +25,10 @@ class CollectionElement
      */
     private $id;
 
-     /**
-      * @ORM\Column(name="slug", length=128, unique=true)
-      * @Gedmo\Slug(fields={"name"})
-      */
-     private $slug;
-
     /**
      * @ORM\Column(name="enabled", type="boolean")
      */
     private $enabled = true;
-
-    /**
-     * @ORM\Column(name="name")
-     */
-    private $name;
-
-    /**
-     * @ORM\Column(name="info", nullable=true)
-     */
-    private $info;
 
     /**
      * @ORM\Column(name="type", type="string", nullable=false)
@@ -59,6 +40,18 @@ class CollectionElement
      */
     private $collection;
 
+    public function __toString() {
+        return $this->getName() ? : '-';
+    }
+    
+    public function getName() {
+        return $this->translate()->getName();
+    }
+    
+    public function getInfo() {
+        return $this->translate()->getInfo();
+    }
+
     /**
      * Get id
      *
@@ -67,30 +60,6 @@ class CollectionElement
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return CollectionElement
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**
@@ -139,54 +108,6 @@ class CollectionElement
     public function getEnabled()
     {
         return $this->enabled;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return CollectionElement
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-    /**
-     * Set info
-     *
-     * @param string $info
-     *
-     * @return CollectionElement
-     */
-    public function setInfo($info)
-    {
-        $this->info = $info;
-
-        return $this;
-    }
-
-    /**
-     * Get info
-     *
-     * @return string
-     */
-    public function getInfo()
-    {
-        return $this->info;
     }
 
     /**
