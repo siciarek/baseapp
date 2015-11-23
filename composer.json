@@ -8,9 +8,10 @@
         }
     },
     "require": {
-        "liuggio/excelbundle": "dev-master",
         "gregwar/captcha-bundle": "dev-master",
 
+        "liuggio/excelbundle": "dev-master",
+        "jms/security-extra-bundle": "dev-master",
         "a2lix/translation-form-bundle": "dev-master",
         "excelwebzone/text-bundle": "dev-master",
         "siciarek/jstrans-bundle": "dev-master",

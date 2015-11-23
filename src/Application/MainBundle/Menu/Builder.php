@@ -36,11 +36,14 @@ class Builder
         $menu->addChild('About', [ 'route' => 'default.about', 'label' =>  $this->translator->trans('About') ]);
         $menu->addChild('Contact', [ 'route' => 'default.contact', 'label' =>  $this->translator->trans('Contact') ]);
 
-        if($this->securityContext->isGranted('ROLE_ADMIN')) {
-            $menu->addChild('Admin', [ 'route' => 'sonata_admin_dashboard', 'label' =>  $this->translator->trans('Admin') ]);
-        }
         
         if($this->securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            $menu->addChild('Private', [ 'route' => 'private.index', 'label' =>  $this->translator->trans('Private') ]);
+
+            if($this->securityContext->isGranted('ROLE_ADMIN')) {
+                $menu->addChild('Admin', [ 'route' => 'sonata_admin_dashboard', 'label' =>  $this->translator->trans('Admin') ]);
+            }
+            
             $menu->addChild('Sign out', [ 'route' => 'fos_user_security_logout', 'label' =>  $this->translator->trans('Sign out') ]);
         }
         else {

@@ -17,12 +17,14 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
-            new Liuggio\ExcelBundle\LiuggioExcelBundle(),
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
 
+            new Liuggio\ExcelBundle\LiuggioExcelBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new JMS\AopBundle\JMSAopBundle(),
+            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
             new Sonata\ClassificationBundle\SonataClassificationBundle(),
-            new JMS\SerializerBundle\JMSSerializerBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
             new EWZ\Bundle\TextBundle\EWZTextBundle(),
