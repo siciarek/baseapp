@@ -38,20 +38,20 @@
     </target>
 
     <target name="cc" description="Czyszczenie katalogu cache">
-        <delete includeemptydirs="true" verbose="true" >
+        <delete includeemptydirs="true" verbose="true" quiet="true">
             <fileset dir="app/cache" includes="**/*" excludes=".gitkeep"/>
         </delete>
     </target>
 
     <target name="ccx" description="Czyszczenie katalogów cache i logs">
-        <delete includeemptydirs="true" verbose="true" >
+        <delete includeemptydirs="true" verbose="true" quiet="true">
             <fileset dir="app/cache" includes="**/*" excludes=".gitkeep"/>
             <fileset dir="app/logs" includes="**/*" excludes=".gitkeep"/>
         </delete>
     </target>
 
     <target name="ccxm" description="Czyszczenie katalogów cache logs i uploads">
-        <delete includeemptydirs="true" verbose="true" >
+        <delete includeemptydirs="true" verbose="true" quiet="true">
             <fileset dir="app/cache" includes="**/*" excludes=".gitkeep"/>
             <fileset dir="app/logs" includes="**/*" excludes=".gitkeep"/>
             <fileset dir="web/uploads/media" includes="**/*" excludes=".gitkeep"/>
@@ -59,7 +59,7 @@
     </target>
 
     <target name="ccm" description="Czyszczenie katalogów cache logs i uploads">
-        <delete includeemptydirs="true" verbose="true" >
+        <delete includeemptydirs="true" verbose="true" quiet="true" >
             <fileset dir="app/cache" includes="**/*" excludes=".gitkeep"/>
             <fileset dir="web/uploads/media" includes="**/*" excludes=".gitkeep"/>
         </delete>
@@ -75,6 +75,12 @@
         <exec executable="${php}">
             <arg line="app/console doctrine:schema:update --force"/>
         </exec>
+        <exec executable="${php}">
+            <arg line="app/console doctrine:schema:validate"/>
+        </exec>
+    </target>
+
+    <target name="check" description="Walidacja mappingu bazy danych">
         <exec executable="${php}">
             <arg line="app/console doctrine:schema:validate"/>
         </exec>
