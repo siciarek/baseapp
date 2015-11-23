@@ -14,7 +14,7 @@ services:
         arguments:
             - @knp_menu.factory
             - @translator
-            - @security.context
+            - @security.authorization_checker
         tags:
             -
                 name: knp_menu.menu_builder

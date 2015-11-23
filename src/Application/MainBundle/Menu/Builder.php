@@ -4,29 +4,38 @@ namespace Application\MainBundle\Menu;
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Translation\DataCollectorTranslator;
-use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Application\MainBundle\Controller\LocaleController;
 
 class Builder
 {
+    /**
+     * @var \Knp\Menu\FactoryInterface
+     */
     private $factory;
+    /**
+     * @var \Symfony\Component\Translation\TranslatorInterface
+     */
     private $translator;
-    private $securityContext;
+    /**
+     * @var \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface
+     */
+    private $authorizationChecker;
 
     /**
      * @param FactoryInterface $factory
      *
      * Add any other dependency you need
      */
-    public function __construct(FactoryInterface $factory, DataCollectorTranslator $translator, SecurityContext $securityContext)
+    public function __construct(FactoryInterface $factory, TranslatorInterface $translator, AuthorizationCheckerInterface $authorizationChecker)
     {
         $this->factory         = $factory;
         $this->translator      = $translator;
-        $this->securityContext = $securityContext;
+        $this->authorizationChecker = $authorizationChecker;
     }
 
-    public function getMainMenu(array $options)
+    public function getMainMenu()
     {
         $menu = $this->factory->createItem('root');
 
@@ -37,11 +46,10 @@ class Builder
         $menu->addChild('About', [ 'route' => 'default.about', 'label' => $this->translator->trans('About') ]);
         $menu->addChild('Contact', [ 'route' => 'default.contact', 'label' => $this->translator->trans('Contact') ]);
 
-
-        if ($this->securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+        if ($this->authorizationChecker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             $menu->addChild('Private', [ 'route' => 'private.index', 'label' => $this->translator->trans('Private') ]);
 
-            if ($this->securityContext->isGranted('ROLE_ADMIN')) {
+            if ($this->authorizationChecker->isGranted('ROLE_ADMIN')) {
                 $menu->addChild('Admin', [ 'route' => 'sonata_admin_dashboard', 'label' => $this->translator->trans('Admin') ]);
             }
 
