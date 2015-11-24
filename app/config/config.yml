@@ -21,6 +21,8 @@ imports:
     - { resource: a2lix/translation-form-bundle.yml }
     - { resource: jms/security-extra-bundle.yml }
 
+    - { resource: application.yml }
+
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 
