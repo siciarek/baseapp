@@ -18,23 +18,33 @@ class LoadCollectionData extends BasicFixture {
      * {@inheritDoc}
      */
     public function load(ObjectManager $manager) {
-        
-        $c = new E\Collection();
-        $c->setName('Pierwsza');
-        $c->setInfo('Krótka informacja na temat pierwszej kolekcji.');
-        
-        foreach(range(1, $this->limit) as $i) {
-            $e = new E\CollectionElement();
-            $e->translate('pl')->setName('Element nr ' . $i);
-            $e->translate('pl')->setInfo('Opis elementu nr ' . $i);
-            $e->mergeNewTranslations();
-            $e->setCollection($c);
+        $faker = \Faker\Factory::create('pl_PL');
 
-            $c->addElement($e);
+        foreach (['Pierwsza', 'Druga', 'Trzecia'] as $cname) {
+            $cinfo = 'Krótka informacja na temat kolekcji "' . $cname . '".';
+            
+            $c = new E\Collection();
+            $c->setName($cname);
+            $c->setInfo($cinfo);
+
+            foreach (range(1, rand(floor($this->limit / 2), $this->limit)) as $i) {
+                $name = preg_replace('/\.$/', '', $faker->sentence(1));
+                $info = $faker->sentences(1, true);
+
+                $e = new E\CollectionElement();
+                $e->translate('pl')->setName($name);
+                $e->translate('pl')->setInfo($info);
+                $e->mergeNewTranslations();
+                $e->setCollection($c);
+
+                $c->addElement($e);
+            }
+
+            $manager->persist($c);
+
         }
 
-        $manager->persist($c);
-        
         $manager->flush();
     }
+
 }
