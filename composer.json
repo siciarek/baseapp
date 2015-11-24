@@ -7,6 +7,7 @@
             "": "src/"
         }
     },
+    "minimum-stability": "stable",
     "require": {
         "gregwar/captcha-bundle": "dev-master",
 
