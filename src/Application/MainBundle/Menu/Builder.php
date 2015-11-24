@@ -80,7 +80,7 @@ class Builder
             ],
             [
                 'label'       => 'Admin',
-                'route'       => 'private.index',
+                'route'       => 'sonata_admin_dashboard',
                 'routeParams' => [ ],
                 'icon'        => 'wrench',
                 'role'        => 'ROLE_ADMIN',
@@ -88,23 +88,41 @@ class Builder
             ],
         ];
 
+        if ($this->authorizationChecker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+
+            $config[] = [
+                'label'       => 'Sign out',
+                'route'       => 'fos_user_security_logout',
+                'routeParams' => [ ],
+                'icon'        => 'sign-out',
+                'role'        => 'IS_AUTHENTICATED_REMEMBERED',
+                'children'    => [ ]
+            ];
+
+        } else {
+            $config[] = [
+                'label'       => 'Sign in',
+                'route'       => 'fos_user_security_login',
+                'routeParams' => [ ],
+                'icon'        => 'sign-in',
+                'role'        => 'IS_AUTHENTICATED_ANONYMOUSLY',
+                'children'    => [ ]
+            ];
+        }
+
         $menu = $this->factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
         foreach ($config as $key => $c) {
-            if ($this->authorizationChecker->isGranted($c['role'])) {
-                $label = $this->translator->trans($c['label'];
-                if (isset($c['icon']) and $c['icon'] != null and strlen($c['icon']) > 9) {
-                    $label = sprintf('<i class="fa fa-%s fa-lg fa-fw"></i> %s', $c['icon'], $label));
+            if (!isset($c['role']) or $c['role'] == null or $this->authorizationChecker->isGranted($c['role'])) {
+                $label = $this->translator->trans($c['label']);
+
+                if (isset($c['icon']) and $c['icon'] != null and strlen($c['icon']) > 0) {
+                    $label = sprintf('<i class="fa fa-%s fa-lg fa-fw"></i> %s', $c['icon'], $label);
                 }
+
                 $menu->addChild($key, [ 'route' => $c['route'], 'routeParams' => $c['routeParams'], 'label' => $label, 'extras' => [ 'safe_label' => true ] ]);
             }
-        }
-
-        if ($this->authorizationChecker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-            $menu->addChild('Sign out', [ 'route' => 'fos_user_security_logout', 'label' => $this->translator->trans('Sign out') ]);
-        } else {
-            $menu->addChild('Sign in', [ 'route' => 'fos_user_security_login', 'label' => $this->translator->trans('Sign in') ]);
         }
 
         $menu->addChild('Locale', [
