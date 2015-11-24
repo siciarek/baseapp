@@ -89,7 +89,6 @@ class Builder
         ];
 
         if ($this->authorizationChecker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-
             $config[] = [
                 'label'       => 'Sign out',
                 'route'       => 'fos_user_security_logout',
@@ -98,7 +97,6 @@ class Builder
                 'role'        => 'IS_AUTHENTICATED_REMEMBERED',
                 'children'    => [ ]
             ];
-
         } else {
             $config[] = [
                 'label'       => 'Sign in',
