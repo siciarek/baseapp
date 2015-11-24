@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
 
             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
+            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
@@ -44,10 +45,10 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
-            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
-            
+            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),            
             new Application\MainBundle\ApplicationMainBundle(),
         );
 
@@ -56,6 +57,8 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
+            $bundles[] = new Bazinga\Bundle\FakerBundle\BazingaFakerBundle();
         }
 
         return $bundles;

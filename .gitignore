@@ -1,6 +1,8 @@
 nbproject
 .idea
 
+/src/Application/MainBundle/Controller/DummyController.php
+
 # Cache and logs (Symfony2)
 /app/cache/*
 /app/logs/*

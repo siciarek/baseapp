@@ -10,13 +10,12 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html#cookbook-bundles-extension-config-class}
  */
-class Configuration implements ConfigurationInterface
-{
+class Configuration implements ConfigurationInterface {
+
     /**
      * {@inheritdoc}
      */
-    public function getConfigTreeBuilder()
-    {
+    public function getConfigTreeBuilder() {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('application_main');
 
@@ -24,6 +23,40 @@ class Configuration implements ConfigurationInterface
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
 
+        $rootNode
+            ->children()
+                ->arrayNode('main_menu')
+                    ->prototype('array')
+                        ->children()
+                            ->scalarNode('label')->end()
+                            ->scalarNode('route')->end()
+                            ->arrayNode('routeParameters')
+                                ->useAttributeAsKey('name')
+                                ->prototype('scalar')->end()
+                            ->end()
+                            ->scalarNode('icon')->end()
+                            ->scalarNode('role')->end()
+                            ->arrayNode('children')
+                                ->prototype('array')
+                                    ->children()
+                                        ->scalarNode('label')->end()
+                                        ->scalarNode('route')->end()
+                                        ->arrayNode('routeParameters')
+                                            ->useAttributeAsKey('name')
+                                            ->prototype('scalar')->end()
+                                        ->end()
+                                        ->scalarNode('icon')->end()
+                                        ->scalarNode('role')->end()
+                                    ->end()
+                                ->end()                
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+
         return $treeBuilder;
     }
+
 }

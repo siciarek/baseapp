@@ -1,0 +1,41 @@
+application_main:
+    main_menu:
+        -
+            label: ~
+            icon: globe
+            children:
+                -
+                    label: Polski
+                    route: locale.switch
+                    routeParameters: { locale: pl }
+                -
+                    label: English
+                    route: locale.switch
+                    routeParameters: { locale: en }
+        -
+            label: Home
+            route: default.home
+            routeParameters: {}
+            icon: home
+        -
+            label: Info
+            route: default.info
+            icon: info-circle
+        -
+            label: About
+            route: default.about
+            icon: question-circle
+        -
+            label: Contact
+            route: default.contact
+            icon: envelope
+        -
+            label: Private
+            route: private.index
+            icon: lock
+            role: ROLE_USER
+        -
+            label: Admin
+            route: sonata_admin_dashboard
+            icon: wrench
+            role: ROLE_ADMIN

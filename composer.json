@@ -42,6 +42,7 @@
         "incenteev/composer-parameter-handler": "~2.0"
     },
     "require-dev": {
+        "raulfraile/ladybug-bundle": "dev-master",
         "willdurand/faker-bundle": "@stable",
         "sensio/generator-bundle": "~2.3"
     },

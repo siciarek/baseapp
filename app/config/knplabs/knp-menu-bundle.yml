@@ -11,10 +11,12 @@ knp_menu:
 services:
     app.menu_builder:
         class: Application\MainBundle\Menu\Builder
+        calls:
+            - [ setContainer, [ @service_container ] ]
         arguments:
             - @knp_menu.factory
             - @translator
-            - @security.context
+            - @security.authorization_checker
         tags:
             -
                 name: knp_menu.menu_builder
