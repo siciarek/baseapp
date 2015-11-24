@@ -30,29 +30,78 @@ class Builder
      */
     public function __construct(FactoryInterface $factory, TranslatorInterface $translator, AuthorizationCheckerInterface $authorizationChecker)
     {
-        $this->factory         = $factory;
-        $this->translator      = $translator;
+        $this->factory              = $factory;
+        $this->translator           = $translator;
         $this->authorizationChecker = $authorizationChecker;
     }
 
     public function getMainMenu()
     {
-        $menu = $this->factory->createItem('root');
+        $config = [
+            [
+                'label'       => 'Home',
+                'route'       => 'default.home',
+                'routeParams' => [ ],
+                'icon'        => 'home',
+                'role'        => 'IS_AUTHENTICATED_ANONYMOUSLY',
+                'children'    => [ ]
+            ],
+            [
+                'label'       => 'Info',
+                'route'       => 'default.info',
+                'routeParams' => [ ],
+                'icon'        => 'info-circle',
+                'role'        => 'IS_AUTHENTICATED_ANONYMOUSLY',
+                'children'    => [ ]
+            ],
+            [
+                'label'       => 'About',
+                'route'       => 'default.about',
+                'routeParams' => [ ],
+                'icon'        => 'question-circle',
+                'role'        => 'IS_AUTHENTICATED_ANONYMOUSLY',
+                'children'    => [ ]
+            ],
+            [
+                'label'       => 'Contact',
+                'route'       => 'default.contact',
+                'routeParams' => [ ],
+                'icon'        => 'envelope',
+                'role'        => 'IS_AUTHENTICATED_ANONYMOUSLY',
+                'children'    => [ ]
+            ],
+            [
+                'label'       => 'Private',
+                'route'       => 'private.index',
+                'routeParams' => [ ],
+                'icon'        => 'lock',
+                'role'        => 'ROLE_USER',
+                'children'    => [ ]
+            ],
+            [
+                'label'       => 'Admin',
+                'route'       => 'private.index',
+                'routeParams' => [ ],
+                'icon'        => 'wrench',
+                'role'        => 'ROLE_ADMIN',
+                'children'    => [ ]
+            ],
+        ];
 
+        $menu = $this->factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
-        $menu->addChild('Home', [ 'route' => 'default.home', 'label' => $this->translator->trans('Home') ]);
-        $menu->addChild('Info', [ 'route' => 'default.info', 'label' => $this->translator->trans('Info') ]);
-        $menu->addChild('About', [ 'route' => 'default.about', 'label' => $this->translator->trans('About') ]);
-        $menu->addChild('Contact', [ 'route' => 'default.contact', 'label' => $this->translator->trans('Contact') ]);
+        foreach ($config as $key => $c) {
+            if ($this->authorizationChecker->isGranted($c['role'])) {
+                $label = $this->translator->trans($c['label'];
+                if (isset($c['icon']) and $c['icon'] != null and strlen($c['icon']) > 9) {
+                    $label = sprintf('<i class="fa fa-%s fa-lg fa-fw"></i> %s', $c['icon'], $label));
+                }
+                $menu->addChild($key, [ 'route' => $c['route'], 'routeParams' => $c['routeParams'], 'label' => $label, 'extras' => [ 'safe_label' => true ] ]);
+            }
+        }
 
         if ($this->authorizationChecker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-            $menu->addChild('Private', [ 'route' => 'private.index', 'label' => $this->translator->trans('Private') ]);
-
-            if ($this->authorizationChecker->isGranted('ROLE_ADMIN')) {
-                $menu->addChild('Admin', [ 'route' => 'sonata_admin_dashboard', 'label' => $this->translator->trans('Admin') ]);
-            }
-
             $menu->addChild('Sign out', [ 'route' => 'fos_user_security_logout', 'label' => $this->translator->trans('Sign out') ]);
         } else {
             $menu->addChild('Sign in', [ 'route' => 'fos_user_security_login', 'label' => $this->translator->trans('Sign in') ]);
