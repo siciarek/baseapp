@@ -25,12 +25,36 @@ class Configuration implements ConfigurationInterface {
 
         $rootNode
             ->children()
-                ->arrayNode('menu')
-                ->cannotBeEmpty()
+                ->arrayNode('main_menu')
+                    ->prototype('array')
+                        ->children()
+                            ->scalarNode('label')->end()
+                            ->scalarNode('route')->end()
+                            ->arrayNode('routeParameters')
+                                ->useAttributeAsKey('name')
+                                ->prototype('scalar')->end()
+                            ->end()
+                            ->scalarNode('icon')->end()
+                            ->scalarNode('role')->end()
+                            ->arrayNode('children')
+                                ->prototype('array')
+                                    ->children()
+                                        ->scalarNode('label')->end()
+                                        ->scalarNode('route')->end()
+                                        ->arrayNode('routeParameters')
+                                            ->useAttributeAsKey('name')
+                                            ->prototype('scalar')->end()
+                                        ->end()
+                                        ->scalarNode('icon')->end()
+                                        ->scalarNode('role')->end()
+                                    ->end()
+                                ->end()                
+                            ->end()
+                        ->end()
+                    ->end()
                 ->end()
             ->end()
         ;
-
 
         return $treeBuilder;
     }

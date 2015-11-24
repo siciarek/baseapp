@@ -8,10 +8,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Application\MainBundle\Controller\LocaleController;
-use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class Builder extends ContainerAware {
+class Builder implements ContainerAwareInterface {
 
+    /**
+     * @var \Symfony\Component\DependencyInjection\ConainerInterface
+     */
+    private $container;
+   
     /**
      * @var \Knp\Menu\FactoryInterface
      */
@@ -27,6 +33,10 @@ class Builder extends ContainerAware {
      */
     private $authorizationChecker;
 
+    public function setContainer(ContainerInterface $container = null) {
+        $this->container = $container;
+    }
+
     /**
      * @param FactoryInterface $factory
      *
@@ -40,42 +50,10 @@ class Builder extends ContainerAware {
 
     public function getMainMenu() {
 
-        $config = [
-            [
-                'label' => 'Home',
-                'route' => 'default.home',
-                'icon' => 'home',
-            ],
-            [
-                'label' => 'Info',
-                'route' => 'default.info',
-                'icon' => 'info-circle',
-            ],
-            [
-                'label' => 'About',
-                'route' => 'default.about',
-                'icon' => 'question-circle',
-            ],
-            [
-                'label' => 'Contact',
-                'route' => 'default.contact',
-                'icon' => 'envelope',
-            ],
-            [
-                'label' => 'Private',
-                'route' => 'private.index',
-                'icon' => 'lock',
-                'role' => 'ROLE_USER',
-            ],
-            [
-                'label' => 'Admin',
-                'route' => 'sonata_admin_dashboard',
-                'icon' => 'wrench',
-                'role' => 'ROLE_ADMIN',
-            ],
-        ];
-
-        // Authentication menu
+        // Read main menu from configuration        
+        $config = $this->container->getParameter('application_main.main_menu');
+        
+        // Add authentication menu
 
         if ($this->authorizationChecker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             $config[] = [
@@ -93,40 +71,21 @@ class Builder extends ContainerAware {
             ];
         }
 
-
-        // Locale switch menu
-
-        $locales = [
-            'label' => null,
-            'icon' => 'globe',
-            'children' => [],
-        ];
-
-        foreach (LocaleController::$locales as $locale => $name) {
-            $locales['children'][] = [
-                'label' => $name,
-                'route' => 'locale.switch',
-                'routeParameters' => [ 'locale' => $locale],
-            ];
-        }
-
-        $config[] = $locales;
-        
         return $this->generateMenu($config);
     }
-    
+
     protected function generateMenu($config) {
-        
+
         $menu = $this->factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
         foreach ($config as $key => $c) {
-            
+
             if (!isset($c['role']) or $c['role'] === null or $this->authorizationChecker->isGranted($c['role'])) {
                 $_label = $this->translator->trans($c['label']);
 
                 $label = $_label;
-                
+
                 if (isset($c['icon']) and $c['icon'] != null and strlen($c['icon']) > 0) {
                     $label = sprintf('<i class="fa fa-%s fa-lg fa-fw"></i> %s', $c['icon'], $_label);
                 }
@@ -141,14 +100,13 @@ class Builder extends ContainerAware {
                             'title' => $_label,
                         ],
                     ]);
-
                 } else {
-                    
+
                     $menu->addChild($key, [
                         'label' => $label . ' <span class="caret"></span>',
                         'extras' => [ 'safe_label' => true],
                         'uri' => '#',
-                        'attributes' => [ ],
+                        'attributes' => [],
                         'linkAttributes' => [
                             'title' => $_label,
                             'class' => 'dropdown dropdown-toggle',
@@ -164,11 +122,11 @@ class Builder extends ContainerAware {
 
                     foreach ($c['children'] as $chkey => $ch) {
                         if (!isset($ch['role']) or $ch['role'] === null or $this->authorizationChecker->isGranted($ch['role'])) {
-                         
+
                             $_chlabel = $this->translator->trans($ch['label']);
 
                             $chlabel = $_chlabel;
-                            
+
                             if (isset($ch['icon']) and $ch['icon'] != null and strlen($ch['icon']) > 0) {
                                 $chlabel = sprintf('<i class="fa fa-%s fa-lg fa-fw"></i> %s', $ch['icon'], $_chlabel);
                             }
