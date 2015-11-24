@@ -17,7 +17,7 @@ class Builder implements ContainerAwareInterface {
      * @var \Symfony\Component\DependencyInjection\ConainerInterface
      */
     private $container;
-   
+
     /**
      * @var \Knp\Menu\FactoryInterface
      */
@@ -52,7 +52,7 @@ class Builder implements ContainerAwareInterface {
 
         // Read main menu from configuration        
         $config = $this->container->getParameter('application_main.main_menu');
-        
+
         // Add authentication menu
 
         if ($this->authorizationChecker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
@@ -82,6 +82,7 @@ class Builder implements ContainerAwareInterface {
         foreach ($config as $key => $c) {
 
             if (!isset($c['role']) or $c['role'] === null or $this->authorizationChecker->isGranted($c['role'])) {
+
                 $_label = $this->translator->trans($c['label']);
 
                 $label = $_label;
@@ -90,19 +91,26 @@ class Builder implements ContainerAwareInterface {
                     $label = sprintf('<i class="fa fa-%s fa-lg fa-fw"></i> %s', $c['icon'], $_label);
                 }
 
+                $options = [];
+
                 if (!isset($c['children']) or count($c['children']) == 0) {
-                    $menu->addChild($key, [
+
+                    $options = [
                         'label' => $label,
                         'extras' => [ 'safe_label' => true],
                         'route' => $c['route'],
                         'routeParameters' => (isset($c['routeParameters']) and is_array($c['routeParameters'])) ? $c['routeParameters'] : [],
+                        'attributes' => [],
                         'linkAttributes' => [
                             'title' => $_label,
                         ],
-                    ]);
+                        'childrenAttributes' => []
+                    ];
+
+                    $c['children'] = [];
                 } else {
 
-                    $menu->addChild($key, [
+                    $options = [
                         'label' => $label . ' <span class="caret"></span>',
                         'extras' => [ 'safe_label' => true],
                         'uri' => '#',
@@ -118,29 +126,32 @@ class Builder implements ContainerAwareInterface {
                         'childrenAttributes' => [
                             'class' => 'dropdown-menu',
                         ],
-                    ]);
+                    ];
+                }
 
-                    foreach ($c['children'] as $chkey => $ch) {
-                        if (!isset($ch['role']) or $ch['role'] === null or $this->authorizationChecker->isGranted($ch['role'])) {
+                $menu->addChild($key, $options);
 
-                            $_chlabel = $this->translator->trans($ch['label']);
+                foreach ($c['children'] as $chkey => $ch) {
 
-                            $chlabel = $_chlabel;
+                    if (!isset($ch['role']) or $ch['role'] === null or $this->authorizationChecker->isGranted($ch['role'])) {
 
-                            if (isset($ch['icon']) and $ch['icon'] != null and strlen($ch['icon']) > 0) {
-                                $chlabel = sprintf('<i class="fa fa-%s fa-lg fa-fw"></i> %s', $ch['icon'], $_chlabel);
-                            }
+                        $_chlabel = $this->translator->trans($ch['label']);
 
-                            $menu[$key]->addChild($chkey, [
-                                'label' => $chlabel,
-                                'extras' => [ 'safe_label' => true],
-                                'route' => $ch['route'],
-                                'routeParameters' => (isset($ch['routeParameters']) and is_array($ch['routeParameters'])) ? $ch['routeParameters'] : [],
-                                'linkAttributes' => [
-                                    'title' => $_chlabel,
-                                ],
-                            ]);
+                        $chlabel = $_chlabel;
+
+                        if (isset($ch['icon']) and $ch['icon'] != null and strlen($ch['icon']) > 0) {
+                            $chlabel = sprintf('<i class="fa fa-%s fa-lg fa-fw"></i> %s', $ch['icon'], $_chlabel);
                         }
+
+                        $menu[$key]->addChild($chkey, [
+                            'label' => $chlabel,
+                            'extras' => [ 'safe_label' => true],
+                            'route' => $ch['route'],
+                            'routeParameters' => (isset($ch['routeParameters']) and is_array($ch['routeParameters'])) ? $ch['routeParameters'] : [],
+                            'linkAttributes' => [
+                                'title' => $_chlabel,
+                            ],
+                        ]);
                     }
                 }
             }
