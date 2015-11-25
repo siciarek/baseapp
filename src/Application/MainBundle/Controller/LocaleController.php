@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Cookie;
 
 /**
  * @Route("/locale")
@@ -30,6 +31,10 @@ class LocaleController extends Controller
         $locale = array_key_exists($locale, self:: $locales) ? $locale : self::$defaultLocale;
 
         $request->getSession()->set('_locale', $locale);
+
+        $response = new Response();
+        $response->headers->setCookie(new Cookie('_locale', $locale));
+        $response->send();
 
         $referer = $request->headers->get('referer');
 
