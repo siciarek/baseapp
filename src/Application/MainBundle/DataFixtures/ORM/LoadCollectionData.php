@@ -20,6 +20,8 @@ class LoadCollectionData extends BasicFixture {
     public function load(ObjectManager $manager) {
         $faker = \Faker\Factory::create('pl_PL');
 
+        $owners = [];
+
         foreach (['Pierwsza', 'Druga', 'Trzecia'] as $cname) {
             $cinfo = 'Krótka informacja na temat kolekcji "' . $cname . '".';
             
@@ -27,7 +29,26 @@ class LoadCollectionData extends BasicFixture {
             $c->setName($cname);
             $c->setInfo($cinfo);
 
+
             foreach (range(1, rand(floor($this->limit / 2), $this->limit)) as $i) {
+
+                $owc = rand(1, 5);
+
+                for($i = 0; $i < $owc; $i++) {
+
+                    do {
+                        $name = $faker->firstName;
+                        $lastName = $faker->lastName;
+                    } while(array_key_exists($name.$lastName, $owners));
+
+                    $o = new E\Owner();
+                    $o->setName($name);
+                    $o->setLastName($lastName);
+                    $o->setInfo($faker->sentence(10));
+
+                    $manager->persist($o);
+                }
+
                 $name = preg_replace('/\.$/', '', $faker->sentence(1));
                 $info = $faker->sentences(1, true);
 

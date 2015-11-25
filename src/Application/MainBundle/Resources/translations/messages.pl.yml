@@ -5,6 +5,8 @@ About: O nas
 Contact: Kontakt
 Sign in: Zaloguj się
 Sign out: Wyloguj się
+Type: Typ
+Description: Opis
 
 unknown: Nieznany
 basic: Podstawowy
@@ -14,7 +16,11 @@ advanced: Zaawansowany
 user:
     signin: Zaloguj się
     signout: Wyloguj się
-    
+
+owner:
+    name: Właściciel
+    name_plural: Właściciele
+
 collection:
     name: Kolekcja
     name_plural: Kolekcje

@@ -20,7 +20,7 @@ class Owner
     use ORMBehaviors\Blameable\Blameable;
     use ORMBehaviors\Timestampable\Timestampable;
     use ORMBehaviors\SoftDeletable\SoftDeletable;
-    
+
     public function __toString() {
         return $this->getFullName() ? : '-';
     }
@@ -32,13 +32,13 @@ class Owner
      */
     public function getFullName() {
         $temp = [];
-        $temp[] = $this->getName();
-        $temp[] = $this->getLastName();        
+        $temp[] = $this->name;
+        $temp[] = $this->lastName;
         
-        $temp = array_filter(function($e){
+        $temp = array_filter($temp, function($e){
             $tmp = trim($e);
             return strlen($tmp) > 0;
-        }, $temp);
+        });
         
         $fullName = implode(' ', $temp);
         
@@ -69,7 +69,7 @@ class Owner
     private $name;
 
     /**
-     * @ORM\Column(name="last_name")
+     * @ORM\Column(name="last_name", nullable=true)
      */
     private $lastName;
 
@@ -88,6 +88,7 @@ class Owner
      */
     private $description;
 
+
     /**
      * Get id
      *
@@ -103,7 +104,7 @@ class Owner
      *
      * @param string $slug
      *
-     * @return Owner
+     * @return Keeper
      */
     public function setSlug($slug)
     {
@@ -127,7 +128,7 @@ class Owner
      *
      * @param boolean $enabled
      *
-     * @return Owner
+     * @return Keeper
      */
     public function setEnabled($enabled)
     {
@@ -151,7 +152,7 @@ class Owner
      *
      * @param string $name
      *
-     * @return Owner
+     * @return Keeper
      */
     public function setName($name)
     {
@@ -175,7 +176,7 @@ class Owner
      *
      * @param string $lastName
      *
-     * @return Owner
+     * @return Keeper
      */
     public function setLastName($lastName)
     {
@@ -199,7 +200,7 @@ class Owner
      *
      * @param string $type
      *
-     * @return Owner
+     * @return Keeper
      */
     public function setType($type)
     {
@@ -223,7 +224,7 @@ class Owner
      *
      * @param string $info
      *
-     * @return Owner
+     * @return Keeper
      */
     public function setInfo($info)
     {
@@ -247,7 +248,7 @@ class Owner
      *
      * @param string $description
      *
-     * @return Owner
+     * @return Keeper
      */
     public function setDescription($description)
     {

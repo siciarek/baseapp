@@ -10,6 +10,10 @@ user:
     signin: Sign in
     signout: Sign out
 
+owner:
+    name: Owner
+    name_plural: Owners
+
 collection:
     name: Collection
     name_plural: Collections

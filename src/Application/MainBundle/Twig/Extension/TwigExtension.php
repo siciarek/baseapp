@@ -42,23 +42,12 @@ class TwigExtension extends \Twig_Extension
      */
     public function getFilters()
     {
-        return array(
-            'hrfs'  => new \Twig_Filter_Method($this, 'hrfs'),
-            'get_class' => new \Twig_Filter_Function('get_class'),
-            'print_r'   => new \Twig_Filter_Function('print_r'),
-            'ucfirst'   => new \Twig_Filter_Function('ucfirst'),
-            'var_dump'  => new \Twig_SimpleFilter('var_dump', function (\Twig_Environment $env, $var) {
-                ob_start();
-                var_dump($var);
-                return ob_get_clean();
-            }, array('needs_environment' => true, 'is_safe' => array('html'))),
-
-            'highlight' => new \Twig_Filter_Method($this, 'highlight', array('is_safe' => array('html'))),
-            'truncate'  => new \Twig_Filter_Method($this, 'truncate', array('is_safe' => array('html'))),
-            'excerpt'   => new \Twig_Filter_Method($this, 'excerpt', array('is_safe' => array('html'))),
-            'wrap'      => new \Twig_Filter_Method($this, 'wrap', array('is_safe' => array('html'))),
-            'pre'       => new \Twig_Filter_Method($this, 'pre', array('is_safe' => array('html'))),
-        );
+        return [
+//            'highlight' => new \Twig_SimpleFunction($this, 'highlight', array('is_safe' => array('html'))),
+//            'truncate'  => new \Twig_SimpleFunction($this, 'truncate', array('is_safe' => array('html'))),
+//            'excerpt'   => new \Twig_SimpleFunction($this, 'excerpt', array('is_safe' => array('html'))),
+//            'wrap'      => new \Twig_SimpleFunction($this, 'wrap', array('is_safe' => array('html'))),
+        ];
     }
 
     /**
@@ -66,10 +55,9 @@ class TwigExtension extends \Twig_Extension
      */
     public function getFunctions()
     {
-        return array(
-            'mailto' => new \Twig_Function_Method($this, 'mailto', array('is_safe' => array('html'))),
-            'pre'    => new \Twig_Function_Method($this, 'pre', array('is_safe' => array('html'))),
-        );
+        return [
+//            'mailto' => new \Twig_SimpleFunction($this, 'mailto', array('is_safe' => array('html'))),
+        ];
     }
 
     /**
@@ -89,11 +77,6 @@ class TwigExtension extends \Twig_Extension
         } while ($fileSizeInBytes > 1024);
 
         return sprintf('%0.1f%s', floatval(max(array($fileSizeInBytes, 0.1))), $byteUnits[$i]);
-    }
-
-    public function mailto($email)
-    {
-        return sprintf('<a title="%s" href="mailto:%s">%s</a>', $email, $email, $email);
     }
 
     public function truncate($text, $length = 30, $truncate_string = '...', $truncate_lastspace = false)
@@ -116,13 +99,8 @@ class TwigExtension extends \Twig_Extension
         return $this->textHelper->wrap($text, $line_width);
     }
 
-    public function pre($string)
+    public function mailto($email)
     {
-
-        $output[] = '<pre>';
-        $output[] = $string;
-        $output[] = '</pre>';
-
-        return implode("\n", $output);
+        return sprintf('<a title="%s" href="mailto:%s">%s</a>', $email, $email, $email);
     }
 }
