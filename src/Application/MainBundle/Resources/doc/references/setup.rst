@@ -39,5 +39,17 @@ Mathematical formula
 ====================
 
 .. math::
+
+    	\int_a^bu\frac{d^2v}{dx^2}\,dx
+    	=\left.u\frac{dv}{dx}\right|_a^b
+    	-\int_a^b\frac{du}{dx}\frac{dv}{dx}\,dx.
+
+can be created with the following:
+
+.. code-block:: rst
+
+    .. math::
     
-    E = mc^2
+        \int_a^bu\frac{d^2v}{dx^2}\,dx
+        =\left.u\frac{dv}{dx}\right|_a^b
+        -\int_a^b\frac{du}{dx}\frac{dv}{dx}\,dx.

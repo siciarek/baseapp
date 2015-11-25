@@ -56,13 +56,13 @@ latex_use_parts = False
 latex_show_pagerefs = True
 
 # If true, show URL addresses after external links.
-#latex_show_urls = False
+# latex_show_urls = False
 
 # Documents to append as an appendix to all manuals.
-#latex_appendices = []
+latex_appendices = []
 
 # If false, no module index is generated.
-#latex_domain_indices = True
+latex_domain_indices = True
 
 # -----------------------------------------------------------------------------
 # http://symfony.com/doc/current/contributing/documentation/format.html
