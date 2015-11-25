@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
+        {% set bootstrapVersion = '3.3.6' %}
+        {% set jqueryVersion = '2.1.4' %}
+        {% set fontAwesomeVersion = '4.5.0' %}
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,9 +13,9 @@
         <title>{% block title %}{{ app_name }}{% endblock %}</title>
 
         {% block stylesheets %}
-            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/{{ fontAwesomeVersion }}/css/font-awesome.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/{{ bootstrapVersion }}/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/{{ bootstrapVersion }}/css/bootstrap-theme.min.css">
             <link rel="stylesheet" href="{{ asset('bundles/applicationmain/css/main.css') }}">
         {% endblock %}
 
@@ -45,8 +49,8 @@
                 <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
             {% endif %}
 
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/{{ jqueryVersion }}/jquery.min.js"></script>
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/{{ bootstrapVersion }}/js/bootstrap.min.js"></script>
             <script src="{{ asset('bundles/ivoryckeditor/ckeditor.js') }}"></script>
         {% endblock %}
 
