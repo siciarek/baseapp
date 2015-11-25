@@ -11,6 +11,7 @@
     "require": {
         "gregwar/captcha-bundle": "dev-master",
 
+        "nelmio/security-bundle": "dev-master",
         "liuggio/excelbundle": "dev-master",
         "jms/security-extra-bundle": "dev-master",
         "a2lix/translation-form-bundle": "dev-master",

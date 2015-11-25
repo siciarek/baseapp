@@ -1,0 +1,65 @@
+framework:
+    session:
+        handler_id: nelmio_security.session.handler
+
+nelmio_security:
+    # signs/verifies all cookies
+    signed_cookie:
+        names: ['_locale']
+        
+    # encrypt all cookies
+    encrypted_cookie:
+        names: ['_locale']
+        # secret: %secret%  # defaults to global %secret% parameter
+        # algorithm: rijndael-256 # defaults to sha256, see `hash_algos()` for available algorithms
+
+    # prevents framing of the entire site
+    # clickjacking:
+    #     paths:
+    #         '^/.*': DENY
+    # # prevents redirections outside the website's domain
+    # external_redirects:
+    #     abort: true
+    #     log: true
+
+    # # # prevents inline scripts, unsafe eval, external scripts/images/styles/frames, etc
+    # csp:
+    #     report:
+    #         # report-uri: [/nelmio/csp/report]
+    #         # default-src: [ 'self' ]
+    #         # There's no flash on our site
+    #         # object-src:
+    #         #     - 'none'
+    #         # script-src:
+    #         #     - 'unsafe-inline'
+    #         #     - 'unsafe-eval'
+    #         #     - 'self'
+    #         # hosts: []
+    #         # content_types: []
+    #     # enforce:
+    #     #     # see https://github.com/nelmio/NelmioSecurityBundle/issues/32
+    #     #     report-uri: [/nelmio/csp/report]
+    #     #     script-src:
+    #     #         - 'self'
+
+    # # disables content type sniffing for script resources
+    # content_type:
+    #     nosniff: true
+
+    # # Forces Microsoft's XSS-Protection with
+    # # its block mode
+    # xss_protection:
+    #     enabled: true
+    #     mode_block: true
+
+    # forced HTTPS handling, don't combine with flexible mode
+    # and make sure you have SSL working on your site before enabling this
+#    forced_ssl:
+#        hsts_max_age: 2592000 # 30 days
+#        hsts_subdomains: true
+
+    # flexible HTTPS handling, read the detailed config info
+    # and make sure you have SSL working on your site before enabling this
+#    flexible_ssl:
+#        cookie_name: auth
+#        unsecured_logout: false

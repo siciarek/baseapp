@@ -19,6 +19,7 @@ class AppKernel extends Kernel
 
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
 
+            new Nelmio\SecurityBundle\NelmioSecurityBundle(),
             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SerializerBundle\JMSSerializerBundle(),

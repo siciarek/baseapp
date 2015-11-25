@@ -20,6 +20,7 @@ imports:
     - { resource: ../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml }
     - { resource: a2lix/translation-form-bundle.yml }
     - { resource: jms/security-extra-bundle.yml }
+    - { resource: nelmio/security-bundle.yml }
     
     - { resource: application.yml }
 
