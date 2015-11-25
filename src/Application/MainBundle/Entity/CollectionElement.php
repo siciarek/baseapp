@@ -40,6 +40,11 @@ class CollectionElement
      */
     private $collection;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Owner", mappedBy="elements", cascade={ "all" })
+     */
+    private $owners;
+
     public function __toString() {
         return $this->getName() ? : '-';
     }
@@ -132,5 +137,48 @@ class CollectionElement
     public function getType()
     {
         return $this->type;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->owners = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add owner
+     *
+     * @param \Application\MainBundle\Entity\Owner $owner
+     *
+     * @return CollectionElement
+     */
+    public function addOwner(\Application\MainBundle\Entity\Owner $owner)
+    {
+        $owner->addElement($this);
+        $this->owners[] = $owner;
+
+        return $this;
+    }
+
+    /**
+     * Remove owner
+     *
+     * @param \Application\MainBundle\Entity\Owner $owner
+     */
+    public function removeOwner(\Application\MainBundle\Entity\Owner $owner)
+    {
+        $owner->removeElement($this);
+        $this->owners->removeElement($owner);
+    }
+
+    /**
+     * Get owners
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getOwners()
+    {
+        return $this->owners;
     }
 }

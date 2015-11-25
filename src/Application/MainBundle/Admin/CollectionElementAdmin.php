@@ -13,6 +13,7 @@ class CollectionElementAdmin extends Admin {
         $datagrid
             ->add('enabled')
             ->add('collection')
+            ->add('owners')
             ->add('type')
         ;
     }
@@ -25,6 +26,7 @@ class CollectionElementAdmin extends Admin {
             ->add('type')
             ->add('name')
             ->add('info')
+            ->add('owners')
             ->add('createdAt')
             ->add('createdBy')
             ->add('updatedAt')
@@ -42,6 +44,7 @@ class CollectionElementAdmin extends Admin {
             ->addIdentifier('name')
             ->addIdentifier('info')
             ->add('collection')
+            ->add('owners')
             ->add('createdAt')
             ->add('_action', 'actions', [
                 'actions' => [
@@ -63,6 +66,12 @@ class CollectionElementAdmin extends Admin {
                     'enhanced' => 'enhanced',
                     'advanced' => 'advanced',
                 ],
+            ])
+            ->add('owners', 'sonata_type_model_autocomplete', [
+                'property' => 'lastName',
+                'minimum_input_length' => 2,
+                'multiple' => 'true',
+                'by_reference' => false
             ])
             ->add('translations', 'a2lix_translations', [
                 'label' => false,

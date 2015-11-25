@@ -13,6 +13,9 @@ basic: Podstawowy
 enhanced: Wzbogacony
 advanced: Zaawansowany
 
+person: Osoba
+organisation: Organizacja
+
 user:
     signin: Zaloguj się
     signout: Wyloguj się

@@ -70,6 +70,7 @@ class Collection
      * @ORM\OneToMany(targetEntity="CollectionElement", mappedBy="collection", cascade={ "all" }, orphanRemoval=true)
      */
     private $elements;
+
     /**
      * Constructor
      */

@@ -33,20 +33,22 @@ class LoadCollectionData extends BasicFixture {
             foreach (range(1, rand(floor($this->limit / 2), $this->limit)) as $i) {
 
                 $owc = rand(1, 5);
-
+                $tempOwners = [];
                 for($i = 0; $i < $owc; $i++) {
 
                     do {
-                        $name = $faker->firstName;
+                        $firstName = $faker->firstName;
                         $lastName = $faker->lastName;
-                    } while(array_key_exists($name.$lastName, $owners));
+                    } while(array_key_exists($firstName.$lastName, $owners));
 
                     $o = new E\Owner();
-                    $o->setName($name);
+                    $o->setFirstName($firstName);
                     $o->setLastName($lastName);
                     $o->setInfo($faker->sentence(10));
 
                     $manager->persist($o);
+
+                    $tempOwners[] = $o;
                 }
 
                 $name = preg_replace('/\.$/', '', $faker->sentence(1));
@@ -57,6 +59,10 @@ class LoadCollectionData extends BasicFixture {
                 $e->translate('pl')->setInfo($info);
                 $e->mergeNewTranslations();
                 $e->setCollection($c);
+
+                foreach($tempOwners as $to) {
+                    $e->addOwner($to);
+                }
 
                 $c->addElement($e);
             }

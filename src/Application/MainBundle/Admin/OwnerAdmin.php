@@ -14,8 +14,7 @@ class OwnerAdmin extends Admin
     {
         $datagrid
             ->add('enabled')
-            ->add('type')
-            ->add('name')
+            ->add('firstName')
             ->add('lastName')
             ->add('createdAt');
     }
@@ -23,10 +22,10 @@ class OwnerAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
+            ->with('owner.name')
             ->add('id')
             ->add('enabled')
-            ->add('type')
-            ->add('name')
+            ->add('firstName')
             ->add('lastName')
             ->add('info')
             ->add('description')
@@ -34,6 +33,7 @@ class OwnerAdmin extends Admin
             ->add('createdBy')
             ->add('updatedAt')
             ->add('updatedBy')
+            ->end()
         ;
     }
 
@@ -43,10 +43,9 @@ class OwnerAdmin extends Admin
             ->add('enabled', 'boolean', [
                 'editable' => true,
             ])
-            ->add('type')
             ->addIdentifier('id')
-            ->add('name')
-            ->add('lastName')
+            ->addIdentifier('firstName')
+            ->addIdentifier('lastName')
             ->add('info')
             ->add('createdAt')
             ->add('_action', 'actions', [
@@ -64,13 +63,7 @@ class OwnerAdmin extends Admin
         $formMapper
             ->with('owner.name')
             ->add('enabled')
-            ->add('type', 'choice', [
-                'choices' => [
-                    'person' => 'person',
-                    'organisation' => 'organisation',
-                ],
-            ])
-            ->add('name')
+            ->add('firstName')
             ->add('lastName')
             ->add('info')
             ->add('description', 'ckeditor', [

@@ -14,9 +14,6 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Owner
 {
-    const TYPE_PERSON = 'person';
-    const TYPE_ORGANISATION = 'organisation';
-    
     use ORMBehaviors\Blameable\Blameable;
     use ORMBehaviors\Timestampable\Timestampable;
     use ORMBehaviors\SoftDeletable\SoftDeletable;
@@ -32,7 +29,7 @@ class Owner
      */
     public function getFullName() {
         $temp = [];
-        $temp[] = $this->name;
+        $temp[] = $this->firstName;
         $temp[] = $this->lastName;
         
         $temp = array_filter($temp, function($e){
@@ -54,7 +51,7 @@ class Owner
 
     /**
      * @ORM\Column(name="slug", length=128, unique=true)
-     * @Gedmo\Slug(fields={"name", "lastName"})
+     * @Gedmo\Slug(fields={"firstName", "lastName"})
      */
     private $slug;
 
@@ -64,19 +61,14 @@ class Owner
     private $enabled = true;
 
     /**
-     * @ORM\Column(name="name")
+     * @ORM\Column(name="first_name")
      */
-    private $name;
+    private $firstName;
 
     /**
-     * @ORM\Column(name="last_name", nullable=true)
+     * @ORM\Column(name="last_name")
      */
     private $lastName;
-
-    /**
-     * @ORM\Column(name="type", type="string", nullable=false)
-     */
-    private $type = self::TYPE_PERSON;
 
     /**
      * @ORM\Column(name="info", nullable=true)
@@ -88,6 +80,17 @@ class Owner
      */
     private $description;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="CollectionElement", inversedBy="owners", cascade={ "all" })
+     */
+    private $elements;
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->elements = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -104,7 +107,7 @@ class Owner
      *
      * @param string $slug
      *
-     * @return Keeper
+     * @return Owner
      */
     public function setSlug($slug)
     {
@@ -128,7 +131,7 @@ class Owner
      *
      * @param boolean $enabled
      *
-     * @return Keeper
+     * @return Owner
      */
     public function setEnabled($enabled)
     {
@@ -148,27 +151,27 @@ class Owner
     }
 
     /**
-     * Set name
+     * Set firstName
      *
-     * @param string $name
+     * @param string $firstName
      *
-     * @return Keeper
+     * @return Owner
      */
-    public function setName($name)
+    public function setFirstName($firstName)
     {
-        $this->name = $name;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get firstName
      *
      * @return string
      */
-    public function getName()
+    public function getFirstName()
     {
-        return $this->name;
+        return $this->firstName;
     }
 
     /**
@@ -176,7 +179,7 @@ class Owner
      *
      * @param string $lastName
      *
-     * @return Keeper
+     * @return Owner
      */
     public function setLastName($lastName)
     {
@@ -196,35 +199,11 @@ class Owner
     }
 
     /**
-     * Set type
-     *
-     * @param string $type
-     *
-     * @return Keeper
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
      * Set info
      *
      * @param string $info
      *
-     * @return Keeper
+     * @return Owner
      */
     public function setInfo($info)
     {
@@ -248,7 +227,7 @@ class Owner
      *
      * @param string $description
      *
-     * @return Keeper
+     * @return Owner
      */
     public function setDescription($description)
     {
@@ -265,5 +244,39 @@ class Owner
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Add element
+     *
+     * @param \Application\MainBundle\Entity\CollectionElement $element
+     *
+     * @return Owner
+     */
+    public function addElement(\Application\MainBundle\Entity\CollectionElement $element)
+    {
+        $this->elements[] = $element;
+
+        return $this;
+    }
+
+    /**
+     * Remove element
+     *
+     * @param \Application\MainBundle\Entity\CollectionElement $element
+     */
+    public function removeElement(\Application\MainBundle\Entity\CollectionElement $element)
+    {
+        $this->elements->removeElement($element);
+    }
+
+    /**
+     * Get elements
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getElements()
+    {
+        return $this->elements;
     }
 }
