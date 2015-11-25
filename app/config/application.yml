@@ -1,18 +1,6 @@
 application_main:
     main_menu:
         -
-            label: ~
-            icon: globe
-            children:
-                -
-                    label: Polski
-                    route: locale.switch
-                    routeParameters: { locale: pl }
-                -
-                    label: English
-                    route: locale.switch
-                    routeParameters: { locale: en }
-        -
             label: Home
             route: default.home
             routeParameters: {}
@@ -39,3 +27,15 @@ application_main:
             route: sonata_admin_dashboard
             icon: wrench
             role: ROLE_ADMIN
+        -
+            label: ~
+            icon: globe
+            children:
+                -
+                    label: Polski
+                    route: locale.switch
+                    routeParameters: { locale: pl }
+                -
+                    label: English
+                    route: locale.switch
+                    routeParameters: { locale: en }

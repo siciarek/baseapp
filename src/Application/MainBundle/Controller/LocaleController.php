@@ -18,28 +18,23 @@ class LocaleController extends Controller
         'en' => 'English',
     );
 
-    protected $default_locale = 'en';
+    public static $defaultLocale = 'en';
 
     /**
-     * @Route("/switch/{locale}", name="locale.switch", requirements = {"locale"="^[a-z]{2}$"})
+     * @Route("/switch/{locale}", name="locale.switch", requirements={"locale"="^[a-z]{2}$"})
      */
-    public function changeLocaleAction(Request $request) {
-
+    public function changeLocaleAction(Request $request)
+    {
         $locale = $request->get('locale');
 
-        $locale = in_array($locale, array_keys(self:: $locales)) ? $locale : $this->default_locale;
+        $locale = array_key_exists($locale, self:: $locales) ? $locale : self::$defaultLocale;
 
-        $session = $request->getSession();
-        $session->set('_locale', $locale);
+        $request->getSession()->set('_locale', $locale);
 
-    
-        $referer = $request->headers->get('referer');  
+        $referer = $request->headers->get('referer');
 
-        // Handling dev environent when no referer was found.
-        if($referer === null) {
-            $script_name = $request->getScriptName();
-            $referer = $request->getSchemeAndHttpHost();
-            $referer .= preg_match('/dev/', $script_name) > 0 ? $script_name . '/' : '';
+        if ($referer === null) {
+            return $this->redirectToRoute('default.home');
         }
 
         return $this->redirect($referer);

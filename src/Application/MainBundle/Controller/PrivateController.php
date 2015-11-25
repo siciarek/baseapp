@@ -40,16 +40,19 @@ class PrivateController extends Controller {
                 ->select('e.id, e.enabled, e.type, t.name, t.info')
                 ->leftJoin('e.translations', 't')
                 ->andWhere('t.locale = :locale')->setParameter('locale', $request->getLocale())
+                ->orderBy('t.name', 'ASC')
                 ->getQuery();
 
         $title = 'Elements';
         $headers = ['id', 'enabled', 'type', 'name', 'info'];
         $data = $query->getResult(Query::HYDRATE_ARRAY);
 
-        return $this->returnXlsResponse($data, $headers, $title);
+        $fileName = mb_convert_case($title, MB_CASE_LOWER);
+
+        return $this->returnXlsResponse($data, $headers, $title, $fileName);
     }
 
-    protected function returnXlsResponse($data, $headers, $title = 'Data', $fileName = 'spreadsheet.xls') {
+    protected function returnXlsResponse($data, $headers, $title = 'Data', $fileName = 'spreadsheet') {
 
         $srv = $this->get('phpexcel');
 
@@ -81,6 +84,8 @@ class PrivateController extends Controller {
         // create the response
         $response = $srv->createStreamedResponse($writer);
 
+        $fileName .= '.xls';
+        
         // adding headers
         $dispositionHeader = $response->headers->makeDisposition(
                 ResponseHeaderBag::DISPOSITION_ATTACHMENT, $fileName
