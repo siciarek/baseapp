@@ -2,13 +2,11 @@ Szablon aplikacji Symfony 2
 ---------------------------
 
 
-.. _Dokumentacja w formacie PDF: ../doc/application.pdf
+.. _Docs in PDF: ../doc/baseapp.pdf
 
 .. only:: html
 
-    `Dokumentacja w formacie PDF`_
-
-
+    * `Docs in PDF`_
 
 Spis treści
 ===========

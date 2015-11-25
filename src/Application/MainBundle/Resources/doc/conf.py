@@ -21,16 +21,21 @@ html_logo = 'images/logo.png'
 
 # -- Options for LaTeX output --------------------------------------------------
 
+# f = open('graph/static/latexstyling.tex', 'r+')
+# PREAMBLE = f.read();
+
 latex_elements = {
-# The paper size ('letterpaper' or 'a4paper').
-'papersize': 'a4paper',
+    # The paper size ('letterpaper' or 'a4paper').
+    'papersize': 'a4paper',
 
-# The font size ('10pt', '11pt' or '12pt').
-'pointsize': '12pt',
+    # The font size ('10pt', '11pt' or '12pt').
+    'pointsize': '12pt',
 
-# Additional stuff for the LaTeX preamble.
-'babel': '\\usepackage{polski}[babel]',
-'classoptions': ',openany,oneside'
+    # Additional stuff for the LaTeX preamble.
+    # 'preamble': PREAMBLE
+
+    'babel': '\\usepackage[' + language + ']{babel}',
+    'classoptions': ',openany,oneside'
 }
 
 # Grouping the document tree into LaTeX files. List of tuples

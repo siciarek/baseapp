@@ -9,7 +9,7 @@
     <property name="doc.html.target.dir" value="web/doc"/>
     <property name="doc.pdf.target.dir" value="web/doc/pdf"/>
     
-    <target name="doc" depends="doc-html" description="Generowanie dokumentacji projektu"/>
+    <target name="doc" depends="doc-html, doc-pdf" description="Generowanie dokumentacji projektu"/>
 
     <target name="doc-html" description="Generowanie dokumentacji projektu w formacie HTML">
         <exec executable="${sphinx.build}">
