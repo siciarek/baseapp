@@ -28,6 +28,7 @@ nbproject
 /vendor/
 
 # Assets and user uploads
+/web/doc
 /web/bundles/
 /web/uploads/
 /web/js

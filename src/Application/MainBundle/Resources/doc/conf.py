@@ -3,9 +3,9 @@
 import sys, os
 
 # Project settings:
-project = u'Szablon aplikacji Symfony 2'
+project = u'BaseApp'
 author = u'Jacek Siciarek'
-copyright = u'2014, Gdynia'
+copyright = u'2015, Gdynia'
 version = '1.0'
 release = version
 
@@ -29,16 +29,14 @@ latex_elements = {
 'pointsize': '12pt',
 
 # Additional stuff for the LaTeX preamble.
-#'preamble': '',
-
-'babel': '\\usepackage[' + language + ']{babel}',
+'babel': '\\usepackage{polski}[babel]',
 'classoptions': ',openany,oneside'
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  (master_doc, 'application.tex', project, author, 'manual', False),
+    (master_doc, 'baseapp.tex', project, author, 'manual', False),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
