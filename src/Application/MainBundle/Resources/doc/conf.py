@@ -8,6 +8,8 @@ author = u'Jacek Siciarek'
 copyright = u'2015, Gdynia'
 version = '1.0'
 release = version
+extensions = [ 'sphinx.ext.pngmath' ]
+exclude_patterns = [ 'references/includes' ]
 
 # Layout settings:
 language = 'polish'
@@ -63,38 +65,3 @@ latex_appendices = []
 
 # If false, no module index is generated.
 latex_domain_indices = True
-
-# -----------------------------------------------------------------------------
-# http://symfony.com/doc/current/contributing/documentation/format.html
-# -----------------------------------------------------------------------------
-
-# ...
-sys.path.append(os.path.abspath('_exts'))
-
-# adding PhpLexer
-from sphinx.highlighting import lexers
-from pygments.lexers.web import PhpLexer
-
-# ...
-# add the extensions to the list of extensions
-extensions = ['sensio.sphinx.refinclude', 'sensio.sphinx.configurationblock', 'sensio.sphinx.phpcode', 'sphinx.ext.pngmath' ]
-exclude_patterns = [ 'references/includes' ]
-
-# enable highlighting for PHP code not between ``<?php ... ?>`` by default
-lexers['php'] = PhpLexer(startinline=True)
-lexers['php-annotations'] = PhpLexer(startinline=True)
-lexers['php-standalone'] = PhpLexer(startinline=True)
-lexers['php-symfony'] = PhpLexer(startinline=True)
-
-# use PHP as the primary domain
-primary_domain = 'php'
-
-# set url for API links
-api_url = 'http://api.symfony.com/master/%s'
-
-# -----------------------------------------------------------------------------
-
-# Custom formats for sensio.sphinx.configurationblock
-from sensio.sphinx.configurationblock import ConfigurationBlock
-ConfigurationBlock.formats['bash'] = 'Linux'
-ConfigurationBlock.formats['bat'] = 'Windows'
