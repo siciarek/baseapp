@@ -11,8 +11,19 @@ file that was distributed with this source code.
 
 {% extends "::base.html.twig" %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    
+    <style>
+        .access-row .panel {
+             height:320px;
+        }
+    </style>
+
+{% endblock %}
+
 {% block fos_user_content %}
-    <div class="row">
+    <div class="row access-row">
         <div class="col-sm-6">
             {% block sonata_user_login %}
                 <div class="panel panel-info">

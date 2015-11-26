@@ -4,17 +4,32 @@
     </div>
     <div class="panel-body">
 
-        {{ form_start(form, { action:  path('fos_user_registration_register'), method: 'post', attr: { class: 'form-horizontal' }} ) }}
+        {{ form_start(form, { action:  path('fos_user_registration_register'), method: 'post', attr: { role: 'form', class: 'form-horizontal' }} ) }}
+
+        {% for field in [ 'username', 'email' ] %}
+            
+        <div class="form-group">
+            {{ form_label(form[field], null, { label_attr: { class: 'col-sm-4 control-label' } }) }}
+            <div class="col-sm-8">{{ form_widget(form[field], { attr: { class: 'form-control' }} ) }}</div>
+            {{ form_errors(form[field]) }}
+        </div>
+        
+        {% endfor %}
+
+        {% for field in [ 'first', 'second' ] %}
+            
+        <div class="form-group">
+            {{ form_label(form.plainPassword[field], null, { label_attr: { class: 'col-sm-4 control-label' } }) }}
+            <div class="col-sm-8">{{ form_widget(form.plainPassword[field], { attr: { class: 'form-control' }} ) }}</div>
+            {{ form_errors(form.plainPassword[field]) }}
+        </div>
+        
+        {% endfor %}
 
         <div class="form-group">
-            <div class="col-sm-8">{{ form_widget(form.username, { attr: { class: 'form-control' }} ) }}</div>
-            {{ form_label(form.username, null, { class: 'col-sm-4 control-label' }) }}
-            {#{{ form_errors(form.username) }}#}
-        </div>
-
-        <div class="form-actions">
-            <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}"
-                   class="btn btn-success pull-right"/>
+            <div class="col-sm-offset-4 col-sm-8">
+                <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-success"/>
+            </div>
         </div>
 
         {{ form_end(form) }}
