@@ -27,17 +27,24 @@ class LocaleController extends Controller
     public function changeLocaleAction(Request $request)
     {
         $locale = $request->get('locale');
-
         $locale = array_key_exists($locale, self:: $locales) ? $locale : self::$defaultLocale;
 
-        $request->getSession()->set('_locale', $locale);
+        // Store locale in session:
+        $request->getSession()->set('locale', $locale);
 
+        // Store locale in cookie:
+        $expire = new \DateTime();
+        $expire->add(new \DateInterval('P1Y')); // One year expiration time
+        $cookie = new Cookie('locale', $locale, $expire, '/', null, false, false);
+        
         $response = new Response();
-        $response->headers->setCookie(new Cookie('_locale', $locale));
+        $response->headers->setCookie($cookie);
         $response->send();
 
+        // Redirect to the referer:
         $referer = $request->headers->get('referer');
 
+        // Or to the homepage if the referer is not available:
         if ($referer === null) {
             return $this->redirectToRoute('default.home');
         }

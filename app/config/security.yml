@@ -16,6 +16,7 @@ security:
             id: fos_user.user_provider.username_email
 
     firewalls:
+
         # Disabling the security for the web debug toolbar, the profiler and Assetic.
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
@@ -37,7 +38,7 @@ security:
 
         # -> end custom configuration
 
-        # default login area for standard users
+        # -> default login area for standard users
 
         # This firewall is used to handle the public login area
         # This part is handled by the FOS User Bundle
@@ -52,7 +53,17 @@ security:
                 failure_path:   null
             logout:             true
             anonymous:          true
+            remember_me:
+                key:      "%secret%"
+                lifetime: 604800 # 1 week in seconds
+                path:     /
+                # by default, the feature is enabled by checking a
+                # checkbox in the login form (see below), uncomment the
+                # following line to always enable it.
+                # always_remember_me: true
 
+        # -> end default login area for standard users
+        
     access_control:
         # URL of FOSUserBundle which need to be available to anonymous users
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

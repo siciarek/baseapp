@@ -44,6 +44,8 @@ class GoCommand extends ContainerAwareCommand
             $msg = strtoupper($msg);
         }
 
+        $output->writeln(new \DateTime());
+
         $output->writeln($msg);
     }
 }

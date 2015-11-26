@@ -10,8 +10,8 @@ nelmio_security:
     # encrypt all cookies
     encrypted_cookie:
         names: ['_locale']
-        # secret: %secret%  # defaults to global %secret% parameter
-        # algorithm: rijndael-256 # defaults to sha256, see `hash_algos()` for available algorithms
+        secret: %secret%  # defaults to global %secret% parameter
+        algorithm: rijndael-256 # defaults to sha256, see `hash_algos()` for available algorithms
 
     # prevents framing of the entire site
     # clickjacking:

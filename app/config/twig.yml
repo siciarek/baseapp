@@ -5,3 +5,10 @@ twig:
         bootstrapVersion: '3.3.6'
         jqueryVersion: '2.1.4'
         fontAwesomeVersion: '4.5.0'
+    number_format:
+        decimals: 2
+        decimal_point: ','
+        thousands_separator: ' '
+    date:
+        format: Y-m-d H:i
+        timezone: %default_timezone%
