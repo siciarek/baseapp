@@ -47,7 +47,7 @@
 
     <target name="as" depends="cc" description="Wygenerowanie wszystkich assetsów">
         <exec executable="${php}">
-            <arg line="app/console assets:install --symlink"/>
+            <arg line="app/console assets:install --env=prod --symlink"/>
         </exec>
         <exec executable="${php}">
             <arg line="app/console assetic:dump --env=prod"/>
@@ -59,7 +59,7 @@
     
     <target name="fix" depends="db" description="Wprowadzenie danych domyślnych do bazy">
         <exec executable="${php}">
-            <arg line="app/console doctrine:fixtures:load --no-interaction"/>
+            <arg line="app/console doctrine:fixtures:load --env=prod --no-interaction"/>
         </exec>
     </target>
 
@@ -93,22 +93,28 @@
 
     <target name="db" depends="ccm" description="Reset bazy danych">
         <exec executable="${php}">
-            <arg line="app/console doctrine:database:drop --force"/>
+            <arg line="app/console doctrine:database:drop --env=prod --force"/>
         </exec>
         <exec executable="${php}">
-            <arg line="app/console doctrine:database:create"/>
+            <arg line="app/console doctrine:database:create --env=prod"/>
         </exec>
         <exec executable="${php}">
-            <arg line="app/console doctrine:schema:update --force"/>
+            <arg line="app/console doctrine:schema:update --env=prod --force"/>
         </exec>
         <exec executable="${php}">
-            <arg line="app/console doctrine:schema:validate"/>
+            <arg line="app/console doctrine:schema:validate --env=prod"/>
         </exec>
     </target>
 
     <target name="check" description="Walidacja mappingu bazy danych">
         <exec executable="${php}">
             <arg line="app/console doctrine:schema:validate"/>
+        </exec>
+    </target>
+    
+    <target name="send" description="Wyślij emaile ze spoola">
+        <exec executable="${php}">
+            <arg line="app/console swiftmailer:spool:send --env=prod"/>
         </exec>
     </target>
 

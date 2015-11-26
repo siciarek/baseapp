@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+{% block fos_user_content %}
+<div class="row access-row">
+        <div class="col-sm-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h2 class="panel-title">{{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}</h2>
+                </div>
+                <div class="panel-body">
+                    {% include "FOSUserBundle:Resetting:reset_content.html.twig" %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock fos_user_content %}

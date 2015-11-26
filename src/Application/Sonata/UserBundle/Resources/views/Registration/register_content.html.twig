@@ -4,7 +4,7 @@
     </div>
     <div class="panel-body">
 
-        {{ form_start(form, { action:  path('fos_user_registration_register'), method: 'post', attr: { role: 'form', class: 'form-horizontal' }} ) }}
+        {{ form_start(form, { action:  path('fos_user_registration_register'), method: 'post', attr: { autocomplete: 'off', role: 'form', class: 'form-horizontal' }} ) }}
 
         {% for field in [ 'username', 'email' ] %}
             

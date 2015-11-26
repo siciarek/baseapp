@@ -18,6 +18,10 @@ file that was distributed with this source code.
         .access-row .panel {
              height:330px;
         }
+        
+        label[for=remember_me] {
+            font-weight: normal !important;
+        }
     </style>
 
 {% endblock %}
@@ -56,12 +60,10 @@ file that was distributed with this source code.
 
                             <div class="form-group">
                                 <div class="col-sm-offset-4 col-sm-8">
-                                    <div class="checkbox control-group">
-                                        <label for="remember_me">
-                                            <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
-                                            {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
-                                        </label>
-                                    </div>
+                                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" data-three-state="false" data-toggle="checkbox-x" data-size="lg" />
+                                    <label for="remember_me">
+                                        {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+                                    </label>
                                 </div>
                             </div>
 
