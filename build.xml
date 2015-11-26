@@ -116,6 +116,9 @@
         <exec executable="${php}">
             <arg line="app/console swiftmailer:spool:send --env=prod"/>
         </exec>
+        <exec executable="${php}">
+            <arg line="app/console swiftmailer:spool:send --env=dev"/>
+        </exec>
     </target>
 
 </project>
