@@ -5,3 +5,10 @@ survey:
     info: Ankieta będzie mogła być wysłana, gdy na wszystkie pytania zostaną udzielone odpowiedzi. 
     complete: Dziękujemy
     complete_info: Ankieta została zarejestrowana, dziękujemy za udział.
+    
+disc:
+    classical:
+        pattern:
+            name: 'Klasyczny wzorzec DiSC'
+            name_plural: 'Klasyczne wzorce DiSC'
+            info: 'Poniżej znajduje się kompletna lista wzorców DiSC z odpowiadającymi im profilami.'

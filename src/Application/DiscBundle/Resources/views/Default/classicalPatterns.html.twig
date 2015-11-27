@@ -1,0 +1,63 @@
+{% extends '::base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    
+    <script>
+      
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    
+    <style>
+       
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="page-header">
+        <i class="fa fa-list-alt fa-lg fa-fw text-muted"></i>
+        {{ 'disc.classical.pattern.name_plural'|trans }}
+    </h1>
+
+    <div class="alert alert-info info">
+        <i class="fa fa-info-circle fa-2x fa-fw" style="vertical-align:middle"></i>
+        {{ 'disc.classical.pattern.info'|trans }}
+    </div>
+
+    {% for row in items|batch(4) %}
+        <div class="row">
+            {% for header, data in row %}
+            <div class="col-lg-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ header }}</h3>        
+                    </div>
+                    <div class="panel-body">
+                        {% for key, val in data %}
+                            <strong>{{ key }}</strong> &#0151 {{ val|trans }}<br/>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+            </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+    <br/>
+    <br/>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+{% endblock %}

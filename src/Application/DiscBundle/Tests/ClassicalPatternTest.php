@@ -47,6 +47,6 @@ class ClassicalPatternTest extends WebTestCase
     }
     
     public function setUp() {
-        $this->srv = static::createClient()->getContainer()->get('classical.pattern');
+        $this->srv = static::createClient()->getContainer()->get('disc.classical.pattern');
     }
 }
