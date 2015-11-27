@@ -4,6 +4,12 @@
     {{ parent() }}
     
     <script>
+        function spinnerTest() {
+            Spinner.show();
+            setTimeout(function() {
+              Spinner.hide();
+            }, 3000);
+        }
     </script>
 {% endblock %}
 
@@ -16,6 +22,9 @@
                 {{ app_name|trans }}
             </h1>
             <p>{{ app_description|trans|nl2br }}</p>
+            <a href="javascript:spinnerTest()" class="btn btn-lg btn-success">
+                <i class="fa fa-lg fa-fw fa-cog"></i>
+            </a>
         </div>
     </div>
 
