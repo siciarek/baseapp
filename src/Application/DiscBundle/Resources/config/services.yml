@@ -1,0 +1,3 @@
+services:
+    classical.pattern:
+        class: Application\DiscBundle\Service\ClassicalPattern

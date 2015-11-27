@@ -20,11 +20,18 @@ class DummyCommand extends ContainerAwareCommand {
 
     protected function execute(InputInterface $input, OutputInterface $output) {
 
-        $filename = realpath(__DIR__ . '/../../DiscBundle/Resources/config/patterns.yml');
+        $srv = $this->getContainer()->get('classical.pattern');
+        $patterns = $srv->getList();
+
+        // $filename = realpath(__DIR__ . '/../../DiscBundle/Resources/config/patterns.yml');
         
-        $patterns = Yaml::parse(file_get_contents($filename));
+        // $patterns = Yaml::parse(file_get_contents($filename));
         
         $output->writeln(json_encode($patterns, JSON_PRETTY_PRINT));
+        $profile = $srv->getProfile(1467);
+        
+        $output->writeln($profile);
+        
         
         return;
     
