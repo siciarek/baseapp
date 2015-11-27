@@ -1,0 +1,209 @@
+{% extends '::base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    
+    <script>
+        var user = '{{ user }}';
+        var mode = '{{ mode }}';
+        var questionCount = {{ survey|length }};
+        var completeClass = 'bg-success';
+        var answers = {};
+        
+        $(document).ready(function() {
+            
+            console.log(user);
+            
+            $('.survey-form').on('click', 'button.send', function(e) {
+                 e.preventDefault();
+                 var self = $(this);
+                 var json = JSON.stringify(answers);
+                 var form = self.closest('form');
+                 form.find('input[name=json]').val(json);
+                 
+                 form.submit();  
+            });
+            
+            $('span.rate').on('click', 'a', function(e) {
+                 e.preventDefault();
+                 var self = $(this);
+                 
+                 self.blur();
+                 
+                 var temp = self.attr('id').split('-');
+                 var type = temp.shift();
+                 var rate = temp.shift();
+                 var question = temp.shift();
+                 
+                 if(!answers.hasOwnProperty(question)) {
+                     answers[question] = {
+                         most: null,
+                         least: null
+                     };
+                 }
+                 
+                 var panel = self.closest('.panel-body');
+                 panel.find('.btn.' + rate + '').removeClass(rate);
+                 panel.find('.survey-question .question.' + rate + '').removeClass(rate);
+                 
+                 self.closest('.survey-question').find('.btn').removeClass('most').removeClass('least');
+                 self.closest('.survey-question').find('.question').removeClass('most').removeClass('least');
+
+                 if(answers[question][rate] === type) {
+                     answers[question][rate] = null;
+                 }
+                 else {
+                     answers[question][rate] = type;
+                     
+                     if(answers[question].most === answers[question].least) {
+                         answers[question] = {
+                             most: null,
+                             least: null
+                         };
+                     }
+                     
+                     answers[question][rate] = type;
+                     
+                     self.addClass(rate);
+                     self.closest('.survey-question').find('.question').addClass(rate);
+                 }
+                 
+                 var complete = {
+                     strict: true,
+                     soft: false
+                 };
+                 
+                 panel.removeClass(completeClass);
+                 
+                 for(var t in answers[question]) {
+                     if(answers[question][t] === null) {
+                         complete['strict'] = false;
+                     }
+                     else {
+                         complete['soft'] = true;
+                     }
+                 }
+                 
+                 if(complete[mode] === true) {
+                     panel.addClass(completeClass);
+                 }
+                 
+                 var count = $('.panel-body.' + completeClass).length;
+                 
+                 if(count === questionCount) {
+                     $('.info').addClass('hidden');
+                     $('.send').removeClass('disabled');
+                 }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    
+    <style>
+        .survey-question {
+            padding-top: 6px;
+            padding-left: 12px;
+        }
+        
+        .survey-question span.question {
+            font-size: 12pt;
+            display: inline-block;
+            padding-top: 3px;
+        }
+        
+        .survey-question .btn {
+            color: #555555;
+        }
+        
+        .survey-question .btn:hover {
+            color: black;
+            background-color: #DADADA;
+        }
+        
+        .survey-question .btn.most {
+            background-color: darkgreen;
+            color: white;
+        }
+        
+        .survey-question .btn.least {
+            background-color: darkred;
+            color: white;
+        }
+        
+        .survey-question .question.most {
+            font-weight: bold;
+        }
+        
+        .survey-question .question.least {
+            text-decoration: line-through;
+        }
+        
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="page-header">
+        <i class="fa fa-list-alt fa-lg fa-fw text-muted"></i>
+        {{ 'survey.name'|trans }} #{{ user }}
+    </h1>
+
+    <div class="alert alert-info info">
+        <i class="fa fa-info-circle fa-2x fa-fw" style="vertical-align:middle"></i>
+        {{ 'survey.info'|trans }}
+    </div>
+    
+    {% set index = 1 %}
+    
+    {% for row in survey|batch(2) %}
+        <div class="row">
+            {% for questions in row %}
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            {% for type, question in questions %}
+                            <div class="survey-question clearfix">
+                                <span class="question col-lg-9">{{ question }}</span>
+                                <span class="rate pull-right">
+                                    <a href="#" class="btn btn-sm" id="{{ type }}-most-{{ index }}">
+                                        <i class="fa fa-thumbs-o-up fa-2x"></i> 
+                                    </a>
+                                    <a href="#" class="btn btn-sm" id="{{ type }}-least-{{ index }}">
+                                        <i class="fa fa-thumbs-o-down fa-2x"></i> 
+                                    </a>
+                                </span>
+                            </div>
+                            {% endfor %}
+                            {% set index = index + 1 %}
+                        </div>
+                    </div>
+                </div>  
+            {% endfor %}
+        </div>
+    {% endfor %} 
+    
+    <br/>
+    
+    <form action="{{ path('disc.survey.evaluate') }}" class="survey-form" method="POST">
+        <input type="hidden" value="" name="json"/>
+        <div clas="row">
+            <button type="submit" class="send btn btn-primary btn-lg col-lg-offset-5 col-lg-2 disabled">{{ 'survey.send'|trans }}</button>
+        </div>
+    </form>
+
+    <br/>
+    <br/>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+{% endblock %}

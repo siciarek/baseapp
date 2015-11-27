@@ -1,0 +1,50 @@
+{% extends '::base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    
+    <script>
+      
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    
+    <style>
+       
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="page-header">
+        <i class="fa fa-list-alt fa-lg fa-fw text-muted"></i>
+        {{ 'survey.complete'|trans }}
+    </h1>
+
+    <div class="alert alert-success info">
+        <i class="fa fa-info-circle fa-2x fa-fw" style="vertical-align:middle"></i>
+        {{ 'survey.complete_info'|trans }}
+    </div>
+    
+    <br/>
+    
+    <h3>Tally Box</h3>
+    <pre>
+{{ data }}
+    </pre>
+
+    <br/>
+    <br/>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+{% endblock %}

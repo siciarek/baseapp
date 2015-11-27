@@ -1,0 +1,7 @@
+survey:
+    name: Ankieta
+    name_plural: Ankiety
+    send: Wyślij ankietę
+    info: Ankieta będzie mogła być wysłana, gdy na wszystkie pytania zostaną udzielone odpowiedzi. 
+    complete: Dziękujemy
+    complete_info: Ankieta została zarejestrowana, dziękujemy za udział.
