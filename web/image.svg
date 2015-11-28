@@ -7,20 +7,17 @@
         <![CDATA[
 
             .bg {
-                /*visibility: hidden;*/
                 visibility: visible;
             }
 
             .boxes {
-                stroke: magenta;
-                fill:none;
-                /*fill: #768DA5;*/
-                /*visibility: hidden;*/
+                fill: #768DA5;
+                visibility: hidden;
             }
 
             .dim {
-                stroke: magenta;
-                fill: none; /* #546590; */
+                fill: #768DA5;
+                visibility: visible;
             }
 
             text {
@@ -29,14 +26,34 @@
                 font-size: 27px;
                 font-weight: bold;
             }
+
+			text.label {
+				fill: white;
+			}
+
+			text.label.segment {
+				font-size: 43px;
+			}
+
+			text.label.intensity {
+				font-size: 22px;
+			}
+
+			text.label.header {
+				font-size: 44px;
+			}
+
+			text.label.disc {
+				font-size: 64px;
+			}
         ]]>
     </style>
 
     <image class="bg" width="687" height="1123" xlink:href="bundles/applicationmain/images/DiSC/graph1.png"/>
 
-    <!--#768DA5;#546590;-->
+    <!--#768DA5;#546590;124-->
 
-    <g stroke-dasharray="5,5">
+    <g>
         <g class="boxes">
             <!--GRAPH X BAR-->
             <path
@@ -59,16 +76,16 @@
             <path d="
     M 600 173
     l 0 798
-    l 40 0
+    l 37 0
     l 0 -798
     Z"/>
             <!--SEGMENT BADGE-->
             <path d="
-    M 592 128
-    l 58 0
-    l 0 27
-    l -29 20
-    l -29 -20
+    M 586 128
+    l 60 0
+    l 0 30
+    l -30 16
+    l -30 -16
 
     Z"/>
 
@@ -217,5 +234,50 @@
             <text x="539" y="970">0</text>
         </g>
     </g>
+
+
+    <text class="label segment" x="620" y="242">7</text>
+    <text class="label segment" x="620" y="355">6</text>
+    <text class="label segment" x="620" y="471">5</text>
+    <text class="label segment" x="620" y="584">4</text>
+    <text class="label segment" x="620" y="700">3</text>
+    <text class="label segment" x="620" y="824">2</text>
+    <text class="label segment" x="620" y="934">1</text>
+
+    <text class="label intensity" x="52" y="195">28</text>
+    <text class="label intensity" x="52" y="223">27</text>
+    <text class="label intensity" x="52" y="252">26</text>
+    <text class="label intensity" x="52" y="280">25</text>
+    <text class="label intensity" x="52" y="309">24</text>
+    <text class="label intensity" x="52" y="338">23</text>
+    <text class="label intensity" x="52" y="366">22</text>
+    <text class="label intensity" x="52" y="395">21</text>
+    <text class="label intensity" x="52" y="423">20</text>
+    <text class="label intensity" x="52" y="452">19</text>
+    <text class="label intensity" x="52" y="481">18</text>
+    <text class="label intensity" x="52" y="509">17</text>
+    <text class="label intensity" x="52" y="538">16</text>
+    <text class="label intensity" x="52" y="566">15</text>
+    <text class="label intensity" x="52" y="595">14</text>
+    <text class="label intensity" x="52" y="624">13</text>
+    <text class="label intensity" x="52" y="652">12</text>
+    <text class="label intensity" x="52" y="681">11</text>
+    <text class="label intensity" x="52" y="709">10</text>
+    <text class="label intensity" x="52" y="738">9</text>
+    <text class="label intensity" x="52" y="767">8</text>
+    <text class="label intensity" x="52" y="795">7</text>
+    <text class="label intensity" x="52" y="824">6</text>
+    <text class="label intensity" x="52" y="852">5</text>
+    <text class="label intensity" x="52" y="881">4</text>
+    <text class="label intensity" x="52" y="910">3</text>
+    <text class="label intensity" x="52" y="938">2</text>
+    <text class="label intensity" x="52" y="967">1</text>
+
+    <text class="label disc" x="129" y="143">D</text>
+    <text class="label disc" x="249" y="143">i</text>
+    <text class="label disc" x="374" y="143">S</text>
+    <text class="label disc" x="498" y="143">C</text>
+
+    <text class="label header" x="344" y="65">GRAPH I</text>
 
 </svg>

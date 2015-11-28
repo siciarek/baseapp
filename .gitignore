@@ -36,6 +36,7 @@ nbproject
 /web/css
 /web/uploads/media/*
 !web/uploads/media/.gitkeep
+/web/temp*
 
 # PHPUnit
 /app/phpunit.xml
