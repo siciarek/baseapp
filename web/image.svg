@@ -1,0 +1,187 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="687" height="1123px" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <desc>DiSC Graph I</desc>
+
+    <style type="text/css">
+        <![CDATA[
+            path {
+                stroke: none;
+                fill: #768DA5
+            }
+            path.dim {
+                stroke: none;
+                fill: #546590;
+            }
+
+            text {
+                font-family: sans-serif;
+                text-anchor: middle;
+                font-size: 27px;
+                font-weight: bold;
+                fill: red
+            }
+        ]]>
+    </style>
+
+    <image width="687" height="1123" xlink:href="bundles/applicationmain/images/DiSC/graph1.png"/>
+
+    <!--#768DA5;#546590;-->
+
+    <!--GRAPH X BAR-->
+    <path d="
+    M 33 27
+    l 614 0
+    l 0 47
+    l -614 0
+    Z"/>
+
+    <!--INTENSITY BAR-->
+    <path d="
+    M 33 173
+    l 0 798
+    l 40 0
+    l 0 -798
+    Z"/>
+
+    <!--SEGMENT BAR-->
+    <path d="
+    M 600 173
+    l 0 798
+    l 40 0
+    l 0 -798
+    Z"/>
+    <!--SEGMENT BADGE-->
+    <path d="
+    M 592 128
+    l 58 0
+    l 0 27
+    l -29 20
+    l -29 -20
+
+    Z"/>
+
+    <!--D BADGE-->
+    <path class="dim" d="
+    M 82 88
+    l 88 0
+    l 0 52
+    l -43 22
+    l -45 -22
+    Z"/>
+    <!--D LINE-->
+    <path class="dim" d="
+    M 124 160
+    l 0 811
+    l 5 0
+    l 0 -811
+    Z"/>
+    <text x="167" y="195">27</text>
+    <text x="167" y="250">12</text>
+    <text x="167" y="280">11</text>
+    <text x="167" y="308">10</text>
+    <text x="167" y="330">9</text>
+    <text x="167" y="363">8</text>
+    <text x="167" y="424">7</text>
+    <text x="167" y="448">6</text>
+    <text x="167" y="540">5</text>
+    <text x="167" y="598">4</text>
+    <text x="167" y="655">3</text>
+    <text x="167" y="733">2</text>
+    <text x="167" y="842">1</text>
+    <text x="167" y="918">0</text>
+
+    <!--i BADGE-->
+    <path class="dim" d="
+    M 206 88
+    l 88 0
+    l 0 52
+    l -43 22
+    l -45 -22
+    Z"/>
+    <!--i LINE-->
+    <path class="dim" d="
+    M 248 160
+    l 0 811
+    l 5 0
+    l 0 -811
+    Z"/>
+    <text x="292" y="195">28</text>
+    <text x="292" y="252">12</text>
+    <text x="292" y="280">11</text>
+    <text x="292" y="321">10</text>
+    <text x="292" y="367">9</text>
+    <text x="292" y="425">8</text>
+    <text x="292" y="540">7</text>
+    <text x="292" y="580">6</text>
+    <text x="292" y="656">5</text>
+    <text x="292" y="738">4</text>
+    <text x="292" y="831">3</text>
+    <text x="292" y="888">2</text>
+    <text x="292" y="940">1</text>
+    <text x="292" y="969">0</text>
+
+    <!--S BADGE-->
+    <path class="dim" d="
+    M 330 88
+    l 88 0
+    l 0 52
+    l -43 22
+    l -45 -22
+    Z"/>
+    <!--S LINE-->
+    <path class="dim" d="
+    M 372 160
+    l 0 811
+    l 5 0
+    l 0 -811
+    Z"/>
+    <text x="419" y="195">26</text>
+    <text x="419" y="252">12</text>
+    <text x="419" y="280">11</text>
+    <text x="419" y="321">10</text>
+    <text x="419" y="367">9</text>
+    <text x="419" y="425">8</text>
+    <text x="419" y="540">7</text>
+    <text x="419" y="580">6</text>
+    <text x="419" y="656">5</text>
+    <text x="419" y="738">4</text>
+    <text x="419" y="831">3</text>
+    <text x="419" y="888">2</text>
+    <text x="419" y="940">1</text>
+    <text x="419" y="969">0</text>
+
+    <!--C BADGE-->
+    <path class="dim" d="
+    M 454 88
+    l 88 0
+    l 0 52
+    l -43 22
+    l -45 -22
+    Z"/>
+    <!--C LINE-->
+    <path class="dim" d="
+    M 496 160
+    l 0 811
+    l 5 0
+    l 0 -811
+    Z"/>
+
+    <text x="538" y="195">24</text>
+    <text x="539" y="252">12</text>
+    <text x="539" y="280">11</text>
+    <text x="539" y="321">10</text>
+    <text x="539" y="367">9</text>
+    <text x="539" y="425">8</text>
+    <text x="539" y="540">7</text>
+    <text x="539" y="580">6</text>
+    <text x="539" y="656">5</text>
+    <text x="539" y="738">4</text>
+    <text x="539" y="831">3</text>
+    <text x="539" y="888">2</text>
+    <text x="539" y="940">1</text>
+    <text x="539" y="969">0</text>
+
+    <!--<line x1="167" y1="195" x2="0" y2="0" stroke="green" stroke-width="5px"/>-->
+
+</svg>
