@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Yaml\Yaml;
 
 class DummyCommand extends ContainerAwareCommand {
 
@@ -19,6 +20,21 @@ class DummyCommand extends ContainerAwareCommand {
 
     protected function execute(InputInterface $input, OutputInterface $output) {
 
+        $srv = $this->getContainer()->get('classical.pattern');
+        $patterns = $srv->getList();
+
+        // $filename = realpath(__DIR__ . '/../../DiscBundle/Resources/config/patterns.yml');
+        
+        // $patterns = Yaml::parse(file_get_contents($filename));
+        
+        $output->writeln(json_encode($patterns, JSON_PRETTY_PRINT));
+        $profile = $srv->getProfile(1467);
+        
+        $output->writeln($profile);
+        
+        
+        return;
+    
         $filename = __DIR__ . '/../Resources/doc/_static/patterns.txt';
         $content = file_get_contents($filename);
 
@@ -279,9 +295,362 @@ class DummyCommand extends ContainerAwareCommand {
                 [ 'Promoter' => 4,],
                 [ 'Appraiser' => 3,],
                 [ 'Promoter' => 4,],
-            ]
-        ];
+            ],
+            '3677' => [
+                [ 'Practitioner' => 3,],
+                [ 'Agent' => 4,],
+                
+                [ 'Practitioner' => 3,],
+                [ 'Counselor' => 4,],
 
+                [ 'Practitioner' => 3,],
+                [ 'Counselor' => 4,],
+                
+                [ 'Practitioner' => 3,],
+                [ 'Promoter' => 4,],
+
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+               
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+               
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+            ],
+            '3577' => [
+                [ 'Practitioner' => 3,],
+                [ 'Agent' => 4,],
+                [ 'Practitioner' => 3,],
+                [ 'Agent' => 4,],
+                [ 'Practitioner' => 3,],
+                [ 'Counselor' => 4,],
+                [ 'Practitioner' => 3,],
+                [ 'Promoter' => 4,],
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+            ],
+            '3477' => [
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Tight' => 2,],
+                [ 'Undershift' => 2,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Tight' => 2,],
+                [ 'Undershift' => 2,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+            ],
+            '3377' => [
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Tight' => 2,],
+                [ 'Undershift' => 2,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Tight' => 1,],
+                [ 'Undershift' => 3,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+            ],
+            '3277' => [
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+            ],
+            '3177' => [
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+            ],
+            '2777' => [
+                [ 'Practitioner' => 3,],
+                [ 'Counselor' => 4,],
+                [ 'Practitioner' => 3,],
+                [ 'Counselor' => 4,],
+                [ 'Practitioner' => 3,],
+                [ 'Counselor' => 4,],
+                
+                [ 'Practitioner' => 3,],
+                [ 'Promoter' => 4,],
+
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+            ],
+            '2677' => [
+                [ 'Practitioner' => 3,],
+                [ 'Agent' => 4,],
+
+                [ 'Practitioner' => 3,],
+                [ 'Counselor' => 4,],
+                [ 'Practitioner' => 3,],
+                [ 'Counselor' => 4,],
+
+                [ 'Practitioner' => 3,],
+                [ 'Promoter' => 4,],
+                
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+
+            ],
+            '2577' => [
+                [ 'Practitioner' => 3,],
+                [ 'Agent' => 4,],
+                [ 'Practitioner' => 3,],
+                [ 'Agent' => 4,],
+
+                [ 'Practitioner' => 3,],
+                [ 'Counselor' => 4,],
+
+                [ 'Practitioner' => 3,],
+                [ 'Promoter' => 4,],
+                
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+            ],
+            '2477' => [
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+              
+            ],
+            '2377' => [
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+            ],
+            '2277' => [
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+            ],
+            '2177' => [
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+            ],
+            '1777' => [
+                [ 'Practitioner' => 3,],
+                [ 'Counselor' => 4,],
+                [ 'Practitioner' => 3,],
+                [ 'Counselor' => 4,],
+                [ 'Practitioner' => 3,],
+                [ 'Counselor' => 4,],
+
+                [ 'Practitioner' => 3,],
+                [ 'Promoter' => 4,],
+                
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+            ],
+            '1677' => [
+                [ 'Practitioner' => 3,],
+                [ 'Agent' => 4,],
+
+                [ 'Practitioner' => 3,],
+                [ 'Counselor' => 4,],
+                [ 'Practitioner' => 3,],
+                [ 'Counselor' => 4,],
+
+                [ 'Practitioner' => 3,],
+                [ 'Promoter' => 4,],
+
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+            ],
+            '1577' => [
+                [ 'Practitioner' => 3,],
+                [ 'Agent' => 4,],
+                [ 'Practitioner' => 3,],
+                [ 'Agent' => 4,],
+                [ 'Practitioner' => 3,],
+                [ 'Counselor' => 4,],
+                [ 'Practitioner' => 3,],
+                [ 'Promoter' => 4,],
+
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+                [ 'Appraiser' => 3,],
+                [ 'Promoter' => 4,],
+            ],
+            '1477' => [
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+            ],
+            '1377' => [
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+            ],
+            '1277' => [
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+            ],
+            '1177' => [
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                [ 'Perfectionist' => 3,],
+                [ 'Specialist' => 4,],
+                
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+                [ 'Objective Thinker' => 3,],
+                [ 'Undershift' => 4,],
+            ],
+        ];
 
         foreach ($sets as $mainkey => $set) {
 
@@ -335,10 +704,14 @@ class DummyCommand extends ContainerAwareCommand {
         $out = [];
         $out[] = $result;
         $out[] = $positions;
+        $out[] = count($positions);
         $out[] = $patterns;
+        $out[] = count($patterns);
 
         $data = json_encode($out, JSON_PRETTY_PRINT);
-        $output->writeln($data);
+        // $output->writeln($data);
+        
+        $output->writeln(Yaml::dump([ 'disc' => [ 'patterns' => $result ]], 10));
     }
 
 }

@@ -15,6 +15,16 @@ use Symfony\Component\DomCrawler\Crawler;
  */
 class DefaultController extends Controller
 {
+     /**
+     * @Route("/classical-patterns", name="disc.classical.patterns")
+     * @Template()
+     */
+    public function classicalPatternsAction() {
+        return [
+            'items' => $this->get('disc.classical.pattern')->getList(),
+        ];   
+    }
+    
     protected function getSurvey() {
         $url = 'https://www.123test.com/disc-personality-test/';
         $html = file_get_contents($url);
