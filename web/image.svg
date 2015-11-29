@@ -7,12 +7,12 @@
         <![CDATA[
 
             .bg {
-                visibility: visible;
+                visibility: hidden;
             }
 
             .boxes {
                 fill: #768DA5;
-                visibility: hidden;
+                visibility: visible;
             }
 
             .dim {
@@ -45,6 +45,16 @@
 
 			text.label.disc {
 				font-size: 64px;
+			}
+
+			text.header.intensity {
+			    fill: #768DA5;
+				font-size: 13px;
+			}
+
+			text.header.segment {
+			    fill: white;
+				font-size: 11.5px;
 			}
         ]]>
     </style>
@@ -235,6 +245,7 @@
         </g>
     </g>
 
+    <g class="label">
 
     <text class="label segment" x="620" y="242">7</text>
     <text class="label segment" x="620" y="355">6</text>
@@ -280,4 +291,8 @@
 
     <text class="label header" x="344" y="65">GRAPH I</text>
 
+    <text transform="scale(1,1.5)" class="header intensity" x="54" y="109">INTENSITY</text>
+    <text transform="scale(1,1.5)" class="header segment" x="616" y="101">SEGMENT</text>
+
+    </g>
 </svg>
