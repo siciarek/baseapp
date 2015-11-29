@@ -1,0 +1,143 @@
+surveys:
+    default:
+        1:
+            - enthusiastic
+            - daring
+            - diplomatic
+            - satisfied
+        2:
+            - cautious
+            - determined
+            - convincing
+            - good-natured
+        3:
+            - friendly
+            - accurate
+            - outspoken
+            - calm
+        4:
+            - talkative
+            - controlled
+            - conventional
+            - decisive
+        5:
+            - adventurous
+            - insightful
+            - outgoing
+            - moderate
+        6:
+            - gentle
+            - persuasive
+            - humble
+            - original
+
+        7:
+            - expressive
+            - conscientious
+            - dominant
+            - responsive
+        8:
+            - poised
+            - observant
+            - modest
+            - impatient
+        9:
+            - tactful
+            - agreeable
+            - magnetic
+            - insistent
+        10:
+            - brave
+            - inspiring
+            - submissive
+            - timid
+        11:
+            - reserved
+            - obliging
+            - strong-willed
+            - cheerful
+        12:
+            - stimulating
+            - kind
+            - perceptive
+            - independent
+        13:
+            - competitive
+            - considerate
+            - joyful
+            - private
+        14:
+            - fussy
+            - obedient
+            - firm
+            - playful
+        15:
+            - attractive
+            - introspective
+            - stubborn
+            - predictable
+        16:
+            - logical
+            - bold
+            - loyal
+            - charming
+        17:
+            - sociable
+            - patient
+            - self-reliant
+            - soft-spoken
+        18:
+            - willing
+            - eager
+            - thorough
+            - high-spirited
+        19:
+            - aggressive
+            - extroverted
+            - amiable
+            - fearful
+        20:
+            - confident
+            - sympathetic
+            - impartial
+            - assertive
+        21:
+            - well-disciplined
+            - generous
+            - animated
+            - persistent
+        22:
+            - impulsive
+            - introverted
+            - forceful
+            - easygoing
+        23:
+            - good  - mixer
+            - refined
+            - vigorous
+            - lenient
+        24:
+            - captivating
+            - contented
+            - demanding
+            - compliant
+        25:
+            - argumentative
+            - systematic
+            - cooperative
+            - light-hearted
+        26:
+            - jovial
+            - precise
+            - direct
+            - even-tempered
+        27:
+            - restless
+            - neighborly
+            - appealing
+            - careful
+        28:
+            - respectful
+            - pioneering
+            - optimistic
+            - helpful

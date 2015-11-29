@@ -29,6 +29,15 @@
     </div>
 
     <br/>
+
+    <h3>Tally Box</h3>
+    <pre>
+        {{ data }}
+    </pre>
+
+    <br/>
+
+    <h3>Graphs</h3>
     <div class="row">
         {% for type, dat in tallyBox if type == 'most' %}
             <div class="col-lg-4">
@@ -39,10 +48,6 @@
     </div>
     <br/>
 
-    <h3>Tally Box</h3>
-    <pre>
-{{ data }}
-    </pre>
 
     <br/>
     <br/>
