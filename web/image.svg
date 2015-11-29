@@ -26,7 +26,7 @@
             }
 
             .dim {
-                fill: #768DA5;
+                fill: #546590;
                 visibility: visible;
             }
 
@@ -95,7 +95,7 @@
 
     <image class="bg" width="687" height="1123" xlink:href="bundles/applicationmain/images/DiSC/graph1.png"/>
 
-    <!--#768DA5;#546590;124-->
+    <!--#768DA5;#546590;-->
 
     <g>
         <g class="box">
@@ -209,9 +209,7 @@
     l 0 52
     l -43 22
     l -45 -22
-    Z"/>
-            <!--D LINE-->
-            <path d="
+    Z
     M 124 160
     l 0 811
     l 5 0
@@ -239,9 +237,7 @@
     l 0 52
     l -43 22
     l -45 -22
-    Z"/>
-            <!--i LINE-->
-            <path d="
+    Z
     M 248 160
     l 0 811
     l 5 0
@@ -269,9 +265,7 @@
     l 0 52
     l -43 22
     l -45 -22
-    Z"/>
-            <!--S LINE-->
-            <path d="
+    Z
     M 372 160
     l 0 811
     l 5 0
@@ -301,9 +295,7 @@
     l 0 52
     l -43 22
     l -45 -22
-    Z"/>
-            <!--C LINE-->
-            <path d="
+    Z
     M 496 160
     l 0 811
     l 5 0
@@ -391,12 +383,12 @@
     </g>
 
 	<g class="result">
-		<text class="sn" x="129" y="1024">0</text>
-		<text class="sn" x="249" y="1024">0</text>
-		<text class="sn" x="374" y="1024">0</text>
-		<text class="sn" x="498" y="1024">0</text>
+		<text class="sn" x="129" y="1022">0</text>
+		<text class="sn" x="249" y="1022">0</text>
+		<text class="sn" x="374" y="1022">0</text>
+		<text class="sn" x="498" y="1022">0</text>
 
-		<text class="cp" x="313" y="1087">Pattern</text>
+		<text class="cp" x="313" y="1086">Pattern</text>
 	</g>
 
 </svg>
