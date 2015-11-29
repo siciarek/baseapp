@@ -27,9 +27,18 @@
         <i class="fa fa-info-circle fa-2x fa-fw" style="vertical-align:middle"></i>
         {{ 'survey.complete_info'|trans }}
     </div>
-    
+
     <br/>
-    
+    <div class="row">
+        {% for type, dat in tallyBox if type == 'most' %}
+            <div class="col-lg-4">
+                {% set results = [ dat.D, dat.i, dat.S, dat.C ]|join(',') %}
+                <img src="{{ url('disc.graph', { type: type, results: results }) }}"/>
+            </div>
+        {% endfor %}
+    </div>
+    <br/>
+
     <h3>Tally Box</h3>
     <pre>
 {{ data }}
