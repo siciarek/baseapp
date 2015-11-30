@@ -1,0 +1,49 @@
+{% extends 'ApplicationDiscBundle::base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    
+    <script>
+        $(document).ready(function() {
+
+        });
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    
+    <style>
+
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="page-header">
+        <i class="fa fa-list-alt fa-lg fa-fw text-muted"></i>
+        DiSC
+    </h1>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="list-group">
+                 <a href="{{ url('disc.survey.demo') }}" class="list-group-item" target="_blank">
+                     <i class="fa fa-list-alt fa-lg fa-fw text-muted"></i>
+                     Ankieta - demo
+                 </a>
+                 <a href="{{ url('disc.survey.evaluate') }}" class="list-group-item" target="_blank">
+                     <i class="fa fa-list-alt fa-lg fa-fw text-muted"></i>
+                     Wyniki ankiety - demo
+                 </a>
+                 <a href="{{ url('disc.classical.patterns') }}" class="list-group-item" target="_blank">
+                     <i class="fa fa-list-alt fa-lg fa-fw text-muted"></i>
+                     DiSC Classical Patterns
+                 </a>
+            </div>
+        </div>
+        <div class="col-lg-6">
+        </div>
+    </div>
+
+{% endblock %}

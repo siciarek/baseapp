@@ -16,6 +16,18 @@ use Symfony\Component\CssSelector\CssSelector;
  */
 class DefaultController extends Controller
 {
+    
+    /**
+     * @Route("/", name="disc.index")
+     * @Template()
+     */
+    public function indexAction()
+    {
+        return [
+            
+        ];
+    }
+    
     /**
      * @Route("/graph/{results}/{type}", requirements={"type"="most|least|difference", "results","[\d,]{7,11}"}, defaults={"type"="most", "results"="0,0,0,0"}, name="disc.graph")
      * @Template()
@@ -214,7 +226,7 @@ SVG;
     }
 
     /**
-     * @Route("/survey", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.index")
+     * @Route("/survey", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.survey.demo")
      * @Route("/{id}/survey", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.survey")
      * @Template()
      */
