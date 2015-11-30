@@ -1,4 +1,4 @@
-{% extends '::base.html.twig' %}
+{% extends 'ApplicationDiscBundle::base.html.twig' %}
 
 {% block javascripts %}
     {{ parent() }}
@@ -31,8 +31,7 @@
     <br/>
 
     <h3>Tally Box</h3>
-    <pre>
-        {{ data }}
+    <pre>{{ data }}
     </pre>
 
     <br/>

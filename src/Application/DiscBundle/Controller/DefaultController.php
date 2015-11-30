@@ -214,7 +214,7 @@ SVG;
     }
 
     /**
-     * @Route("/{id}", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.index")
+     * @Route("/survey", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.index")
      * @Route("/{id}/survey", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.survey")
      * @Template()
      */
