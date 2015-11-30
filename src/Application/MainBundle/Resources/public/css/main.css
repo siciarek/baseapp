@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin-top: -100px;
 }
 
-.modal.template .modal-header {
+.dialog.template .modal-header {
     background-color: #2d6ca2;
     color: white;
 
@@ -37,26 +37,26 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
      border-top-right-radius: 5px;
 }
 
-.modal.template .modal-body .icon {
+.dialog.template .modal-body .icon {
     text-align: center;
     padding-top: 8px;
     padding-bottom: 16px;
 }
 
-.modal.template .modal-body .icon i {
+.dialog.template .modal-body .icon i {
     font-size: 64px;
     color: #777;
 }
 
-.modal.template .modal-body .icon i.info,
-.modal.template .modal-body .icon i.question {
+.dialog.template .modal-body .icon i.info,
+.dialog.template .modal-body .icon i.question {
     color: #2d6ca2;
 }
 
-.modal.template .modal-body .icon i.warning {
+.dialog.template .modal-body .icon i.warning {
     color: #8a6d3b;
 }
 
-.modal.template .modal-body .icon i.error {
+.dialog.template .modal-body .icon i.error {
     color: #a94442;
 }

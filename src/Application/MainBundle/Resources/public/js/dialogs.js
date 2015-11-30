@@ -71,7 +71,7 @@ var Dialog = {
         message = message || title;
         var icon = this.icons[type];
 
-        var dialog = $('.modal.template');
+        var dialog = $('.dialog.template');
         
         if(dialog) {
             dialog.find('.modal-title .title').html(title);
