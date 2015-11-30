@@ -6,6 +6,15 @@ Contact: Contact
 Sign in: Sign in
 Sign out: Sign out
 
+# Dialogs
+dialog:
+    error: Error
+    warning: Warning
+    info: Info
+    input: Insert
+    question: Question
+    confirmation: Confirmation
+
 person: Person
 organisation: Organisation
 

@@ -23,6 +23,7 @@ $(document).ready(function() {
  * Dialog.error('Wystąpił niespodziewany błąd.');
  * Dialog.warning('Nie znaleziono wyników wyszukiwania.');
  * Dialog.info('Dodanie użytkownika zakończyło się powodzeniem.');
+ * Dialog.input('Podaj swoje imię:')
  * Dialog.question('Czy jesteś pełnoletni?');
  * Dialog.confirmation('Czy na pewno chcesz usunąć tę pozycję?');
  *
@@ -32,6 +33,7 @@ $(document).ready(function() {
  *    error: 'Błąd',
  *    warning: 'Ostrzeżenie',
  *    info: 'Informacja',
+ *    input: 'Wprowadź dane',
  *    question: 'Pytanie',
  *    confirmation: 'Potwierdzenie'
  * });
@@ -55,6 +57,7 @@ var Dialog = {
         error: 'Error',
         warning: 'Warning',
         info: 'Information',
+        input: 'Input',
         question: 'Question',
         confirmation: 'Confirmation'
     },
@@ -62,6 +65,7 @@ var Dialog = {
         error: 'fa-times-circle',
         warning: 'fa-exclamation-circle',
         info: 'fa-info-circle',
+        input: 'fa-edit',
         question: 'fa-question-circle',
         confirmation: 'fa-check-square-o'
     },
@@ -98,6 +102,10 @@ var Dialog = {
             
             return false;
         }
+        
+        if(type === 'input') {
+            return prompt(msg);
+        }
 
         return dialog.modal();
     },
@@ -109,7 +117,7 @@ var Dialog = {
      * @param callback funkcja wykonywana po zamknięciu okienka
      */
     error: function (message, title, callback) {
-        this.dialog('error', message, title);
+        return this.dialog('error', message, title);
     },
     /**
      * Okienko dialogowe informacyjne
@@ -119,7 +127,7 @@ var Dialog = {
      * @param callback funkcja wykonywana po zamknięciu okienka
      */
     info: function (message, title, callback) {
-        this.dialog('info', message, title);
+        return this.dialog('info', message, title);
     },
     /**
      * Okienko dialogowe ostrzeżenia
@@ -129,7 +137,17 @@ var Dialog = {
      * @param callback funkcja wykonywana po zamknięciu okienka
      */
     warning: function (message, title, callback) {
-        this.dialog('warning', message, title);
+        return this.dialog('warning', message, title);
+    },
+    /**
+     * Okienko dialogowe wprowadzenia danych
+     *
+     * @param message
+     * @param title tytuł (parametr opcjonalny)
+     * @param callback funkcja wykonywana po zamknięciu okienka
+     */
+    input: function (message, title, callback) {
+        return this.dialog('input', message, title);
     },
     /**
      * Okienko dialogowe zapytania
@@ -145,7 +163,7 @@ var Dialog = {
             console.log([title, message]);
             return true;
         };
-        this.dialog('question', message, title, callback);
+        return this.dialog('question', message, title, callback);
     },
     /**
      * Okienko dialogowe potwierdzenie

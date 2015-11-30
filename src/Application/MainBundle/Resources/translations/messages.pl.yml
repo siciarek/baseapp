@@ -8,6 +8,15 @@ Sign out: Wyloguj się
 Type: Typ
 Description: Opis
 
+# Dialogs
+dialog:
+    error: Błąd
+    warning: Ostrzeżenie
+    info: Informacja
+    input: Wprowadź
+    question: Pytanie
+    confirmation: Potwierdzenie
+
 unknown: Nieznany
 basic: Podstawowy
 enhanced: Wzbogacony

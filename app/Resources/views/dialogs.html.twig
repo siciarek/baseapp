@@ -1,5 +1,5 @@
 <div class="spinner modal-backdrop fade in hidden">
-    <i class="fa fa-cog fa-spin"></i>
+    <i class="fa fa-spinner fa-spin"></i>
 </div>
 
 <div class="dialog template modal fade" tabindex="-1" role="dialog">
@@ -28,3 +28,16 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<script>
+    $(document).ready(function(){
+         Dialog.setTypes({
+             error: '{{'dialog.error'|trans}}',
+             warning: '{{'dialog.warning'|trans}}',
+             info: '{{'dialog.info'|trans}}',
+             input: '{{'dialog.input'|trans}}',
+             question: '{{'dialog.question'|trans}}',
+             confirmation: '{{'dialog.confirmation'|trans}}'
+          });
+    });
+</script>
