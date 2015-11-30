@@ -230,7 +230,7 @@ SVG;
 
 
     /**
-     * @Route("/tally-box/{results}", requirements={"results","[\d,]{9,14}\|[\d,]{9,14}"}, defaults={"results"="1,2,3,4,1|6,7,8,9,2"}, name="disc.tally.box")
+     * @Route("/tally-box/{results}", requirements={"results","[\d,]{9,14}\|[\d,]{9,14}"}, defaults={"results"="11,2,12,4,1|6,7,8,9,2"}, name="disc.tally.box")
      */
     public function tallyBoxAction($results) {
 
@@ -277,11 +277,20 @@ SVG;
             $tallyBox['difference'][$type] = strval($tallyBox['most'][$type] - $tallyBox['least'][$type]);
         }
 
+
+        $contentFmt = <<<SVG
+<?xml version="1.0" standalone="no"?>
+<svg viewBox="0 0 847 1136" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+%s
+</svg>
+SVG;
+
         $content = <<<SVG
 <?xml version="1.0" standalone="no"?>
 <svg viewBox="0 0 847 1136" version="1.1" xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink">
-     <image x="0" y="0" width="847" height="1136" xlink:href="/bundles/applicationdisc/images/DiSC/tallyBox.png"/>
+
     <style type="text/css">
         <![CDATA[
 		    text {
@@ -293,6 +302,8 @@ SVG;
 		    }
         ]]>
     </style>
+
+    <image x="0" y="0" width="847" height="1136" xlink:href="/bundles/applicationdisc/images/DiSC/tallyBox.png"/>
 
     <text x="130" y="328"  class="most D">0</text>
     <text x="130" y="495"  class="most i">0</text>
@@ -313,6 +324,18 @@ SVG;
     <text x="715" y="1003" class="difference N"></text>
 </svg>
 SVG;
+        CssSelector::disableHtmlExtension();
+        $crawler = new Crawler($content);
+
+        foreach($tallyBox as $level => $data) {
+            foreach($data as $dim => $val) {
+                $nodes = $crawler->filter(sprintf('.%s.%s', $level, $dim));
+                $nodes->first()->getNode(0)->nodeValue = $val;
+            }
+        }
+
+        $content = sprintf($contentFmt, $crawler->html());
+
         $response = new Response($content);
 
         $response->headers->add([ 'Content-Type' => 'image/svg+xml' ]);
