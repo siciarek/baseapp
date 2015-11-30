@@ -8,6 +8,7 @@
         var mode = '{{ mode }}';
         var questionCount = {{ survey|length }};
         var completeClass = 'bg-success';
+        var activeButtonClass = 'btn-success';
         var answers = {};
         
         $(document).ready(function() {
@@ -92,7 +93,15 @@
                  
                  if(count === questionCount) {
                      $('.info').addClass('hidden');
+                     $('.send').addClass(activeButtonClass);
+                     $('.send').removeClass('btn-default');
                      $('.send').removeClass('disabled');
+                 }
+                 else {
+                     $('.info').removeClass('hidden');
+                     $('.send').removeClass(activeButtonClass);
+                     $('.send').addClass('btn-default');
+                     $('.send').addClass('disabled');
                  }
             });
         });
@@ -190,7 +199,7 @@
     <form action="{{ path('disc.survey.evaluate') }}" class="survey-form" method="POST">
         <input type="hidden" value="" name="json"/>
         <div clas="row">
-            <button type="submit" class="send btn btn-primary btn-lg col-lg-offset-5 col-lg-2 disabled">{{ 'survey.send'|trans }}</button>
+            <button type="submit" class="send btn btn-default btn-lg col-lg-offset-5 col-lg-2 disabled">{{ 'survey.send'|trans }}</button>
         </div>
     </form>
 
