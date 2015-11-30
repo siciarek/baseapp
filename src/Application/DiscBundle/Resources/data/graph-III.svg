@@ -1,10 +1,16 @@
 <?xml version="1.0" standalone="no"?>
 <svg viewBox="0 0 687 1123" version="1.1" xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink">
-    <desc>DiSC Graph III</desc>
+    <desc>DiSC Graph I</desc>
 
     <style type="text/css">
         <![CDATA[
+
+            path.chart-line {
+                stroke: black;
+                stroke-width: 8px;
+                fill: none;
+            }
 
             .box {
                 fill: #768DA5;
@@ -17,7 +23,28 @@
                 visibility: visible;
             }
 
+            .indicator {
+                font-weight: normal;
+            }
+            
+            .indicator.D {
+                visibility: visible;
+            }
+
+            .indicator.i {
+                visibility: visible;
+            }
+
+            .indicator.S {
+                visibility: visible;
+            }
+
+            .indicator.C {
+                visibility: visible;
+            }
+
             .box .midpool {
+                visibility: hidden;
                 fill: #D0DDE5;
             }
 
@@ -89,13 +116,15 @@
         ]]>
     </style>
 
+    <!--#768DA5;#546590;-->
+
     <g>
         <g class="box">
 
             <!--MID POOL-->
 
             <path class="midpool"
-                    d="
+                  d="
     M 72 514
     l 527 0
     l 0 117
@@ -207,20 +236,37 @@
     l 5 0
     l 0 -811
     Z"/>
-            <text x="167" y="195">27</text>
-            <text x="167" y="250">12</text>
-            <text x="167" y="280">11</text>
-            <text x="167" y="308">10</text>
-            <text x="167" y="330">9</text>
-            <text x="167" y="363">8</text>
-            <text x="167" y="424">7</text>
-            <text x="167" y="448">6</text>
-            <text x="167" y="540">5</text>
-            <text x="167" y="598">4</text>
-            <text x="167" y="655">3</text>
-            <text x="167" y="733">2</text>
-            <text x="167" y="842">1</text>
-            <text x="167" y="918">0</text>
+            <text class="indicator D segment-7" x="167" y="195">+27</text>
+            <text class="indicator D segment-7" x="167" y="250">+9</text>
+            <text class="indicator D segment-7" x="167" y="280">+6</text>
+
+            <text class="indicator D segment-6" x="167" y="280">+5</text>
+            <text class="indicator D segment-6" x="167" y="308">+3</text>
+            <text class="indicator D segment-6" x="167" y="330">+2</text>
+            <text class="indicator D segment-6" x="167" y="363">+1</text>
+            <text class="indicator D segment-6" x="167" y="424">0</text>
+
+            <text class="indicator D segment-5" x="167" y="448">-1</text>
+            <text class="indicator D segment-5" x="167" y="540">-1</text>
+            <text class="indicator D segment-5" x="167" y="598">-3</text>
+            <text class="indicator D segment-5" x="167" y="655">-4</text>
+
+            <text class="indicator D segment-4" x="167" y="733">-5</text>
+            <text class="indicator D segment-4" x="167" y="842">-6</text>
+            <text class="indicator D segment-4" x="167" y="852">-7</text>
+
+            <text class="indicator D segment-3" x="167" y="862">-8</text>
+            <text class="indicator D segment-3" x="167" y="872">-9</text>
+            <text class="indicator D segment-3" x="167" y="882">-10</text>
+            <text class="indicator D segment-3" x="167" y="892">-11</text>
+
+            <text class="indicator D segment-2" x="167" y="892">-12</text>
+            <text class="indicator D segment-2" x="167" y="892">-13</text>
+            <text class="indicator D segment-2" x="167" y="892">-14</text>
+
+            <text class="indicator D segment-1" x="167" y="892">-15</text>
+            <text class="indicator D segment-1" x="167" y="892">-16</text>
+            <text class="indicator D segment-1" x="167" y="918">-27</text>
 
             <!--i BADGE-->
             <path d="
@@ -235,20 +281,31 @@
     l 5 0
     l 0 -811
     Z"/>
-            <text x="292" y="195">28</text>
-            <text x="292" y="252">12</text>
-            <text x="292" y="280">11</text>
-            <text x="292" y="321">10</text>
-            <text x="292" y="367">9</text>
-            <text x="292" y="425">8</text>
-            <text x="292" y="540">7</text>
-            <text x="292" y="580">6</text>
-            <text x="292" y="656">5</text>
-            <text x="292" y="738">4</text>
-            <text x="292" y="831">3</text>
-            <text x="292" y="888">2</text>
-            <text x="292" y="940">1</text>
-            <text x="292" y="969">0</text>
+            <text class="indicator i segment-7" x="292" y="195">+28</text>
+            <text class="indicator i segment-7" x="292" y="252">+9</text>
+            <text class="indicator i segment-7" x="292" y="280">+8</text>
+
+            <text class="indicator i segment-6" x="292" y="321">+7</text>
+            <text class="indicator i segment-6" x="292" y="321">+6</text>
+
+            <text class="indicator i segment-5" x="292" y="367">+5</text>
+            <text class="indicator i segment-5" x="292" y="367">+4</text>
+            <text class="indicator i segment-5" x="292" y="367">+3</text>
+
+            <text class="indicator i segment-4" x="292" y="425">+2</text>
+            <text class="indicator i segment-4" x="292" y="475">+1</text>
+
+            <text class="indicator i segment-3" x="292" y="540">0</text>
+            <text class="indicator i segment-3" x="292" y="580">-1</text>
+            <text class="indicator i segment-3" x="292" y="656">-2</text>
+
+            <text class="indicator i segment-2" x="292" y="738">-3</text>
+            <text class="indicator i segment-2" x="292" y="738">-4</text>
+            <text class="indicator i segment-2" x="292" y="738">-5</text>
+
+            <text class="indicator i segment-1" x="292" y="831">-6</text>
+            <text class="indicator i segment-1" x="292" y="831">-8</text>
+            <text class="indicator i segment-1" x="292" y="969">-26</text>
 
             <!--S BADGE-->
             <path d="
@@ -263,22 +320,34 @@
     l 5 0
     l 0 -811
     Z"/>
-            <text x="419" y="195">26</text>
-            <text x="419" y="245">14</text>
-            <text x="419" y="279">13</text>
-            <text x="419" y="329">12</text>
-            <text x="419" y="391">11</text>
-            <text x="419" y="449">10</text>
-            <text x="419" y="505">9</text>
-            <text x="419" y="564">8</text>
-            <text x="419" y="623">7</text>
-            <text x="419" y="693">6</text>
-            <text x="419" y="729">5</text>
-            <text x="419" y="808">4</text>
-            <text x="419" y="881">3</text>
-            <text x="419" y="909">2</text>
-            <text x="419" y="938">1</text>
-            <text x="419" y="966">0</text>
+            <text class="indicator S segment-7" x="419" y="195">+26</text>
+            <text class="indicator S segment-7" x="419" y="449">+14</text>
+            <text class="indicator S segment-7" x="419" y="505">+12</text>
+
+            <text class="indicator S segment-6" x="419" y="564">+11</text>
+            <text class="indicator S segment-6" x="419" y="623">+10</text>
+            <text class="indicator S segment-6" x="419" y="693">+9</text>
+
+            <text class="indicator S segment-5" x="419" y="729">+8</text>
+            <text class="indicator S segment-5" x="419" y="729">+7</text>
+            <text class="indicator S segment-5" x="419" y="729">+6</text>
+
+            <text class="indicator S segment-4" x="419" y="808">+5</text>
+            <text class="indicator S segment-4" x="419" y="808">+4</text>
+            <text class="indicator S segment-4" x="419" y="808">+3</text>
+
+            <text class="indicator S segment-3" x="419" y="881">+2</text>
+            <text class="indicator S segment-3" x="419" y="881">+1</text>
+            <text class="indicator S segment-3" x="419" y="881">0</text>
+
+            <text class="indicator S segment-2" x="419" y="909">-1</text>
+            <text class="indicator S segment-2" x="419" y="909">-2</text>
+            <text class="indicator S segment-2" x="419" y="909">-3</text>
+            <text class="indicator S segment-2" x="419" y="909">-4</text>
+
+            <text class="indicator S segment-1" x="419" y="938">-5</text>
+            <text class="indicator S segment-1" x="419" y="938">-7</text>
+            <text class="indicator S segment-1" x="419" y="966">-27</text>
 
             <!--C BADGE-->
             <path d="
@@ -293,20 +362,32 @@
     l 5 0
     l 0 -811
     Z"/>
-            <text x="538" y="195">24</text>
-            <text x="539" y="234">12</text>
-            <text x="539" y="251">11</text>
-            <text x="539" y="308">10</text>
-            <text x="539" y="331">9</text>
-            <text x="539" y="396">8</text>
-            <text x="539" y="454">7</text>
-            <text x="539" y="541">6</text>
-            <text x="539" y="627">5</text>
-            <text x="539" y="725">4</text>
-            <text x="539" y="799">3</text>
-            <text x="539" y="885">2</text>
-            <text x="539" y="940">1</text>
-            <text x="539" y="970">0</text>
+            <text class="indicator C segment-7" x="538" y="195">+24</text>
+            <text class="indicator C segment-7" x="538" y="200">+18</text>
+            <text class="indicator C segment-7" x="539" y="234">+6</text>
+
+            <text class="indicator C segment-6" x="539" y="251">+5</text>
+            <text class="indicator C segment-6" x="539" y="308">+4</text>
+            <text class="indicator C segment-6" x="539" y="331">+3</text>
+
+            <text class="indicator C segment-5" x="539" y="396">2</text>
+            <text class="indicator C segment-5" x="539" y="454">1</text>
+            <text class="indicator C segment-5" x="539" y="541">0</text>
+
+            <text class="indicator C segment-4" x="539" y="627">-1</text>
+            <text class="indicator C segment-4" x="539" y="725">-2</text>
+
+            <text class="indicator C segment-3" x="539" y="799">-3</text>
+            <text class="indicator C segment-3" x="539" y="799">-4</text>
+            <text class="indicator C segment-3" x="539" y="799">-5</text>
+
+            <text class="indicator C segment-2" x="539" y="885">-6</text>
+            <text class="indicator C segment-2" x="539" y="885">-7</text>
+            <text class="indicator C segment-2" x="539" y="885">-8</text>
+
+            <text class="indicator C segment-1" x="539" y="940">-9</text>
+            <text class="indicator C segment-1" x="539" y="940">-11</text>
+            <text class="indicator C segment-1" x="539" y="970">-26</text>
         </g>
     </g>
 
@@ -374,13 +455,13 @@
 
     </g>
 
-	<g class="result">
-		<text class="sn" x="129" y="1022">0</text>
-		<text class="sn" x="249" y="1022">0</text>
-		<text class="sn" x="374" y="1022">0</text>
-		<text class="sn" x="498" y="1022">0</text>
+    <g class="result">
+        <text x="129" y="1022" class="sn dim-D">0</text>
+        <text x="249" y="1022" class="sn dim-i">0</text>
+        <text x="374" y="1022" class="sn dim-S">0</text>
+        <text x="498" y="1022" class="sn dim-C">0</text>
 
-		<text class="cp" x="313" y="1086">Pattern</text>
-	</g>
+        <text class="cp" x="313" y="1086">Pattern</text>
+    </g>
 
 </svg>

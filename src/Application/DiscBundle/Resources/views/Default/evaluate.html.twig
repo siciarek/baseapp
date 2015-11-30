@@ -12,7 +12,9 @@
     {{ parent() }}
     
     <style>
-       
+       .disc-results {
+           font-size: 24pt;
+       }
     </style>
 {% endblock %}
 
@@ -31,20 +33,38 @@
     <br/>
 
     <h3>Tally Box</h3>
-    <pre>{{ data }}
-    </pre>
+
+    <div class="row">
+        {% for key, items in tallyBox %}
+        <div class="col-lg-2">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h2 class="panel-title">{{ key|upper }}</h2>
+                </div>
+                <div class="panel-body disc-results">
+                    {% for dim, val in items %}
+                        <div>
+                        <strong style="display:inline-block;text-align:center" class="col-lg-5">{{ dim }}</strong>
+                        <span style="display:inline-block;text-align:right;" class="col-lg-7">{{ macros.value_or_dash(val) }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
     <br/>
 
     <h3>Graphs</h3>
     <div class="row">
-        {% for type, dat in tallyBox if type != 'difference' %}
-            <div class="col-lg-4">
-                {% set results = [ dat.D, dat.i, dat.S, dat.C ]|join(',') %}
-                <h4 class="text-muted">{{ results }}</h4>
-                <img style="width:100%" src="{{ url('disc.graph', { type: type, results: results }) }}"/>
-            </div>
-        {% endfor %}
+        {#{% for type, dat in tallyBox if type != null %}#}
+            {#<div class="col-lg-4">#}
+                {#{% set results = [ dat.D, dat.i, dat.S, dat.C ]|join(',') %}#}
+                {#<h4 class="text-muted">{{ results }}</h4>#}
+                {#<img style="width:100%" src="{{ url('disc.graph', { type: type, results: results }) }}"/>#}
+            {#</div>#}
+        {#{% endfor %}#}
     </div>
     <br/>
 

@@ -1,3 +1,11 @@
+{%- macro value_or_dash(value) %}
+    {% if value|trim|length > 0 %}
+        {{ value }}
+    {% else %}
+        &#0151;
+    {% endif %}
+{% endmacro -%}
+
 {% macro bs_menu(menu) %}
 <div class="navbar navbar-inverse navbar-static-top">
     <div class="container">

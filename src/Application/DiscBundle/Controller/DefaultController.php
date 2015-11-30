@@ -208,7 +208,7 @@ SVG;
                 'i' => 0,
                 'S' => 0,
                 'C' => 0,
-                'N' => 0,
+                'N' => null,
             ],
         ];
 
@@ -225,9 +225,102 @@ SVG;
 
         return [
             'tallyBox' => $tallyBox,
-            'data'     => json_encode($tallyBox, JSON_PRETTY_PRINT),
         ];
     }
+
+
+    /**
+     * @Route("/tally-box/{results}", requirements={"results","[\d,]{9,14}\|[\d,]{9,14}"}, defaults={"results"="1,2,3,4,1|6,7,8,9,2"}, name="disc.tally.box")
+     */
+    public function tallyBoxAction($results) {
+
+        $temp = explode('|', $results);
+
+        $keys = [ 'D', 'i', 'S', 'C' , 'N'];
+
+        $most = array_combine($keys, explode(',', $temp[0]));
+        $least = array_combine($keys, explode(',', $temp[1]));
+
+        $tallyBox = [
+            'most'       => [
+                'D' => 0,
+                'i' => 0,
+                'S' => 0,
+                'C' => 0,
+                'N' => 0,
+            ],
+            'least'      => [
+                'D' => 0,
+                'i' => 0,
+                'S' => 0,
+                'C' => 0,
+                'N' => 0,
+            ],
+            'difference' => [
+                'D' => 0,
+                'i' => 0,
+                'S' => 0,
+                'C' => 0,
+                'N' => null,
+            ],
+        ];
+
+        foreach ($most as $key => $val) {
+            $tallyBox['most'][$key] = $val;
+        }
+
+        foreach ($least as $key => $val) {
+            $tallyBox['least'][$key] = $val;
+        }
+
+        foreach ([ 'D', 'i', 'S', 'C' ] as $type) {
+            $tallyBox['difference'][$type] = strval($tallyBox['most'][$type] - $tallyBox['least'][$type]);
+        }
+
+        $content = <<<SVG
+<?xml version="1.0" standalone="no"?>
+<svg viewBox="0 0 847 1136" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+     <image x="0" y="0" width="847" height="1136" xlink:href="/bundles/applicationdisc/images/DiSC/tallyBox.png"/>
+    <style type="text/css">
+        <![CDATA[
+		    text {
+		        font-size: 100px;
+		        font-weight: bold;
+		        font-family: sans-serif;
+		        font-style: italic;
+                text-anchor: middle;
+		    }
+        ]]>
+    </style>
+
+    <text x="130" y="328"  class="most D">0</text>
+    <text x="130" y="495"  class="most i">0</text>
+    <text x="130" y="675"  class="most S">0</text>
+    <text x="130" y="852"  class="most C">0</text>
+    <text x="130" y="1003" class="most N">0</text>
+
+    <text x="425" y="328"  class="least D">0</text>
+    <text x="425" y="495"  class="least i">0</text>
+    <text x="425" y="675"  class="least S">0</text>
+    <text x="425" y="852"  class="least C">0</text>
+    <text x="425" y="1003" class="least N">0</text>
+
+    <text x="715" y="328"  class="difference D">0</text>
+    <text x="715" y="495"  class="difference i">0</text>
+    <text x="715" y="675"  class="difference S">0</text>
+    <text x="715" y="852"  class="difference C">0</text>
+    <text x="715" y="1003" class="difference N"></text>
+</svg>
+SVG;
+        $response = new Response($content);
+
+        $response->headers->add([ 'Content-Type' => 'image/svg+xml' ]);
+
+        return $response;
+    }
+
+
 
     /**
      * @Route("/survey", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.survey.demo")
