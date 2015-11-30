@@ -9,6 +9,11 @@
     margin-top: -100px;
 }
 
+.dialog.template .modal-footer .btn {
+    margin-left: 16px;
+    margin-right: 0;
+}
+
 .dialog.template .modal-header {
     background-color: #2d6ca2;
     color: white;

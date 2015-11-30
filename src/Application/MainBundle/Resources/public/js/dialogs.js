@@ -9,7 +9,15 @@ var Spinner = {
 };
 
 $(document).ready(function() {
-    Spinner.selector = $('body > div.spinner');    
+    Spinner.selector = $('body > div.spinner');
+    Dialog.selector = $('body > div.dialog.template')
+        .on('click', '.btn.save', function(e) {
+            e.preventDefault();
+            var value = $(this).closest('.modal').find('.modal-body input[name="text"]').val().trim();
+            value = value.length === 0 ? null : value;
+
+            Dialog.value = value;
+        });
 });
 
 /**
@@ -41,6 +49,11 @@ $(document).ready(function() {
  * @type {{setTypes: setTypes, types: {error: string, warning: string, info: string, question: string, confirmation: string}, dialog: dialog, error: error, warning: warning, question: question, info: info, confirmation: confirmation}}
  */
 var Dialog = {
+    selector: null,
+    value: null,
+    val: function() {
+        return this.value;
+    },
     /**
      * Metoda do zmiany domyślnych tytułów okien dialogowych, np. w innych językach.
      *
@@ -69,42 +82,62 @@ var Dialog = {
         question: 'fa-question-circle',
         confirmation: 'fa-check-square-o'
     },
+    buttons: {
+        error: ['ok'],
+        warning: ['ok'],
+        info: ['ok'],
+        input: ['save', 'cancel'],
+        question: ['yes', 'no'],
+        confirmation: ['yes', 'no']
+    },
     dialog: function (type, message, title, callback) {
         title = title || this.types[type];
         callback = callback || function () {};
         message = message || title;
         var icon = this.icons[type];
 
-        var dialog = $('.dialog.template');
-        
+        var dialog = this.selector;
+
         if(dialog) {
             dialog.find('.modal-title .title').html(title);
             dialog.find('.modal-body .message').html(message);
-            
+
             for(var t in this.types) {
                 if(this.types.hasOwnProperty(t)) {
-                     dialog.find('i').removeClass(this.icons[t]).removeClass(t);     
+                    dialog.find('i').removeClass(this.icons[t]).removeClass(t);
                 }
             }
 
             dialog.find('.modal-header i').addClass(icon);
             dialog.find('.modal-body i').addClass(icon).addClass(type);
+
+            dialog.find('.modal-footer .btn').each(function(i, e){
+                $(e).addClass('hidden');
+            });
+
+            dialog.find('input[name=text]').addClass('hidden');
+
+            if(type == 'input') {
+                Dialog.value = null;
+                dialog.find('input[name=text]').removeClass('hidden');
+            }
+
+            $(this.buttons[type]).each(function(i, e){
+                var btn = dialog.find('.modal-footer .btn.' + e);
+                btn.removeClass('hidden');
+            });
         }
 
         var msg = [title, '', '[' + type.toUpperCase() + ']', '', message].join("\n");
 
         if(type === 'confirmation' || type === 'question') {
-            
-            if(confirm(msg)) {
-                callback();
-                return true;
-            }
-            
-            return false;
-        }
-        
-        if(type === 'input') {
-            return prompt(msg);
+
+//            if(confirm(msg)) {
+//                callback();
+//                return true;
+//            }
+//
+//            return false;
         }
 
         return dialog.modal();
@@ -179,7 +212,7 @@ var Dialog = {
             console.log([title, message]);
             return true;
         };
-        
+
         return this.dialog('confirmation', message, title, callback);
     }
 };

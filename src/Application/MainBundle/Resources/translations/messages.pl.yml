@@ -27,9 +27,10 @@ organisation: Organizacja
 
 common:
     ok: OK
-    close: Zamknij
     yes: Tak
     no: Nie
+    cancel: Anuluj
+    save: Zapisz
 
 user:
     signin: Zaloguj się

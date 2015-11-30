@@ -22,8 +22,27 @@
                 {{ app_name|trans }}
             </h1>
             <p>{{ app_description|trans|nl2br }}</p>
+
             <a href="javascript:spinnerTest()" class="btn btn-lg btn-success">
                 <i class="fa fa-lg fa-fw fa-cog"></i>
+            </a>
+            <a onclick="Dialog.info('Short informational message.')" href="javascript:void(null)" class="btn btn-lg btn-info">
+                <i class="fa fa-lg fa-fw fa-info-circle"></i>
+            </a>
+            <a onclick="Dialog.warning('Short warning message.')" href="javascript:void(null)" class="btn btn-lg btn-warning">
+                <i class="fa fa-lg fa-fw fa-warning"></i>
+            </a>
+            <a onclick="Dialog.error('Short error message.')" href="javascript:void(null)" class="btn btn-lg btn-danger">
+                <i class="fa fa-lg fa-fw fa-times-circle"></i>
+            </a>
+            <a onclick="Dialog.input('Insert your name:');alert(Dialog.val());" href="javascript:void(null)" class="btn btn-lg btn-default">
+                <i class="fa fa-lg fa-fw fa-edit"></i>
+            </a>
+            <a onclick="Dialog.question('Are you sure?')" href="javascript:void(null)" class="btn btn-lg btn-default">
+                <i class="fa fa-lg fa-fw fa-question-circle"></i>
+            </a>
+            <a onclick="Dialog.confirmation('Are you sure?')" href="javascript:void(null)" class="btn btn-lg btn-default">
+                <i class="fa fa-lg fa-fw fa-check-square-o"></i>
             </a>
         </div>
     </div>
