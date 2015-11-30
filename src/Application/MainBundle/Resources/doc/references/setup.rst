@@ -53,3 +53,15 @@ can be created with the following:
         \int_a^bu\frac{d^2v}{dx^2}\,dx
         =\left.u\frac{dv}{dx}\right|_a^b
         -\int_a^b\frac{du}{dx}\frac{dv}{dx}\,dx.
+
+Set up Cloud9 environment
+=========================
+        
+.. code-block:: bash
+
+    $ sudo vim /etc/apache2/sites-enabled/001-cloud9.conf
+    $ apachectl restart
+    $ sudo sudo -u postgres psql
+    $ mysql-ctl cli
+    $ apachectl --help
+
