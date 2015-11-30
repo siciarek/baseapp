@@ -58,10 +58,34 @@ var Dialog = {
         question: 'Question',
         confirmation: 'Confirmation'
     },
+    icons: {
+        error: 'fa-times-circle',
+        warning: 'fa-exclamation-circle',
+        info: 'fa-info-circle',
+        question: 'fa-question-circle',
+        confirmation: 'fa-check-square-o'
+    },
     dialog: function (type, message, title, callback) {
         title = title || this.types[type];
         callback = callback || function () {};
         message = message || title;
+        var icon = this.icons[type];
+
+        var dialog = $('.modal.template');
+        
+        if(dialog) {
+            dialog.find('.modal-title .title').html(title);
+            dialog.find('.modal-body .message').html(message);
+            
+            for(var t in this.types) {
+                if(this.types.hasOwnProperty(t)) {
+                     dialog.find('i').removeClass(this.icons[t]).removeClass(t);     
+                }
+            }
+
+            dialog.find('.modal-header i').addClass(icon);
+            dialog.find('.modal-body i').addClass(icon).addClass(type);
+        }
 
         var msg = [title, '', '[' + type.toUpperCase() + ']', '', message].join("\n");
 
@@ -75,7 +99,7 @@ var Dialog = {
             return false;
         }
 
-        return alert(msg);
+        return dialog.modal();
     },
     /**
      * Okienko dialogowe błędu

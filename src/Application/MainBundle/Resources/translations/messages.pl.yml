@@ -16,6 +16,12 @@ advanced: Zaawansowany
 person: Osoba
 organisation: Organizacja
 
+common:
+    ok: OK
+    close: Zamknij
+    yes: Tak
+    no: Nie
+
 user:
     signin: Zaloguj się
     signout: Wyloguj się
