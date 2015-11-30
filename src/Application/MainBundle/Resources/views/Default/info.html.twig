@@ -14,5 +14,26 @@
         <i class="fa fa-info-circle fa-lg fa-fw text-muted"></i>
         {{ 'Info'|trans }}
     </h1>
+    
+    <div class="bs-callout">
+        <h4>{{ app_name }}</h4>
+        {{ app_description|trans|nl2br }}
+    </div>
+    
+    <div class="bs-callout bs-callout-info">
+        <h4>{{ app_name }}</h4>
+        {{ app_description|trans|nl2br }}
+    </div>
+
+    <div class="bs-callout bs-callout-warning">
+        <h4>{{ app_name }}</h4>
+        {{ app_description|trans|nl2br }}
+    </div>
+
+    <div class="bs-callout bs-callout-danger">
+        <h4>{{ app_name }}</h4>
+        {{ app_description|trans|nl2br }}
+    </div>
+
 
 {% endblock %}
