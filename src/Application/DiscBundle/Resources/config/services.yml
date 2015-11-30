@@ -1,3 +1,5 @@
 services:
     disc.classical.pattern:
         class: Application\DiscBundle\Service\ClassicalPattern
+    disc.survey:
+        class: Application\DiscBundle\Service\Survey

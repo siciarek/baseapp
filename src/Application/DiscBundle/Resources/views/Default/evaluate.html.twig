@@ -38,19 +38,18 @@
 
     <h3>Graphs</h3>
     <div class="row">
-        {% for type, dat in tallyBox if type == 'most' %}
+        {% for type, dat in tallyBox if type != 'difference' %}
             <div class="col-lg-4">
                 {% set results = [ dat.D, dat.i, dat.S, dat.C ]|join(',') %}
-                <img src="{{ url('disc.graph', { type: type, results: results }) }}"/>
+                <h4 class="text-muted">{{ results }}</h4>
+                <img style="width:100%" src="{{ url('disc.graph', { type: type, results: results }) }}"/>
             </div>
         {% endfor %}
     </div>
     <br/>
 
-
     <br/>
     <br/>
-
     <br/>
     <br/>
     <br/>

@@ -53,30 +53,59 @@ class DefaultController extends Controller
         $nodes   = $crawler->filter('default|svg default|g.label default|text.disc');
 
         $x = [ ];
+        $final = [ ];
+        $segments = [ ];
 
         foreach ($nodes as $node) {
             $x[$node->nodeValue] = $node->getAttribute('x');
         }
 
-        $final = [ ];
-
-        $segments = [ ];
-
-        foreach ($in as $type => $value) {
+        foreach ($in as $dim => $value) {
 
             $crawler  = new Crawler($xml);
-            $nodes    = $crawler->filter('default|svg default|text.indicator.' . $type);
-            $y[$type] = [ ];
+            $nodes    = $crawler->filter('default|svg default|text.indicator.' . $dim);
+            $final[$dim] = [];
 
             foreach ($nodes as $node) {
                 if ($value == $node->nodeValue) {
                     $segment                        = $node->getAttribute('class');
                     $segment                        = preg_replace('/.*segment-(\d).*/', '$1', $segment);
-                    $segments[$type]                = $segment;
-                    $final[$type][$node->nodeValue] = [ $x[$type], $node->getAttribute('y') - 10, $segment ];
+                    $segments[$dim]                = $segment;
+                    $final[$dim][$node->nodeValue] = [ $x[$dim], $node->getAttribute('y') - 10, $segment ];
                 }
             }
+            
+            if($final[$dim] == []) {
+                $first = null;
+                $last = null;
+                $offset = 0;
+                
+                foreach ($nodes as $node) {
+                    if($first === null) {
+                        $first = $node;
+                    }
+                    $last = $node;
+                }
+                
+                if($type === 'I') {
+                    $node = $first;
+                    $offset = 16;
+                }
+                elseif($type === 'II') {
+                    $node = $last;
+                    $offset = -16;
+                }
+                elseif($type === 'III') {
+                    
+                }
+                
+                $segment                        = $node->getAttribute('class');
+                $segment                        = preg_replace('/.*segment-(\d).*/', '$1', $segment);
+                $segments[$dim]                 = $segment;
+                $final[$dim][$node->nodeValue] = [ $x[$dim], strval(($node->getAttribute('y') - 10) + $offset), $segment ];
+            }
         }
+
         $contentFmt = <<<SVG
 <?xml version="1.0" standalone="no"?>
 <svg height="800" viewBox="0 0 687 1123" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -85,17 +114,22 @@ class DefaultController extends Controller
 </svg>
 SVG;
 
-        $segmentNumbers = [ ];
+        $segmentNumbers = [ 'D' => null, 'i' => null, 'S' => null, 'C' => null ];
 
         foreach ($segments as $dim => $s) {
             $nodes = $crawler->filter('default|svg default|g.result default|text.sn.dim-' . $dim);
             foreach ($nodes as $node) {
                 $node->nodeValue  = $s;
-                $segmentNumbers[] = $s;
+                $segmentNumbers[$dim] = $s;
             }
         }
 
-        $pattern = $this->get('disc.classical.pattern')->getProfile(implode('', $segmentNumbers));
+        $number = implode('', $segmentNumbers);
+        
+        // ldd($segmentNumbers, $number);
+
+        $pattern = $this->get('disc.classical.pattern')->getProfile($number);
+
 
         $nodes = $crawler->filter('default|svg default|g.result default|text.cp');
         foreach ($nodes as $node) {
@@ -137,36 +171,6 @@ SVG;
         return [
             'items' => $this->get('disc.classical.pattern')->getList(),
         ];
-    }
-
-    protected function getSurvey()
-    {
-        $url  = 'https://www.123test.com/disc-personality-test/';
-        $html = file_get_contents($url);
-
-        $crawler = new Crawler($html);
-        $crawler = $crawler->filter('table.groep');
-
-        $survey = [
-            'mode'      => 'strict', // ['strict', 'soft']
-            'questions' => [ ],
-        ];
-
-        foreach ($crawler as $element) {
-            // td class="term niets"
-            $q = [ ];
-            foreach ($element->getElementsByTagName('td') as $node) {
-                $value = trim($node->nodeValue);
-                if (!empty($value))
-                    $q[] = $value;
-            }
-
-            $questions = array_combine([ 'D', 'i', 'S', 'C' ], $q);
-
-            $survey['questions'][] = $questions;
-        }
-
-        return $survey;
     }
 
     /**
@@ -230,10 +234,12 @@ SVG;
      * @Route("/{id}/survey", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.survey")
      * @Template()
      */
-    public function surveyAction($id)
+    public function surveyAction(Request $request)
     {
+        $id = $request->get('id');
+        $s = intval($request->get('s', 1));
 
-        $survey = $this->getSurvey();
+        $survey = $this->get('disc.survey')->getSurvey($s);
 
         return [
             'user'   => $id,
