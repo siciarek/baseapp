@@ -6,10 +6,6 @@
     <style type="text/css">
         <![CDATA[
 
-            .bg {
-                visibility: visible;
-            }
-
             path.chart-line {
                 stroke: black;
                 stroke-width: 8px;
@@ -115,8 +111,6 @@
 			}
         ]]>
     </style>
-
-    <image class="bg" width="687" height="1123" xlink:href="bundles/applicationdisc/images/DiSC/graph2.png"/>
 
     <!--#768DA5;#546590;-->
 

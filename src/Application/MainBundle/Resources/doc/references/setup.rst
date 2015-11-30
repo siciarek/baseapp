@@ -65,3 +65,7 @@ Set up Cloud9 environment
     $ mysql-ctl cli
     $ apachectl --help
 
+Deploy Symfony Application
+==========================
+
+    * http://symfony.com/doc/current/cookbook/deployment/tools.html
