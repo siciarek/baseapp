@@ -304,16 +304,32 @@
     l 0 -811
     Z"/>
             <text class="indicator S segment-7" x="419" y="195">+26</text>
-            <text class="indicator S segment-7" x="419" y="449">1</text>
-            <text class="indicator S segment-6" x="419" y="505">2</text>
-            <text class="indicator S segment-5" x="419" y="564">3</text>
-            <text class="indicator S segment-4" x="419" y="623">4</text>
-            <text class="indicator S segment-3" x="419" y="693">5</text>
-            <text class="indicator S segment-3" x="419" y="729">6</text>
-            <text class="indicator S segment-2" x="419" y="808">7</text>
-            <text class="indicator S segment-2" x="419" y="881">8</text>
-            <text class="indicator S segment-1" x="419" y="909">9</text>
-            <text class="indicator S segment-1" x="419" y="938">10</text>
+            <text class="indicator S segment-7" x="419" y="449">+14</text>
+            <text class="indicator S segment-7" x="419" y="505">+12</text>
+            
+            <text class="indicator S segment-6" x="419" y="564">+11</text>
+            <text class="indicator S segment-6" x="419" y="623">+10</text>
+            <text class="indicator S segment-6" x="419" y="693">+9</text>
+            
+            <text class="indicator S segment-5" x="419" y="729">+8</text>
+            <text class="indicator S segment-5" x="419" y="729">+7</text>
+            <text class="indicator S segment-5" x="419" y="729">+6</text>
+
+            <text class="indicator S segment-4" x="419" y="808">+5</text>
+            <text class="indicator S segment-4" x="419" y="808">+4</text>
+            <text class="indicator S segment-4" x="419" y="808">+3</text>
+
+            <text class="indicator S segment-3" x="419" y="881">+2</text>
+            <text class="indicator S segment-3" x="419" y="881">+1</text>
+            <text class="indicator S segment-3" x="419" y="881">0</text>
+            
+            <text class="indicator S segment-2" x="419" y="909">-1</text>
+            <text class="indicator S segment-2" x="419" y="909">-2</text>
+            <text class="indicator S segment-2" x="419" y="909">-3</text>
+            <text class="indicator S segment-2" x="419" y="909">-4</text>
+            
+            <text class="indicator S segment-1" x="419" y="938">-5</text>
+            <text class="indicator S segment-1" x="419" y="938">-6</text>
             <text class="indicator S segment-1" x="419" y="966">-27</text>
 
             <!--C BADGE-->
