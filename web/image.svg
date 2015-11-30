@@ -27,6 +27,10 @@
                 visibility: visible;
             }
 
+            .indicator {
+                font-weight: normal;
+            }
+            
             .indicator.D {
                 visibility: visible;
             }
@@ -241,25 +245,31 @@
             <text class="indicator D segment-7" x="167" y="195">+27</text>
             <text class="indicator D segment-7" x="167" y="250">+9</text>
             <text class="indicator D segment-7" x="167" y="280">+6</text>
+            
             <text class="indicator D segment-6" x="167" y="280">+5</text>
             <text class="indicator D segment-6" x="167" y="308">+3</text>
             <text class="indicator D segment-6" x="167" y="330">+2</text>
             <text class="indicator D segment-6" x="167" y="363">+1</text>
             <text class="indicator D segment-6" x="167" y="424">0</text>
+            
             <text class="indicator D segment-5" x="167" y="448">-1</text>
             <text class="indicator D segment-5" x="167" y="540">-1</text>
             <text class="indicator D segment-5" x="167" y="598">-3</text>
             <text class="indicator D segment-5" x="167" y="655">-4</text>
+            
             <text class="indicator D segment-4" x="167" y="733">-5</text>
             <text class="indicator D segment-4" x="167" y="842">-6</text>
             <text class="indicator D segment-4" x="167" y="852">-7</text>
+            
             <text class="indicator D segment-3" x="167" y="862">-8</text>
             <text class="indicator D segment-3" x="167" y="872">-9</text>
             <text class="indicator D segment-3" x="167" y="882">-10</text>
             <text class="indicator D segment-3" x="167" y="892">-11</text>
+            
             <text class="indicator D segment-2" x="167" y="892">-12</text>
             <text class="indicator D segment-2" x="167" y="892">-13</text>
             <text class="indicator D segment-2" x="167" y="892">-14</text>
+            
             <text class="indicator D segment-1" x="167" y="892">-15</text>
             <text class="indicator D segment-1" x="167" y="892">-16</text>
             <text class="indicator D segment-1" x="167" y="918">-27</text>
