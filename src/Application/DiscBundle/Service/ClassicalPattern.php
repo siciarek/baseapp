@@ -15,7 +15,7 @@ class ClassicalPattern {
     public function getList() {
 
         $filename = realpath(__DIR__ . '/../../DiscBundle/Resources/config/patterns.yml');
-        $patterns = Yaml::parse(file_get_contents($filename))['disc']['patterns'];
+        $patterns = Yaml::parse(file_get_contents($filename))['ClassicalPattern'];
 
         return $patterns;
     }
