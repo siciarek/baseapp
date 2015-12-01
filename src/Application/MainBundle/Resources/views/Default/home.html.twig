@@ -20,6 +20,17 @@
 
             Dialog.input('Insert your name:', null, callback);
         }
+
+        function questionTest() {
+
+            var callback = function(val) {
+                Spinner.show();
+                setTimeout(function(){console.log(val);Spinner.hide()}, 4000);
+            };
+
+            Dialog.question('Insert your name:', null, callback);
+        }
+
     </script>
 {% endblock %}
 
