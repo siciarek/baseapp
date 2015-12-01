@@ -1,7 +1,24 @@
 $(document).ready(function() {
     Spinner.selector = $('body > div.spinner');
     Dialog.selector = $('body > div.dialog.template')
-        .on('click', '.btn.save', function(e) {
+        .on('click', '.save,.yes,.no', function(e) {
+            var form = $('body > div.dialog.template form.form-horizontal');
+            var control = form.find('input[name=text]');
+            
+            if($(this).hasClass('yes')) {
+                control.val(1);
+            }
+
+            if($(this).hasClass('no')) {
+                control.val(0);
+            }
+
+            form.find('.submit').trigger('click');
+        })
+    ;
+    
+    $('body > div.dialog.template form.form-horizontal')
+        .submit(function(e) {
             e.preventDefault();
 
             var value = $(this).closest('.modal').find('.modal-body input[name="text"]').val().trim();
@@ -9,6 +26,8 @@ $(document).ready(function() {
             value = value.length === 0 ? null : value;
 
             Dialog.callback(value);
+
+            $(this).closest('.modal').modal('hide');
         });
 });
 
@@ -57,7 +76,7 @@ var Dialog = {
         return this.value;
     },
     callback: function(val) {
-        console.log('GENERIC: ', val);
+
     },
     /**
      * Metoda do zmiany domyślnych tytułów okien dialogowych, np. w innych językach.
@@ -97,7 +116,7 @@ var Dialog = {
     },
     dialog: function (type, message, title, callback) {
         title = title || this.types[type];
-        callback = callback || null;
+        callback = callback || this.callback;
         message = message || title;
         var icon = this.icons[type];
 
@@ -191,8 +210,8 @@ var Dialog = {
     question: function (message, title, callback) {
         message = message || 'Are you sure?';
         title = title || 'Question';
-        callback = callback || function() {
-            console.log([title, message]);
+        callback = callback || function(val) {
+            console.log([title, message, val]);
             return true;
         };
         return this.dialog('question', message, title, callback);
@@ -207,11 +226,10 @@ var Dialog = {
     confirmation: function (message, title, callback) {
         message = message || 'Are you sure';
         title = title || 'Confirmation';
-        callback = callback || function() {
-            console.log([title, message]);
+        callback = callback || function(val) {
+            console.log([title, message, val]);
             return true;
         };
-
         return this.dialog('confirmation', message, title, callback);
     }
 };
