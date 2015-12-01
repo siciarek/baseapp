@@ -209,7 +209,7 @@ var Dialog = {
      */
     question: function (message, title, callback) {
         message = message || 'Are you sure?';
-        title = title || 'Question';
+        title = title || this.types.question;
         callback = callback || function(val) {
             console.log([title, message, val]);
             return true;
@@ -225,7 +225,7 @@ var Dialog = {
      */
     confirmation: function (message, title, callback) {
         message = message || 'Are you sure';
-        title = title || 'Confirmation';
+        title = title || this.types.confirmation;
         callback = callback || function(val) {
             console.log([title, message, val]);
             return true;
