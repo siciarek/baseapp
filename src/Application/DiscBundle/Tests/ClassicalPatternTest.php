@@ -8,6 +8,29 @@ class ClassicalPatternTest extends WebTestCase
 {
     protected $srv;
     
+    /**
+
+    Achiever
+    Agent
+    Appraiser
+    Counselor
+    Creative
+    Developer
+    Inspirational
+    Investigator
+    Objective Thinker
+    Overshift
+    Perfectionist
+    Persuader
+    Practitioner
+    Promoter
+    Result-Oriented
+    Specialist
+    Tight
+    Undershift
+
+    */
+
     public static function getProfileDataProvider() {
         return [
             [ 1467, 'Perfectionist'   ], // https://www.onlinediscprofile.com/wp-content/uploads/disc-classic-graph.png
