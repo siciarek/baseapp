@@ -34,6 +34,11 @@ class DefaultController extends Controller
      */
     public function graphAction($type, $results)
     {
+        /**
+         * TODO: use converteter
+         * http://image.online-convert.com/convert-to-png
+         * http://stackoverflow.com/questions/1019462/how-to-convert-svg-files-to-other-image-formats
+         */
         $types = [
             'most' => 'I',
             'least' => 'II',
@@ -232,7 +237,7 @@ SVG;
     /**
      * @Route("/tally-box/{results}", requirements={"results","[\d,]{9,14}\|[\d,]{9,14}"}, defaults={"results"="11,2,12,4,1|6,7,8,9,2"}, name="disc.tally.box")
      */
-    public function tallyBoxAction($results) {
+    public function tallyBoxAction(Request $request, $results) {
 
         $temp = explode('|', $results);
 
@@ -277,7 +282,6 @@ SVG;
             $tallyBox['difference'][$type] = strval($tallyBox['most'][$type] - $tallyBox['least'][$type]);
         }
 
-
         $contentFmt = <<<SVG
 <?xml version="1.0" standalone="no"?>
 <svg viewBox="0 0 847 1136" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -285,6 +289,9 @@ SVG;
 %s
 </svg>
 SVG;
+
+        $fileName = __DIR__ . '/../Resources/public/images/DiSC/tallyBox.png';
+        $base64 = base64_encode(file_get_contents($fileName));
 
         $content = <<<SVG
 <?xml version="1.0" standalone="no"?>
@@ -303,7 +310,7 @@ SVG;
         ]]>
     </style>
 
-    <image x="0" y="0" width="847" height="1136" xlink:href="/bundles/applicationdisc/images/DiSC/tallyBox.png"/>
+    <image x="0" y="0" width="847" height="1136" xlink:href="data:image/png;base64,{$base64}"/>
 
     <text x="130" y="328"  class="most D">0</text>
     <text x="130" y="495"  class="most i">0</text>
@@ -335,15 +342,11 @@ SVG;
         }
 
         $content = sprintf($contentFmt, $crawler->html());
-
         $response = new Response($content);
-
         $response->headers->add([ 'Content-Type' => 'image/svg+xml' ]);
 
         return $response;
     }
-
-
 
     /**
      * @Route("/survey", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.survey.demo")
