@@ -8,7 +8,7 @@ class Survey {
     public function getSurvey($id = 1)
     {
         // TODO: pomyśleć o bazie danych
-        
+
         $fileName = realpath(__DIR__ . '/../Resources/config/surveys.yml');
         $data = Yaml::parse(file_get_contents($fileName));
 
