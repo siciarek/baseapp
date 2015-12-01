@@ -17,7 +17,7 @@ class ClassicalPatternTest extends WebTestCase
             [ 2657, 'Practitioner'    ], // http://www.discprofiles4u.com/product_images/uploaded_images/practitioner2.jpg
             [ 2674, 'Agent'           ], // http://www.discprofiles4u.com/blog/wp-content/uploads/2012/03/agent.jpg
             [ 6212, 'Developer'       ], // https://www.discprofiles4u.com/product_images/uploaded_images/disc-developer-pattern.jpg
-            [ 5263, 'Archiever'       ], // http://kpaydo.aupairnews.com/files/2015/03/DiSC-model1.jpg
+            [ 5263, 'Achiever'        ], // http://kpaydo.aupairnews.com/files/2015/03/DiSC-model1.jpg
             [ 7513, 'Result-Oriented' ], // http://image.slidesharecdn.com/10148efa-ceb9-4af2-b41b-af3e76c78920-150116130553-conversion-gate01/95/zackyoung-21-638.jpg?cb=1421435201
             [ 7711, 'Inspirational'   ], // http://discassessmentprofiles.com/wp-content/uploads/2014/02/figures-large.png
         ];
@@ -34,6 +34,21 @@ class ClassicalPatternTest extends WebTestCase
         foreach($list as $key => $values) {
             $this->assertEquals(49, count(array_keys($values)));
         }
+    }
+    
+    /**
+     * @group names
+     */
+    public function testGetNames()
+    {
+        $items = $this->srv->getNames();
+        
+        $this->assertCount(18, $items, 'Elements count differs from 18.');
+
+        $itemsCopy = $items;
+        sort($itemsCopy);
+        
+        $this->assertEquals($itemsCopy, $items, 'Elements are not sorted alphabetically.');
     }
     
     /**
