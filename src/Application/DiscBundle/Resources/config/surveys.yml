@@ -1,143 +1,289 @@
-surveys:
-    default:
-        1:
-            - enthusiastic
-            - daring
-            - diplomatic
-            - satisfied
-        2:
-            - cautious
-            - determined
-            - convincing
-            - good-natured
-        3:
-            - friendly
-            - accurate
-            - outspoken
-            - calm
-        4:
-            - talkative
-            - controlled
-            - conventional
-            - decisive
-        5:
-            - adventurous
-            - insightful
-            - outgoing
-            - moderate
-        6:
-            - gentle
-            - persuasive
-            - humble
-            - original
-
-        7:
-            - expressive
-            - conscientious
-            - dominant
-            - responsive
-        8:
-            - poised
-            - observant
-            - modest
-            - impatient
-        9:
-            - tactful
-            - agreeable
-            - magnetic
-            - insistent
-        10:
-            - brave
-            - inspiring
-            - submissive
-            - timid
-        11:
-            - reserved
-            - obliging
-            - strong-willed
-            - cheerful
-        12:
-            - stimulating
-            - kind
-            - perceptive
-            - independent
-        13:
-            - competitive
-            - considerate
-            - joyful
-            - private
-        14:
-            - fussy
-            - obedient
-            - firm
-            - playful
-        15:
-            - attractive
-            - introspective
-            - stubborn
-            - predictable
-        16:
-            - logical
-            - bold
-            - loyal
-            - charming
-        17:
-            - sociable
-            - patient
-            - self-reliant
-            - soft-spoken
-        18:
-            - willing
-            - eager
-            - thorough
-            - high-spirited
-        19:
-            - aggressive
-            - extroverted
-            - amiable
-            - fearful
-        20:
-            - confident
-            - sympathetic
-            - impartial
-            - assertive
-        21:
-            - well-disciplined
-            - generous
-            - animated
-            - persistent
-        22:
-            - impulsive
-            - introverted
-            - forceful
-            - easygoing
-        23:
-            - good  - mixer
-            - refined
-            - vigorous
-            - lenient
-        24:
-            - captivating
-            - contented
-            - demanding
-            - compliant
-        25:
-            - argumentative
-            - systematic
-            - cooperative
-            - light-hearted
-        26:
-            - jovial
-            - precise
-            - direct
-            - even-tempered
-        27:
-            - restless
-            - neighborly
-            - appealing
-            - careful
-        28:
-            - respectful
-            - pioneering
-            - optimistic
-            - helpful
+Survey:
+    -
+        id: 1
+        mode: strict
+        questions:
+            -
+                D: enthusiastic
+                i: daring
+                S: diplomatic
+                C: satisfied
+            -
+                D: cautious
+                i: determined
+                S: convincing
+                C: good-natured
+            -
+                D: friendly
+                i: accurate
+                S: outspoken
+                C: calm
+            -
+                D: talkative
+                i: controlled
+                S: conventional
+                C: decisive
+            -
+                D: adventurous
+                i: insightful
+                S: outgoing
+                C: moderate
+            -
+                D: gentle
+                i: persuasive
+                S: humble
+                C: original
+            -
+                D: expressive
+                i: conscientious
+                S: dominant
+                C: responsive
+            -
+                D: poised
+                i: observant
+                S: modest
+                C: impatient
+            -
+                D: tactful
+                i: agreeable
+                S: magnetic
+                C: insistent
+            -
+                D: brave
+                i: inspiring
+                S: submissive
+                C: timid
+            -
+                D: reserved
+                i: obliging
+                S: strong-willed
+                C: cheerful
+            -
+                D: stimulating
+                i: kind
+                S: perceptive
+                C: independent
+            -
+                D: competitive
+                i: considerate
+                S: joyful
+                C: private
+            -
+                D: fussy
+                i: obedient
+                S: firm
+                C: playful
+            -
+                D: attractive
+                i: introspective
+                S: stubborn
+                C: predictable
+            -
+                D: logical
+                i: bold
+                S: loyal
+                C: charming
+            -
+                D: sociable
+                i: patient
+                S: self-reliant
+                C: soft-spoken
+            -
+                D: willing
+                i: eager
+                S: thorough
+                C: high-spirited
+            -
+                D: aggressive
+                i: extroverted
+                S: amiable
+                C: fearful
+            -
+                D: confident
+                i: sympathetic
+                S: impartial
+                C: assertive
+            -
+                D: well-disciplined
+                i: generous
+                S: animated
+                C: persistent
+            -
+                D: impulsive
+                i: introverted
+                S: forceful
+                C: easygoing
+            -
+                D: good-mixer
+                i: refined
+                S: vigorous
+                C: lenient
+            -
+                D: captivating
+                i: contented
+                S: demanding
+                C: compliant
+            -
+                D: argumentative
+                i: systematic
+                S: cooperative
+                C: light-hearted
+            -
+                D: jovial
+                i: precise
+                S: direct
+                C: even-tempered
+            -
+                D: restless
+                i: neighborly
+                S: appealing
+                C: careful
+            -
+                D: respectful
+                i: pioneering
+                S: optimistic
+                C: helpful
+    -
+        id: 2
+        mode: strict
+        questions:
+            -
+                D: 'People look up to me'
+                i: 'I tend to be a kind person'
+                S: 'I accept life as it comes'
+                C: 'People say I have a strong personality'
+            -
+                D: 'I find it difficult to relax'
+                i: 'I have a very wide circle of friends'
+                S: 'I am always ready to help others'
+                C: 'I like to behave correctly'
+            -
+                D: 'I tend to do what I am told'
+                i: 'I like things to be very neat and tidy'
+                S: 'People can''t put me down'
+                C: 'I enjoy having fun'
+            -
+                D: 'I respect my elders and those in authority'
+                i: 'I am always willing to do new things - to take a risk'
+                S: 'I believe things will go well'
+                C: 'I am always willing to help'
+            -
+                D: 'I am a neat and orderly person'
+                i: 'I am very active, both at work and play'
+                S: 'I am a very calm and placid person'
+                C: 'I generally get my own way'
+            -
+                D: 'I am very contented with life'
+                i: 'I tend to trust people'
+                S: 'I like peace and quiet'
+                C: 'I have a very positive attitude'
+            -
+                D: 'I have a great deal of will power'
+                i: 'I always take notice of what other people say'
+                S: 'I try to be obliging'
+                C: 'I am always cheerful'
+            -
+                D: 'I am self-confident'
+                i: 'People say I am a sympathetic type'
+                S: 'I have a tolerant attitude towards life'
+                C: 'I am an assertive person'
+            -
+                D: 'I never lose my temper'
+                i: 'I like things to be precise and correct'
+                S: 'I am very sure of myself'
+                C: 'I enjoy having a laugh and a joke'
+            -
+                D: 'My behaviour is well disciplined'
+                i: 'People see me as being helpful'
+                S: 'I am always on the move'
+                C: 'I persevere until I get what I want'
+            -
+                D: 'I enjoy competition'
+                i: 'I do not treat life too seriously'
+                S: 'I always consider others'
+                C: 'I am an agreeable type'
+            -
+                D: 'I am very persuasive'
+                i: 'I see myself as a gentle person'
+                S: 'I am a very modest type'
+                C: 'I often come up with original ideas'
+            -
+                D: 'I am very helpful towards others'
+                i: 'I don''t like tempting fate'
+                S: 'I don''t give up easily'
+                C: 'People like my company'
+            -
+                D: 'I tend to be a cautious person'
+                i: 'I am a very determined person'
+                S: 'I am good at convincing people'
+                C: 'I tend to be a friendly person'
+            -
+                D: 'I don''t scare easily'
+                i: 'People find my company stimulating'
+                S: 'I am always willing to follow orders'
+                C: 'I am a rather shy person'
+            -
+                D: 'I am very willing to change my opinion'
+                i: 'I like a good argument'
+                S: 'I tend to be an easy going type'
+                C: 'I always look on the bright side of life'
+            -
+                D: 'I am a very social sort of person'
+                i: 'I am very patient'
+                S: 'I am a very self-sufficient sort of person'
+                C: 'I rarely raise my voice'
+            -
+                D: 'I am always ready and willing'
+                i: 'I am always keen to try new things'
+                S: 'I don''t like arguments'
+                C: 'People describe me as high spirited'
+            -
+                D: 'I enjoy taking a chance'
+                i: 'I tend to be very receptive to other people''s ideas'
+                S: 'I am always polite and courteous'
+                C: 'I am a moderate rather than an extreme person'
+            -
+                D: 'I tend to be a forgiving type'
+                i: 'I am a sensitive person'
+                S: 'I have a lot of energy and vigour'
+                C: 'I can mix with anybody'
+            -
+                D: 'I enjoy chatting with people'
+                i: 'I control my emotions'
+                S: 'I am very conventional in my outlook'
+                C: 'I make decisions quickly'
+            -
+                D: 'I tend to keep my feelings to myself'
+                i: 'Accuracy is very important to me'
+                S: 'I like to speak my mind'
+                C: 'I am very friendly'
+            -
+                D: 'I like to handle things with diplomacy'
+                i: 'I am very daring'
+                S: 'Most people find me acceptable'
+                C: 'I feel satisfied with life'
+            -
+                D: 'I am obedient'
+                i: 'I am always willing to have a go'
+                S: 'Loyalty is one of my strengths'
+                C: 'I have a good deal of charm'
+            -
+                D: 'I tend to be an aggressive type'
+                i: 'I am good fun and have a lot of personality'
+                S: 'People tend to see me as an "easy touch"'
+                C: 'I tend to be rather timid'
+            -
+                D: 'I am good at motivating people'
+                i: 'Patience is one of my major strengths'
+                S: 'I am careful to say the right thing'
+                C: 'I have a strong desire to win'
+            -
+                D: 'People find me easy to get on with'
+                i: 'I get a lot of satisfaction from helping others'
+                S: 'I always think things through'
+                C: 'I prefer to get things done now rather than later'
+            -
+                D: 'I am good at analysing situations'
+                i: 'I get restless quickly'
+                S: 'I think about how my decisions might affect others'
+                C: 'People see me as relaxed and easy going'
