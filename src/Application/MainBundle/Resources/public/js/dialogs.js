@@ -1,3 +1,17 @@
+$(document).ready(function() {
+    Spinner.selector = $('body > div.spinner');
+    Dialog.selector = $('body > div.dialog.template')
+        .on('click', '.btn.save', function(e) {
+            e.preventDefault();
+
+            var value = $(this).closest('.modal').find('.modal-body input[name="text"]').val().trim();
+
+            value = value.length === 0 ? null : value;
+
+            Dialog.callback(value);
+        });
+});
+
 var Spinner = {
     selector: null,
     show: function() {
@@ -7,18 +21,6 @@ var Spinner = {
         this.selector.addClass('hidden');
     }
 };
-
-$(document).ready(function() {
-    Spinner.selector = $('body > div.spinner');
-    Dialog.selector = $('body > div.dialog.template')
-        .on('click', '.btn.save', function(e) {
-            e.preventDefault();
-            var value = $(this).closest('.modal').find('.modal-body input[name="text"]').val().trim();
-            value = value.length === 0 ? null : value;
-
-            Dialog.value = value;
-        });
-});
 
 /**
  * Obiekt zawierający typowe okienka dialogowe,
@@ -53,6 +55,9 @@ var Dialog = {
     value: null,
     val: function() {
         return this.value;
+    },
+    callback: function(val) {
+        console.log('GENERIC: ', val);
     },
     /**
      * Metoda do zmiany domyślnych tytułów okien dialogowych, np. w innych językach.
@@ -92,7 +97,7 @@ var Dialog = {
     },
     dialog: function (type, message, title, callback) {
         title = title || this.types[type];
-        callback = callback || function () {};
+        callback = callback || null;
         message = message || title;
         var icon = this.icons[type];
 
@@ -108,6 +113,7 @@ var Dialog = {
                 }
             }
 
+            dialog.find('form').get(0).reset();
             dialog.find('.modal-header i').addClass(icon);
             dialog.find('.modal-body i').addClass(icon).addClass(type);
 
@@ -126,18 +132,8 @@ var Dialog = {
                 var btn = dialog.find('.modal-footer .btn.' + e);
                 btn.removeClass('hidden');
             });
-        }
 
-        var msg = [title, '', '[' + type.toUpperCase() + ']', '', message].join("\n");
-
-        if(type === 'confirmation' || type === 'question') {
-
-//            if(confirm(msg)) {
-//                callback();
-//                return true;
-//            }
-//
-//            return false;
+            Dialog.callback = callback;
         }
 
         return dialog.modal();
@@ -180,7 +176,10 @@ var Dialog = {
      * @param callback funkcja wykonywana po zamknięciu okienka
      */
     input: function (message, title, callback) {
-        return this.dialog('input', message, title);
+        callback = callback || function(value) {
+            console.log([title, message, value]);
+        };
+        return this.dialog('input', message, title, callback);
     },
     /**
      * Okienko dialogowe zapytania

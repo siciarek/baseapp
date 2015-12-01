@@ -10,6 +10,16 @@
               Spinner.hide();
             }, 3000);
         }
+
+        function inputTest() {
+
+            var callback = function(val) {
+                Spinner.show();
+                setTimeout(function(){console.log(val);Spinner.hide()}, 4000);
+            };
+
+            Dialog.input('Insert your name:', null, callback);
+        }
     </script>
 {% endblock %}
 
@@ -35,7 +45,7 @@
             <a onclick="Dialog.error('Short error message.')" href="javascript:void(null)" class="btn btn-lg btn-danger">
                 <i class="fa fa-lg fa-fw fa-times-circle"></i>
             </a>
-            <a onclick="Dialog.input('Insert your name:');alert(Dialog.val());" href="javascript:void(null)" class="btn btn-lg btn-default">
+            <a onclick="inputTest()" href="javascript:void(null)" class="btn btn-lg btn-default">
                 <i class="fa fa-lg fa-fw fa-edit"></i>
             </a>
             <a onclick="Dialog.question('Are you sure?')" href="javascript:void(null)" class="btn btn-lg btn-default">
