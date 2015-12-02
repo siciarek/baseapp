@@ -7,7 +7,7 @@
             "": "src/"
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "gregwar/captcha-bundle": "dev-master",
 
@@ -30,6 +30,7 @@
         "sonata-project/datagrid-bundle": "dev-master",
         "sonata-project/user-bundle": "dev-master",
         "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master",
         
         "php": ">=5.3.9",
         "symfony/symfony": "2.7.*",
