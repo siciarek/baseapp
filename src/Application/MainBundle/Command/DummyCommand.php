@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\Yaml\Yaml;
 
 class DummyCommand extends ContainerAwareCommand {
@@ -20,19 +21,12 @@ class DummyCommand extends ContainerAwareCommand {
 
     protected function execute(InputInterface $input, OutputInterface $output) {
 
-        $srv = $this->getContainer()->get('classical.pattern');
-        $patterns = $srv->getList();
+        $url = 'http://baseapp-siciarek.c9users.io/disc/tally-box/12,11,2,1,2|2,2,9,14,1';
 
-        // $filename = realpath(__DIR__ . '/../../DiscBundle/Resources/config/patterns.yml');
-        
-        // $patterns = Yaml::parse(file_get_contents($filename));
-        
-        $output->writeln(json_encode($patterns, JSON_PRETTY_PRINT));
-        $profile = $srv->getProfile(1467);
-        
-        $output->writeln($profile);
-        
-        
+        $srv = $this->getContainer()->get('app.image.converter');
+
+        $srv->convert($url);
+
         return;
     
         $filename = __DIR__ . '/../Resources/doc/_static/patterns.txt';
