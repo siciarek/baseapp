@@ -1,4 +1,30 @@
 services:
+#
+#<?php
+#$di->set('curl', function() use ($di) {
+#    $tempdir = $di->getConfig()->dirs->cache . DIRECTORY_SEPARATOR . 'curl';
+#
+#    $curl = new \Application\Common\Utils\Curl($tempdir);
+#    return $curl;
+#});
+#
+#$di->set('curlDebug', function() use ($di) {
+#    $tempdir = $di->getConfig()->dirs->cache . DIRECTORY_SEPARATOR . 'curl';
+#
+#    $curl = new \Application\Common\Utils\Curl($tempdir, 'COOKIES', true);
+#    return $curl;
+#});
+
+    app.image.converter:
+        class: Application\MainBundle\Service\ImageConverter
+        arguments:
+            - @service_container
+
+    app.common.utils.curl:
+        class: Application\MainBundle\Common\Utils\Curl
+
+    app.common.utils.curl.debug:
+        class: Application\MainBundle\Common\Utils\Curl
 
     app.locale_listener:
         class: Application\MainBundle\EventListener\LocaleListener
