@@ -1,6 +1,7 @@
 nbproject
 .idea
 php.ini
+/temp*
 
 /src/Application/MainBundle/Controller/DummyController.php
 /src/Application/MainBundle/Command/DummyCommand.php
