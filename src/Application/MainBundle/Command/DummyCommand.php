@@ -21,12 +21,17 @@ class DummyCommand extends ContainerAwareCommand {
 
     protected function execute(InputInterface $input, OutputInterface $output) {
 
-        $url = 'http://baseapp-siciarek.c9users.io/disc/tally-box/12,11,2,1,2|2,2,9,14,1';
-
+        $url = 'http://localhost:8000/disc/tally-box/12,11,8,4,2|2,2,9,14,1';
+        $url = 'http://localhost:8000/disc/graph/12,11,2,1';
+        
+        $file = realpath($this->getContainer()->get('kernel')->getRootDir() . '/../web/') . '/image.png';
+        
         $srv = $this->getContainer()->get('app.image.converter');
 
-        $srv->convert($url);
+        $result = $srv->convert($url, $file);
 
+        $output->writeln($result);
+        
         return;
     
         $filename = __DIR__ . '/../Resources/doc/_static/patterns.txt';
