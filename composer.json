@@ -7,10 +7,9 @@
             "": "src/"
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "gregwar/captcha-bundle": "dev-master",
-
         "nelmio/security-bundle": "dev-master",
         "liuggio/excelbundle": "dev-master",
         "jms/security-extra-bundle": "dev-master",
@@ -20,11 +19,15 @@
         "stof/doctrine-extensions-bundle": "dev-master",
         "egeloen/ckeditor-bundle": "dev-master",    
         "friendsofsymfony/jsrouting-bundle": "dev-master",
+
         "knplabs/knp-paginator-bundle": "dev-master",
         "knplabs/knp-snappy-bundle": "dev-master",
         "knplabs/doctrine-behaviors": "dev-master",
+        "knplabs/knp-menu-bundle": "dev-master",
+
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
+
         "sonata-project/classification-bundle": "dev-master",
         "sonata-project/media-bundle": "dev-master",
         "sonata-project/datagrid-bundle": "dev-master",

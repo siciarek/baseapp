@@ -48,7 +48,7 @@ php.ini
 
 # Composer PHAR
 /composer.phar
-/composer.lock
+#/composer.lock
 
 /properties.conf
 /nbproject/private/
