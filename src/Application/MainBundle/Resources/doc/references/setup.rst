@@ -61,9 +61,43 @@ Set up Cloud9 environment
 
     $ sudo vim /etc/apache2/sites-enabled/001-cloud9.conf
     $ apachectl restart
-    $ sudo sudo -u postgres psql
+
+Useful commands
+===============
+
+Apache commands
+~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+    $ apachectl start
+    $ apachectl restart
+    $ apachectl stop
+
+MySQL Database console access
+
+.. code-block:: bash
+
     $ mysql-ctl cli
-    $ apachectl --help
+    
+PostreSQL Database console access
+
+.. code-block:: bash
+
+    $ sudo sudo -u postgres psql
+
+
+MySQL server commands
+
+.. code-block:: bash
+
+    $ mysql-ctl start
+
+PostgreSQL server commands
+
+.. code-block:: bash
+
+    $ sudo service postgresql start
 
 Deploy Symfony Application
 ==========================
