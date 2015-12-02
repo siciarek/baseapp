@@ -38,7 +38,7 @@
             }
 
             text {
-                font-family: sans-serif;
+                font-family: Arial, Helvetica, sans-serif;
                 text-anchor: middle;
                 font-size: 27px;
                 font-weight: bold;
