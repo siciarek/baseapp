@@ -23,7 +23,7 @@ class ImageConverter implements ContainerAwareInterface {
 
         $export = sprintf('--export-%s=%s', $targetFormat, $targetFilename);
         
-        $process = new XProcess($this->getContainer(), 'inkscape');
+        $process = new XProcess($this->getContainer(), $this->getContainer()->getParameter('exec.inkscape'));
         
         $app = $process->getApplication();
         

@@ -23,15 +23,18 @@ class DummyCommand extends ContainerAwareCommand {
 
         $url = $this->getContainer()->get('router')->generate('disc.tally.box', ['results' => '12,11,8,4,2|2,2,9,14,1'], true);
         $url = $this->getContainer()->get('router')->generate('disc.graph', ['results' => '12,11,8,4', 'type' => 'least'], true);
-        $url = $this->getContainer()->get('router')->generate('default.home', [], true);
-        
-        $url .= '/image.svg';
 
-        $file = realpath($this->getContainer()->get('kernel')->getRootDir() . '/../web/') . '/image.png';
+        $url = $this->getContainer()->get('router')->generate('default.home', [], true);
+        $url .= 'image.svg';
+
+        $url = 'http://localhost:8000/image.svg';
+        $file = 'image.png'; // realpath($this->getContainer()->get('kernel')->getRootDir() . '/../web/') . '/image.png';
         
         $srv = $this->getContainer()->get('app.image.converter');
 
         $result = $srv->convert($url, $file);
+
+        $result .= "\n\nfile: " . realpath($file) . "\n";
 
         $output->writeln($result);
         

@@ -9,7 +9,8 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
 
-class XProcess implements ContainerAwareInterface {
+class XProcess implements ContainerAwareInterface
+{
 
     /**
      * @var ContainerInterface
@@ -24,43 +25,16 @@ class XProcess implements ContainerAwareInterface {
      */
     protected $applicationName;
 
-    public function __construct(ContainerInterface $container, $name = 'ls') {
-        
+    public function __construct(ContainerInterface $container, $name = 'ls')
+    {
+
         $this->setContainer($container);
-        $output = $this->run('whereis ' . $name);
 
-        $list = explode(' ', $output);
-        array_shift($list);
-        $list = array_map('trim', $list);
-
-        $list = array_filter($list, function($e) use ($name) {
-            return preg_match('/\b' . $name . '$/', $e) > 0;
-        });
-
-        $list = array_values($list);
-
-        if (count($list) == 0) {
-            throw new ProcessFailedException($process);
-        }
-
-        $app = null;
-        
-        foreach($list as $application) {
-            if (file_exists($application) AND is_file($application) AND is_executable($application)) {
-                $app = $application;
-                break;
-            }
-        }
-        
-        
-        if ($app === null) {
-            throw new ProcessFailedException($process);
-        }
-        
-        $this->setApplication($app);
+        $this->setApplication($name);
     }
- 
-    public function run($command) {
+
+    public function run($command)
+    {
 
         $process = new Process($command);
         $process->mustRun();
@@ -68,18 +42,19 @@ class XProcess implements ContainerAwareInterface {
         if (!$process->isSuccessful()) {
             throw new ProcessFailedException($process);
         }
-        
+
         $stderr = $process->getErrorOutput();
         $stderr = trim($stderr);
-        
+
         $stdout = $process->getOutput();
 
-        $output = implode("\n\n", [$stderr, $stdout]);
-        
+        $output = implode("\n\n", [ $stderr, $stdout ]);
+
         return $output;
     }
-    
-    public function getApplication() {
+
+    public function getApplication()
+    {
 
         if ($this->application === null) {
             throw new \Exception('Application is not available.');
@@ -88,17 +63,53 @@ class XProcess implements ContainerAwareInterface {
         return $this->application;
     }
 
-    public function setApplication($application) {
+    public function setApplication($name)
+    {
+        $application = $name;
+        $msg = 'Application is not available.';
 
-        if (!(file_exists($application) AND is_file($application) AND is_executable($application))) {
-            throw new \Exception('Application: ' . $application . ' is not available.');
+        if (preg_match('/^WIN/i', PHP_OS) === 0) {
+
+            $output = $this->run('whereis ' . $name);
+
+            $list = explode(' ', $output);
+            array_shift($list);
+            $list = array_map('trim', $list);
+
+            $list = array_filter($list, function ($e) use ($name) {
+                return preg_match('/\b' . $name . '$/', $e) > 0;
+            });
+
+            $list = array_values($list);
+
+            if (count($list) == 0) {
+                throw new \Exception($msg);
+            }
+
+            $application = null;
+
+            foreach ($list as $app) {
+                if (file_exists($app) AND is_file($app) AND is_executable($app)) {
+                    $application = $app;
+                    break;
+                }
+            }
+
+            if ($application === null) {
+                throw new \Exception($msg);
+            }
+        }
+
+        if (!file_exists($application) OR !is_file($application) OR !is_executable($application)) {
+            throw new \Exception($msg);
         }
 
         $this->application = $application;
     }
 
-    public function getVersion() {
-        $cmd = sprintf('%s --version', $this->getApplication());
+    public function getVersion()
+    {
+        $cmd    = sprintf('%s --version', $this->getApplication());
         $output = $this->run($cmd);
 
         if (preg_match('/\s\d+\.\d+\.\d+\s/', $output, $match) == 0) {
@@ -109,13 +120,14 @@ class XProcess implements ContainerAwareInterface {
 
         return $version;
     }
-    
+
     /**
      * Gets the container
      *
      * @return ContainerInterface|null $container A ContainerInterface instance or null
      */
-    public function getContainer() {
+    public function getContainer()
+    {
         return $this->container;
     }
 
@@ -124,8 +136,9 @@ class XProcess implements ContainerAwareInterface {
      *
      * @param ContainerInterface|null $container A ContainerInterface instance or null
      */
-    public function setContainer(ContainerInterface $container = null) {
+    public function setContainer(ContainerInterface $container = null)
+    {
         $this->container = $container;
     }
-    
+
 }

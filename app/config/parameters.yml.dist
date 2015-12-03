@@ -33,7 +33,9 @@ parameters:
     locale: en
 
     default_timezone: Europe/Warsaw
-    
-    router.request_context.host: localhost
+
+    exec.inkscape: inkscape
+
+    router.request_context.host: localhost:8000
     router.request_context.scheme: http
-    router.request_context.base_url: ~
+    router.request_context.base_url: ~ # /app_dev.php
