@@ -198,18 +198,24 @@
             <text class="indicator D segment-1" x="167" y="905">17</text>
             <text class="indicator D segment-1" x="167" y="967">27</text>
             <!-- i -->
-            <text class="indicator i segment-7" x="292" y="195">0</text>
-            <text class="indicator i segment-7" x="292" y="252">1</text>
-            <text class="indicator i segment-7" x="292" y="280">2</text>
-            <text class="indicator i segment-6" x="292" y="321">3</text>
-            <text class="indicator i segment-5" x="292" y="367">4</text>
-            <text class="indicator i segment-4" x="292" y="425">5</text>
-            <text class="indicator i segment-3" x="292" y="540">6</text>
-            <text class="indicator i segment-3" x="292" y="580">7</text>
-            <text class="indicator i segment-2" x="292" y="656">8</text>
-            <text class="indicator i segment-1" x="292" y="738">9</text>
-            <text class="indicator i segment-1" x="292" y="831">10</text>
-            <text class="indicator i segment-1" x="292" y="969">26</text>
+            <text class="indicator i segment-7" x="292" y="194">0</text>
+            <text class="indicator i segment-7" x="292" y="245">1</text>
+            <text class="indicator i segment-7" x="292" y="277">2</text>
+            
+            <text class="indicator i segment-6" x="292" y="327">3</text>
+  
+            <text class="indicator i segment-5" x="292" y="421">4</text>
+  
+            <text class="indicator i segment-4" x="292" y="535">5</text>
+  
+            <text class="indicator i segment-3" x="292" y="651">6</text>
+            <text class="indicator i segment-3" x="292" y="721">7</text>
+  
+            <text class="indicator i segment-2" x="292" y="802">8</text>
+  
+            <text class="indicator i segment-1" x="292" y="879">9</text>
+            <text class="indicator i segment-1" x="292" y="909">10</text>
+            <text class="indicator i segment-1" x="292" y="965">26</text>
             <!-- S -->
             <text class="indicator S segment-7" x="419" y="195">0</text>
             <text class="indicator S segment-7" x="419" y="449">1</text>
