@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 687 1123" version="1.1" xmlns="http://www.w3.org/2000/svg"
+<svg width="687" height="1123" viewBox="0 0 687 1123" version="1.1" xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink">
     <desc>DiSC Graph I</desc>
 
@@ -23,6 +23,26 @@
                 visibility: visible;
             }
 
+            .indicator {
+                font-weight: normal;
+            }
+            
+            .indicator.D {
+                visibility: visible;
+            }
+
+            .indicator.i {
+                visibility: visible;
+            }
+
+            .indicator.S {
+                visibility: visible;
+            }
+
+            .indicator.C {
+                visibility: visible;
+            }
+            
             .box .midpool {
                 fill: #D0DDE5;
             }
@@ -94,6 +114,8 @@
 			}
         ]]>
     </style>
+
+    <image class="bg" width="687" height="1123"/>
 
     <!--#768DA5;#546590;-->
 

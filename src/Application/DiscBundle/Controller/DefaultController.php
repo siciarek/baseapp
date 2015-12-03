@@ -113,7 +113,7 @@ class DefaultController extends Controller
 
         $contentFmt = <<<SVG
 <?xml version="1.0" standalone="no"?>
-<svg height="800" viewBox="0 0 687 1123" version="1.1" xmlns="http://www.w3.org/2000/svg"
+<svg viewBox="0 0 687 1123" version="1.1" xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink">
 %s
 </svg>
@@ -303,31 +303,31 @@ SVG;
 		    text {
 		        font-size: 100px;
 		        font-weight: bold;
-		        font-family: sans-serif;
+		        font-family: Helvetica, sans-serif;
 		        font-style: italic;
-                text-anchor: middle;
+                        text-anchor: middle;
 		    }
         ]]>
     </style>
 
     <image x="0" y="0" width="847" height="1136" xlink:href="data:image/png;base64,{$base64}"/>
 
-    <text x="130" y="328"  class="most D">0</text>
-    <text x="130" y="495"  class="most i">0</text>
-    <text x="130" y="675"  class="most S">0</text>
-    <text x="130" y="852"  class="most C">0</text>
+    <text x="130" y="306"  class="most D">0</text>
+    <text x="130" y="482"  class="most i">0</text>
+    <text x="130" y="662"  class="most S">0</text>
+    <text x="130" y="842"  class="most C">0</text>
     <text x="130" y="1003" class="most N">0</text>
 
-    <text x="425" y="328"  class="least D">0</text>
-    <text x="425" y="495"  class="least i">0</text>
-    <text x="425" y="675"  class="least S">0</text>
-    <text x="425" y="852"  class="least C">0</text>
+    <text x="425" y="306"  class="least D">0</text>
+    <text x="425" y="482"  class="least i">0</text>
+    <text x="425" y="662"  class="least S">0</text>
+    <text x="425" y="842"  class="least C">0</text>
     <text x="425" y="1003" class="least N">0</text>
 
-    <text x="715" y="328"  class="difference D">0</text>
-    <text x="715" y="495"  class="difference i">0</text>
-    <text x="715" y="675"  class="difference S">0</text>
-    <text x="715" y="852"  class="difference C">0</text>
+    <text x="715" y="306"  class="difference D">0</text>
+    <text x="715" y="482"  class="difference i">0</text>
+    <text x="715" y="662"  class="difference S">0</text>
+    <text x="715" y="842"  class="difference C">0</text>
     <text x="715" y="1003" class="difference N"></text>
 </svg>
 SVG;

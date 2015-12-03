@@ -21,25 +21,41 @@ class DummyCommand extends ContainerAwareCommand {
 
     protected function execute(InputInterface $input, OutputInterface $output) {
 
-        $url = $this->getContainer()->get('router')->generate('disc.tally.box', ['results' => '12,11,8,4,2|2,2,9,14,1'], true);
-        $url = $this->getContainer()->get('router')->generate('disc.graph', ['results' => '12,11,8,4', 'type' => 'least'], true);
+        $urlTest = $this->getContainer()->get('router')->generate('default.home', [], true);
+        $urlTest .= 'image.svg';
+        
+        $urlTallyBox = $this->getContainer()->get('router')->generate('disc.tally.box', ['results' => '12,11,8,4,2|2,2,9,14,1'], true);
 
-        $url = $this->getContainer()->get('router')->generate('default.home', [], true);
-        $url .= 'image.svg';
-
-        $url = 'http://localhost:8000/image.svg';
-        $file = 'image.png'; // realpath($this->getContainer()->get('kernel')->getRootDir() . '/../web/') . '/image.png';
         
         $srv = $this->getContainer()->get('app.image.converter');
-
-        $result = $srv->convert($url, $file);
-
-        $result .= "\n\nfile: " . realpath($file) . "\n";
-
-        $output->writeln($result);
+        $baseDir = realpath($this->getContainer()->get('kernel')->getRootDir() . '/../web/uploads') ;
         
+        $result = [];
+
+        $arguments = [
+            [ $urlTest, $baseDir . DIRECTORY_SEPARATOR . 'test.png'],
+            [ $urlTallyBox, $baseDir . DIRECTORY_SEPARATOR . 'tallybox.png'],
+        ];
+        
+        foreach (['most', 'least', 'difference'] as $type) {
+            $url = $this->getContainer()->get('router')->generate('disc.graph', ['results' => '12,11,8,4', 'type' => $type], true);
+            $file = $baseDir . DIRECTORY_SEPARATOR . $type . '.png';
+            $arguments[] = [$url, $file];
+        }
+        
+        foreach($arguments as $a) {
+            
+            list($url, $file) = $a;
+            
+            $result[] = $srv->convert($url, $file);
+
+            $result[] = "file: " . realpath($file);
+        }
+
+        $output->writeln(implode("\n\n", $result));
+
         return;
-    
+
         $filename = __DIR__ . '/../Resources/doc/_static/patterns.txt';
         $content = file_get_contents($filename);
 
@@ -291,9 +307,7 @@ class DummyCommand extends ContainerAwareCommand {
                 [ 'Practitioner' => 3,],
                 [ 'Counselor' => 4,],
                 [ 'Practitioner' => 3,],
-                
                 [ 'Promoter' => 4,],
-                
                 [ 'Appraiser' => 3,],
                 [ 'Promoter' => 4,],
                 [ 'Appraiser' => 3,],
@@ -304,22 +318,16 @@ class DummyCommand extends ContainerAwareCommand {
             '3677' => [
                 [ 'Practitioner' => 3,],
                 [ 'Agent' => 4,],
-                
                 [ 'Practitioner' => 3,],
                 [ 'Counselor' => 4,],
-
                 [ 'Practitioner' => 3,],
                 [ 'Counselor' => 4,],
-                
                 [ 'Practitioner' => 3,],
                 [ 'Promoter' => 4,],
-
                 [ 'Appraiser' => 3,],
                 [ 'Promoter' => 4,],
-               
                 [ 'Appraiser' => 3,],
                 [ 'Promoter' => 4,],
-               
                 [ 'Appraiser' => 3,],
                 [ 'Promoter' => 4,],
             ],
@@ -414,10 +422,8 @@ class DummyCommand extends ContainerAwareCommand {
                 [ 'Counselor' => 4,],
                 [ 'Practitioner' => 3,],
                 [ 'Counselor' => 4,],
-                
                 [ 'Practitioner' => 3,],
                 [ 'Promoter' => 4,],
-
                 [ 'Appraiser' => 3,],
                 [ 'Promoter' => 4,],
                 [ 'Appraiser' => 3,],
@@ -428,35 +434,28 @@ class DummyCommand extends ContainerAwareCommand {
             '2677' => [
                 [ 'Practitioner' => 3,],
                 [ 'Agent' => 4,],
-
                 [ 'Practitioner' => 3,],
                 [ 'Counselor' => 4,],
                 [ 'Practitioner' => 3,],
                 [ 'Counselor' => 4,],
-
                 [ 'Practitioner' => 3,],
                 [ 'Promoter' => 4,],
-                
                 [ 'Appraiser' => 3,],
                 [ 'Promoter' => 4,],
                 [ 'Appraiser' => 3,],
                 [ 'Promoter' => 4,],
                 [ 'Appraiser' => 3,],
                 [ 'Promoter' => 4,],
-
             ],
             '2577' => [
                 [ 'Practitioner' => 3,],
                 [ 'Agent' => 4,],
                 [ 'Practitioner' => 3,],
                 [ 'Agent' => 4,],
-
                 [ 'Practitioner' => 3,],
                 [ 'Counselor' => 4,],
-
                 [ 'Practitioner' => 3,],
                 [ 'Promoter' => 4,],
-                
                 [ 'Appraiser' => 3,],
                 [ 'Promoter' => 4,],
                 [ 'Appraiser' => 3,],
@@ -471,7 +470,6 @@ class DummyCommand extends ContainerAwareCommand {
                 [ 'Specialist' => 4,],
                 [ 'Perfectionist' => 3,],
                 [ 'Specialist' => 4,],
-
                 [ 'Objective Thinker' => 3,],
                 [ 'Undershift' => 4,],
                 [ 'Objective Thinker' => 3,],
@@ -480,7 +478,6 @@ class DummyCommand extends ContainerAwareCommand {
                 [ 'Undershift' => 4,],
                 [ 'Objective Thinker' => 3,],
                 [ 'Undershift' => 4,],
-              
             ],
             '2377' => [
                 [ 'Perfectionist' => 3,],
@@ -489,7 +486,6 @@ class DummyCommand extends ContainerAwareCommand {
                 [ 'Specialist' => 4,],
                 [ 'Perfectionist' => 3,],
                 [ 'Specialist' => 4,],
-
                 [ 'Objective Thinker' => 3,],
                 [ 'Undershift' => 4,],
                 [ 'Objective Thinker' => 3,],
@@ -506,7 +502,6 @@ class DummyCommand extends ContainerAwareCommand {
                 [ 'Specialist' => 4,],
                 [ 'Perfectionist' => 3,],
                 [ 'Specialist' => 4,],
-
                 [ 'Objective Thinker' => 3,],
                 [ 'Undershift' => 4,],
                 [ 'Objective Thinker' => 3,],
@@ -523,7 +518,6 @@ class DummyCommand extends ContainerAwareCommand {
                 [ 'Specialist' => 4,],
                 [ 'Perfectionist' => 3,],
                 [ 'Specialist' => 4,],
-
                 [ 'Objective Thinker' => 3,],
                 [ 'Undershift' => 4,],
                 [ 'Objective Thinker' => 3,],
@@ -540,10 +534,8 @@ class DummyCommand extends ContainerAwareCommand {
                 [ 'Counselor' => 4,],
                 [ 'Practitioner' => 3,],
                 [ 'Counselor' => 4,],
-
                 [ 'Practitioner' => 3,],
                 [ 'Promoter' => 4,],
-                
                 [ 'Appraiser' => 3,],
                 [ 'Promoter' => 4,],
                 [ 'Appraiser' => 3,],
@@ -554,15 +546,12 @@ class DummyCommand extends ContainerAwareCommand {
             '1677' => [
                 [ 'Practitioner' => 3,],
                 [ 'Agent' => 4,],
-
                 [ 'Practitioner' => 3,],
                 [ 'Counselor' => 4,],
                 [ 'Practitioner' => 3,],
                 [ 'Counselor' => 4,],
-
                 [ 'Practitioner' => 3,],
                 [ 'Promoter' => 4,],
-
                 [ 'Appraiser' => 3,],
                 [ 'Promoter' => 4,],
                 [ 'Appraiser' => 3,],
@@ -579,7 +568,6 @@ class DummyCommand extends ContainerAwareCommand {
                 [ 'Counselor' => 4,],
                 [ 'Practitioner' => 3,],
                 [ 'Promoter' => 4,],
-
                 [ 'Appraiser' => 3,],
                 [ 'Promoter' => 4,],
                 [ 'Appraiser' => 3,],
@@ -594,7 +582,6 @@ class DummyCommand extends ContainerAwareCommand {
                 [ 'Specialist' => 4,],
                 [ 'Perfectionist' => 3,],
                 [ 'Specialist' => 4,],
-                
                 [ 'Objective Thinker' => 3,],
                 [ 'Undershift' => 4,],
                 [ 'Objective Thinker' => 3,],
@@ -611,7 +598,6 @@ class DummyCommand extends ContainerAwareCommand {
                 [ 'Specialist' => 4,],
                 [ 'Perfectionist' => 3,],
                 [ 'Specialist' => 4,],
-                
                 [ 'Objective Thinker' => 3,],
                 [ 'Undershift' => 4,],
                 [ 'Objective Thinker' => 3,],
@@ -628,7 +614,6 @@ class DummyCommand extends ContainerAwareCommand {
                 [ 'Specialist' => 4,],
                 [ 'Perfectionist' => 3,],
                 [ 'Specialist' => 4,],
-                
                 [ 'Objective Thinker' => 3,],
                 [ 'Undershift' => 4,],
                 [ 'Objective Thinker' => 3,],
@@ -645,7 +630,6 @@ class DummyCommand extends ContainerAwareCommand {
                 [ 'Specialist' => 4,],
                 [ 'Perfectionist' => 3,],
                 [ 'Specialist' => 4,],
-                
                 [ 'Objective Thinker' => 3,],
                 [ 'Undershift' => 4,],
                 [ 'Objective Thinker' => 3,],
@@ -715,8 +699,8 @@ class DummyCommand extends ContainerAwareCommand {
 
         $data = json_encode($out, JSON_PRETTY_PRINT);
         // $output->writeln($data);
-        
-        $output->writeln(Yaml::dump([ 'disc' => [ 'patterns' => $result ]], 10));
+
+        $output->writeln(Yaml::dump([ 'disc' => [ 'patterns' => $result]], 10));
     }
 
 }

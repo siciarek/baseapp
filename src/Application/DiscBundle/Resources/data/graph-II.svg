@@ -23,6 +23,10 @@
                 visibility: visible;
             }
 
+            .indicator {
+                font-weight: normal;
+            }
+            
             .indicator.D {
                 visibility: visible;
             }
@@ -111,6 +115,8 @@
 			}
         ]]>
     </style>
+
+    <image class="bg" width="687" height="1123"/>
 
     <!--#768DA5;#546590;-->
 
