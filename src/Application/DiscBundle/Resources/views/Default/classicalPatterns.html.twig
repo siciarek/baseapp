@@ -32,7 +32,7 @@
         <div class="row">
             {% for header, data in row %}
             <div class="col-sm-3">
-                <div class="panel panel-default">
+                <div class="panel panel-{{ loop.index is odd ? 'default' : 'info' }} default">
                     <div class="panel-heading">
                         <h3 class="panel-title">{{ header }}</h3>        
                     </div>
