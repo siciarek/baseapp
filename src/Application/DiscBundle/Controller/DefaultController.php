@@ -111,10 +111,20 @@ class DefaultController extends Controller
             }
         }
 
+        $cssFile = $this->get('kernel')->getRootDir() . '/../src/Application/DiscBundle/Resources/public/css/svg-graph.css';
+        
+        $style = file_get_contents($cssFile);
+        
         $contentFmt = <<<SVG
 <?xml version="1.0" standalone="no"?>
 <svg viewBox="0 0 687 1123" version="1.1" xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style type="text/css">
+        <![CDATA[
+%s
+        ]]>
+    </style>
+
 %s
 </svg>
 SVG;
@@ -141,7 +151,7 @@ SVG;
             $node->nodeValue = $pattern;
         }
 
-        $xml = sprintf($contentFmt, $crawler->html());
+        $xml = sprintf($contentFmt, $style, $crawler->html());
 
         $chart = '';
 
@@ -300,13 +310,13 @@ SVG;
 
     <style type="text/css">
         <![CDATA[
-		    text {
-		        font-size: 100px;
-		        font-weight: bold;
-		        font-family: Helvetica, sans-serif;
-		        font-style: italic;
-                        text-anchor: middle;
-		    }
+            text {
+                font-size: 100px;
+                font-weight: bold;
+                font-family: Helvetica, sans-serif;
+                font-style: italic;
+                text-anchor: middle;
+            }
         ]]>
     </style>
 

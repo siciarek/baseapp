@@ -30,6 +30,7 @@ class ImageConverter implements ContainerAwareInterface {
         $builder = new ProcessBuilder();
         $builder->setPrefix($app);
         $arguments = [
+            '--export-background=white',
             '--without-gui',
             $imageUrl,
             $export

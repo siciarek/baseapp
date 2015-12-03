@@ -33,7 +33,7 @@ class DummyCommand extends ContainerAwareCommand {
         $result = [];
 
         $arguments = [
-            [ $urlTest, $baseDir . DIRECTORY_SEPARATOR . 'test.png'],
+//            [ $urlTest, $baseDir . DIRECTORY_SEPARATOR . 'test.png'],
             [ $urlTallyBox, $baseDir . DIRECTORY_SEPARATOR . 'tallybox.png'],
         ];
         
