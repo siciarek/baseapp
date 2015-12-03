@@ -33,3 +33,7 @@ parameters:
     locale: en
 
     default_timezone: Europe/Warsaw
+    
+    router.request_context.host: localhost
+    router.request_context.scheme: http
+    router.request_context.base_url: ~

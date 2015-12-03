@@ -21,9 +21,12 @@ class DummyCommand extends ContainerAwareCommand {
 
     protected function execute(InputInterface $input, OutputInterface $output) {
 
-        $url = 'http://localhost:8000/disc/tally-box/12,11,8,4,2|2,2,9,14,1';
-        $url = 'http://localhost:8000/disc/graph/12,11,2,1';
+        $url = $this->getContainer()->get('router')->generate('disc.tally.box', ['results' => '12,11,8,4,2|2,2,9,14,1'], true);
+        $url = $this->getContainer()->get('router')->generate('disc.graph', ['results' => '12,11,8,4', 'type' => 'least'], true);
+        $url = $this->getContainer()->get('router')->generate('default.home', [], true);
         
+        $url .= '/image.svg';
+
         $file = realpath($this->getContainer()->get('kernel')->getRootDir() . '/../web/') . '/image.png';
         
         $srv = $this->getContainer()->get('app.image.converter');

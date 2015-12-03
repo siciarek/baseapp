@@ -86,6 +86,11 @@ PostreSQL Database console access
 
     $ sudo sudo -u postgres psql
 
+.. code-block:: sql
+
+    CREATE DATABASE baseapp;
+    CREATE USER username SUPERUSER PASSWORD 'password';
+    
 
 MySQL server commands
 

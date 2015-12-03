@@ -126,7 +126,7 @@ class ImageConverter implements ContainerAwareInterface {
         $filename = array_pop($temp);
         $filename = json_decode($filename);
 
-        file_put_contents($filename, $content);
+        file_put_contents($targetFilename, $content);
     }
     
     /**
