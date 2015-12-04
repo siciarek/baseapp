@@ -18,6 +18,11 @@ class LaafFrameTest extends WebTestCase
     public function testGetRequestFrame() {
         $frame = $this->srv->getRequestFrame();
         $this->checkKeys($frame);
+        
+        $type = __FUNCTION__;
+        $type = preg_replace('/^testGet(\w+)Frame$/e', 'strtolower("$1")', $type);
+        $this->assertEquals($type, $frame['type']);
+        
         $this->assertTrue($frame['success']);
 
         $data = [
@@ -36,6 +41,11 @@ class LaafFrameTest extends WebTestCase
     public function testGetInfoFrame() {
         $frame = $this->srv->getInfoFrame();
         $this->checkKeys($frame);
+        
+        $type = __FUNCTION__;
+        $type = preg_replace('/^testGet(\w+)Frame$/e', 'strtolower("$1")', $type);
+        $this->assertEquals($type, $frame['type']);
+        
         $this->assertTrue($frame['success']);
 
         $frame = $this->srv->getInfoFrame(null, null, self::$auth);
@@ -49,6 +59,11 @@ class LaafFrameTest extends WebTestCase
     public function testGetDataFrame() {
         $frame = $this->srv->getDataFrame();
         $this->checkKeys($frame);
+        
+        $type = __FUNCTION__;
+        $type = preg_replace('/^testGet(\w+)Frame$/e', 'strtolower("$1")', $type);
+        $this->assertEquals($type, $frame['type']);
+        
         $this->assertTrue($frame['success']);
 
         $data = [1, 2, 3];
@@ -64,6 +79,11 @@ class LaafFrameTest extends WebTestCase
     public function testGetWarningFrame() {
         $frame = $this->srv->getWarningFrame();
         $this->checkKeys($frame);
+        
+        $type = __FUNCTION__;
+        $type = preg_replace('/^testGet(\w+)Frame$/e', 'strtolower("$1")', $type);
+        $this->assertEquals($type, $frame['type']);
+        
         $this->assertFalse($frame['success']);
 
         $frame = $this->srv->getWarningFrame(null, null, self::$auth);
@@ -75,8 +95,14 @@ class LaafFrameTest extends WebTestCase
      * @group laaf
      */
     public function testGetErrorFrame() {
+        
         $frame = $this->srv->getErrorFrame();
         $this->checkKeys($frame);
+        
+        $type = __FUNCTION__;
+        $type = preg_replace('/^testGet(\w+)Frame$/e', 'strtolower("$1")', $type);
+        $this->assertEquals($type, $frame['type']);
+        
         $this->assertFalse($frame['success']);
 
         $frame = $this->srv->getWarningFrame(null, null, self::$auth);
