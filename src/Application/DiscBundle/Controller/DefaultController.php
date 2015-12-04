@@ -310,10 +310,11 @@ SVG;
 
     <style type="text/css">
         <![CDATA[
+            @import url(https://fonts.googleapis.com/css?family=Caveat:400,700);
             text {
-                font-size: 100px;
+                font-size: 110px;
                 font-weight: bold;
-                font-family: Helvetica, sans-serif;
+                font-family: Caveat, Helvetica, sans-serif;
                 font-style: italic;
                 text-anchor: middle;
             }
