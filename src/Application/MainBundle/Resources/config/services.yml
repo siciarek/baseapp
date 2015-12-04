@@ -26,6 +26,9 @@ services:
     app.common.utils.curl.debug:
         class: Application\MainBundle\Common\Utils\Curl
 
+    app.common.laaf.frame:
+        class: Application\MainBundle\Common\LaafFrame
+
     app.locale_listener:
         class: Application\MainBundle\EventListener\LocaleListener
         arguments: [ "%kernel.default_locale%" ]

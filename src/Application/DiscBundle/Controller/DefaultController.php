@@ -7,33 +7,29 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\CssSelector\CssSelector;
+use Application\MainBundle\Controller\CommonController;
 
 /**
  * @Route("/disc")
  */
-class DefaultController extends Controller
-{
-    
+class DefaultController extends CommonController {
+
     /**
      * @Route("/", name="disc.index")
      * @Template()
      */
-    public function indexAction()
-    {
+    public function indexAction() {
         return [
-            
         ];
     }
-    
+
     /**
      * @Route("/graph/{results}/{type}", requirements={"type"="most|least|difference", "results","[\d,]{7,11}"}, defaults={"type"="most", "results"="0,0,0,0"}, name="disc.graph")
      * @Template()
      */
-    public function graphAction($type, $results)
-    {
+    public function graphAction($type, $results) {
         /**
          * TODO: use converteter
          * http://image.online-convert.com/convert-to-png
@@ -48,18 +44,18 @@ class DefaultController extends Controller
         $type = $types[$type];
 
         $temp = explode(',', $results);
-        $in   = array_combine([ 'D', 'i', 'S', 'C' ], $temp);
+        $in = array_combine([ 'D', 'i', 'S', 'C'], $temp);
 
-        $filename = realpath(sprintf('%s/../Resources/data/graph-%s.svg', __DIR__, $type));
-        $xml      = file_get_contents($filename);
+        $filename = realpath(sprintf('%s/../src/Application/DiscBundle/Resources/data/graph-%s.svg', $this->get('kernel')->getRootDir(), $type));
+        $xml = file_get_contents($filename);
 
         CssSelector::disableHtmlExtension();
         $crawler = new Crawler($xml);
-        $nodes   = $crawler->filter('default|svg default|g.label default|text.disc');
+        $nodes = $crawler->filter('default|svg default|g.label default|text.disc');
 
-        $x = [ ];
-        $final = [ ];
-        $segments = [ ];
+        $x = [];
+        $final = [];
+        $segments = [];
 
         foreach ($nodes as $node) {
             $x[$node->nodeValue] = $node->getAttribute('x');
@@ -67,54 +63,52 @@ class DefaultController extends Controller
 
         foreach ($in as $dim => $value) {
 
-            $crawler  = new Crawler($xml);
-            $nodes    = $crawler->filter('default|svg default|text.indicator.' . $dim);
+            $crawler = new Crawler($xml);
+            $nodes = $crawler->filter('default|svg default|text.indicator.' . $dim);
             $final[$dim] = [];
 
             foreach ($nodes as $node) {
                 if ($value == $node->nodeValue) {
-                    $segment                        = $node->getAttribute('class');
-                    $segment                        = preg_replace('/.*segment-(\d).*/', '$1', $segment);
-                    $segments[$dim]                = $segment;
-                    $final[$dim][$node->nodeValue] = [ $x[$dim], $node->getAttribute('y') - 10, $segment ];
+                    $segment = $node->getAttribute('class');
+                    $segment = preg_replace('/.*segment-(\d).*/', '$1', $segment);
+                    $segments[$dim] = $segment;
+                    $final[$dim][$node->nodeValue] = [ $x[$dim], $node->getAttribute('y') - 10, $segment];
                 }
             }
-            
-            if($final[$dim] == []) {
+
+            if ($final[$dim] == []) {
                 $first = null;
                 $last = null;
                 $offset = 0;
-                
+
                 foreach ($nodes as $node) {
-                    if($first === null) {
+                    if ($first === null) {
                         $first = $node;
                     }
                     $last = $node;
                 }
-                
-                if($type === 'I') {
+
+                if ($type === 'I') {
                     $node = $first;
                     $offset = 16;
-                }
-                elseif($type === 'II') {
+                } elseif ($type === 'II') {
                     $node = $last;
                     $offset = -16;
-                }
-                elseif($type === 'III') {
+                } elseif ($type === 'III') {
                     
                 }
-                
-                $segment                        = $node->getAttribute('class');
-                $segment                        = preg_replace('/.*segment-(\d).*/', '$1', $segment);
-                $segments[$dim]                 = $segment;
-                $final[$dim][$node->nodeValue] = [ $x[$dim], strval(($node->getAttribute('y') - 10) + $offset), $segment ];
+
+                $segment = $node->getAttribute('class');
+                $segment = preg_replace('/.*segment-(\d).*/', '$1', $segment);
+                $segments[$dim] = $segment;
+                $final[$dim][$node->nodeValue] = [ $x[$dim], strval(($node->getAttribute('y') - 10)), $segment];
             }
         }
 
         $cssFile = $this->get('kernel')->getRootDir() . '/../src/Application/DiscBundle/Resources/public/css/svg-graph.css';
-        
+
         $style = file_get_contents($cssFile);
-        
+
         $contentFmt = <<<SVG
 <?xml version="1.0" standalone="no"?>
 <svg viewBox="0 0 687 1123" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -129,18 +123,18 @@ class DefaultController extends Controller
 </svg>
 SVG;
 
-        $segmentNumbers = [ 'D' => null, 'i' => null, 'S' => null, 'C' => null ];
+        $segmentNumbers = [ 'D' => null, 'i' => null, 'S' => null, 'C' => null];
 
         foreach ($segments as $dim => $s) {
             $nodes = $crawler->filter('default|svg default|g.result default|text.sn.dim-' . $dim);
             foreach ($nodes as $node) {
-                $node->nodeValue  = $s;
+                $node->nodeValue = $s;
                 $segmentNumbers[$dim] = $s;
             }
         }
 
         $number = implode('', $segmentNumbers);
-        
+
         // ldd($segmentNumbers, $number);
 
         $pattern = $this->get('disc.classical.pattern')->getProfile($number);
@@ -155,7 +149,7 @@ SVG;
 
         $chart = '';
 
-        $temp = [ ];
+        $temp = [];
 
         foreach ($final as $dim => $data) {
             foreach ($data as $v => $dat) {
@@ -172,7 +166,7 @@ SVG;
 
         $response = new Response($content);
 
-        $response->headers->add([ 'Content-Type' => 'image/svg+xml' ]);
+        $response->headers->add([ 'Content-Type' => 'image/svg+xml']);
 
         return $response;
     }
@@ -181,8 +175,7 @@ SVG;
      * @Route("/classical-patterns", name="disc.classical.patterns")
      * @Template()
      */
-    public function classicalPatternsAction()
-    {
+    public function classicalPatternsAction() {
         return [
             'items' => $this->get('disc.classical.pattern')->getList(),
         ];
@@ -192,8 +185,7 @@ SVG;
      * @Route("/evaluate", name="disc.survey.evaluate")
      * @Template()
      */
-    public function evaluateAction(Request $request)
-    {
+    public function evaluateAction(Request $request) {
 
         $json = $request->get('json');
         $data = json_decode($json, true);
@@ -204,14 +196,14 @@ SVG;
         $data = json_decode($json, true);
 
         $tallyBox = [
-            'most'       => [
+            'most' => [
                 'D' => 0,
                 'i' => 0,
                 'S' => 0,
                 'C' => 0,
                 'N' => 0,
             ],
-            'least'      => [
+            'least' => [
                 'D' => 0,
                 'i' => 0,
                 'S' => 0,
@@ -230,11 +222,11 @@ SVG;
         foreach ($data as $pos) {
             foreach ($pos as $key => $val) {
                 $val = $val === null ? 'N' : $val;
-                $tallyBox[$key][$val]++;
+                $tallyBox[$key][$val] ++;
             }
         }
 
-        foreach ([ 'D', 'i', 'S', 'C' ] as $type) {
+        foreach ([ 'D', 'i', 'S', 'C'] as $type) {
             $tallyBox['difference'][$type] = $tallyBox['most'][$type] - $tallyBox['least'][$type];
         }
 
@@ -243,7 +235,6 @@ SVG;
         ];
     }
 
-
     /**
      * @Route("/tally-box/{results}", requirements={"results","[\d,]{9,14}\|[\d,]{9,14}"}, defaults={"results"="11,2,12,4,1|6,7,8,9,2"}, name="disc.tally.box")
      */
@@ -251,20 +242,20 @@ SVG;
 
         $temp = explode('|', $results);
 
-        $keys = [ 'D', 'i', 'S', 'C' , 'N'];
+        $keys = [ 'D', 'i', 'S', 'C', 'N'];
 
         $most = array_combine($keys, explode(',', $temp[0]));
         $least = array_combine($keys, explode(',', $temp[1]));
 
         $tallyBox = [
-            'most'       => [
+            'most' => [
                 'D' => 0,
                 'i' => 0,
                 'S' => 0,
                 'C' => 0,
                 'N' => 0,
             ],
-            'least'      => [
+            'least' => [
                 'D' => 0,
                 'i' => 0,
                 'S' => 0,
@@ -288,7 +279,7 @@ SVG;
             $tallyBox['least'][$key] = $val;
         }
 
-        foreach ([ 'D', 'i', 'S', 'C' ] as $type) {
+        foreach ([ 'D', 'i', 'S', 'C'] as $type) {
             $tallyBox['difference'][$type] = strval($tallyBox['most'][$type] - $tallyBox['least'][$type]);
         }
 
@@ -299,11 +290,10 @@ SVG;
 %s
 </svg>
 SVG;
-
         $fileName = __DIR__ . '/../Resources/public/images/DiSC/tallyBox.png';
         $base64 = base64_encode(file_get_contents($fileName));
 
-        $content = <<<SVG
+        $contentFmt = <<<SVG
 <?xml version="1.0" standalone="no"?>
 <svg viewBox="0 0 847 1136" version="1.1" xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -312,7 +302,7 @@ SVG;
         <![CDATA[
             @import url(https://fonts.googleapis.com/css?family=Caveat:400,700);
             text {
-                font-size: 110px;
+                font-size: 120px;
                 font-weight: bold;
                 font-family: Caveat, Helvetica, sans-serif;
                 font-style: italic;
@@ -322,31 +312,24 @@ SVG;
     </style>
 
     <image x="0" y="0" width="847" height="1136" xlink:href="data:image/png;base64,{$base64}"/>
-
-    <text x="130" y="306"  class="most D">0</text>
-    <text x="130" y="482"  class="most i">0</text>
-    <text x="130" y="662"  class="most S">0</text>
-    <text x="130" y="842"  class="most C">0</text>
-    <text x="130" y="1003" class="most N">0</text>
-
-    <text x="425" y="306"  class="least D">0</text>
-    <text x="425" y="482"  class="least i">0</text>
-    <text x="425" y="662"  class="least S">0</text>
-    <text x="425" y="842"  class="least C">0</text>
-    <text x="425" y="1003" class="least N">0</text>
-
-    <text x="715" y="306"  class="difference D">0</text>
-    <text x="715" y="482"  class="difference i">0</text>
-    <text x="715" y="662"  class="difference S">0</text>
-    <text x="715" y="842"  class="difference C">0</text>
-    <text x="715" y="1003" class="difference N"></text>
+%s
 </svg>
 SVG;
+        $labels = [];
+
+        foreach (['most' => 110, 'least' => 415, 'difference' => 705] as $mode => $x) {
+            foreach (['D' => 306, 'i' => 482, 'S' => 662, 'C' => 842, 'N' => 1003] as $dim => $y) {
+                $labels[] = sprintf('<text x="%d" y="%d"  class="%s %s">0</text>', $x, $y, $mode, $dim);
+            }
+        }
+
+        $content = sprintf($contentFmt, implode("\n", $labels));
+
         CssSelector::disableHtmlExtension();
         $crawler = new Crawler($content);
 
-        foreach($tallyBox as $level => $data) {
-            foreach($data as $dim => $val) {
+        foreach ($tallyBox as $level => $data) {
+            foreach ($data as $dim => $val) {
                 $nodes = $crawler->filter(sprintf('.%s.%s', $level, $dim));
                 $nodes->first()->getNode(0)->nodeValue = $val;
             }
@@ -354,7 +337,7 @@ SVG;
 
         $content = sprintf($contentFmt, $crawler->html());
         $response = new Response($content);
-        $response->headers->add([ 'Content-Type' => 'image/svg+xml' ]);
+        $response->headers->add([ 'Content-Type' => 'image/svg+xml']);
 
         return $response;
     }
@@ -364,17 +347,17 @@ SVG;
      * @Route("/{id}/survey", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.survey")
      * @Template()
      */
-    public function surveyAction(Request $request)
-    {
+    public function surveyAction(Request $request) {
         $id = $request->get('id');
         $s = intval($request->get('s', 1));
 
         $survey = $this->get('disc.survey')->getSurvey($s);
 
         return [
-            'user'   => $id,
-            'mode'   => $survey['mode'],
+            'user' => $id,
+            'mode' => $survey['mode'],
             'survey' => $survey['questions'],
         ];
     }
+
 }
