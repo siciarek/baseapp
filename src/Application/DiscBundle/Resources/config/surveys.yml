@@ -1,289 +1,124 @@
 Survey:
     -
         id: 1
-        mode: strict
-        questions:
+        expressions:
             -
-                D: enthusiastic
-                i: daring
-                S: diplomatic
-                C: satisfied
+                - { id: 1, expression: 'Trusting, Enthusiastic', most: i, least: i }
+                - { id: 2, expression: 'Tolerant, Respectful', most: C, least: C }
+                - { id: 3, expression: 'Courageous, Adventurous', most: 'N', least: D }
+                - { id: 4, expression: 'Agreeable, Accommodating', most: S, least: S }
             -
-                D: cautious
-                i: determined
-                S: convincing
-                C: good-natured
+                - { id: 5, expression: 'Affectionate, Tender', most: i, least: 'N' }
+                - { id: 6, expression: 'Simple, Compliant', most: 'N', least: C }
+                - { id: 7, expression: 'Determined, Wants results', most: D, least: D }
+                - { id: 8, expression: 'Content, Gratified', most: S, least: 'N' }
             -
-                D: friendly
-                i: accurate
-                S: outspoken
-                C: calm
+                - { id: 9, expression: 'Innovative, Visionary', most: D, least: D }
+                - { id: 10, expression: 'Reserved, Reticent', most: C, least: 'N' }
+                - { id: 11, expression: 'Sociable, Congenial', most: 'N', least: i }
+                - { id: 12, expression: 'Peacemaker, Negotiator', most: S, least: S }
             -
-                D: talkative
-                i: controlled
-                S: conventional
-                C: decisive
+                - { id: 13, expression: 'Unafraid, Independent', most: D, least: D }
+                - { id: 14, expression: 'Reserved, Cautious restraint', most: C, least: C }
+                - { id: 15, expression: 'Carefree, Lacks caution', most: i, least: i }
+                - { id: 16, expression: 'Kind, Cordial', most: S, least: 'N' }
             -
-                D: adventurous
-                i: insightful
-                S: outgoing
-                C: moderate
+                - { id: 17, expression: 'Precise, Accurate', most: 'N', least: C }
+                - { id: 18, expression: 'Focused, Goal-oriented', most: D, least: 'N' }
+                - { id: 19, expression: 'Team player, Accommodating', most: 'N', least: S }
+                - { id: 20, expression: 'Encourage others, Stimulating', most: i, least: i }
             -
-                D: gentle
-                i: persuasive
-                S: humble
-                C: original
+                - { id: 21, expression: 'Conscientious, Plans for future', most: C, least: 'N' }
+                - { id: 22, expression: 'Recognition, Seeks advancement', most: D, least: D }
+                - { id: 23, expression: 'Venturesome, Audacious', most: i, least: i }
+                - { id: 24, expression: 'Dependable, Good listener', most: S, least: S }
             -
-                D: expressive
-                i: conscientious
-                S: dominant
-                C: responsive
+                - { id: 25, expression: 'Sensitive, Becomes frustrated', most: C, least: C }
+                - { id: 26, expression: 'Stand up to opposition, right', most: D, least: D }
+                - { id: 27, expression: 'Complacent, keeps feelings inside', most: S, least: S }
+                - { id: 28, expression: 'Tell my side of the story, want to be heard', most: 'N', least: i }
             -
-                D: poised
-                i: observant
-                S: modest
-                C: impatient
+                - { id: 29, expression: 'Rules make it boring, Restless', most: i, least: i }
+                - { id: 30, expression: 'Challenges the rules, Daring', most: 'N', least: D }
+                - { id: 31, expression: 'Rules make it safe, Security', most: S, least: S }
+                - { id: 32, expression: 'Rules make it fair, Justice', most: C, least: 'N' }
             -
-                D: tactful
-                i: agreeable
-                S: magnetic
-                C: insistent
+                - { id: 33, expression: 'Seeks balance, Calm', most: S, least: S }
+                - { id: 34, expression: 'Talkative, Charismatic', most: i, least: 'N' }
+                - { id: 35, expression: 'Orderly, Follows the rules', most: 'N', least: C }
+                - { id: 36, expression: 'Fast paced, High spirited', most: D, least: D }
             -
-                D: brave
-                i: inspiring
-                S: submissive
-                C: timid
+                - { id: 37, expression: 'Likes awards, Accomplishments', most: D, least: D }
+                - { id: 38, expression: 'Enjoys social, Group gatherings', most: i, least: 'N' }
+                - { id: 39, expression: 'Continues education, Cultured', most: 'N', least: C }
+                - { id: 40, expression: 'Wants to be safe, Unthreatened', most: S, least: S }
             -
-                D: reserved
-                i: obliging
-                S: strong-willed
-                C: cheerful
+                - { id: 41, expression: 'Systematic, Time management', most: C, least: 'N' }
+                - { id: 42, expression: 'Anxious, Hurried', most: D, least: D }
+                - { id: 43, expression: 'Dependable, Persistent', most: S, least: S }
+                - { id: 44, expression: 'Emotional, Impulsive', most: i, least: i }
             -
-                D: stimulating
-                i: kind
-                S: perceptive
-                C: independent
+                - { id: 45, expression: 'Cautious, Calculating', most: C, least: 'N' }
+                - { id: 46, expression: 'Consistent, Thorough', most: 'N', least: S }
+                - { id: 47, expression: 'Outgoing, Enthusiastic', most: 'N', least: i }
+                - { id: 48, expression: 'Take charge, Direct approach', most: D, least: D }
             -
-                D: competitive
-                i: considerate
-                S: joyful
-                C: private
+                - { id: 49, expression: 'Detached, Too careful', most: 'N', least: C }
+                - { id: 50, expression: 'Unrealistic, Overcommitted', most: i, least: i }
+                - { id: 51, expression: 'Complacent, Resist change', most: S, least: 'N' }
+                - { id: 52, expression: 'Blunt, Overbearing', most: 'N', least: D }
             -
-                D: fussy
-                i: obedient
-                S: firm
-                C: playful
+                - { id: 53, expression: 'Excitable, Cheerful', most: i, least: i }
+                - { id: 54, expression: 'Supporter, Advocate', most: S, least: 'N' }
+                - { id: 55, expression: 'Methodical, Exact', most: 'N', least: C }
+                - { id: 56, expression: 'Competitive, Argumentative', most: D, least: D }
             -
-                D: attractive
-                i: introspective
-                S: stubborn
-                C: predictable
+                - { id: 57, expression: 'A good analyzer', most: C, least: C }
+                - { id: 58, expression: 'A good listener', most: S, least: S }
+                - { id: 59, expression: 'A good encourager', most: i, least: i }
+                - { id: 60, expression: 'A good delegator', most: D, least: D }
             -
-                D: logical
-                i: bold
-                S: loyal
-                C: charming
+                - { id: 61, expression: 'I will get the facts', most: C, least: 'N' }
+                - { id: 62, expression: 'I will follow through', most: S, least: S }
+                - { id: 63, expression: 'I will lead them', most: D, least: 'N' }
+                - { id: 64, expression: 'I will persuade them', most: i, least: i }
             -
-                D: sociable
-                i: patient
-                S: self-reliant
-                C: soft-spoken
+                - { id: 65, expression: 'Forceful, Driven', most: D, least: D }
+                - { id: 66, expression: 'Optimistic, Charismatic', most: 'N', least: i }
+                - { id: 67, expression: 'Cooperative, Let’s do it together', most: 'N', least: S }
+                - { id: 68, expression: 'Accuracy counts, Precise', most: C, least: C }
             -
-                D: willing
-                i: eager
-                S: thorough
-                C: high-spirited
+                - { id: 69, expression: 'Loyal, Reflective', most: S, least: S }
+                - { id: 70, expression: 'Likes a challenge, Pioneering', most: D, least: D }
+                - { id: 71, expression: 'Analytical, Tactful', most: 'N', least: C }
+                - { id: 72, expression: 'Popular, Persuasive', most: i, least: i }
             -
-                D: aggressive
-                i: extroverted
-                S: amiable
-                C: fearful
+                - { id: 73, expression: 'Will wait to buy, Patient', most: S, least: S }
+                - { id: 74, expression: 'Will buy on impulse, Decisive', most: D, least: D }
+                - { id: 75, expression: 'Will spend on what I want, selfish', most: i, least: 'N' }
+                - { id: 76, expression: 'Will do without, Self-controlled', most: 'N', least: C }
             -
-                D: confident
-                i: sympathetic
-                S: impartial
-                C: assertive
+                - { id: 77, expression: 'Agreeable, Approachable', most: S, least: S }
+                - { id: 78, expression: 'Animated, Exuberant', most: 'N', least: i }
+                - { id: 79, expression: 'Dauntless, Bold', most: D, least: D }
+                - { id: 80, expression: 'Orderly, Adaptive', most: C, least: C }
             -
-                D: well-disciplined
-                i: generous
-                S: animated
-                C: persistent
+                - { id: 81, expression: 'Rigid, Wants things exact', most: C, least: C }
+                - { id: 82, expression: 'Avoids monotony, Bored by routine', most: 'N', least: i }
+                - { id: 83, expression: 'Seeks change, Goes for it', most: D, least: D }
+                - { id: 84, expression: 'Congenial, Acts of kindness', most: S, least: 'N' }
             -
-                D: impulsive
-                i: introverted
-                S: forceful
-                C: easygoing
+                - { id: 85, expression: 'Authoritative, Influencer', most: 'N', least: D }
+                - { id: 86, expression: 'Enjoys attention, New opportunities', most: i, least: 'N' }
+                - { id: 87, expression: 'Avoids conflict, Relaxed', most: S, least: S }
+                - { id: 88, expression: 'Goes by the book, Diplomatic', most: 'N', least: C }
             -
-                D: good-mixer
-                i: refined
-                S: vigorous
-                C: lenient
+                - { id: 89, expression: 'Impulsive, Emotional', most: i, least: i }
+                - { id: 90, expression: 'Calculating, Overload w/details', most: C, least: 'N' }
+                - { id: 91, expression: 'Demanding, Domineering', most: D, least: D }
+                - { id: 92, expression: 'Non-confrontational, Predictable', most: 'N', least: S }
             -
-                D: captivating
-                i: contented
-                S: demanding
-                C: compliant
-            -
-                D: argumentative
-                i: systematic
-                S: cooperative
-                C: light-hearted
-            -
-                D: jovial
-                i: precise
-                S: direct
-                C: even-tempered
-            -
-                D: restless
-                i: neighborly
-                S: appealing
-                C: careful
-            -
-                D: respectful
-                i: pioneering
-                S: optimistic
-                C: helpful
-    -
-        id: 2
-        mode: strict
-        questions:
-            -
-                D: 'People look up to me'
-                i: 'I tend to be a kind person'
-                S: 'I accept life as it comes'
-                C: 'People say I have a strong personality'
-            -
-                D: 'I find it difficult to relax'
-                i: 'I have a very wide circle of friends'
-                S: 'I am always ready to help others'
-                C: 'I like to behave correctly'
-            -
-                D: 'I tend to do what I am told'
-                i: 'I like things to be very neat and tidy'
-                S: 'People can''t put me down'
-                C: 'I enjoy having fun'
-            -
-                D: 'I respect my elders and those in authority'
-                i: 'I am always willing to do new things - to take a risk'
-                S: 'I believe things will go well'
-                C: 'I am always willing to help'
-            -
-                D: 'I am a neat and orderly person'
-                i: 'I am very active, both at work and play'
-                S: 'I am a very calm and placid person'
-                C: 'I generally get my own way'
-            -
-                D: 'I am very contented with life'
-                i: 'I tend to trust people'
-                S: 'I like peace and quiet'
-                C: 'I have a very positive attitude'
-            -
-                D: 'I have a great deal of will power'
-                i: 'I always take notice of what other people say'
-                S: 'I try to be obliging'
-                C: 'I am always cheerful'
-            -
-                D: 'I am self-confident'
-                i: 'People say I am a sympathetic type'
-                S: 'I have a tolerant attitude towards life'
-                C: 'I am an assertive person'
-            -
-                D: 'I never lose my temper'
-                i: 'I like things to be precise and correct'
-                S: 'I am very sure of myself'
-                C: 'I enjoy having a laugh and a joke'
-            -
-                D: 'My behaviour is well disciplined'
-                i: 'People see me as being helpful'
-                S: 'I am always on the move'
-                C: 'I persevere until I get what I want'
-            -
-                D: 'I enjoy competition'
-                i: 'I do not treat life too seriously'
-                S: 'I always consider others'
-                C: 'I am an agreeable type'
-            -
-                D: 'I am very persuasive'
-                i: 'I see myself as a gentle person'
-                S: 'I am a very modest type'
-                C: 'I often come up with original ideas'
-            -
-                D: 'I am very helpful towards others'
-                i: 'I don''t like tempting fate'
-                S: 'I don''t give up easily'
-                C: 'People like my company'
-            -
-                D: 'I tend to be a cautious person'
-                i: 'I am a very determined person'
-                S: 'I am good at convincing people'
-                C: 'I tend to be a friendly person'
-            -
-                D: 'I don''t scare easily'
-                i: 'People find my company stimulating'
-                S: 'I am always willing to follow orders'
-                C: 'I am a rather shy person'
-            -
-                D: 'I am very willing to change my opinion'
-                i: 'I like a good argument'
-                S: 'I tend to be an easy going type'
-                C: 'I always look on the bright side of life'
-            -
-                D: 'I am a very social sort of person'
-                i: 'I am very patient'
-                S: 'I am a very self-sufficient sort of person'
-                C: 'I rarely raise my voice'
-            -
-                D: 'I am always ready and willing'
-                i: 'I am always keen to try new things'
-                S: 'I don''t like arguments'
-                C: 'People describe me as high spirited'
-            -
-                D: 'I enjoy taking a chance'
-                i: 'I tend to be very receptive to other people''s ideas'
-                S: 'I am always polite and courteous'
-                C: 'I am a moderate rather than an extreme person'
-            -
-                D: 'I tend to be a forgiving type'
-                i: 'I am a sensitive person'
-                S: 'I have a lot of energy and vigour'
-                C: 'I can mix with anybody'
-            -
-                D: 'I enjoy chatting with people'
-                i: 'I control my emotions'
-                S: 'I am very conventional in my outlook'
-                C: 'I make decisions quickly'
-            -
-                D: 'I tend to keep my feelings to myself'
-                i: 'Accuracy is very important to me'
-                S: 'I like to speak my mind'
-                C: 'I am very friendly'
-            -
-                D: 'I like to handle things with diplomacy'
-                i: 'I am very daring'
-                S: 'Most people find me acceptable'
-                C: 'I feel satisfied with life'
-            -
-                D: 'I am obedient'
-                i: 'I am always willing to have a go'
-                S: 'Loyalty is one of my strengths'
-                C: 'I have a good deal of charm'
-            -
-                D: 'I tend to be an aggressive type'
-                i: 'I am good fun and have a lot of personality'
-                S: 'People tend to see me as an "easy touch"'
-                C: 'I tend to be rather timid'
-            -
-                D: 'I am good at motivating people'
-                i: 'Patience is one of my major strengths'
-                S: 'I am careful to say the right thing'
-                C: 'I have a strong desire to win'
-            -
-                D: 'People find me easy to get on with'
-                i: 'I get a lot of satisfaction from helping others'
-                S: 'I always think things through'
-                C: 'I prefer to get things done now rather than later'
-            -
-                D: 'I am good at analysing situations'
-                i: 'I get restless quickly'
-                S: 'I think about how my decisions might affect others'
-                C: 'People see me as relaxed and easy going'
+                - { id: 93, expression: 'Creative, Unique', most: i, least: i }
+                - { id: 94, expression: 'Bottom line organizer, Results oriented', most: D, least: 'N' }
+                - { id: 95, expression: 'Trustworthy, Authentic', most: 'N', least: S }
+                - { id: 96, expression: 'High standards, Looks to benchmarks', most: C, least: 'N' }

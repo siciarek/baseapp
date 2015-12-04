@@ -17,6 +17,23 @@ use Application\MainBundle\Controller\CommonController;
 class DefaultController extends CommonController {
 
     /**
+     * @Route("/survey", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.survey.demo")
+     * @Route("/{id}/survey", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.survey")
+     * @Template()
+     */
+    public function surveyAction(Request $request) {
+        $id = $request->get('id');
+        $s = intval($request->get('s', 1));
+
+        $survey = $this->get('disc.survey')->getSurvey($s);
+
+        return [
+            'user' => $id,
+            'survey' => $survey['expressions'],
+        ];
+    }
+
+    /**
      * @Route("/", name="disc.index")
      * @Template()
      */
@@ -366,23 +383,4 @@ SVG;
 
         return $response;
     }
-
-    /**
-     * @Route("/survey", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.survey.demo")
-     * @Route("/{id}/survey", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.survey")
-     * @Template()
-     */
-    public function surveyAction(Request $request) {
-        $id = $request->get('id');
-        $s = intval($request->get('s', 1));
-
-        $survey = $this->get('disc.survey')->getSurvey($s);
-
-        return [
-            'user' => $id,
-            'mode' => $survey['mode'],
-            'survey' => $survey['questions'],
-        ];
-    }
-
 }
