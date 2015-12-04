@@ -2,6 +2,7 @@
 namespace Application\MainBundle\Tests\Common;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Application\MainBundle\Common\LaafFrame;
 
 class LaafFrameTest extends WebTestCase
 {
@@ -18,11 +19,7 @@ class LaafFrameTest extends WebTestCase
     public function testGetRequestFrame() {
         $frame = $this->srv->getRequestFrame();
         $this->checkKeys($frame);
-        
-        $type = __FUNCTION__;
-        $type = preg_replace('/^testGet(\w+)Frame$/e', 'strtolower("$1")', $type);
-        $this->assertEquals($type, $frame['type']);
-        
+        $this->assertEquals(LaafFrame::TYPE_REQUEST, $frame['type']);
         $this->assertTrue($frame['success']);
 
         $data = [
@@ -32,6 +29,7 @@ class LaafFrameTest extends WebTestCase
         
         $frame = $this->srv->getRequestFrame(null, $data, self::$auth);
         $this->checkKeys($frame, true);
+        $this->assertEquals(LaafFrame::TYPE_REQUEST, $frame['type']);
         $this->assertTrue($frame['success']);
     }
     
@@ -39,13 +37,10 @@ class LaafFrameTest extends WebTestCase
      * @group laaf
      */
     public function testGetInfoFrame() {
+        
         $frame = $this->srv->getInfoFrame();
         $this->checkKeys($frame);
-        
-        $type = __FUNCTION__;
-        $type = preg_replace('/^testGet(\w+)Frame$/e', 'strtolower("$1")', $type);
-        $this->assertEquals($type, $frame['type']);
-        
+        $this->assertEquals(LaafFrame::TYPE_INFO, $frame['type']);
         $this->assertTrue($frame['success']);
 
         $frame = $this->srv->getInfoFrame(null, null, self::$auth);
@@ -57,25 +52,23 @@ class LaafFrameTest extends WebTestCase
      * @group laaf
      */
     public function testGetDataFrame() {
+
         $frame = $this->srv->getDataFrame();
         $this->checkKeys($frame);
-        
-        $type = __FUNCTION__;
-        $type = preg_replace('/^testGet(\w+)Frame$/e', 'strtolower("$1")', $type);
-        $this->assertEquals($type, $frame['type']);
-        
+        $this->assertEquals(LaafFrame::TYPE_DATA, $frame['type']);
         $this->assertTrue($frame['success']);
 
         $data = [1, 2, 3];
         
         $frame = $this->srv->getDataFrame(null, $data, false, self::$auth);
         $this->checkKeys($frame, true);
+        $this->assertEquals(LaafFrame::TYPE_DATA, $frame['type']);
         $this->assertTrue($frame['success']);
-        
+
         $data = [];
         $frame = $this->srv->getDataFrame(null, $data, true);
-        $this->assertEquals('warning', $frame['type']);
         $this->checkKeys($frame);
+        $this->assertEquals(LaafFrame::TYPE_WARNING, $frame['type']);
         $this->assertFalse($frame['success']);        
     }
     
@@ -85,15 +78,12 @@ class LaafFrameTest extends WebTestCase
     public function testGetWarningFrame() {
         $frame = $this->srv->getWarningFrame();
         $this->checkKeys($frame);
-        
-        $type = __FUNCTION__;
-        $type = preg_replace('/^testGet(\w+)Frame$/e', 'strtolower("$1")', $type);
-        $this->assertEquals($type, $frame['type']);
-        
+        $this->assertEquals(LaafFrame::TYPE_WARNING, $frame['type']);
         $this->assertFalse($frame['success']);
 
         $frame = $this->srv->getWarningFrame(null, null, self::$auth);
         $this->checkKeys($frame, true);
+        $this->assertEquals(LaafFrame::TYPE_WARNING, $frame['type']);
         $this->assertFalse($frame['success']);
     }
     
@@ -104,15 +94,12 @@ class LaafFrameTest extends WebTestCase
         
         $frame = $this->srv->getErrorFrame();
         $this->checkKeys($frame);
-        
-        $type = __FUNCTION__;
-        $type = preg_replace('/^testGet(\w+)Frame$/e', 'strtolower("$1")', $type);
-        $this->assertEquals($type, $frame['type']);
-        
+        $this->assertEquals(LaafFrame::TYPE_ERROR, $frame['type']);
         $this->assertFalse($frame['success']);
 
-        $frame = $this->srv->getWarningFrame(null, null, self::$auth);
+        $frame = $this->srv->getErrorFrame(null, null, self::$auth);
         $this->checkKeys($frame, true);
+        $this->assertEquals(LaafFrame::TYPE_ERROR, $frame['type']);
         $this->assertFalse($frame['success']);
     }
     

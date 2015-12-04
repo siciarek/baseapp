@@ -29,10 +29,32 @@ class ClassicalPattern {
         return $list[$group][strval($result)];
     }
     
-    public function getList() {
+    public function getList($id = 0) {
 
         $filename = realpath(__DIR__ . '/../../DiscBundle/Resources/config/patterns.yml');
         $patterns = Yaml::parse(file_get_contents($filename))['ClassicalPattern'];
+
+        if($id > 0) {
+            $groups = [];
+            $names = $this->getNames();
+            
+            if($id > count($names)) {
+                throw new \Exception('Invalid pattern id.');
+            }
+
+            $name = $names[$id - 1];
+            
+            $resutls = [];
+            
+            foreach($patterns as $group => $values) {
+                $vals = array_values($values);
+                if(in_array($name, $vals)) {
+                    $results[$group] = $values;
+                }
+            }
+            
+            $patterns = $results;
+        }
 
         return $patterns;
     }

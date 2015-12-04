@@ -172,12 +172,37 @@ SVG;
     }
 
     /**
-     * @Route("/classical-patterns", name="disc.classical.patterns")
+     * @Route("/classical-patterns/{id}", requirements={"id" = "\d+"}, defaults={"id" = "0"}, name="disc.classical.patterns")
      * @Template()
      */
-    public function classicalPatternsAction() {
+    public function classicalPatternsAction($id) {
+        
+        $srv = $this->get('disc.classical.pattern');
+        $items = $srv->getList($id);
+        $temp = $srv->getNames();
+        
+        $patterns = [
+            [
+                'id' => 0,
+                'active' => $id == 0,
+                'name' => '*',            
+            ]
+        ];
+        
+        foreach($temp as $pid => $name) {
+            $pid += 1;
+            $active = $pid == $id;
+            
+            $patterns[] = [
+                'id' => $pid,
+                'active' => $active,
+                'name' => $name,
+            ];
+        }
+        
         return [
-            'items' => $this->get('disc.classical.pattern')->getList(),
+            'patterns' => $patterns,
+            'items' => $items,
         ];
     }
 
