@@ -2,12 +2,13 @@
     "name": "jsiciarek/baseapp",
     "license": "proprietary",
     "type": "project",
+    "description": "Symfony2 template application.",
     "autoload": {
         "psr-4": {
             "": "src/"
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "gregwar/captcha-bundle": "dev-master",
         "nelmio/security-bundle": "dev-master",

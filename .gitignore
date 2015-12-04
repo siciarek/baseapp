@@ -39,6 +39,7 @@ php.ini
 /web/uploads/media/*
 !web/uploads/media/.gitkeep
 /web/temp*
+/web/build
 
 # PHPUnit
 /app/phpunit.xml
