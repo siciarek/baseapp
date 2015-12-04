@@ -71,6 +71,12 @@ class LaafFrameTest extends WebTestCase
         $frame = $this->srv->getDataFrame(null, $data, false, self::$auth);
         $this->checkKeys($frame, true);
         $this->assertTrue($frame['success']);
+        
+        $data = [];
+        $frame = $this->srv->getDataFrame(null, $data, true);
+        $this->assertEquals('warning', $frame['type']);
+        $this->checkKeys($frame);
+        $this->assertFalse($frame['success']);        
     }
     
     /**
