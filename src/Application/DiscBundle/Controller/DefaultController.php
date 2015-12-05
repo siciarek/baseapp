@@ -14,14 +14,16 @@ use Application\MainBundle\Controller\CommonController;
 /**
  * @Route("/disc")
  */
-class DefaultController extends CommonController {
+class DefaultController extends CommonController
+{
 
     /**
      * @Route("/survey", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.survey.demo")
      * @Route("/{id}/survey", requirements={"id" = "[1-9]\d*"}, defaults={"id" = "3451237"}, name="disc.survey")
      * @Template()
      */
-    public function surveyAction(Request $request) {
+    public function surveyAction(Request $request)
+    {
         $id = $request->get('id');
         $s = intval($request->get('s', 1));
 
@@ -29,7 +31,7 @@ class DefaultController extends CommonController {
 
         return [
             'user' => $id,
-            'survey' => $survey['expressions'],
+            'survey' => $survey['fields'],
         ];
     }
 
@@ -37,7 +39,8 @@ class DefaultController extends CommonController {
      * @Route("/", name="disc.index")
      * @Template()
      */
-    public function indexAction() {
+    public function indexAction()
+    {
         return [
         ];
     }
@@ -46,7 +49,8 @@ class DefaultController extends CommonController {
      * @Route("/graph/{results}/{type}", requirements={"type"="most|least|difference", "results","[\d,]{7,11}"}, defaults={"type"="most", "results"="0,0,0,0"}, name="disc.graph")
      * @Template()
      */
-    public function graphAction($type, $results) {
+    public function graphAction($type, $results)
+    {
         /**
          * TODO: use converteter
          * http://image.online-convert.com/convert-to-png
@@ -81,7 +85,7 @@ class DefaultController extends CommonController {
         foreach ($in as $dim => $value) {
 
             $crawler = new Crawler($xml);
-            $nodes = $crawler->filter('default|svg default|text.indicator.' . $dim);
+            $nodes = $crawler->filter('default|svg default|text.indicator.'.$dim);
             $final[$dim] = [];
 
             foreach ($nodes as $node) {
@@ -108,10 +112,12 @@ class DefaultController extends CommonController {
                 if ($type === 'I') {
                     $node = $first;
                     $offset = 16;
-                } elseif ($type === 'II') {
+                }
+                elseif ($type === 'II') {
                     $node = $last;
                     $offset = -16;
-                } elseif ($type === 'III') {
+                }
+                elseif ($type === 'III') {
                     
                 }
 
@@ -122,7 +128,7 @@ class DefaultController extends CommonController {
             }
         }
 
-        $cssFile = $this->get('kernel')->getRootDir() . '/../src/Application/DiscBundle/Resources/public/css/svg-graph.css';
+        $cssFile = $this->get('kernel')->getRootDir().'/../src/Application/DiscBundle/Resources/public/css/svg-graph.css';
 
         $style = file_get_contents($cssFile);
 
@@ -143,7 +149,7 @@ SVG;
         $segmentNumbers = [ 'D' => null, 'i' => null, 'S' => null, 'C' => null];
 
         foreach ($segments as $dim => $s) {
-            $nodes = $crawler->filter('default|svg default|g.result default|text.sn.dim-' . $dim);
+            $nodes = $crawler->filter('default|svg default|g.result default|text.sn.dim-'.$dim);
             foreach ($nodes as $node) {
                 $node->nodeValue = $s;
                 $segmentNumbers[$dim] = $s;
@@ -170,16 +176,16 @@ SVG;
 
         foreach ($final as $dim => $data) {
             foreach ($data as $v => $dat) {
-                $temp[] = $dat[0] . ' ' . $dat[1];
-                $chart .= sprintf('<circle cx="%d" cy="%d" r="16" stroke="none" fill="black" />' . "\n", $dat[0], $dat[1]);
+                $temp[] = $dat[0].' '.$dat[1];
+                $chart .= sprintf('<circle cx="%d" cy="%d" r="16" stroke="none" fill="black" />'."\n", $dat[0], $dat[1]);
             }
         }
 
-        $d = 'M' . implode('L', $temp);
+        $d = 'M'.implode('L', $temp);
 
         $chart .= sprintf('<path class="chart-line" d="%s"/>', $d);
 
-        $content = preg_replace('|</svg>|', $chart . '</svg>', $xml);
+        $content = preg_replace('|</svg>|', $chart.'</svg>', $xml);
 
         $response = new Response($content);
 
@@ -192,31 +198,32 @@ SVG;
      * @Route("/classical-patterns/{id}", requirements={"id" = "\d+"}, defaults={"id" = "0"}, name="disc.classical.patterns")
      * @Template()
      */
-    public function classicalPatternsAction($id) {
-        
+    public function classicalPatternsAction($id)
+    {
+
         $srv = $this->get('disc.classical.pattern');
         $items = $srv->getList($id);
         $temp = $srv->getNames();
-        
+
         $patterns = [
             [
                 'id' => 0,
                 'active' => $id == 0,
-                'name' => '*',            
+                'name' => '*',
             ]
         ];
-        
-        foreach($temp as $pid => $name) {
+
+        foreach ($temp as $pid => $name) {
             $pid += 1;
             $active = $pid == $id;
-            
+
             $patterns[] = [
                 'id' => $pid,
                 'active' => $active,
                 'name' => $name,
             ];
         }
-        
+
         return [
             'patterns' => $patterns,
             'items' => $items,
@@ -227,7 +234,8 @@ SVG;
      * @Route("/evaluate", name="disc.survey.evaluate")
      * @Template()
      */
-    public function evaluateAction(Request $request) {
+    public function evaluateAction(Request $request)
+    {
 
         $json = $request->get('json');
         $data = json_decode($json, true);
@@ -236,6 +244,17 @@ SVG;
             //    throw new \Exception('Invalid data.');
         }
         $data = json_decode($json, true);
+        $s = 1;
+
+        $survey = $this->get('disc.survey')->getSurvey($s);
+
+        $dict = [];
+
+        foreach ($survey['fields'] as $field) {
+            foreach($field['expressions'] as $e) {
+                   $dict[$e['id']] = $e;
+            }
+        }
 
         $tallyBox = [
             'most' => [
@@ -261,13 +280,15 @@ SVG;
             ],
         ];
 
-        foreach ($data as $pos) {
+        foreach ($data['survey'] as $pos) {
             foreach ($pos as $key => $val) {
-                $val = $val === null ? 'N' : $val;
-                $tallyBox[$key][$val] ++;
+                $val = $dict[$val][$key];
+                $tallyBox[$key][$val]++;
             }
         }
 
+//        return $this->getJsonResponse($data);
+        
         foreach ([ 'D', 'i', 'S', 'C'] as $type) {
             $tallyBox['difference'][$type] = $tallyBox['most'][$type] - $tallyBox['least'][$type];
         }
@@ -280,7 +301,8 @@ SVG;
     /**
      * @Route("/tally-box/{results}", requirements={"results","[\d,]{9,14}\|[\d,]{9,14}"}, defaults={"results"="11,2,12,4,1|6,7,8,9,2"}, name="disc.tally.box")
      */
-    public function tallyBoxAction(Request $request, $results) {
+    public function tallyBoxAction(Request $request, $results)
+    {
 
         $temp = explode('|', $results);
 
@@ -332,7 +354,7 @@ SVG;
 %s
 </svg>
 SVG;
-        $fileName = __DIR__ . '/../Resources/public/images/DiSC/tallyBox.png';
+        $fileName = __DIR__.'/../Resources/public/images/DiSC/tallyBox.png';
         $base64 = base64_encode(file_get_contents($fileName));
 
         $contentFmt = <<<SVG
@@ -383,4 +405,5 @@ SVG;
 
         return $response;
     }
+
 }

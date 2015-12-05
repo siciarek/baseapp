@@ -5,99 +5,10 @@
 
     <script>
         var user = '{{ user }}';
-        var questionCount = parseInt('{{ survey|length }}');
-        var completeClass = 'bg-success';
-        var activeButtonClass = 'btn-success';
-        var answers = {};
-
-        $(document).ready(function () {
-
-            $('.survey-form').on('click', 'button.send', function (e) {
-                e.preventDefault();
-                var self = $(this);
-                var json = JSON.stringify(answers);
-                var form = self.closest('form');
-                form.find('input[name=json]').val(json);
-
-                form.submit();
-            });
-
-            $('span.rate').on('click', 'a', function (e) {
-
-                e.preventDefault();
-                var self = $(this);
-
-                self.blur();
-
-                var temp = self.attr('id').split('-');
-                var type = temp.shift();
-                var rate = temp.shift();
-                var question = temp.shift();
-
-                if (!answers.hasOwnProperty(question)) {
-                    answers[question] = {
-                        most: null,
-                        least: null
-                    };
-                }
-
-                var panel = self.closest('.panel-body');
-                panel.find('.btn.' + rate + '').removeClass(rate);
-                panel.find('.survey-question .question.' + rate + '').removeClass(rate);
-
-                self.closest('.survey-question').find('.btn').removeClass('most').removeClass('least');
-                self.closest('.survey-question').find('.question').removeClass('most').removeClass('least');
-
-                if (answers[question][rate] === type) {
-                    answers[question][rate] = null;
-                } else {
-                    answers[question][rate] = type;
-
-                    if (answers[question].most === answers[question].least) {
-                        answers[question] = {
-                            most: null,
-                            least: null
-                        };
-                    }
-
-                    answers[question][rate] = type;
-
-                    self.addClass(rate);
-                    self.closest('.survey-question').find('.question').addClass(rate);
-                }
-
-                var complete = true;
-
-                panel.removeClass(completeClass);
-
-                for (var t in answers[question]) {
-                    if (answers[question][t] === null) {
-                        complete = false;
-                    }
-                }
-
-                console.log(complete);
-
-                if (complete === true) {
-                    panel.addClass(completeClass);
-                }
-
-                var count = $('.panel-body.' + completeClass).length;
-
-                if (count === questionCount) {
-                    $('.info').addClass('hidden');
-                    $('.send').addClass(activeButtonClass);
-                    $('.send').removeClass('btn-default');
-                    $('.send').removeClass('disabled');
-                } else {
-                    $('.info').removeClass('hidden');
-                    $('.send').removeClass(activeButtonClass);
-                    $('.send').addClass('btn-default');
-                    $('.send').addClass('disabled');
-                }
-            });
-        });
+        var fields = {{ survey|json_encode|raw }};
     </script>
+    
+    <script src="{{ asset('bundles/applicationdisc/js/survey.js') }}"></script>
 {% endblock %}
 
 {% block stylesheets %}
@@ -107,7 +18,7 @@
         @import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic&subset=latin,latin-ext);
 
         #timer {
-            
+
             background: black;
             color: white;
             opacity: 0.5;
@@ -175,39 +86,46 @@
         {{ 'survey.name'|trans }} #{{ user }}
     </h1>
 
-    <div class="alert alert-info info">
-        <i class="fa fa-info-circle fa-2x fa-fw" style="vertical-align:middle"></i>
-        {{ 'survey.info'|trans }}
+    <div class="bs-callout bs-callout-info">
+        <h4>Instrukcje</h4>
+        <ul>
+            <li>Wybierz ustawienia, w którym będą utworzone twoje odpowiedzi: Praca, dom, kościół, społeczeństwo itp.</li>
+            <li>Uważnie przeczytaj cztery frazy w każdym polu poniżej. Zakreśl number w linii do NAJBARDZIEJ pasujących do ciebie fraz w ustawieniu, które wybrałeś. (Numer przestaje mieć w tym momencie znaczenie.)</li>
+            <li>Zaznacz numer w linii do fraz, które pasują do ciebie NAJMNIEJ w ustawieniu, które wybrałeś. (Numer przestaje mieć w tym momencie znaczenie.)</li>
+            <li>Dla każdego pola, zaznacz TYLKO JEDNĄ „Najbardziej” oraz TYLKO JEDNĄ „Najmniej” odpowiedź.</li>
+            <li>Ten arkusz powinien być wypełniony w przeciągu SIEDMIU MINUT lub jak najbliżej tego czasu jak to tylko możliwe.</li> 
+        </ul>
     </div>
 
-    {% set index = 1 %}
+    {% set cols = 2 %}
 
-    {% for row in survey|batch(2) %}
-        <div class="row">
-            {% for expressions in row %}
-                <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            {% for e in expressions %}
-                                <div class="survey-question clearfix">
-                                    <span class="question col-lg-9">{{ e.expression }}</span>
-                                    <span class="rate pull-right">
-                                        <a href="#" class="btn btn-sm" id="{{ e.most }}-most-{{ e.id }}">
-                                            <i class="fa fa-thumbs-o-up fa-2x"></i> 
-                                        </a>
-                                        <a href="#" class="btn btn-sm" id="{{ e.least }}-least-{{ e.id }}">
-                                            <i class="fa fa-thumbs-o-down fa-2x"></i> 
-                                        </a>
-                                    </span>
-                                </div>
-                            {% endfor %}
-                            {% set index = index + 1 %}
+    <div id="survey">
+        {% for row in survey|batch(cols) %}
+            <div class="row">
+                {% for field in row %}
+                    <div class="col-lg-{{ 12 / cols }}">
+                        <div class="panel panel-default" id="field-{{ field.id }}">
+                            <div class="panel-body">
+                                {% for e in field.expressions %}
+                                    <div class="survey-question clearfix">
+                                        <span class="question col-lg-9">{{ e.expression }}</span>
+                                        <span class="rate pull-right">
+                                            <a href="#" class="btn btn-sm" id="most-{{ e.id }}">
+                                                <i class="fa fa-thumbs-o-up fa-2x"></i> 
+                                            </a>
+                                            <a href="#" class="btn btn-sm" id="least-{{ e.id }}">
+                                                <i class="fa fa-thumbs-o-down fa-2x"></i> 
+                                            </a>
+                                        </span>
+                                    </div>
+                                {% endfor %}
+                            </div>
                         </div>
-                    </div>
-                </div>  
-            {% endfor %}
-        </div>
-    {% endfor %} 
+                    </div>  
+                {% endfor %}
+            </div>
+        {% endfor %} 
+    </div>
 
     <br/>
 
