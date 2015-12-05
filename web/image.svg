@@ -257,79 +257,79 @@
             <text class="indicator C segment-1" x="539" y="880">12</text>
             <text class="indicator C segment-1" x="539" y="910">13</text>
             <text class="indicator C segment-1" x="539" y="966">26</text>
+        </g>
+
+        <g class="label">
+
+            <text class="label segment" x="620" y="242">7</text>
+            <text class="label segment" x="620" y="355">6</text>
+            <text class="label segment" x="620" y="471">5</text>
+            <text class="label segment" x="620" y="584">4</text>
+            <text class="label segment" x="620" y="700">3</text>
+            <text class="label segment" x="620" y="824">2</text>
+            <text class="label segment" x="620" y="934">1</text>
+
+            <text class="label intensity" x="52" y="195">28</text>
+            <text class="label intensity" x="52" y="223">27</text>
+            <text class="label intensity" x="52" y="252">26</text>
+            <text class="label intensity" x="52" y="280">25</text>
+            <text class="label intensity" x="52" y="309">24</text>
+            <text class="label intensity" x="52" y="338">23</text>
+            <text class="label intensity" x="52" y="366">22</text>
+            <text class="label intensity" x="52" y="395">21</text>
+            <text class="label intensity" x="52" y="423">20</text>
+            <text class="label intensity" x="52" y="452">19</text>
+            <text class="label intensity" x="52" y="481">18</text>
+            <text class="label intensity" x="52" y="509">17</text>
+            <text class="label intensity" x="52" y="538">16</text>
+            <text class="label intensity" x="52" y="566">15</text>
+            <text class="label intensity" x="52" y="595">14</text>
+            <text class="label intensity" x="52" y="624">13</text>
+            <text class="label intensity" x="52" y="652">12</text>
+            <text class="label intensity" x="52" y="681">11</text>
+            <text class="label intensity" x="52" y="709">10</text>
+            <text class="label intensity" x="52" y="738">9</text>
+            <text class="label intensity" x="52" y="767">8</text>
+            <text class="label intensity" x="52" y="795">7</text>
+            <text class="label intensity" x="52" y="824">6</text>
+            <text class="label intensity" x="52" y="852">5</text>
+            <text class="label intensity" x="52" y="881">4</text>
+            <text class="label intensity" x="52" y="910">3</text>
+            <text class="label intensity" x="52" y="938">2</text>
+            <text class="label intensity" x="52" y="967">1</text>
+
+            <text class="label disc D" x="129" y="143">D</text>
+            <text class="label disc i" x="249" y="143">i</text>
+            <text class="label disc S" x="374" y="143">S</text>
+            <text class="label disc C" x="498" y="143">C</text>
+
+            <text class="label header" x="344" y="65">GRAPH II</text>
+
+            <text class="header intensity" x="54" y="165">INTENSITY</text>
+            <text class="header segment" x="615" y="150">SEGMENT</text>
+
+            <text class="label gaplabel" x="601" y="1003">SEGMENT</text>
+            <text class="label gaplabel" x="601" y="1023">NUMBER</text>
+            <text class="label gaplabel" x="601" y="1068">CLASSICAL</text>
+            <text class="label gaplabel" x="601" y="1088">PATTERN</text>
+
+            <line stroke-dasharray="5,5" x1="73" x2="601" y1="285" y2="285" />
+            <line stroke-dasharray="5,5" x1="73" x2="601" y1="400" y2="400" />
+            <line stroke-dasharray="5,5" x1="73" x2="601" y1="515" y2="515" />
+
+            <line stroke-dasharray="5,5" x1="73" x2="601" y1="630" y2="630" />
+            <line stroke-dasharray="5,5" x1="73" x2="601" y1="745" y2="745" />
+            <line stroke-dasharray="5,5" x1="73" x2="601" y1="859" y2="859" />
+
+        </g>
+
+        <g class="result">
+            <text x="129" y="1022" class="sn dim-D">0</text>
+            <text x="249" y="1022" class="sn dim-i">0</text>
+            <text x="374" y="1022" class="sn dim-S">0</text>
+            <text x="498" y="1022" class="sn dim-C">0</text>
+
+            <text class="cp" x="313" y="1086">Pattern</text>
+        </g>
     </g>
-
-    <g class="label">
-
-        <text class="label segment" x="620" y="242">7</text>
-        <text class="label segment" x="620" y="355">6</text>
-        <text class="label segment" x="620" y="471">5</text>
-        <text class="label segment" x="620" y="584">4</text>
-        <text class="label segment" x="620" y="700">3</text>
-        <text class="label segment" x="620" y="824">2</text>
-        <text class="label segment" x="620" y="934">1</text>
-
-        <text class="label intensity" x="52" y="195">28</text>
-        <text class="label intensity" x="52" y="223">27</text>
-        <text class="label intensity" x="52" y="252">26</text>
-        <text class="label intensity" x="52" y="280">25</text>
-        <text class="label intensity" x="52" y="309">24</text>
-        <text class="label intensity" x="52" y="338">23</text>
-        <text class="label intensity" x="52" y="366">22</text>
-        <text class="label intensity" x="52" y="395">21</text>
-        <text class="label intensity" x="52" y="423">20</text>
-        <text class="label intensity" x="52" y="452">19</text>
-        <text class="label intensity" x="52" y="481">18</text>
-        <text class="label intensity" x="52" y="509">17</text>
-        <text class="label intensity" x="52" y="538">16</text>
-        <text class="label intensity" x="52" y="566">15</text>
-        <text class="label intensity" x="52" y="595">14</text>
-        <text class="label intensity" x="52" y="624">13</text>
-        <text class="label intensity" x="52" y="652">12</text>
-        <text class="label intensity" x="52" y="681">11</text>
-        <text class="label intensity" x="52" y="709">10</text>
-        <text class="label intensity" x="52" y="738">9</text>
-        <text class="label intensity" x="52" y="767">8</text>
-        <text class="label intensity" x="52" y="795">7</text>
-        <text class="label intensity" x="52" y="824">6</text>
-        <text class="label intensity" x="52" y="852">5</text>
-        <text class="label intensity" x="52" y="881">4</text>
-        <text class="label intensity" x="52" y="910">3</text>
-        <text class="label intensity" x="52" y="938">2</text>
-        <text class="label intensity" x="52" y="967">1</text>
-
-        <text class="label disc D" x="129" y="143">D</text>
-        <text class="label disc i" x="249" y="143">i</text>
-        <text class="label disc S" x="374" y="143">S</text>
-        <text class="label disc C" x="498" y="143">C</text>
-
-        <text class="label header" x="344" y="65">GRAPH II</text>
-
-        <text class="header intensity" x="54" y="165">INTENSITY</text>
-        <text class="header segment" x="615" y="150">SEGMENT</text>
-
-        <text class="label gaplabel" x="601" y="1003">SEGMENT</text>
-        <text class="label gaplabel" x="601" y="1023">NUMBER</text>
-        <text class="label gaplabel" x="601" y="1068">CLASSICAL</text>
-        <text class="label gaplabel" x="601" y="1088">PATTERN</text>
-
-        <line stroke-dasharray="5,5" x1="73" x2="601" y1="285" y2="285" />
-        <line stroke-dasharray="5,5" x1="73" x2="601" y1="400" y2="400" />
-        <line stroke-dasharray="5,5" x1="73" x2="601" y1="515" y2="515" />
-
-        <line stroke-dasharray="5,5" x1="73" x2="601" y1="630" y2="630" />
-        <line stroke-dasharray="5,5" x1="73" x2="601" y1="745" y2="745" />
-        <line stroke-dasharray="5,5" x1="73" x2="601" y1="859" y2="859" />
-
-    </g>
-
-    <g class="result">
-        <text x="129" y="1022" class="sn dim-D">0</text>
-        <text x="249" y="1022" class="sn dim-i">0</text>
-        <text x="374" y="1022" class="sn dim-S">0</text>
-        <text x="498" y="1022" class="sn dim-C">0</text>
-
-        <text class="cp" x="313" y="1086">Pattern</text>
-    </g>
-
 </svg>
