@@ -3,6 +3,129 @@ Survey:
         id: 1
         expressions:
             -
+                - { id: 1, expression: 'Ufny, Entuzjastyczny', most: i, least: i }
+                - { id: 2, expression: 'Tolerancyjny, Szanujący', most: C, least: C }
+                - { id: 3, expression: 'Odważny, Wymagający', most: 'N', least: D }
+                - { id: 4, expression: 'Zgodny, Uwzględniający', most: S, least: S }
+            -
+                - { id: 5, expression: 'Delikatny, Czuły', most: i, least: 'N' }
+                - { id: 6, expression: 'Prosty, Zgodny', most: 'N', least: C }
+                - { id: 7, expression: 'Zdeterminowany, Nastawiony na wyniki', most: D, least: D }
+                - { id: 8, expression: 'Treściwy, Spełniony', most: S, least: 'N' }
+            -
+                - { id: 9, expression: 'Innowacyjny, Wizjoner', most: D, least: D }
+                - { id: 10, expression: 'Powściągliwy, Małomówny', most: C, least: 'N' }
+                - { id: 11, expression: 'Społeczny. Przyjemny', most: 'N', least: i }
+                - { id: 12, expression: 'Rozjemca, Negocjator', most: S, least: S }
+            -
+                - { id: 13, expression: 'Nieustraszony, Niezależny', most: D, least: D }
+                - { id: 14, expression: 'Powściągliwy, Ostożny', most: C, least: C }
+                - { id: 15, expression: 'Beztroski, Brak ostrożności', most: i, least: i }
+                - { id: 16, expression: 'Uprzejmy, Serdeczny', most: S, least: 'N' }
+            -
+                - { id: 17, expression: 'Precyzyjny, Dokładny', most: 'N', least: C }
+                - { id: 18, expression: 'Skupiony, Ukierunkowany na cel', most: D, least: 'N' }
+                - { id: 19, expression: 'Gracz zespołowy, Uczynny', most: 'N', least: S }
+                - { id: 20, expression: 'Motywator, Zachęcający', most: i, least: i }
+            -
+                - { id: 21, expression: 'Sumienny, Planujący przyszłość', most: C, least: 'N' }
+                - { id: 22, expression: 'Uznany, Szuka awansu', most: D, least: D }
+                - { id: 23, expression: 'Śmiały, Zuchwały', most: i, least: i }
+                - { id: 24, expression: 'Godny zaufania, Dobry słuchacz', most: S, least: S }
+            -
+                - { id: 25, expression: 'Wrażliwy, Łatwo wpadający w frustrację', most: C, least: C }
+                - { id: 26, expression: 'Stojący naprzeciw, Prawy', most: D, least: D }
+                - { id: 27, expression: 'Samozadowolenie, Trzyma uczucia dla siebie', most: S, least: S }
+                - { id: 28, expression: 'Opowiada swoją wersję historii, Chcę być wysłuchany', most: 'N', least: i }
+            -
+                - { id: 29, expression: 'Zasady powodują nudę, Niespokojny', most: i, least: i }
+                - { id: 30, expression: 'Stawia wyzwanie zasadom, Wyzywający', most: 'N', least: D }
+                - { id: 31, expression: 'Zasady sprawiają, że jest bezpiecznie, Bezpieczny', most: S, least: S }
+                - { id: 32, expression: 'Zasady sprawiają że jest sprawiedliwie, Ucziwie', most: C, least: 'N' }
+            -
+                - { id: 33, expression: 'Poszukuję balansu, Sokojny', most: S, least: S }
+                - { id: 34, expression: 'Rozmowny, Charyzmatyczny', most: i, least: 'N' }
+                - { id: 35, expression: 'Uporządkowany, Zgodny z zasadami', most: 'N', least: C }
+                - { id: 36, expression: 'Narzuca szybkie tempo, Wysoce uduchowiony', most: D, least: D }
+            -
+                - { id: 37, expression: 'Lubi być nagradzany, Nastawiony na sukces', most: D, least: D }
+                - { id: 38, expression: 'Odnajduje się w spotkaniach społecznych', most: i, least: 'N' }
+                - { id: 39, expression: 'Kontynuuje edukację, Kulturalny', most: 'N', least: C }
+                - { id: 40, expression: 'Chcę być bezpieczny, Niezagrożony', most: S, least: S }
+            -
+                - { id: 41, expression: 'Systematyczny, Zarządza czasem', most: C, least: 'N' }
+                - { id: 42, expression: 'Niespokojny, Pośpieszny', most: D, least: D }
+                - { id: 43, expression: 'Godny zaufania, Zawzięty', most: S, least: S }
+                - { id: 44, expression: 'Emocjonalny, Impulsywny', most: i, least: i }
+            -
+                - { id: 45, expression: 'Ostrożny, Kalkulujący', most: C, least: 'N' }
+                - { id: 46, expression: 'Spójny, Gruntowny', most: 'N', least: S }
+                - { id: 47, expression: 'Towarzyski, Entuzjastyczny', most: 'N', least: i }
+                - { id: 48, expression: 'Przejmuje dowodzenie, Bezpośredni', most: D, least: D }
+            -
+                - { id: 49, expression: 'Bezstronny, Zbyt ostrożny', most: 'N', least: C }
+                - { id: 50, expression: 'Oderwany od rzczywistości, Zbyt zaangażowany', most: i, least: i }
+                - { id: 51, expression: 'Pełen samozadowolenia, Odporny na zmiany', most: S, least: 'N' }
+                - { id: 52, expression: 'Dosadny, Apodyktyczny', most: 'N', least: D }
+            -
+                - { id: 53, expression: 'Podekscytowany, Wesoły', most: i, least: i }
+                - { id: 54, expression: 'Wspierający, Oredownik', most: S, least: 'N' }
+                - { id: 55, expression: 'Metodysta, Konkretny', most: 'N', least: C }
+                - { id: 56, expression: 'Konkurencyjny, Rzeczowy', most: D, least: D }
+            -
+                - { id: 57, expression: 'Dobry analizator', most: C, least: C }
+                - { id: 58, expression: 'Dobry słuchasz', most: S, least: S }
+                - { id: 59, expression: 'Dobry motywator', most: i, least: i }
+                - { id: 60, expression: 'Dobry delegator', most: D, least: D }
+            -
+                - { id: 61, expression: 'Nastawiony na fakty', most: C, least: 'N' }
+                - { id: 62, expression: 'Nastawiony na pożądanie pewną drogą', most: S, least: S }
+                - { id: 63, expression: 'Nastawiony na prowadzenie innych', most: D, least: 'N' }
+                - { id: 64, expression: 'Nastawiony na przekonywanie', most: i, least: i }
+            -
+                - { id: 65, expression: 'Energiczny, Zmotywowany', most: D, least: D }
+                - { id: 66, expression: 'Optymistyczny, Charyzmatyczny', most: 'N', least: i }
+                - { id: 67, expression: 'Kooperatywny, Chcący pracować razem', most: 'N', least: S }
+                - { id: 68, expression: 'Liczy się dokładność, Precyzja', most: C, least: C }
+            -
+                - { id: 69, expression: 'Lojalny, Refleksyjny', most: S, least: S }
+                - { id: 70, expression: 'Lubi wyzwania, Pionier', most: D, least: D }
+                - { id: 71, expression: 'Analityczny, Taktowny', most: 'N', least: C }
+                - { id: 72, expression: 'Popularny, Przekonywujący', most: i, least: i }
+            -
+                - { id: 73, expression: 'Poczeka z zakupem, Cierpliwy', most: S, least: S }
+                - { id: 74, expression: 'Kupuje impulsywnie, Decyzyjny', most: D, least: D }
+                - { id: 75, expression: 'Wydaje na co chcę, Samolubny', most: i, least: 'N' }
+                - { id: 76, expression: 'Chce pracować sam, Samokontrolujący się', most: 'N', least: C }
+            -
+                - { id: 77, expression: 'Zgodny, Przyjazny', most: S, least: S }
+                - { id: 78, expression: 'Pobudzony, Żywiołowy', most: 'N', least: i }
+                - { id: 79, expression: 'Nieustraszony, Śmiały', most: D, least: D }
+                - { id: 80, expression: 'Uporzadkowany, Adaptujący się', most: C, least: C }
+            -
+                - { id: 81, expression: 'Nieelastyczny, Chcę dokładnego wykonania', most: C, least: C }
+                - { id: 82, expression: 'Unika monotonii, Znudzony rutyną', most: 'N', least: i }
+                - { id: 83, expression: 'Poszukuje zmiany, Podąża za nią', most: D, least: D }
+                - { id: 84, expression: 'Pokrewny, Dobrotliwy', most: S, least: 'N' }
+            -
+                - { id: 85, expression: 'Autoratywny, Wpływający na innych', most: 'N', least: D }
+                - { id: 86, expression: 'Cieszy się z uwagi, Nowych możliwości', most: i, least: 'N' }
+                - { id: 87, expression: 'Unika konfliktu, Zrelaksowany', most: S, least: S }
+                - { id: 88, expression: 'Podąża według teorii, Dyplomatyczny', most: 'N', least: C }
+            -
+                - { id: 89, expression: 'Impulsywny, Emocjonalny', most: i, least: i }
+                - { id: 90, expression: 'Kalkulujący, Przeciążony szczegółami', most: C, least: 'N' }
+                - { id: 91, expression: 'Wymagający, Dominujący', most: D, least: D }
+                - { id: 92, expression: 'Bezkonfrontacyjny, Przewidywalny', most: 'N', least: S }
+            -
+                - { id: 93, expression: 'Kreatywny, Unikatowy', most: i, least: i }
+                - { id: 94, expression: 'Organizuje od podstaw, Nastawiony na rezultaty', most: D, least: 'N' }
+                - { id: 95, expression: 'Zaufany, Autentyczny', most: 'N', least: S }
+                - { id: 96, expression: 'Posiada wysokie standardy, Patrzący na wzorce', most: C, least: 'N' }
+    -
+        id: 2
+        expressions:
+            -
                 - { id: 1, expression: 'Trusting, Enthusiastic', most: i, least: i }
                 - { id: 2, expression: 'Tolerant, Respectful', most: C, least: C }
                 - { id: 3, expression: 'Courageous, Adventurous', most: 'N', least: D }
