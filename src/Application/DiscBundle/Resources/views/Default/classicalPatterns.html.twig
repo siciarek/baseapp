@@ -31,7 +31,12 @@
     <ul class="nav nav-pills clearfix">
         {% for pattern in patterns %}
         <li {%if pattern.active == true %}class="active" {% endif %}role="presentation">
-            <a href="{{ url('disc.classical.patterns', { id: pattern.id } ) }}">{{ pattern.name }}</a>
+            <a href="{{ url('disc.classical.patterns', { id: pattern.id } ) }}">
+                {{ pattern.name }}
+                {%if pattern.active == true %}
+                ({{ items|length }})
+                {% endif %}
+            </a>
         </li>
         {% endfor %}
     </ul>
