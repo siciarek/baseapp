@@ -2,10 +2,8 @@
 
 namespace Application\MainBundle\Common;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 
-class LaafFrame implements ContainerAwareInterface {
+class LaafFrame {
 
     const TYPE_REQUEST = 'request';
     const TYPE_INFO = 'info';
@@ -13,11 +11,9 @@ class LaafFrame implements ContainerAwareInterface {
     const TYPE_WARNING = 'warning';
     const TYPE_ERROR = 'error';
 
-    /**
-     * @var ContainerInterface
-     */
-    protected $container;
+    const EXCEPTION_MSG_INVALID_INPUT_DATA_TYPE = 'Invalid input data type.';
 
+    
     public function getDataFrame($msg = null, $data = [], $warningOnEmptyData = false, $auth = null) {
         return $this->getFrame(self::TYPE_DATA, $msg, $data, $warningOnEmptyData, $auth);
     }
@@ -94,10 +90,6 @@ class LaafFrame implements ContainerAwareInterface {
             ],
         ];
 
-        if (!array_key_exists($type, $frames)) {
-            throw new \Exception('Invalid LAAF frame type.');
-        }
-
         $frame = $frames[$type];
 
         if ($msg !== null) {
@@ -117,7 +109,7 @@ class LaafFrame implements ContainerAwareInterface {
         if ($type === self::TYPE_DATA) {
 
             if (!is_array($data)) {
-                throw new \Exception('Array type data is required.');
+                throw new \Exception(self::EXCEPTION_MSG_INVALID_INPUT_DATA_TYPE);
             }
 
             $items = array_values($data);
@@ -135,23 +127,4 @@ class LaafFrame implements ContainerAwareInterface {
 
         return $frame;
     }
-
-    /**
-     * Gets the container
-     *
-     * @return ContainerInterface|null $container A ContainerInterface instance or null
-     */
-    public function getContainer() {
-        return $this->container;
-    }
-
-    /**
-     * Sets the container.
-     *
-     * @param ContainerInterface|null $container A ContainerInterface instance or null
-     */
-    public function setContainer(ContainerInterface $container = null) {
-        $this->container = $container;
-    }
-
 }

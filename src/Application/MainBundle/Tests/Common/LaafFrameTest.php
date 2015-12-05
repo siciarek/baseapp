@@ -71,6 +71,17 @@ class LaafFrameTest extends WebTestCase
         $this->assertEquals(LaafFrame::TYPE_WARNING, $frame['type']);
         $this->assertFalse($frame['success']);        
     }
+
+    /**
+     * @group laaf
+     * @group exception
+     * @expectedException        Exception
+     * @expectedExceptionMessage Invalid input data type.
+     */
+    public function testGetDataFrameException() {
+        $data = new \stdClass();
+        $frame = $this->srv->getDataFrame(null, $data, true);
+    }
     
     /**
      * @group laaf

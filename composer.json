@@ -5,7 +5,7 @@
     "description": "Symfony2 template application.",
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "Application\\": "src/"
         }
     },
     "minimum-stability": "dev",

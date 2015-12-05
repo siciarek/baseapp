@@ -1395,7 +1395,7 @@
         },
         {
             "name": "friendsofsymfony/rest-bundle",
-            "version": "1.7.x-dev",
+            "version": "1.8.x-dev",
             "target-dir": "FOS/RestBundle",
             "source": {
                 "type": "git",
