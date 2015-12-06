@@ -15,23 +15,26 @@ use Doctrine\ORM\Query;
 /**
  * @Route("/private")
  */
-class PrivateController extends Controller {
+class PrivateController extends Controller
+{
 
     /**
      * @Secure(roles="ROLE_USER")
      * @Route("/gallery", name="private.gallery")
      * @Template()
      */
-    public function galleryAction() {
+    public function galleryAction()
+    {
         return [];
     }
-    
+
     /**
      * @Secure(roles="IS_AUTHENTICATED_ANONYMOUSLY")
      * @Route("/", name="private.index")
      * @Template()
      */
-    public function indexAction() {
+    public function indexAction()
+    {
         return [];
     }
 
@@ -39,7 +42,8 @@ class PrivateController extends Controller {
      * @Secure(roles="ROLE_USER")
      * @Route("/spreadsheet", name="private.spreadsheet")
      */
-    public function spreadsheetAction(Request $request) {
+    public function spreadsheetAction(Request $request)
+    {
 
         $repository = $this->getDoctrine()
                 ->getRepository('ApplicationMainBundle:CollectionElement');
@@ -61,7 +65,8 @@ class PrivateController extends Controller {
         return $this->returnXlsResponse($data, $headers, $title, $fileName);
     }
 
-    protected function returnXlsResponse($data, $headers, $title = 'Data', $fileName = 'spreadsheet') {
+    protected function returnXlsResponse($data, $headers, $title = 'Data', $fileName = 'spreadsheet')
+    {
 
         $srv = $this->get('phpexcel');
 
@@ -75,7 +80,7 @@ class PrivateController extends Controller {
 //                ->setDescription("Test document for Office 2005 XLSX, generated using PHP classes.")
 //                ->setKeywords("office 2005 openxml php")
 //                ->setCategory("Category")
-                ;
+        ;
 
 
         $phpExcelObject->setActiveSheetIndex(0);
@@ -94,11 +99,9 @@ class PrivateController extends Controller {
         $response = $srv->createStreamedResponse($writer);
 
         $fileName .= '.xls';
-        
+
         // adding headers
-        $dispositionHeader = $response->headers->makeDisposition(
-                ResponseHeaderBag::DISPOSITION_ATTACHMENT, $fileName
-        );
+        $dispositionHeader = $response->headers->makeDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, $fileName);
 
         $response->headers->set('Content-Type', 'text/vnd.ms-excel; charset=utf-8');
         $response->headers->set('Pragma', 'public');
@@ -107,5 +110,4 @@ class PrivateController extends Controller {
 
         return $response;
     }
-
 }
