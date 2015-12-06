@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "97d6b9a48ebc2926d4fa6bba06e5d9b7",
+    "hash": "70abfb2314dcdcf2177a4f51ef9a2a2e",
     "content-hash": "261c4474a31962acc08c8395357f0f59",
     "packages": [
         {
@@ -382,16 +382,16 @@
         },
         {
             "name": "doctrine/common",
-            "version": "dev-master",
+            "version": "2.5.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "6065c0756da7dc286b8221107ade4c70298b1eba"
+                "reference": "11b994b8d19e4f258e6597cac3638305bfe38ee9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/6065c0756da7dc286b8221107ade4c70298b1eba",
-                "reference": "6065c0756da7dc286b8221107ade4c70298b1eba",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/11b994b8d19e4f258e6597cac3638305bfe38ee9",
+                "reference": "11b994b8d19e4f258e6597cac3638305bfe38ee9",
                 "shasum": ""
             },
             "require": {
@@ -400,20 +400,20 @@
                 "doctrine/collections": "1.*",
                 "doctrine/inflector": "1.*",
                 "doctrine/lexer": "1.*",
-                "php": "~5.5|~7.0"
+                "php": ">=5.3.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.8|~5.0"
+                "phpunit/phpunit": "~3.7"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7.x-dev"
+                    "dev-master": "2.5.x-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\": "lib/Doctrine/Common"
+                "psr-0": {
+                    "Doctrine\\Common\\": "lib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -451,7 +451,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2015-12-04 13:08:02"
+            "time": "2015-12-04 12:51:11"
         },
         {
             "name": "doctrine/data-fixtures",
@@ -512,21 +512,21 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "dev-master",
+            "version": "2.5.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "2241ee4b3aaed07194fc44e103050dda618e93c8"
+                "reference": "b9ec927612c8b26b51cf23e22ff2e278024578ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/2241ee4b3aaed07194fc44e103050dda618e93c8",
-                "reference": "2241ee4b3aaed07194fc44e103050dda618e93c8",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/b9ec927612c8b26b51cf23e22ff2e278024578ce",
+                "reference": "b9ec927612c8b26b51cf23e22ff2e278024578ce",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": "~2.4",
-                "php": ">=5.4"
+                "doctrine/common": ">=2.4,<2.6-dev",
+                "php": ">=5.3.2"
             },
             "require-dev": {
                 "phpunit/phpunit": "4.*",
@@ -541,7 +541,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6.x-dev"
+                    "dev-master": "2.5.x-dev"
                 }
             },
             "autoload": {
@@ -579,7 +579,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2015-11-28 01:55:57"
+            "time": "2015-10-16 09:01:17"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -1107,45 +1107,48 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "2.4.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "ea713a0b01267745e245cf52a0c569425deb170e"
+                "reference": "3c3b7364bab7593e4b03e49140834d74ce26510e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/ea713a0b01267745e245cf52a0c569425deb170e",
-                "reference": "ea713a0b01267745e245cf52a0c569425deb170e",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/3c3b7364bab7593e4b03e49140834d74ce26510e",
+                "reference": "3c3b7364bab7593e4b03e49140834d74ce26510e",
                 "shasum": ""
             },
             "require": {
-                "doctrine/collections": "~1.1",
-                "doctrine/dbal": "~2.4",
+                "doctrine/cache": "~1.4",
+                "doctrine/collections": "~1.2",
+                "doctrine/common": ">=2.5-dev,<2.6-dev",
+                "doctrine/dbal": ">=2.5-dev,<2.6-dev",
+                "doctrine/instantiator": "~1.0.1",
                 "ext-pdo": "*",
-                "php": ">=5.3.2",
-                "symfony/console": "~2.0"
+                "php": ">=5.4",
+                "symfony/console": "~2.5|~3.0"
             },
             "require-dev": {
+                "phpunit/phpunit": "~4.0",
                 "satooshi/php-coveralls": "dev-master",
-                "symfony/yaml": "~2.1"
+                "symfony/yaml": "~2.3|~3.0"
             },
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
             },
             "bin": [
-                "bin/doctrine",
-                "bin/doctrine.php"
+                "bin/doctrine"
             ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4.x-dev"
+                    "dev-master": "2.6.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Doctrine\\ORM\\": "lib/"
+                "psr-4": {
+                    "Doctrine\\ORM\\": "lib/Doctrine/ORM"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1176,7 +1179,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2015-08-31 13:19:01"
+            "time": "2015-12-01 20:24:16"
         },
         {
             "name": "egeloen/ckeditor-bundle",
@@ -1184,29 +1187,30 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/egeloen/IvoryCKEditorBundle.git",
-                "reference": "0a88fa1ac2a0f3d3245e1aa8b634d3672f06f464"
+                "reference": "cd9c4ffda30055a46b1a3d5a10d982b39d4c9036"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/0a88fa1ac2a0f3d3245e1aa8b634d3672f06f464",
-                "reference": "0a88fa1ac2a0f3d3245e1aa8b634d3672f06f464",
+                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/cd9c4ffda30055a46b1a3d5a10d982b39d4c9036",
+                "reference": "cd9c4ffda30055a46b1a3d5a10d982b39d4c9036",
                 "shasum": ""
             },
             "require": {
                 "egeloen/json-builder": "~1.0|~2.0",
                 "php": ">=5.3.3",
-                "symfony/dependency-injection": "~2.2",
-                "symfony/form": "~2.2",
-                "symfony/framework-bundle": "~2.2"
+                "symfony/dependency-injection": "~2.2|~3.0",
+                "symfony/form": "~2.2|~3.0",
+                "symfony/framework-bundle": "~2.2|~3.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0",
                 "satooshi/php-coveralls": "~0.6",
-                "symfony/yaml": "^2.0.5",
+                "symfony/phpunit-bridge": "~2.7|~3.0",
+                "symfony/yaml": "^2.0.5|~3.0",
                 "twig/twig": "~1.12"
             },
             "suggest": {
-                "twig/twig": "Allows to use twig templates"
+                "twig/twig": "Allows to use Twig templates"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -1233,7 +1237,7 @@
             "keywords": [
                 "CKEditor"
             ],
-            "time": "2015-11-11 12:01:47"
+            "time": "2015-12-06 12:28:40"
         },
         {
             "name": "egeloen/json-builder",
@@ -1241,22 +1245,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/egeloen/ivory-json-builder.git",
-                "reference": "6224e3c1198da616001b1348bdd6646621308875"
+                "reference": "c6afb2c53ac1070144d5d3330d5f86567b132d23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egeloen/ivory-json-builder/zipball/6224e3c1198da616001b1348bdd6646621308875",
-                "reference": "6224e3c1198da616001b1348bdd6646621308875",
+                "url": "https://api.github.com/repos/egeloen/ivory-json-builder/zipball/c6afb2c53ac1070144d5d3330d5f86567b132d23",
+                "reference": "c6afb2c53ac1070144d5d3330d5f86567b132d23",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "php": ">=5.3.0",
-                "symfony/property-access": "~2.2"
+                "symfony/property-access": "~2.2|~3.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0",
-                "satooshi/php-coveralls": "~0.6"
+                "satooshi/php-coveralls": "~0.6",
+                "symfony/phpunit-bridge": "~2.7|~3.0"
             },
             "type": "library",
             "extra": {
@@ -1285,7 +1290,7 @@
                 "builder",
                 "json"
             ],
-            "time": "2015-08-14 09:32:58"
+            "time": "2015-12-06 13:20:24"
         },
         {
             "name": "excelwebzone/text-bundle",
