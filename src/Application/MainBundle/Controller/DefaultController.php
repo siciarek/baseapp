@@ -27,24 +27,6 @@ class DefaultController extends CommonController
     }
     
     /**
-     * @Route("/", name="default.home")
-     * @Template()
-     */
-    public function homeAction(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * @Route("/info", name="default.info")
-     * @Template()
-     */
-    public function infoAction(Request $request)
-    {
-        return [];
-    }
-    
-    /**
      * @Route("/about", name="default.about")
      * @Template()
      */
@@ -61,4 +43,22 @@ class DefaultController extends CommonController
     {
         return [];
     }    
+    
+    /**
+     * @Route("/", name="default.home")
+     * @Template()
+     */
+    public function homeAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Route("/info", name="default.info")
+     * @Template()
+     */
+    public function infoAction(Request $request)
+    {
+        return [];
+    }
 }

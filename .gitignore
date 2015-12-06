@@ -3,7 +3,10 @@ nbproject
 php.ini
 /temp*
 
+/src/Application/MainBundle/Controller/TestController.php
+/src/Application/MainBundle/Resources/views/Test
 /src/Application/MainBundle/Controller/DummyController.php
+/src/Application/MainBundle/Resources/views/Dummy
 /src/Application/MainBundle/Command/DummyCommand.php
 
 # Cache and logs (Symfony2)

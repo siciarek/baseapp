@@ -23,6 +23,11 @@ application_main:
             icon: lock
             role: ROLE_USER
         -
+            label: Gallery
+            route: private.gallery
+            icon: camera-retro
+            role: ROLE_USER
+        -
             label: Admin
             route: sonata_admin_dashboard
             icon: wrench

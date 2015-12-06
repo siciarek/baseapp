@@ -95,12 +95,12 @@ doctrine:
                 mappings:
                     ApplicationMainBundle: ~
                     FOSUserBundle: ~
-                    ApplicationSonataUserBundle: ~
                     SonataUserBundle: ~
-                    ApplicationSonataMediaBundle: ~
-                    SonataMediaBundle: ~
-                    ApplicationSonataClassificationBundle: ~
                     SonataClassificationBundle: ~
+                    SonataMediaBundle: ~
+                    ApplicationSonataUserBundle: ~
+                    ApplicationSonataClassificationBundle: ~
+                    ApplicationSonataMediaBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:

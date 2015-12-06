@@ -19,6 +19,15 @@ class PrivateController extends Controller {
 
     /**
      * @Secure(roles="ROLE_USER")
+     * @Route("/gallery", name="private.gallery")
+     * @Template()
+     */
+    public function galleryAction() {
+        return [];
+    }
+    
+    /**
+     * @Secure(roles="IS_AUTHENTICATED_ANONYMOUSLY")
      * @Route("/", name="private.index")
      * @Template()
      */

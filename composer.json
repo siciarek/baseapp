@@ -5,7 +5,7 @@
     "description": "Symfony2 template application.",
     "autoload": {
         "psr-4": {
-            "Application\\": "src/Application"
+            "": "src"
         }
     },
     "minimum-stability": "dev",
@@ -26,8 +26,8 @@
         "knplabs/doctrine-behaviors": "dev-master",
         "knplabs/knp-menu-bundle": "dev-master",
 
-        "doctrine/doctrine-fixtures-bundle": "dev-master",
-        "doctrine/doctrine-migrations-bundle": "dev-master",
+        "doctrine/doctrine-fixtures-bundle": "2.2.1",
+        "doctrine/doctrine-migrations-bundle": "1.1.1",
 
         "sonata-project/classification-bundle": "dev-master",
         "sonata-project/media-bundle": "dev-master",
@@ -38,8 +38,8 @@
         
         "php": ">=5.3.9",
         "symfony/symfony": "2.7.*",
-        "doctrine/orm": "^2.4.8",
-        "doctrine/doctrine-bundle": "~1.4",
+        "doctrine/orm": "v2.4.8",
+        "doctrine/doctrine-bundle": "~1.6",
         "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
