@@ -19,7 +19,7 @@ class PrivateController extends Controller
 {
 
     /**
-     * @Secure(roles="ROLE_USER")
+     * @Secure(roles="IS_AUTHENTICATED_ANONYMOUSLY")
      * @Route("/gallery", name="private.gallery")
      * @Template()
      */
@@ -29,7 +29,7 @@ class PrivateController extends Controller
     }
 
     /**
-     * @Secure(roles="IS_AUTHENTICATED_ANONYMOUSLY")
+     * @Secure(roles="ROLE_USER")
      * @Route("/", name="private.index")
      * @Template()
      */

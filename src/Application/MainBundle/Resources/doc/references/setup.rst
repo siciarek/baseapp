@@ -93,7 +93,7 @@ PostreSQL Database console access
 .. code-block:: sql
 
     CREATE DATABASE baseapp;
-    CREATE USER username SUPERUSER PASSWORD 'password';
+    CREATE USER root SUPERUSER PASSWORD 'pass';
     
 
 MySQL server commands
