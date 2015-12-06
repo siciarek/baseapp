@@ -8,10 +8,14 @@ Sphinx update
 
 .. code-block:: bash
 
-    sudo apt-get install xzdec
+    sudo apt-get install texlive-latex-base
+    sudo apt-get install texlive-latex-recommended
+    sudo apt-get install texlive-fonts-recommended
     sudo apt-get install texlive-latex-extra
     sudo apt-get install texlive-lang-polish
     sudo apt-get install dvipng
+
+    sudo apt-get install xzdec
     tlmgr init-usertree
     tlmgr install titlesec
     tlmgr install framed

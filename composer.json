@@ -4,9 +4,7 @@
     "type": "project",
     "description": "Symfony2 template application.",
     "autoload": {
-        "psr-4": {
-            "Application\\": "src/"
-        }
+
     },
     "minimum-stability": "dev",
     "require": {
