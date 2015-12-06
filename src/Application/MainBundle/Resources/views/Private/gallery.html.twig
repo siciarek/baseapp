@@ -1,7 +1,6 @@
 {% extends '::base.html.twig' %}
 
 {% block javascripts %}
-    {{ parent() }}
     {% set images = [] %}
 
     {% for i in 0..15 %}
@@ -9,19 +8,20 @@
         {% set images = images|merge([im]) %}
     {% endfor %}
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/photoswipe-ui-default.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/photoswipe.js"></script>
+    {{ parent() }}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/photoswipe-ui-default.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/photoswipe.min.js"></script>
 
     <script>
+        var items = ({{ images|json_encode|raw }});
         var pswpElement = document.querySelectorAll('.pswp')[0];
 
-        var items = {{ images|json_encode|raw }};
-                
         $(document).ready(function () {
-            $('.thnail').on('click', function (e) {
+            $('a[id^=thumbnail]').on('click', function (e) {
                 e.preventDefault();
 
-                var index = $(this).attr('id').replace(/\D/g, '');
+                var index = parseInt($(this).attr('id').replace(/\D/g, ''));
 
                 var options = {
                     index: index
@@ -38,12 +38,8 @@
 {% block stylesheets %}
     {{ parent() }}
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/photoswipe.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/default-skin/default-skin.css">
-    {#https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/default-skin/default-skin.png#}
-    {#https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/default-skin/default-skin.svg#}
-    {#https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/default-skin/preloader.gif#}
-
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/photoswipe.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/default-skin/default-skin.min.css">
 
 {% endblock %}
 
@@ -54,7 +50,26 @@
         {{ 'Gallery'|trans }}
     </h1>
 
-    <hr/>
+    <div class="bs-callout bs-callout-info">
+        Autorem poniższych fotografii jest <em><a href="https://fb.com/oskarszramka.photography">Oskar Szramka</a></em>. Sesja odbyła się 2015-11-22 w Gdyni.
+    </div>
+
+    {% set index = 0 %}
+    {% set cols = 4 %}
+
+    {% for row in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]|batch(cols) %}
+        <div class="row">
+            {% for i in row %}
+                <div class="col-lg-{{ 12/cols }}">
+                    <a class="thnail" id="thumbnail-{{ index }}" target="_blank" href="{{ asset('/bundles/applicationmain/images/siciarek/'~('%02d.jpg'|format(i)))}}">
+                        <img class="col-lg-12" src="{{ asset('/bundles/applicationmain/images/siciarek/'~('%02d.jpg'|format(i)))}}"/>
+                    </a>
+                </div>
+                {% set index = index + 1 %}
+            {% endfor %}
+        </div>
+        <br/>
+    {% endfor %}
 
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
     <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -122,26 +137,5 @@
         </div>
 
     </div>
-
-    <div class="bs-callout bs-callout-info">
-        Autorem poniższych fotografii jest <em><a href="https://fb.com/oskarszramka.photography">Oskar Szramka</a></em>. Sesja odbyła się 2015-11-22 w Gdyni.
-    </div>
-
-    {% set index = 0 %}
-    {% set cols = 4 %}
-
-    {% for row in [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]|batch(cols) %}
-        <div class="row">
-            {% for i in row %}
-                <div class="col-lg-{{ 12/cols }}">
-                    <a class="thnail" id="thumbnail-{{ index }}" target="_blank" href="{{ asset('/bundles/applicationmain/images/siciarek/'~('%02d.jpg'|format(i)))}}">
-                        <img class="col-lg-12" src="{{ asset('/bundles/applicationmain/images/siciarek/'~('%02d.jpg'|format(i)))}}"/>
-                    </a>
-                </div>
-                {% set index = index + 1 %}
-            {% endfor %}
-        </div>
-        <br/>
-    {% endfor %}
 
 {% endblock %}
