@@ -3,14 +3,74 @@
     <head>
         <meta charset="{{ _charset }}" />
         <title>An Error Occurred: {{ status_text }}</title>
-    </head>
-    <body>
-        <h1>403 - Oops! An Error Occurred</h1>
-        <h2>The server returned a "{{ status_code }} {{ status_text }}".</h2>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <div>
-            Something is broken. Please let us know what you were doing when this error occurred.
-            We will fix it as soon as possible. Sorry for any inconvenience caused.
+        {% block stylesheets %}
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/{{ fontAwesomeVersion }}/css/font-awesome.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/{{ bootstrapVersion }}/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/{{ bootstrapVersion }}/css/bootstrap-theme.min.css">
+            <link rel="stylesheet" href="//plugins.krajee.com/assets/4b1a3b2e/css/checkbox-x.min.css">
+
+            <link rel="stylesheet" href="{{ asset('bundles/applicationmain/css/main.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/applicationmain/css/dialogs.css') }}">
+        {% endblock %}
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed"
+                            data-toggle="collapse" data-target="#bs-navbar-main-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                        <i class="fa fa-hashtag fa-lg fa-fw"></i>
+                        <strong>{{ app_name }}</strong>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-navbar-main-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="first">
+                            <a href="/" title="Home"><i class="fa fa-home fa-lg fa-fw"></i> Home</a>        
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
+
+        <div class="container">
+            <h1 class="page-header text-warning">
+                <i class="fa fa-lg fa-warning"></i>
+                403 Access Forbidden
+            </h1>
+            
+            <h2 class="text-muted">The server returned a "{{ status_code }} {{ status_text }}".</h2>
+
+            <br/>
+            
+            <div class="alert alert-warning">
+                You do not have proper credentials to visit this page.
+                Please contact your system administrator.
+            </div>
+        </div>
+
+        {% block javascripts %}
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/{{ jqueryVersion }}/jquery.min.js"></script>
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/{{ bootstrapVersion }}/js/bootstrap.min.js"></script>
+        {% endblock %}
     </body>
 </html>
