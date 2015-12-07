@@ -76,6 +76,8 @@ class Builder implements ContainerAwareInterface {
 
     protected function generateMenu($config) {
 
+        $locale = $this->container->get('request')->getLocale();
+        
         $menu = $this->factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
@@ -88,6 +90,11 @@ class Builder implements ContainerAwareInterface {
                 $label = $_label;
 
                 if (isset($c['icon']) and $c['icon'] != null and strlen($c['icon']) > 0) {
+                    
+                    if($c['icon'] === 'globe') {
+                        $_label = LocaleController::$locales[$locale];
+                    }
+                    
                     $label = sprintf('<i class="fa fa-%s fa-lg fa-fw"></i> %s', $c['icon'], $_label);
                 }
 
