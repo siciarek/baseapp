@@ -62,7 +62,6 @@ class LaafFrame {
                 'msg' => 'Data',
                 'auth' => $auth,
                 'data' => [
-                    'items' => [],
                     'currentItemCount' => 0,
                     'itemsPerPage' => 0,
                     'startIndex' => 0,
@@ -70,6 +69,7 @@ class LaafFrame {
                     'pagingLinkTemplate' => null,
                     'pageIndex' => 1,
                     'totalPages' => 1,
+                    'items' => [],
                 ],
             ],
             self::TYPE_WARNING => [

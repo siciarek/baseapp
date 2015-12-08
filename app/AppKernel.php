@@ -23,6 +23,7 @@ class AppKernel extends Kernel
 
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
 
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Nelmio\SecurityBundle\NelmioSecurityBundle(),
             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
@@ -47,6 +48,7 @@ class AppKernel extends Kernel
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),

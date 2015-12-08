@@ -1,0 +1,41 @@
+fos_rest:
+    routing_loader:
+        default_format: json
+    param_fetcher_listener: true
+    body_listener: true
+    format_listener:
+        rules: ~
+
+#    format_listener:
+#        rules:
+#            -
+#                path: '^/'
+#                priorities: [ json, xml, html ]
+#                fallback_format: ~
+#                prefer_extension: true
+#        media_type:
+#            version_regex: '/(v|version)=(?P<version>[0-9\.]+)/'
+
+    body_converter:
+        enabled: true
+        validate: true
+
+    view:
+        mime_types:
+            json: ['application/json', 'application/json;version=1.0', 'application/json;version=1.1']
+        view_response_listener: 'force'
+        formats:
+            xml:  true
+            json: true
+        templating_formats:
+            html: true
+
+    exception:
+        codes:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
+            'Doctrine\ORM\OptimisticLockException': HTTP_CONFLICT
+        messages:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
+    allowed_methods_listener: true
+    access_denied_listener:
+        json: true

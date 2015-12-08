@@ -1,6 +1,11 @@
 owners:
+    prefix: /api
+    resource: Application\MainBundle\Controller\OwnerController
     type:     rest
-    resource: Application\MainBundle\Controller\OwnersController
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
 
 application_main:
     resource: "@ApplicationMainBundle/Controller/"
