@@ -1184,12 +1184,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/egeloen/IvoryCKEditorBundle.git",
-                "reference": "cd9c4ffda30055a46b1a3d5a10d982b39d4c9036"
+                "reference": "7fc539a3fb8eb35cbb5cb59224a6bf35e68cac93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/cd9c4ffda30055a46b1a3d5a10d982b39d4c9036",
-                "reference": "cd9c4ffda30055a46b1a3d5a10d982b39d4c9036",
+                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/7fc539a3fb8eb35cbb5cb59224a6bf35e68cac93",
+                "reference": "7fc539a3fb8eb35cbb5cb59224a6bf35e68cac93",
                 "shasum": ""
             },
             "require": {
@@ -1234,7 +1234,7 @@
             "keywords": [
                 "CKEditor"
             ],
-            "time": "2015-12-06 12:28:40"
+            "time": "2015-12-08 14:49:33"
         },
         {
             "name": "egeloen/json-builder",
@@ -3190,12 +3190,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "49238f44aa73f545c0a927b00251c89a0acf3005"
+                "reference": "19d4e37365edd5104e31662a2d3b510d92a7e78a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/49238f44aa73f545c0a927b00251c89a0acf3005",
-                "reference": "49238f44aa73f545c0a927b00251c89a0acf3005",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/19d4e37365edd5104e31662a2d3b510d92a7e78a",
+                "reference": "19d4e37365edd5104e31662a2d3b510d92a7e78a",
                 "shasum": ""
             },
             "require": {
@@ -3265,7 +3265,7 @@
                 "documentation",
                 "rest"
             ],
-            "time": "2015-12-04 08:15:49"
+            "time": "2015-12-08 13:19:42"
         },
         {
             "name": "nelmio/security-bundle",
@@ -3752,12 +3752,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "ab159e9b6f9b3dbbb51d9614da7f23f8c7c4f3b2"
+                "reference": "6cf36bc7b9907901bbf724271058b0fe88e4632d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/ab159e9b6f9b3dbbb51d9614da7f23f8c7c4f3b2",
-                "reference": "ab159e9b6f9b3dbbb51d9614da7f23f8c7c4f3b2",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/6cf36bc7b9907901bbf724271058b0fe88e4632d",
+                "reference": "6cf36bc7b9907901bbf724271058b0fe88e4632d",
                 "shasum": ""
             },
             "require": {
@@ -3830,7 +3830,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2015-12-07 16:11:41"
+            "time": "2015-12-08 17:28:37"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -5068,12 +5068,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "b8fbe69bb88d08010e64fe8a4b74a89ff584df8a"
+                "reference": "0b0070e81ba5572c6655b478820d52fec866a52c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/b8fbe69bb88d08010e64fe8a4b74a89ff584df8a",
-                "reference": "b8fbe69bb88d08010e64fe8a4b74a89ff584df8a",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/0b0070e81ba5572c6655b478820d52fec866a52c",
+                "reference": "0b0070e81ba5572c6655b478820d52fec866a52c",
                 "shasum": ""
             },
             "require": {
@@ -5184,7 +5184,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-12-07 21:55:06"
+            "time": "2015-12-08 20:34:13"
         },
         {
             "name": "twig/extensions",
