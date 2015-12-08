@@ -1,0 +1,77 @@
+## behat.yml
+#
+#imports:
+#    resource: behat.yml.dist
+#
+#default:
+#
+#    formatters:
+#         pretty: ~
+#         progress: false
+#
+#    extensions:
+#        Behat\MinkExtension\ServiceContainer\MinkExtension:
+#            base_url:  http://localhost:8000
+#            files_path: features/attachments
+#            default_session: goutte
+#            javascript_session: selenium2
+
+# behat.yml.dist
+
+hl:
+    extensions:
+        Behat\MinkExtension\ServiceContainer\MinkExtension:
+            default_session: goutte
+
+ff:
+    extensions:
+        Behat\MinkExtension\ServiceContainer\MinkExtension:
+            default_session: selenium2
+            browser_name: firefox
+cr:
+    extensions:
+        Behat\MinkExtension\ServiceContainer\MinkExtension:
+            default_session: selenium2
+            browser_name: chrome
+
+# ie, safari, opera - na razie nie działa, kwestia konfiguracji
+
+ie:
+    extensions:
+        Behat\MinkExtension\ServiceContainer\MinkExtension:
+            default_session: selenium2
+            browser_name: iexplore
+
+sf:
+    extensions:
+        Behat\MinkExtension\ServiceContainer\MinkExtension:
+            default_session: selenium2
+            browser_name: safari
+
+op:
+    extensions:
+        Behat\MinkExtension\ServiceContainer\MinkExtension:
+            default_session: selenium2
+            browser_name: opera
+
+default:
+    gherkin:
+        filters:
+            tags: ~@suggester
+
+    exceptions:
+        verbosity: 1
+
+    translation:
+        locale: pl
+
+    extensions:
+        Behat\MinkExtension\ServiceContainer\MinkExtension:
+            goutte: ~
+            selenium2: ~
+            browser_name: chrome
+            show_tmp_dir: temp
+
+
+
+

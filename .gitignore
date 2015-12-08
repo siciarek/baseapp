@@ -2,6 +2,7 @@ nbproject
 .idea
 php.ini
 /temp*
+/behat.yml
 
 /src/Application/MainBundle/Controller/TestController.php
 /src/Application/MainBundle/Resources/views/Test
