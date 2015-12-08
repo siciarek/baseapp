@@ -1,3 +1,7 @@
+owners:
+    type:     rest
+    resource: Application\MainBundle\Controller\OwnersController
+
 application_main:
     resource: "@ApplicationMainBundle/Controller/"
     type:     annotation

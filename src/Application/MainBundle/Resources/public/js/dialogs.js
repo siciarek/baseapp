@@ -1,7 +1,7 @@
 $(document).ready(function() {
     Spinner.selector = $('body > div.spinner');
     Dialog.selector = $('body > div.dialog.template')
-        .on('click', '.save,.yes,.no', function(e) {
+        .on('click', '.save,.yes,.no, .ok', function(e) {
             var form = $('body > div.dialog.template form.form-horizontal');
             var control = form.find('input[name=text]');
             
@@ -11,6 +11,10 @@ $(document).ready(function() {
 
             if($(this).hasClass('no')) {
                 control.val(0);
+            }
+            
+            if($(this).hasClass('ok')) {
+                return Dialog.callback();
             }
 
             form.find('.submit').trigger('click');
@@ -165,7 +169,8 @@ var Dialog = {
      * @param callback funkcja wykonywana po zamknięciu okienka
      */
     error: function (message, title, callback) {
-        return this.dialog('error', message, title);
+        callback = callback || null;
+        return this.dialog('error', message, title, callback);
     },
     /**
      * Okienko dialogowe informacyjne
@@ -175,7 +180,8 @@ var Dialog = {
      * @param callback funkcja wykonywana po zamknięciu okienka
      */
     info: function (message, title, callback) {
-        return this.dialog('info', message, title);
+        callback = callback || null;
+        return this.dialog('info', message, title, callback);
     },
     /**
      * Okienko dialogowe ostrzeżenia
@@ -185,7 +191,8 @@ var Dialog = {
      * @param callback funkcja wykonywana po zamknięciu okienka
      */
     warning: function (message, title, callback) {
-        return this.dialog('warning', message, title);
+        callback = callback || null;
+        return this.dialog('warning', message, title, callback);
     },
     /**
      * Okienko dialogowe wprowadzenia danych
