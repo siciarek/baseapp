@@ -11,6 +11,8 @@
 #
 #    extensions:
 #        Behat\MinkExtension\ServiceContainer\MinkExtension:
+#            selenium2:
+#                wd_host: http://127.0.0.1:4444/wd/hub # when selenium is on remote host
 #            base_url:  http://localhost:8000
 #            files_path: features/attachments
 #            default_session: goutte
