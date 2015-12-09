@@ -1,13 +1,13 @@
 ## behat.yml
 #
 #imports:
-#    resource: behat.yml.dist
+#    resource: behat.dist.yml
 #
 #default:
 #
 #    formatters:
-#         pretty: ~
-#         progress: false
+#         pretty: false 
+#         progress: true
 #
 #    extensions:
 #        Behat\MinkExtension\ServiceContainer\MinkExtension:
