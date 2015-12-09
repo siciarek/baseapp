@@ -20,36 +20,39 @@
 
 # behat.yml.dist
 
+# Headless
 hl:
     extensions:
         Behat\MinkExtension\ServiceContainer\MinkExtension:
             default_session: goutte
-
+# Firefox
 ff:
     extensions:
         Behat\MinkExtension\ServiceContainer\MinkExtension:
             default_session: selenium2
             browser_name: firefox
+# Chrome
 cr:
     extensions:
         Behat\MinkExtension\ServiceContainer\MinkExtension:
             default_session: selenium2
             browser_name: chrome
 
-# ie, safari, opera - na razie nie działa, kwestia konfiguracji
+# ie, safari, opera - may appear some issues
 
+# Internet Explorer
 ie:
     extensions:
         Behat\MinkExtension\ServiceContainer\MinkExtension:
             default_session: selenium2
             browser_name: iexplore
-
+# Safari
 sf:
     extensions:
         Behat\MinkExtension\ServiceContainer\MinkExtension:
             default_session: selenium2
             browser_name: safari
-
+# Opera
 op:
     extensions:
         Behat\MinkExtension\ServiceContainer\MinkExtension:
@@ -73,7 +76,3 @@ default:
             selenium2: ~
             browser_name: chrome
             show_tmp_dir: temp
-
-
-
-
