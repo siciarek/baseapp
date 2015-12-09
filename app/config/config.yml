@@ -22,6 +22,7 @@ imports:
     - { resource: a2lix/translation-form-bundle.yml }
     - { resource: jms/security-extra-bundle.yml }
     - { resource: nelmio/security-bundle.yml }
+    - { resource: gregwar/captcha-bundle.yml }
     
     - { resource: application.yml }
 

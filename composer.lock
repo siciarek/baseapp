@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1690461b1554d1e67ca7d63da8e90936",
-    "content-hash": "a4461188b648b8b4cd17660610247896",
+    "hash": "35d6dc5b21d44efa8c261a17fa992836",
+    "content-hash": "a777b1c5011e3a240a90d5321006cda8",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -112,6 +112,52 @@
                 "transliterator"
             ],
             "time": "2015-09-28 16:26:35"
+        },
+        {
+            "name": "brandonwamboldt/utilphp",
+            "version": "1.1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/brandonwamboldt/utilphp.git",
+                "reference": "36c32efc4f0679c05163464a550f45c8d83fe683"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/brandonwamboldt/utilphp/zipball/36c32efc4f0679c05163464a550f45c8d83fe683",
+                "reference": "36c32efc4f0679c05163464a550f45c8d83fe683",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "utilphp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brandon Wamboldt",
+                    "email": "brandon.wamboldt@gmail.com"
+                }
+            ],
+            "description": "util.php is a collection of useful functions and snippets that you need or could use every day, designed to avoid conflicts with existing projects",
+            "homepage": "https://github.com/brandonwamboldt/utilphp",
+            "keywords": [
+                "collection",
+                "helpers",
+                "php",
+                "utility"
+            ],
+            "time": "2015-02-02 17:56:14"
         },
         {
             "name": "cocur/slugify",
@@ -1184,12 +1230,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/egeloen/IvoryCKEditorBundle.git",
-                "reference": "7fc539a3fb8eb35cbb5cb59224a6bf35e68cac93"
+                "reference": "da7c2264ba89d834677749e4f041c6a3731eec72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/7fc539a3fb8eb35cbb5cb59224a6bf35e68cac93",
-                "reference": "7fc539a3fb8eb35cbb5cb59224a6bf35e68cac93",
+                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/da7c2264ba89d834677749e4f041c6a3731eec72",
+                "reference": "da7c2264ba89d834677749e4f041c6a3731eec72",
                 "shasum": ""
             },
             "require": {
@@ -1234,7 +1280,7 @@
             "keywords": [
                 "CKEditor"
             ],
-            "time": "2015-12-08 14:49:33"
+            "time": "2015-12-09 10:54:32"
         },
         {
             "name": "egeloen/json-builder",
@@ -3752,12 +3798,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "6cf36bc7b9907901bbf724271058b0fe88e4632d"
+                "reference": "9e8f0e60c78b6b410ed896079a6f86ecde491e42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/6cf36bc7b9907901bbf724271058b0fe88e4632d",
-                "reference": "6cf36bc7b9907901bbf724271058b0fe88e4632d",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/9e8f0e60c78b6b410ed896079a6f86ecde491e42",
+                "reference": "9e8f0e60c78b6b410ed896079a6f86ecde491e42",
                 "shasum": ""
             },
             "require": {
@@ -3830,7 +3876,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2015-12-08 17:28:37"
+            "time": "2015-12-09 11:12:09"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -4457,12 +4503,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataIntlBundle.git",
-                "reference": "b93bd52385ac328b6e1e693d60a7fb95e8ec2dc3"
+                "reference": "d4c23faa4c8223ce16caf526f45b1466cf5bda9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataIntlBundle/zipball/b93bd52385ac328b6e1e693d60a7fb95e8ec2dc3",
-                "reference": "b93bd52385ac328b6e1e693d60a7fb95e8ec2dc3",
+                "url": "https://api.github.com/repos/sonata-project/SonataIntlBundle/zipball/d4c23faa4c8223ce16caf526f45b1466cf5bda9e",
+                "reference": "d4c23faa4c8223ce16caf526f45b1466cf5bda9e",
                 "shasum": ""
             },
             "require": {
@@ -4513,7 +4559,7 @@
                 "sonata",
                 "time"
             ],
-            "time": "2015-12-07 21:54:27"
+            "time": "2015-12-09 10:16:43"
         },
         {
             "name": "sonata-project/media-bundle",

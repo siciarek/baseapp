@@ -10,6 +10,7 @@
     },
     "minimum-stability": "dev",
     "require": {
+        "brandonwamboldt/utilphp": "1.1.*",
         "gregwar/captcha-bundle": "dev-master",
         "nelmio/security-bundle": "dev-master",
         "liuggio/excelbundle": "dev-master",
