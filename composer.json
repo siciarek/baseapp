@@ -10,6 +10,7 @@
     },
     "minimum-stability": "dev",
     "require": {
+        "hwi/oauth-bundle": "0.4.*",
         "brandonwamboldt/utilphp": "1.1.*",
         "gregwar/captcha-bundle": "dev-master",
         "nelmio/security-bundle": "dev-master",
