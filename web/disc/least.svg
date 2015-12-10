@@ -117,7 +117,7 @@
 <!-- S -->
         <text x="199" y="64" class="S">0</text>
         
-        <text x="199" y="0" class="S">1</text>
+        <text x="199" y="96" class="S">1</text>
         <text x="199" y="0" class="S">2</text>
         <text x="199" y="0" class="S">3</text>
         <text x="199" y="0" class="S">4</text>
@@ -145,7 +145,7 @@
 <!-- C -->
         <text x="273"  y="64" class="C">0</text>
 
-        <text x="273" y="0" class="C">1</text>
+        <text x="273" y="96" class="C">1</text>
         <text x="273" y="0" class="C">2</text>
         <text x="273" y="0" class="C">3</text>
         <text x="273" y="0" class="C">4</text>
