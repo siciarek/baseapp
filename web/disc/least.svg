@@ -1,29 +1,11 @@
 <?xml version="1.0" standalone="no"?>
 <svg viewBox="0 0 320 877" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <style type="text/css">
-        <![CDATA[
-            svg * {
-                fill: #333;
-                font-family: Arial, Helvetica, sans-serif;
-                font-size: 27px;
-                text-anchor: middle
-            }
-
-            .line * {
-                stroke: #333;
-                fill: none;
-                stroke-width: 2pt
-            }
-
-            .header {
-                font-weight: bold;
-                font-size: 34px
-            }
-
-            .indicators .h {
-                visibility: hidden
-            }
-        ]]>
+    <style type="text/css"><![CDATA[
+svg * {fill: #333;font-family: Arial, Helvetica, sans-serif;font-size: 27px;text-anchor: middle}
+.line * {stroke: #333;fill: none;stroke-width: 2pt}
+.header {font-weight: bold;font-size: 34px}
+.indicators .h {visibility: hidden}
+]]>
     </style>
 
     <g class="header">
