@@ -94,13 +94,13 @@
         <text x="48" y="0" class="D">12</text>
         <text x="48" y="0" class="D">13</text>
         <text x="48" y="0" class="D">14</text>
-        <text x="48" y="0" class="D">15</text>
-        <text x="48" y="0" class="D">16</text>
+        <text x="48" y="802" class="D">15</text>
+        <text x="48" y="833" class="D">16</text>
 
-        <text x="48" y="0" class="D hidden">17</text>
-        <text x="48" y="0" class="D hidden">18</text>
-        <text x="48" y="0" class="D hidden">19</text>
-        <text x="48" y="0" class="D hidden">20</text>
+        <text x="48" y="850" class="D hidden">17</text>
+        <text x="48" y="850" class="D hidden">18</text>
+        <text x="48" y="850" class="D hidden">19</text>
+        <text x="48" y="850" class="D hidden">20</text>
 
         <text x="48" y="863" class="D">21</text>
 
@@ -125,10 +125,10 @@
         <text x="124" y="0" class="I hidden">12</text>
         <text x="124" y="0" class="I hidden">13</text>
         <text x="124" y="0" class="I hidden">14</text>        
-        <text x="124" y="0" class="I">15</text>        
-        <text x="124" y="0" class="I hidden">16</text>
-        <text x="124" y="0" class="I hidden">17</text>
-        <text x="124" y="0" class="I hidden">18</text>
+        <text x="124" y="833" class="I">15</text>        
+        <text x="124" y="850" class="I hidden">16</text>
+        <text x="124" y="850" class="I hidden">17</text>
+        <text x="124" y="850" class="I hidden">18</text>
                 
         <text x="124" y="863" class="I">19</text>
         <text x="124" y="870" class="I hidden">20</text>
@@ -150,13 +150,13 @@
         <text x="199" y="0" class="S">9</text>
         <text x="199" y="0" class="S">10</text>
         <text x="199" y="0" class="S">11</text>
-        <text x="199" y="0" class="S">12</text>
-        <text x="199" y="0" class="S">13</text>        
-        <text x="199" y="0" class="S hidden">14</text>        
-        <text x="199" y="0" class="S hidden">15</text>        
-        <text x="199" y="0" class="S hidden">16</text>        
-        <text x="199" y="0" class="S hidden">17</text>        
-        <text x="199" y="0" class="S hidden">18</text>        
+        <text x="199" y="802" class="S">12</text>
+        <text x="199" y="833" class="S">13</text>        
+        <text x="199" y="850" class="S hidden">14</text>        
+        <text x="199" y="850" class="S hidden">15</text>        
+        <text x="199" y="850" class="S hidden">16</text>        
+        <text x="199" y="850" class="S hidden">17</text>        
+        <text x="199" y="850" class="S hidden">18</text>        
         
         <text x="199" y="863" class="S">19</text>
         <text x="199" y="870" class="S hidden">20</text>
@@ -178,10 +178,10 @@
         <text x="274" y="0" class="C">9</text>
         <text x="274" y="0" class="C">10</text>
         <text x="274" y="0" class="C">11</text>
-        <text x="274" y="0" class="C">12</text>
-        <text x="274" y="0" class="C">13</text>        
-        <text x="274" y="0" class="C hidden">14</text>        
-        <text x="274" y="0" class="C hidden">15</text>
+        <text x="274" y="802" class="C">12</text>
+        <text x="274" y="833" class="C">13</text>        
+        <text x="274" y="850" class="C hidden">14</text>        
+        <text x="274" y="850" class="C hidden">15</text>
                         
         <text x="274" y="863" class="C">16</text>
         <text x="274" y="870" class="C hidden">17</text>
