@@ -15,6 +15,7 @@
             }
         
             .indicators text {
+                fill: green;
                 font-weight: normal;
                 font-size: 27px;
             }
@@ -38,7 +39,7 @@
         ]]>
     </style>
 
-    <image style="visibility:hidden" width="320" height="877" xlink:href="/disc/most.png"/>
+    <image style="visibility:visible" width="320" height="877" xlink:href="/disc/most.png"/>
 
     <path class="frame" d="M9 39 l 300 0 l 0 831 l -300 0 Z"/>    
     <path class="line" d="M87 39 l 0 831 Z"/>    
@@ -48,7 +49,7 @@
 
     <text class="header" x="48" y="32">D</text>
     <text class="header" x="124" y="32">I</text>
-    <text class="header" x="198" y="32">S</text>
+    <text class="header" x="199" y="32">S</text>
     <text class="header" x="273" y="32">C</text>
 
     <g class="indicators">
@@ -111,34 +112,34 @@
         <text x="124" y="772" class="I">1</text>
         <text x="124"  y="863" class="I">0</text>
         <!-- S -->
-        <text x="198"  y="55" class="hidden S">24</text>
-        <text x="198"  y="55" class="hidden S">23</text>
-        <text x="198"  y="55" class="hidden S">22</text>
-        <text x="198"  y="55" class="hidden S">21</text>
-        <text x="198"  y="55" class="hidden S">20</text>
+        <text x="199"  y="55" class="hidden S">24</text>
+        <text x="199"  y="55" class="hidden S">23</text>
+        <text x="199"  y="55" class="hidden S">22</text>
+        <text x="199"  y="55" class="hidden S">21</text>
+        <text x="199"  y="55" class="hidden S">20</text>
         
-        <text x="198" y="64" class="S">19</text>
+        <text x="199" y="64" class="S">19</text>
         
-        <text x="198"  y="80" class="hidden S">18</text>
-        <text x="198"  y="80" class="hidden S">17</text>
-        <text x="198"  y="80" class="hidden S">16</text>
-        <text x="198"  y="80" class="hidden S">15</text>
-        <text x="198"  y="80" class="hidden S">14</text>
-        <text x="198"  y="80" class="hidden S">13</text>
+        <text x="199"  y="80" class="hidden S">18</text>
+        <text x="199"  y="80" class="hidden S">17</text>
+        <text x="199"  y="80" class="hidden S">16</text>
+        <text x="199"  y="80" class="hidden S">15</text>
+        <text x="199"  y="80" class="hidden S">14</text>
+        <text x="199"  y="80" class="hidden S">13</text>
         
-        <text x="198"  y="96" class="S">12</text>
-        <text x="198"  y="126" class="S">11</text>
-        <text x="198"  y="187" class="S">10</text>
-        <text x="198"  y="249" class="S">9</text>
-        <text x="198"  y="280" class="S">8</text>
-        <text x="198"  y="340" class="S">7</text>
-        <text x="198"  y="403" class="S">6</text>
-        <text x="198"  y="432" class="S">5</text>
-        <text x="198"  y="495" class="S">4</text>
-        <text x="198"  y="558" class="S">3</text>
-        <text x="198"  y="650" class="S">2</text>
-        <text x="198"  y="711" class="S">1</text>
-        <text x="198"  y="802" class="S">0</text>
+        <text x="199"  y="96" class="S">12</text>
+        <text x="199"  y="126" class="S">11</text>
+        <text x="199"  y="187" class="S">10</text>
+        <text x="199"  y="249" class="S">9</text>
+        <text x="199"  y="280" class="S">8</text>
+        <text x="199"  y="340" class="S">7</text>
+        <text x="199"  y="403" class="S">6</text>
+        <text x="199"  y="432" class="S">5</text>
+        <text x="199"  y="495" class="S">4</text>
+        <text x="199"  y="558" class="S">3</text>
+        <text x="199"  y="650" class="S">2</text>
+        <text x="199"  y="711" class="S">1</text>
+        <text x="199"  y="802" class="S">0</text>
         <!-- C -->
         <text x="273"  y="55" class="hidden C">24</text>
         <text x="273"  y="55" class="hidden C">23</text>

@@ -6,10 +6,6 @@
     <style type="text/css">
         <![CDATA[
             
-            image {
-                opacity: 0.4;
-            }
-            
             svg * {
                 fill: #333;
             }
@@ -54,7 +50,7 @@
 
     <text class="header" x="48" y="32">D</text>
     <text class="header" x="124" y="32">I</text>
-    <text class="header" x="198" y="32">S</text>
+    <text class="header" x="199" y="32">S</text>
     <text class="header" x="273" y="32">C</text>
 
     <g class="indicators">
@@ -65,8 +61,8 @@
         <text x="124" y="64" class="I">0</text>
         <text x="124" y="863" class="I">19</text>
 <!-- S -->
-        <text x="198" y="64" class="S">0</text>
-        <text x="198" y="863" class="S">19</text>
+        <text x="199" y="64" class="S">0</text>
+        <text x="199" y="863" class="S">19</text>
 <!-- C -->
         <text x="273" y="64" class="C">0</text>
         <text x="273" y="863" class="D">16</text>
