@@ -1,172 +1,131 @@
 <?xml version="1.0" standalone="no"?>
-<svg viewBox="0 0 320 877" version="1.1" xmlns="http://www.w3.org/2000/svg"
-     xmlns:xlink="http://www.w3.org/1999/xlink">
-    <desc>DiSC Graph I</desc>
-
+<svg viewBox="0 0 320 877" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <style type="text/css">
         <![CDATA[
-            image {
-                opacity: 0.3;
-            }
-            
             svg * {
                 fill: #333;
-            }
-                
-            text {
                 font-family: Arial, Helvetica, sans-serif;
-                text-anchor: middle;
-            }
-        
-            .indicators text {
-                fill: green;
-                font-weight: normal;
                 font-size: 27px;
+                text-anchor: middle
             }
-        
-            .indicators text.hidden {
-                fill: blue;
-                visibility: visible;
-            }
-                    
-            .header {
-                font-weight: bold;
-                font-size: 34px;
-            }
-            
-            line.line,
-            path.line,
-            path.frame {
+
+            .line * {
                 stroke: #333;
                 fill: none;
-                stroke-width: 2pt;
+                stroke-width: 2pt
+            }
+
+            .header {
+                font-weight: bold;
+                font-size: 34px
+            }
+
+            .indicators .h {
+                visibility: hidden
             }
         ]]>
     </style>
 
-    <image style="visibility:visible" width="320" height="877" xlink:href="/disc/least.png"/>
+    <g class="header">
+        <text x="48" y="32">D</text>
+        <text x="124" y="32">I</text>
+        <text x="199" y="32">S</text>
+        <text x="274" y="32">C</text>
+    </g>
 
-    <path class="frame" d="M9 39 l 300 0 l 0 831 l -300 0 Z"/>    
-    <path class="line" d="M87 39 l 0 831 Z"/>    
-    <path class="line" d="M159 39 l 0 831 Z"/>
-    <path class="line" d="M237 39 l 0 831 Z"/>
-    <line class="line" stroke-dasharray="8,8" x1="9" x2="309" y1="440" y2="440" />
-
-    <text class="header" x="48" y="32">D</text>
-    <text class="header" x="124" y="32">I</text>
-    <text class="header" x="199" y="32">S</text>
-    <text class="header" x="274" y="32">C</text>
+    <g class="line">
+        <path d="M9 39 l 300 0 l 0 831 l -300 0 Z"/>    
+        <path d="M87 39 l 0 831 Z"/>    
+        <path d="M159 39 l 0 831 Z"/>
+        <path d="M237 39 l 0 831 Z"/>
+        <line stroke-dasharray="8,8" x1="9" x2="309" y1="440" y2="440" />
+    </g>
 
     <g class="indicators">
-        
-                <!--<text x="48" y="96" class="D">16</text>-->
-        <!--<text x="48" y="126" class="D">15</text>-->
-        <!--<text x="48" y="157" class="D">14</text>-->
-        <!--<text x="48" y="187" class="D">13</text>-->
-        <!--<text x="48" y="217" class="D">12</text>-->
-        <!--<text x="48" y="249" class="D">11</text>-->
-        <!--<text x="48" y="280" class="D">10</text>-->
-        <!--<text x="48" y="310" class="D">9</text>-->
-        <!--<text x="48" y="371" class="D">8</text>-->
-        <!--<text x="48" y="432" class="D">7</text>-->
-        <!--<text x="48" y="495" class="D">6</text>-->
-        <!--<text x="48" y="558" class="D">5</text>-->
-        <!--<text x="48" y="618" class="D">4</text>-->
-        <!--<text x="48" y="650" class="D">3</text>-->
-        <!--<text x="48" y="711" class="D">2</text>-->
-        <!--<text x="48" y="802" class="D">1</text>-->
-        <!--<text x="48" y="863" class="D">0</text>-->
-        
-<!-- D -->
-        <text x="48" y="64" class="D">0</text>
 
+        <!-- D -->
+        <text x="48" y="64" class="D">0</text>
         <text x="48" y="126" class="D">1</text>
         <text x="48" y="217" class="D">2</text>
         <text x="48" y="280" class="D">3</text>
         <text x="48" y="340" class="D">4</text>
         <text x="48" y="403" class="D">5</text>
         <text x="48" y="465" class="D">6</text>
-        <text x="48" y="0" class="D">7</text>
-        <text x="48" y="0" class="D">8</text>
-        <text x="48" y="0" class="D">9</text>
-        <text x="48" y="0" class="D">10</text>
-        <text x="48" y="0" class="D">11</text>
-        <text x="48" y="0" class="D">12</text>
-        <text x="48" y="0" class="D">13</text>
-        <text x="48" y="0" class="D">14</text>
+        <text x="48" y="526" class="D">7</text>
+        <text x="48" y="558" class="D">8</text>
+        <text x="48" y="588" class="D">9</text>
+        <text x="48" y="618" class="D">10</text>
+        <text x="48" y="650" class="D">11</text>
+        <text x="48" y="679" class="D">12</text>
+        <text x="48" y="742" class="D">13</text>
+        <text x="48" y="772" class="D">14</text>
         <text x="48" y="802" class="D">15</text>
         <text x="48" y="833" class="D">16</text>
-
-        <text x="48" y="850" class="D hidden">17</text>
-        <text x="48" y="850" class="D hidden">18</text>
-        <text x="48" y="850" class="D hidden">19</text>
-        <text x="48" y="850" class="D hidden">20</text>
-
+        <text x="48" y="850" class="D h">17</text>
+        <text x="48" y="850" class="D h">18</text>
+        <text x="48" y="850" class="D h">19</text>
+        <text x="48" y="850" class="D h">20</text>
         <text x="48" y="863" class="D">21</text>
+        <text x="48" y="870" class="D h">22</text>
+        <text x="48" y="870" class="D h">23</text>
+        <text x="48" y="870" class="D h">24</text>
 
-        <text x="48" y="870" class="D hidden">22</text>
-        <text x="48" y="870" class="D hidden">23</text>
-        <text x="48" y="870" class="D hidden">24</text>
-
-<!-- I -->
-        <text x="124" y="64" class="I">0</text>
-        
+        <!-- I -->
+        <text x="124" y="64" class="I">0</text>        
         <text x="124" y="157" class="I">1</text>
         <text x="124" y="249" class="I">2</text>
         <text x="124" y="310" class="I">3</text>
         <text x="124" y="403" class="I">4</text>
         <text x="124" y="465" class="I">5</text>
-        <text x="124" y="0" class="I">6</text>
-        <text x="124" y="0" class="I">7</text>
-        <text x="124" y="0" class="I">8</text>
-        <text x="124" y="0" class="I">9</text>
-        <text x="124" y="0" class="I">10</text>
-        <text x="124" y="0" class="I">11</text>        
-        <text x="124" y="0" class="I hidden">12</text>
-        <text x="124" y="0" class="I hidden">13</text>
-        <text x="124" y="0" class="I hidden">14</text>        
+        <text x="124" y="526" class="I">6</text>
+        <text x="124" y="588" class="I">7</text>
+        <text x="124" y="650" class="I">8</text>
+        <text x="124" y="711" class="I">9</text>
+        <text x="124" y="742" class="I">10</text>
+        <text x="124" y="772" class="I">11</text>        
+        <text x="124" y="788" class="I h">12</text>
+        <text x="124" y="804" class="I h">13</text>
+        <text x="124" y="817" class="I h">14</text>        
         <text x="124" y="833" class="I">15</text>        
-        <text x="124" y="850" class="I hidden">16</text>
-        <text x="124" y="850" class="I hidden">17</text>
-        <text x="124" y="850" class="I hidden">18</text>
-                
+        <text x="124" y="850" class="I h">16</text>
+        <text x="124" y="850" class="I h">17</text>
+        <text x="124" y="850" class="I h">18</text>
         <text x="124" y="863" class="I">19</text>
-        <text x="124" y="870" class="I hidden">20</text>
-        <text x="124" y="870" class="I hidden">21</text>
-        <text x="124" y="870" class="I hidden">22</text>
-        <text x="124" y="870" class="I hidden">23</text>
-        <text x="124" y="870" class="I hidden">24</text>
-<!-- S -->
-        <text x="199" y="64" class="S">0</text>
-        
+        <text x="124" y="870" class="I h">20</text>
+        <text x="124" y="870" class="I h">21</text>
+        <text x="124" y="870" class="I h">22</text>
+        <text x="124" y="870" class="I h">23</text>
+        <text x="124" y="870" class="I h">24</text>
+
+        <!-- S -->
+        <text x="199" y="64" class="S">0</text>        
         <text x="199" y="96" class="S">1</text>
         <text x="199" y="157" class="S">2</text>
         <text x="199" y="249" class="S">3</text>
         <text x="199" y="310" class="S">4</text>
         <text x="199" y="371" class="S">5</text>
         <text x="199" y="432" class="S">6</text>
-        <text x="199" y="0" class="S">7</text>
-        <text x="199" y="0" class="S">8</text>
-        <text x="199" y="0" class="S">9</text>
-        <text x="199" y="0" class="S">10</text>
-        <text x="199" y="0" class="S">11</text>
+        <text x="199" y="495" class="S">7</text>
+        <text x="199" y="558" class="S">8</text>
+        <text x="199" y="618" class="S">9</text>
+        <text x="199" y="679" class="S">10</text>
+        <text x="199" y="742" class="S">11</text>
         <text x="199" y="802" class="S">12</text>
         <text x="199" y="833" class="S">13</text>        
-        <text x="199" y="850" class="S hidden">14</text>        
-        <text x="199" y="850" class="S hidden">15</text>        
-        <text x="199" y="850" class="S hidden">16</text>        
-        <text x="199" y="850" class="S hidden">17</text>        
-        <text x="199" y="850" class="S hidden">18</text>        
-        
+        <text x="199" y="850" class="S h">14</text>        
+        <text x="199" y="850" class="S h">15</text>        
+        <text x="199" y="850" class="S h">16</text>        
+        <text x="199" y="850" class="S h">17</text>        
+        <text x="199" y="850" class="S h">18</text>                
         <text x="199" y="863" class="S">19</text>
-        <text x="199" y="870" class="S hidden">20</text>
-        <text x="199" y="870" class="S hidden">21</text>
-        <text x="199" y="870" class="S hidden">22</text>
-        <text x="199" y="870" class="S hidden">23</text>
-        <text x="199" y="870" class="S hidden">24</text>
-<!-- C -->
-        <text x="274"  y="64" class="C">0</text>
+        <text x="199" y="870" class="S h">20</text>
+        <text x="199" y="870" class="S h">21</text>
+        <text x="199" y="870" class="S h">22</text>
+        <text x="199" y="870" class="S h">23</text>
+        <text x="199" y="870" class="S h">24</text>
 
+        <!-- C -->
+        <text x="274"  y="64" class="C">0</text>
         <text x="274" y="96" class="C">1</text>
         <text x="274" y="187" class="C">2</text>
         <text x="274" y="249" class="C">3</text>
@@ -174,140 +133,22 @@
         <text x="274" y="371" class="C">5</text>
         <text x="274" y="432" class="C">6</text>
         <text x="274" y="465" class="C">7</text>
-        <text x="274" y="0" class="C">8</text>
-        <text x="274" y="0" class="C">9</text>
-        <text x="274" y="0" class="C">10</text>
-        <text x="274" y="0" class="C">11</text>
+        <text x="274" y="558" class="C">8</text>
+        <text x="274" y="588" class="C">9</text>
+        <text x="274" y="679" class="C">10</text>
+        <text x="274" y="742" class="C">11</text>
         <text x="274" y="802" class="C">12</text>
         <text x="274" y="833" class="C">13</text>        
-        <text x="274" y="850" class="C hidden">14</text>        
-        <text x="274" y="850" class="C hidden">15</text>
-                        
+        <text x="274" y="850" class="C h">14</text>        
+        <text x="274" y="850" class="C h">15</text>                        
         <text x="274" y="863" class="C">16</text>
-        <text x="274" y="870" class="C hidden">17</text>
-        <text x="274" y="870" class="C hidden">18</text>
-        <text x="274" y="870" class="C hidden">19</text>
-        <text x="274" y="870" class="C hidden">20</text>
-        <text x="274" y="870" class="C hidden">21</text>
-        <text x="274" y="870" class="C hidden">22</text>
-        <text x="274" y="870" class="C hidden">23</text>
-        <text x="274" y="870" class="C hidden">24</text>
-<!-- D -->
-        <!--<text x="48" y="55" class="D hidden">24</text>-->
-        <!--<text x="48" y="55" class="D hidden">23</text>-->
-        <!--<text x="48" y="55" class="D hidden">22</text>-->
-        <!--<text x="48" y="55" class="D hidden">21</text>-->
-  
-        <!--<text x="48" y="64" class="D">20</text>-->
-        
-        <!--<text x="48" y="70" class="D hidden">19</text>-->
-        <!--<text x="48" y="81" class="D hidden">18</text>-->
-        <!--<text x="48" y="89" class="D hidden">17</text>-->
-        
-        <!--<text x="48" y="96" class="D">16</text>-->
-        <!--<text x="48" y="126" class="D">15</text>-->
-        <!--<text x="48" y="157" class="D">14</text>-->
-        <!--<text x="48" y="187" class="D">13</text>-->
-        <!--<text x="48" y="217" class="D">12</text>-->
-        <!--<text x="48" y="249" class="D">11</text>-->
-        <!--<text x="48" y="280" class="D">10</text>-->
-        <!--<text x="48" y="310" class="D">9</text>-->
-        <!--<text x="48" y="371" class="D">8</text>-->
-        <!--<text x="48" y="432" class="D">7</text>-->
-        <!--<text x="48" y="495" class="D">6</text>-->
-        <!--<text x="48" y="558" class="D">5</text>-->
-        <!--<text x="48" y="618" class="D">4</text>-->
-        <!--<text x="48" y="650" class="D">3</text>-->
-        <!--<text x="48" y="711" class="D">2</text>-->
-        <!--<text x="48" y="802" class="D">1</text>-->
-        <!--<text x="48" y="863" class="D">0</text>-->
-        <!-- I -->
-        <!--<text x="124" y="55" class="I hidden">24</text>-->
-        <!--<text x="124" y="55" class="I hidden">23</text>-->
-        <!--<text x="124" y="55" class="I hidden">22</text>-->
-        <!--<text x="124" y="55" class="I hidden">21</text>-->
-        <!--<text x="124" y="55" class="I hidden">20</text>-->
-        <!--<text x="124" y="55" class="I hidden">19</text>-->
-        <!--<text x="124" y="55" class="I hidden">18</text>-->
-
-        <!--<text x="124" y="64" class="I">17</text>-->
-
-        <!--<text x="124" y="70" class="I hidden">16</text>-->
-        <!--<text x="124" y="74" class="I hidden">15</text>-->
-        <!--<text x="124" y="84" class="I hidden">14</text>-->
-        <!--<text x="124" y="94" class="I hidden">13</text>-->
-        <!--<text x="124" y="104" class="I hidden">12</text>-->
-        <!--<text x="124" y="114" class="I hidden">11</text>-->
-
-        <!--<text x="124" y="126" class="I">10</text>-->
-        <!--<text x="124" y="157" class="I">9</text>-->
-        <!--<text x="124" y="187" class="I">8</text>-->
-        <!--<text x="124" y="249" class="I">7</text>-->
-        <!--<text x="124" y="340" class="I">6</text>-->
-        <!--<text x="124" y="403" class="I">5</text>-->
-        <!--<text x="124" y="465" class="I">4</text>-->
-        <!--<text x="124" y="558" class="I">3</text>-->
-        <!--<text x="124" y="650" class="I">2</text>-->
-        <!--<text x="124" y="772" class="I">1</text>-->
-        <!--<text x="124"  y="863" class="I">0</text>-->
-        <!-- S -->
-        <!--<text x="198"  y="55" class="S hidden">24</text>-->
-        <!--<text x="198"  y="55" class="S hidden">23</text>-->
-        <!--<text x="198"  y="55" class="S hidden">22</text>-->
-        <!--<text x="198"  y="55" class="S hidden">21</text>-->
-        <!--<text x="198"  y="55" class="S hidden">20</text>-->
-        
-        <!--<text x="198" y="64" class="S">19</text>-->
-        
-        <!--<text x="198"  y="80" class="S hidden">18</text>-->
-        <!--<text x="198"  y="80" class="S hidden">17</text>-->
-        <!--<text x="198"  y="80" class="S hidden">16</text>-->
-        <!--<text x="198"  y="80" class="S hidden">15</text>-->
-        <!--<text x="198"  y="80" class="S hidden">14</text>-->
-        <!--<text x="198"  y="80" class="S hidden">13</text>-->
-        
-        <!--<text x="198"  y="96" class="S">12</text>-->
-        <!--<text x="198"  y="126" class="S">11</text>-->
-        <!--<text x="198"  y="187" class="S">10</text>-->
-        <!--<text x="198"  y="249" class="S">9</text>-->
-        <!--<text x="198"  y="280" class="S">8</text>-->
-        <!--<text x="198"  y="340" class="S">7</text>-->
-        <!--<text x="198"  y="403" class="S">6</text>-->
-        <!--<text x="198"  y="432" class="S">5</text>-->
-        <!--<text x="198"  y="495" class="S">4</text>-->
-        <!--<text x="198"  y="558" class="S">3</text>-->
-        <!--<text x="198"  y="650" class="S">2</text>-->
-        <!--<text x="198"  y="711" class="S">1</text>-->
-        <!--<text x="198"  y="802" class="S">0</text>-->
-        <!-- C -->
-        <!--<text x="274"  y="55" class="C hidden">24</text>-->
-        <!--<text x="274"  y="55" class="C hidden">23</text>-->
-        <!--<text x="274"  y="55" class="C hidden">22</text>-->
-        <!--<text x="274"  y="55" class="C hidden">21</text>-->
-        <!--<text x="274"  y="55" class="C hidden">20</text>-->
-        <!--<text x="274"  y="55" class="C hidden">19</text>-->
-        <!--<text x="274"  y="55" class="C hidden">18</text>-->
-        <!--<text x="274"  y="55" class="C hidden">17</text>-->
-        <!--<text x="274"  y="55" class="C hidden">16</text>-->
-        
-        <!--<text x="274" y="64" class="C">15</text>-->
-
-        <!--<text x="274"  y="80" class="C hidden">14</text>-->
-        <!--<text x="274"  y="80" class="C hidden">13</text>-->
-        <!--<text x="274"  y="80" class="C hidden">12</text>-->
-        <!--<text x="274"  y="80" class="C hidden">11</text>-->
-        <!--<text x="274"  y="80" class="C hidden">10</text>-->
-
-        <!--<text x="274"  y="96" class="C">9</text>-->
-        <!--<text x="274"  y="126" class="C">8</text>-->
-        <!--<text x="274"  y="157" class="C">7</text>-->
-        <!--<text x="274"  y="249" class="C">6</text>-->
-        <!--<text x="274"  y="340" class="C">5</text>-->
-        <!--<text x="274"  y="432" class="C">4</text>-->
-        <!--<text x="274"  y="526" class="C">3</text>-->
-        <!--<text x="274"  y="618" class="C">2</text>-->
-        <!--<text x="274"  y="772" class="C">1</text>-->
-        <!--<text x="274"  y="863" class="C">0</text>-->
-        
+        <text x="274" y="870" class="C h">17</text>
+        <text x="274" y="870" class="C h">18</text>
+        <text x="274" y="870" class="C h">19</text>
+        <text x="274" y="870" class="C h">20</text>
+        <text x="274" y="870" class="C h">21</text>
+        <text x="274" y="870" class="C h">22</text>
+        <text x="274" y="870" class="C h">23</text>
+        <text x="274" y="870" class="C h">24</text>
     </g>
 </svg>
