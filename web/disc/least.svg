@@ -22,7 +22,8 @@
             }
         
             .indicators text.hidden {
-                visibility: hidden;
+                fill: blue;
+                visibility: visible;
             }
                     
             .header {
@@ -56,27 +57,76 @@
     <g class="indicators">
 <!-- D -->
         <text x="48" y="64" class="D">0</text>
+
+        <text x="48" y="0" class="D">1</text>
+        <text x="48" y="0" class="D">2</text>
+        <text x="48" y="0" class="D">3</text>
+        <text x="48" y="0" class="D">4</text>
+        <text x="48" y="0" class="D">5</text>
+        <text x="48" y="0" class="D">6</text>
+        <text x="48" y="0" class="D">7</text>
+        <text x="48" y="0" class="D">8</text>
+        <text x="48" y="0" class="D">9</text>
+        <text x="48" y="0" class="D">10</text>
+        <text x="48" y="0" class="D">11</text>
+        <text x="48" y="0" class="D">12</text>
+        <text x="48" y="0" class="D">13</text>
+        <text x="48" y="0" class="D">14</text>
+        <text x="48" y="0" class="D">15</text>
+        <text x="48" y="0" class="D">16</text>
+
+        <text x="48" y="0" class="D hidden">17</text>
+        <text x="48" y="0" class="D hidden">18</text>
+        <text x="48" y="0" class="D hidden">19</text>
+        <text x="48" y="0" class="D hidden">20</text>
+
         <text x="48" y="863" class="D">21</text>
+
+        <text x="48" y="870" class="D hidden">22</text>
+        <text x="48" y="870" class="D hidden">23</text>
+        <text x="48" y="870" class="D hidden">24</text>
+
 <!-- I -->
         <text x="124" y="64" class="I">0</text>
+        
         <text x="124" y="863" class="I">19</text>
+        <text x="124" y="870" class="I hidden">20</text>
+        <text x="124" y="870" class="I hidden">21</text>
+        <text x="124" y="870" class="I hidden">22</text>
+        <text x="124" y="870" class="I hidden">23</text>
+        <text x="124" y="870" class="I hidden">24</text>
 <!-- S -->
         <text x="199" y="64" class="S">0</text>
+        
         <text x="199" y="863" class="S">19</text>
+        <text x="199" y="870" class="S hidden">20</text>
+        <text x="199" y="870" class="S hidden">21</text>
+        <text x="199" y="870" class="S hidden">22</text>
+        <text x="199" y="870" class="S hidden">23</text>
+        <text x="199" y="870" class="S hidden">24</text>
 <!-- C -->
-        <text x="273" y="64" class="C">0</text>
-        <text x="273" y="863" class="D">16</text>
+        <text x="273"  y="64" class="C">0</text>
+        
+        <text x="273" y="863" class="C">16</text>
+        <text x="273" y="870" class="C hidden">17</text>
+        <text x="273" y="870" class="C hidden">18</text>
+        <text x="273" y="870" class="C hidden">19</text>
+        <text x="273" y="870" class="C hidden">20</text>
+        <text x="273" y="870" class="C hidden">21</text>
+        <text x="273" y="870" class="C hidden">22</text>
+        <text x="273" y="870" class="C hidden">23</text>
+        <text x="273" y="870" class="C hidden">24</text>
 <!-- D -->
-        <!--<text x="48" y="55" class="hidden D">24</text>-->
-        <!--<text x="48" y="55" class="hidden D">23</text>-->
-        <!--<text x="48" y="55" class="hidden D">22</text>-->
-        <!--<text x="48" y="55" class="hidden D">21</text>-->
+        <!--<text x="48" y="55" class="D hidden">24</text>-->
+        <!--<text x="48" y="55" class="D hidden">23</text>-->
+        <!--<text x="48" y="55" class="D hidden">22</text>-->
+        <!--<text x="48" y="55" class="D hidden">21</text>-->
   
         <!--<text x="48" y="64" class="D">20</text>-->
         
-        <!--<text x="48" y="70" class="hidden D">19</text>-->
-        <!--<text x="48" y="81" class="hidden D">18</text>-->
-        <!--<text x="48" y="89" class="hidden D">17</text>-->
+        <!--<text x="48" y="70" class="D hidden">19</text>-->
+        <!--<text x="48" y="81" class="D hidden">18</text>-->
+        <!--<text x="48" y="89" class="D hidden">17</text>-->
         
         <!--<text x="48" y="96" class="D">16</text>-->
         <!--<text x="48" y="126" class="D">15</text>-->
@@ -96,22 +146,22 @@
         <!--<text x="48" y="802" class="D">1</text>-->
         <!--<text x="48" y="863" class="D">0</text>-->
         <!-- I -->
-        <!--<text x="124" y="55" class="hidden I">24</text>-->
-        <!--<text x="124" y="55" class="hidden I">23</text>-->
-        <!--<text x="124" y="55" class="hidden I">22</text>-->
-        <!--<text x="124" y="55" class="hidden I">21</text>-->
-        <!--<text x="124" y="55" class="hidden I">20</text>-->
-        <!--<text x="124" y="55" class="hidden I">19</text>-->
-        <!--<text x="124" y="55" class="hidden I">18</text>-->
+        <!--<text x="124" y="55" class="I hidden">24</text>-->
+        <!--<text x="124" y="55" class="I hidden">23</text>-->
+        <!--<text x="124" y="55" class="I hidden">22</text>-->
+        <!--<text x="124" y="55" class="I hidden">21</text>-->
+        <!--<text x="124" y="55" class="I hidden">20</text>-->
+        <!--<text x="124" y="55" class="I hidden">19</text>-->
+        <!--<text x="124" y="55" class="I hidden">18</text>-->
 
         <!--<text x="124" y="64" class="I">17</text>-->
 
-        <!--<text x="124" y="70" class="hidden I">16</text>-->
-        <!--<text x="124" y="74" class="hidden I">15</text>-->
-        <!--<text x="124" y="84" class="hidden I">14</text>-->
-        <!--<text x="124" y="94" class="hidden I">13</text>-->
-        <!--<text x="124" y="104" class="hidden I">12</text>-->
-        <!--<text x="124" y="114" class="hidden I">11</text>-->
+        <!--<text x="124" y="70" class="I hidden">16</text>-->
+        <!--<text x="124" y="74" class="I hidden">15</text>-->
+        <!--<text x="124" y="84" class="I hidden">14</text>-->
+        <!--<text x="124" y="94" class="I hidden">13</text>-->
+        <!--<text x="124" y="104" class="I hidden">12</text>-->
+        <!--<text x="124" y="114" class="I hidden">11</text>-->
 
         <!--<text x="124" y="126" class="I">10</text>-->
         <!--<text x="124" y="157" class="I">9</text>-->
@@ -125,20 +175,20 @@
         <!--<text x="124" y="772" class="I">1</text>-->
         <!--<text x="124"  y="863" class="I">0</text>-->
         <!-- S -->
-        <!--<text x="198"  y="55" class="hidden S">24</text>-->
-        <!--<text x="198"  y="55" class="hidden S">23</text>-->
-        <!--<text x="198"  y="55" class="hidden S">22</text>-->
-        <!--<text x="198"  y="55" class="hidden S">21</text>-->
-        <!--<text x="198"  y="55" class="hidden S">20</text>-->
+        <!--<text x="198"  y="55" class="S hidden">24</text>-->
+        <!--<text x="198"  y="55" class="S hidden">23</text>-->
+        <!--<text x="198"  y="55" class="S hidden">22</text>-->
+        <!--<text x="198"  y="55" class="S hidden">21</text>-->
+        <!--<text x="198"  y="55" class="S hidden">20</text>-->
         
         <!--<text x="198" y="64" class="S">19</text>-->
         
-        <!--<text x="198"  y="80" class="hidden S">18</text>-->
-        <!--<text x="198"  y="80" class="hidden S">17</text>-->
-        <!--<text x="198"  y="80" class="hidden S">16</text>-->
-        <!--<text x="198"  y="80" class="hidden S">15</text>-->
-        <!--<text x="198"  y="80" class="hidden S">14</text>-->
-        <!--<text x="198"  y="80" class="hidden S">13</text>-->
+        <!--<text x="198"  y="80" class="S hidden">18</text>-->
+        <!--<text x="198"  y="80" class="S hidden">17</text>-->
+        <!--<text x="198"  y="80" class="S hidden">16</text>-->
+        <!--<text x="198"  y="80" class="S hidden">15</text>-->
+        <!--<text x="198"  y="80" class="S hidden">14</text>-->
+        <!--<text x="198"  y="80" class="S hidden">13</text>-->
         
         <!--<text x="198"  y="96" class="S">12</text>-->
         <!--<text x="198"  y="126" class="S">11</text>-->
@@ -154,23 +204,23 @@
         <!--<text x="198"  y="711" class="S">1</text>-->
         <!--<text x="198"  y="802" class="S">0</text>-->
         <!-- C -->
-        <!--<text x="273"  y="55" class="hidden C">24</text>-->
-        <!--<text x="273"  y="55" class="hidden C">23</text>-->
-        <!--<text x="273"  y="55" class="hidden C">22</text>-->
-        <!--<text x="273"  y="55" class="hidden C">21</text>-->
-        <!--<text x="273"  y="55" class="hidden C">20</text>-->
-        <!--<text x="273"  y="55" class="hidden C">19</text>-->
-        <!--<text x="273"  y="55" class="hidden C">18</text>-->
-        <!--<text x="273"  y="55" class="hidden C">17</text>-->
-        <!--<text x="273"  y="55" class="hidden C">16</text>-->
+        <!--<text x="273"  y="55" class="C hidden">24</text>-->
+        <!--<text x="273"  y="55" class="C hidden">23</text>-->
+        <!--<text x="273"  y="55" class="C hidden">22</text>-->
+        <!--<text x="273"  y="55" class="C hidden">21</text>-->
+        <!--<text x="273"  y="55" class="C hidden">20</text>-->
+        <!--<text x="273"  y="55" class="C hidden">19</text>-->
+        <!--<text x="273"  y="55" class="C hidden">18</text>-->
+        <!--<text x="273"  y="55" class="C hidden">17</text>-->
+        <!--<text x="273"  y="55" class="C hidden">16</text>-->
         
         <!--<text x="273" y="64" class="C">15</text>-->
 
-        <!--<text x="273"  y="80" class="hidden C">14</text>-->
-        <!--<text x="273"  y="80" class="hidden C">13</text>-->
-        <!--<text x="273"  y="80" class="hidden C">12</text>-->
-        <!--<text x="273"  y="80" class="hidden C">11</text>-->
-        <!--<text x="273"  y="80" class="hidden C">10</text>-->
+        <!--<text x="273"  y="80" class="C hidden">14</text>-->
+        <!--<text x="273"  y="80" class="C hidden">13</text>-->
+        <!--<text x="273"  y="80" class="C hidden">12</text>-->
+        <!--<text x="273"  y="80" class="C hidden">11</text>-->
+        <!--<text x="273"  y="80" class="C hidden">10</text>-->
 
         <!--<text x="273"  y="96" class="C">9</text>-->
         <!--<text x="273"  y="126" class="C">8</text>-->
