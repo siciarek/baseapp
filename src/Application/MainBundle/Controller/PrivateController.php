@@ -37,6 +37,7 @@ class PrivateController extends Controller {
         $title = 'Wyniki ankiet DISC';
         $fileName = 'results';
 
+        $version = 'Excel2007';
         $srv = $this->get('phpexcel');
         $phpExcelObject = $srv->createPHPExcelObject();
         $phpExcelObject->setActiveSheetIndex(0);
@@ -45,10 +46,10 @@ class PrivateController extends Controller {
         $phpExcelObject->getActiveSheet()->setTitle($title);
         $phpExcelObject->setActiveSheetIndex(0);
 
-        $writer = $srv->createWriter($phpExcelObject, 'Excel2007');
+        $writer = $srv->createWriter($phpExcelObject, $version);
         $response = $srv->createStreamedResponse($writer);
 
-        $fileName .= '.xlsx';
+        $fileName .= $version === 'Excel2007' ? '.xlsx' : '.xls     ';
         $dispositionHeader = $response->headers->makeDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, $fileName);
         $response->headers->set('Content-Type', 'text/vnd.ms-excel; charset=utf-8');
         $response->headers->set('Pragma', 'public');
