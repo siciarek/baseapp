@@ -15,16 +15,55 @@ use Doctrine\ORM\Query;
 /**
  * @Route("/private")
  */
-class PrivateController extends Controller
-{
+class PrivateController extends Controller {
+
+    /**
+     * @Route("/results", name="disc.spreadsheet")
+     */
+    public function resultsAction() {
+        $data = [];
+
+        foreach (range(1, 10) as $i) {
+            $data[] = [
+                $i,
+                'Osoba ' . $i,
+                null, null, null, null,
+                null, null, null, null,
+                'http://ankieta.com?id=' . substr(md5($i), 0, 16),
+            ];
+        }
+
+        $headers = ['Lp', 'Imię i nazwisko', 'D', 'I', 'S', 'C', 'D', 'I', 'S', 'C', 'Link do ankiety'];
+        $title = 'Wyniki ankiet DISC';
+        $fileName = 'results';
+
+        $srv = $this->get('phpexcel');
+        $phpExcelObject = $srv->createPHPExcelObject();
+        $phpExcelObject->setActiveSheetIndex(0);
+        $phpExcelObject->getActiveSheet()->fromArray($headers, null, 'A1');
+        $phpExcelObject->getActiveSheet()->fromArray($data, null, 'A2');
+        $phpExcelObject->getActiveSheet()->setTitle($title);
+        $phpExcelObject->setActiveSheetIndex(0);
+
+        $writer = $srv->createWriter($phpExcelObject, 'Excel2007');
+        $response = $srv->createStreamedResponse($writer);
+
+        $fileName .= '.xlsx';
+        $dispositionHeader = $response->headers->makeDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, $fileName);
+        $response->headers->set('Content-Type', 'text/vnd.ms-excel; charset=utf-8');
+        $response->headers->set('Pragma', 'public');
+        $response->headers->set('Cache-Control', 'maxage=1');
+        $response->headers->set('Content-Disposition', $dispositionHeader);
+
+        return $response;
+    }
 
     /**
      * @Secure(roles="IS_AUTHENTICATED_ANONYMOUSLY")
      * @Route("/gallery", name="private.gallery")
      * @Template()
      */
-    public function galleryAction()
-    {
+    public function galleryAction() {
         return [];
     }
 
@@ -33,8 +72,7 @@ class PrivateController extends Controller
      * @Route("/", name="private.index")
      * @Template()
      */
-    public function indexAction()
-    {
+    public function indexAction() {
         return [];
     }
 
@@ -42,8 +80,7 @@ class PrivateController extends Controller
      * @Secure(roles="ROLE_USER")
      * @Route("/spreadsheet", name="private.spreadsheet")
      */
-    public function spreadsheetAction(Request $request)
-    {
+    public function spreadsheetAction(Request $request) {
 
         $repository = $this->getDoctrine()
                 ->getRepository('ApplicationMainBundle:CollectionElement');
@@ -65,8 +102,7 @@ class PrivateController extends Controller
         return $this->returnXlsResponse($data, $headers, $title, $fileName);
     }
 
-    protected function returnXlsResponse($data, $headers, $title = 'Data', $fileName = 'spreadsheet')
-    {
+    protected function returnXlsResponse($data, $headers, $title = 'Data', $fileName = 'spreadsheet') {
 
         $srv = $this->get('phpexcel');
 
@@ -110,4 +146,5 @@ class PrivateController extends Controller
 
         return $response;
     }
+
 }
