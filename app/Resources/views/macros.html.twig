@@ -1,3 +1,30 @@
+{%- macro button(type, enabled, url) %}
+    {% set types = {
+        filter: 'btn-default',
+        info: 'btn-primary',
+        add: 'btn-success',
+        edit: 'btn-default',
+        remove: 'btn-danger',
+        details: 'btn-default',
+        dashboard: 'btn-default',
+    } %}
+    {% set icons = {
+        filter: 'fa-filter',
+        info: 'fa-info-circle',
+        add: 'fa-plus-circle',
+        edit: 'fa-edit',
+        remove: 'fa-times-circle',
+        details: 'fa-list-alt',
+        dashboard: 'fa-desktop',
+    } %}
+
+<a title="{{ ('common.'~type)|trans }}"
+   href="{%if url is not empty%}{{ url }}{%else%}javascript:void(null){%endif%}"
+   class="{{ type }} btn btn-xs{% if enabled is sameas(false)%} btn-default disabled{%else%} {{ types[type] }}{%endif%}">
+    <i class="{{ icons[type] }} fa fa-lg"></i>
+</a>
+{% endmacro -%}
+
 {%- macro value_or_dash(value) %}
     {% if value|trim|length > 0 %}
         {{ value }}

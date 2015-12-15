@@ -35,7 +35,13 @@ common:
     save: Save
     list_is_empty: List is empty.
     filter: Filter
-
+    edit: Edit
+    details: Details
+    remove: Remove
+    add: Add
+    info: Info
+    dashboard: Dashboard
+    
 collection:
     name: Collection
     name_plural: Collections

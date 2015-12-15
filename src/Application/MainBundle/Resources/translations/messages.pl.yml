@@ -36,6 +36,12 @@ common:
     save: Zapisz
     list_is_empty: Lista jest pusta.
     filter: Filtruj
+    edit: Edytuj
+    details: Szczegóły
+    remove: Usuń
+    add: Dodaj
+    info: Info
+    dashboard: Pulpit
 
 user:
     signin: Zaloguj się

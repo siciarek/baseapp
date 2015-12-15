@@ -43,6 +43,7 @@ php.ini
 /web/images
 /web/temp*
 /web/coverage
+/web/info.php
 
 # PHPUnit
 /app/phpunit.xml
