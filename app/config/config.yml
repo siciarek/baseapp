@@ -79,6 +79,7 @@ doctrine:
             json: Sonata\Doctrine\Types\JsonType
         connections:
             default:
+                path:     "%database_path%"
                 driver:   "%database_driver%"
                 host:     "%database_host%"
                 port:     "%database_port%"

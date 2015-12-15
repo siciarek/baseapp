@@ -70,7 +70,7 @@ function sendJsonp(url, data, successCallback, async) {
             if (resp.success) {
                 successCallback(resp);
             } else {
-                spinner('hide');
+                Spinner.hide();
                 if (resp.type == 'error') {
                     var msg = resp.msg;
                     if(resp.data.messages !== undefined) {

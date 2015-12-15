@@ -168,14 +168,6 @@ table.table td.expand {
     display: none;
 }
 
-tr.selected,
-tr.active,
-tr.warning,
-tr.success,
-tr.danger {
-    font-weight: bold !important;
-}
-
 /* SOURCE: http://elvery.net/demo/responsive-tables/ */
 
 @media only screen and (max-width: 800px) {

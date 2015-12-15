@@ -19,5 +19,4 @@ abstract class CommonController extends Controller {
 
         return $response;
     }
-
 }
