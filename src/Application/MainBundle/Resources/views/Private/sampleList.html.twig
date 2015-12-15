@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+
+    </script>
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="page-header">
+        <i class="fa-list-alt fa fa-fw fa-lg text-muted"></i>
+        {{ 'collection.element.name_plural'|trans }} ({{ pagination.totalItemCount }})
+    </h1>
+
+    {% if pagination.totalItemCount > 0 %}
+        
+        <table class="table table-condensed table-responsive table-hover">
+            <thead>
+                <tr>
+                    <th class="col-lg-1">{{ knp_pagination_sortable(pagination, '#', 'e.id') }}</th>
+                    <th class="col-lg-3">{{ knp_pagination_sortable(pagination, ('collection.element.name'|trans), 't.name') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, ('collection.element.info'|trans), 't.info') }}</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in pagination %}
+                    <tr>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.name }}</td>
+                        <td>{{ i.info }}</td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+    {% else %}
+        <div class="alert alert-warning">
+            {{ 'common.list_is_empty'|trans }}
+        </div>
+    {% endif %}
+
+{% endblock %}

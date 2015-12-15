@@ -8,6 +8,8 @@ Sign in: Zaloguj się
 Sign out: Wyloguj się
 Type: Typ
 Description: Opis
+Previous: Poprz.
+Next: Nast.
 
 # Dialogs
 dialog:
@@ -32,6 +34,7 @@ common:
     no: Nie
     cancel: Anuluj
     save: Zapisz
+    list_is_empty: Lista jest pusta.
 
 user:
     signin: Zaloguj się
@@ -47,3 +50,4 @@ collection:
     element:
         name: Element
         name_plural: Elementy
+        info: Info

@@ -27,9 +27,18 @@ owner:
     name: Owner
     name_plural: Owners
 
+common:
+    ok: OK
+    yes: Yes
+    no: No
+    cancel: Cancel
+    save: Save
+    list_is_empty: List is empty.
+
 collection:
     name: Collection
     name_plural: Collections
     element:
         name: Element
         name_plural: Elements
+        info: Info        

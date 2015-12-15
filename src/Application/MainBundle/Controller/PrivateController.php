@@ -18,6 +18,32 @@ use Doctrine\ORM\Query;
 class PrivateController extends Controller {
 
     /**
+     * @Secure(roles="ROLE_USER")
+     * @Route("/sample/list", name="private.sample.list")
+     * @Template()
+     */
+    public function sampleListAction(Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository('ApplicationMainBundle:CollectionElement');
+        $qb = $repo->createQueryBuilder('e')
+                ->leftJoin('e.translations', 't')
+                ->andWhere('t.locale = :locale')
+                ->setParameter('locale', $request->getLocale());
+        
+        $query = $qb->getQuery();
+
+        $page = $request->query->getInt('page', 1);
+        $pageSize = $this->container->getParameter('pager.size');
+        $options = [];
+        $pagination = $this->get('knp_paginator')->paginate($query, $page, $pageSize, $options);
+
+        return [
+            'pagination' => $pagination,
+        ];
+    }
+
+    /**
      * @Secure(roles="IS_AUTHENTICATED_ANONYMOUSLY")
      * @Route("/gallery", name="private.gallery")
      * @Template()

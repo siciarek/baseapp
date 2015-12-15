@@ -30,7 +30,9 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
-    locale: en
+    locale: pl
+
+    pager.size: 10
 
     default_timezone: Europe/Warsaw
 
