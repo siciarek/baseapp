@@ -34,11 +34,13 @@ common:
     cancel: Cancel
     save: Save
     list_is_empty: List is empty.
+    filter: Filter
 
 collection:
     name: Collection
     name_plural: Collections
     element:
         name: Element
+        type: Typ
         name_plural: Elements
         info: Info        

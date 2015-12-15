@@ -4,7 +4,30 @@
     {{ parent() }}
 
     <script>
+        $(document).ready(function (e) {
+            var filterForm = $('*[name=filterField]').closest('form');
+            filterForm.addClass('form-horizontal');
 
+            var filterField = filterForm.find('select[name=filterField]');
+            var filterValue = filterForm.find('input[name=filterValue]');
+            var filterButton = filterForm.find('button');
+
+            filterField.addClass('form-control');
+            filterValue.addClass('form-control');
+            filterForm.find('button').addClass('btn btn-default col-lg-12');
+
+            var field = filterField.clone().wrap('<div></div>').parent().html();
+            var value = filterValue.clone().wrap('<div></div>').parent().html();
+            var button = filterButton.clone().wrap('<div></div>').parent().html();
+
+            filterField.remove();
+            filterValue.remove();
+            filterButton.remove();
+
+            var filter = '<div class="row no-gutter"><div class="col-lg-3">' + field + '</div><div class="col-lg-6">' + value + '</div><div class="col-lg-3">' + button + '</div></div><br/>'
+
+            filterForm.append(filter);
+        });
     </script>
 {% endblock %}
 
@@ -15,12 +38,23 @@
         {{ 'collection.element.name_plural'|trans }} ({{ pagination.totalItemCount }})
     </h1>
 
+    <div class="row">
+        <div class="col-lg-6">
+            {% set filterFields = {
+                'e.id': 'Id',
+                't.name': 'collection.element.name'
+            } %}
+            {{ knp_pagination_filter(pagination, filterFields, { button: 'common.filter' }) }}
+        </div>
+    </div>
+
     {% if pagination.totalItemCount > 0 %}
-        
+
         <table class="table table-condensed table-responsive table-hover">
             <thead>
                 <tr>
                     <th class="col-lg-1">{{ knp_pagination_sortable(pagination, '#', 'e.id') }}</th>
+                    <th class="col-lg-2">{{ knp_pagination_sortable(pagination, ('collection.element.type'|trans), 'e.type') }}</th>
                     <th class="col-lg-3">{{ knp_pagination_sortable(pagination, ('collection.element.name'|trans), 't.name') }}</th>
                     <th>{{ knp_pagination_sortable(pagination, ('collection.element.info'|trans), 't.info') }}</th>
                     <th>&nbsp;</th>
@@ -30,10 +64,11 @@
                 {% for i in pagination %}
                     <tr>
                         <td>{{ i.id }}</td>
+                        <td>{{ i.type }}</td>
                         <td>{{ i.name }}</td>
                         <td>{{ i.info }}</td>
                         <td>
-                            
+
                         </td>
                     </tr>
                 {% endfor %}

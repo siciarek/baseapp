@@ -35,6 +35,7 @@ common:
     cancel: Anuluj
     save: Zapisz
     list_is_empty: Lista jest pusta.
+    filter: Filtruj
 
 user:
     signin: Zaloguj się
@@ -49,5 +50,6 @@ collection:
     name_plural: Kolekcje
     element:
         name: Element
+        type: Typ
         name_plural: Elementy
         info: Info
