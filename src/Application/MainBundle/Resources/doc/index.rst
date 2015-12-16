@@ -17,3 +17,4 @@ Spis treści
     :titlesonly:
 
     references/setup
+    references/git
