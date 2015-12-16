@@ -7,12 +7,15 @@ namespace Application\MainBundle\Common;
  */
 class EmailSender {
 
+    /**
+     * @var \Swift_Mailer
+     */
     protected $mailer;
     
-    public function __construct($mailer) {
+    public function __construct(\Swift_Mailer $mailer) {
         $this->mailer = $mailer;
     }
-    
+
     /**
      * Main sender function
      * 
