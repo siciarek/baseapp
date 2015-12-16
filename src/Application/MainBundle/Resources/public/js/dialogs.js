@@ -38,9 +38,34 @@ $(document).ready(function () {
 
 var Window = {
     selector: null,
-    open: function (title, content, callback, width) {
+    show: function (title, content, width) {
+        
+        title = title || null;
+        content = content || null;
+        width = width || 'w75';
+
+        var win = this.selector;
+
+        if (title !== null) {
+            win.find('.modal-header .title').html(title);
+        }
+
+        $(['w100', 'w75', 'w50']).each(function (i, e) {
+            win.find('.modal-dialog').removeClass(e);
+        });
+
+        win.find('.modal-dialog').addClass(width);
+        
+        if(content !== null) {
+            win.find('.modal-body').html($(content).html());
+        }
+        
+        win.modal();
+    },
+    form: function (title, content, callback, width) {
 
         title = title || null;
+        content = content || null;
         callback = callback || function (container) {
             console.log(container);
         };        
@@ -69,8 +94,11 @@ var Window = {
         });
 
         win.find('.modal-dialog').addClass(width);
-        win.find('.modal-body').html($(content).html());
-
+        
+        if(content !== null) {
+            win.find('.modal-body').html($(content).html());
+        }
+        
         win.modal();
     }
 };
