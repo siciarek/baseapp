@@ -25,7 +25,7 @@ class EmailSender {
 
         $from = 'siciarek@gmail.com';
         $to = 'siciarek@gmail.com';
-        
+
         $subject = 'Test message ' . date('Y-m-d H:i:s');
 
         $body ="
