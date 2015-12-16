@@ -26,6 +26,10 @@ services:
     app.common.utils.curl.debug:
         class: Application\MainBundle\Common\Utils\Curl
 
+    app.common.email.sender:
+        class: Application\MainBundle\Common\EmailSender
+        arguments: [ @mailer ]
+
     app.common.laaf.frame:
         class: Application\MainBundle\Common\LaafFrame
 
