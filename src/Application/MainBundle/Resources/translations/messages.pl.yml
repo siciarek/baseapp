@@ -42,6 +42,8 @@ common:
     add: Dodaj
     info: Info
     dashboard: Pulpit
+    close: Zamkij
+    send: Wyślij
 
 user:
     signin: Zaloguj się

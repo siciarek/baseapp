@@ -1,46 +1,86 @@
-$(document).ready(function() {
+$(document).ready(function () {
     Spinner.selector = $('body > div.spinner');
+    Window.selector = $('body > div.modal.window');
     Dialog.selector = $('body > div.dialog.template')
-        .on('click', '.save,.yes,.no, .ok', function(e) {
-            var form = $('body > div.dialog.template form.form-horizontal');
-            var control = form.find('input[name=text]');
-            
-            if($(this).hasClass('yes')) {
-                control.val(1);
-            }
+            .on('click', '.save,.yes,.no, .ok', function (e) {
+                var form = $('body > div.dialog.template form.form-horizontal');
+                var control = form.find('input[name=text]');
 
-            if($(this).hasClass('no')) {
-                control.val(0);
-            }
-            
-            if($(this).hasClass('ok')) {
-                return Dialog.callback();
-            }
+                if ($(this).hasClass('yes')) {
+                    control.val(1);
+                }
 
-            form.find('.submit').trigger('click');
-        })
-    ;
-    
+                if ($(this).hasClass('no')) {
+                    control.val(0);
+                }
+
+                if ($(this).hasClass('ok')) {
+                    return Dialog.callback();
+                }
+
+                form.find('.submit').trigger('click');
+            })
+            ;
+
     $('body > div.dialog.template form.form-horizontal')
-        .submit(function(e) {
-            e.preventDefault();
+            .submit(function (e) {
+                e.preventDefault();
 
-            var value = $(this).closest('.modal').find('.modal-body input[name="text"]').val().trim();
+                var value = $(this).closest('.modal').find('.modal-body input[name="text"]').val().trim();
 
-            value = value.length === 0 ? null : value;
+                value = value.length === 0 ? null : value;
 
-            Dialog.callback(value);
+                Dialog.callback(value);
 
-            $(this).closest('.modal').modal('hide');
-        });
+                $(this).closest('.modal').modal('hide');
+            });
 });
+
+var Window = {
+    selector: null,
+    open: function (title, content, callback, width) {
+
+        title = title || null;
+        callback = callback || function (container) {
+            console.log(container);
+        };        
+        width = width || 'w75';
+
+        var win = this.selector;
+
+        if (title !== null) {
+            win.find('.modal-header .title').html(title);
+        }
+
+        win
+                .on('click', '.send', function (e) {
+                    win.find('form').find('*[type=submit]').trigger('click');
+                })
+                .on('submit', 'form', function (e) {
+                    e.preventDefault();
+
+                    callback(win);
+
+                    $(this).closest('.modal').modal('hide');
+                });
+
+        $(['w100', 'w75', 'w50']).each(function (i, e) {
+            win.find('.modal-dialog').removeClass(e);
+        });
+
+        win.find('.modal-dialog').addClass(width);
+        win.find('.modal-body').html($(content).html());
+
+        win.modal();
+    }
+};
 
 var Spinner = {
     selector: null,
-    show: function() {
+    show: function () {
         this.selector.removeClass('hidden');
     },
-    hide: function() {
+    hide: function () {
         this.selector.addClass('hidden');
     }
 };
@@ -76,10 +116,10 @@ var Spinner = {
 var Dialog = {
     selector: null,
     value: null,
-    val: function() {
+    val: function () {
         return this.value;
     },
-    callback: function(val) {
+    callback: function (val) {
 
     },
     /**
@@ -87,9 +127,9 @@ var Dialog = {
      *
      * @param types obiekt
      */
-    setTypes: function(types) {
-        for(var key in types) {
-            if(this.types.hasOwnProperty(key)) {
+    setTypes: function (types) {
+        for (var key in types) {
+            if (this.types.hasOwnProperty(key)) {
                 this.types[key] = types[key];
             }
         }
@@ -126,12 +166,12 @@ var Dialog = {
 
         var dialog = this.selector;
 
-        if(dialog) {
+        if (dialog) {
             dialog.find('.modal-title .title').html(title);
             dialog.find('.modal-body .message').html(message);
 
-            for(var t in this.types) {
-                if(this.types.hasOwnProperty(t)) {
+            for (var t in this.types) {
+                if (this.types.hasOwnProperty(t)) {
                     dialog.find('i').removeClass(this.icons[t]).removeClass(t);
                 }
             }
@@ -140,18 +180,18 @@ var Dialog = {
             dialog.find('.modal-header i').addClass(icon);
             dialog.find('.modal-body i').addClass(icon).addClass(type);
 
-            dialog.find('.modal-footer .btn').each(function(i, e){
+            dialog.find('.modal-footer .btn').each(function (i, e) {
                 $(e).addClass('hidden');
             });
 
             dialog.find('input[name=text]').addClass('hidden');
 
-            if(type == 'input') {
+            if (type == 'input') {
                 Dialog.value = null;
                 dialog.find('input[name=text]').removeClass('hidden');
             }
 
-            $(this.buttons[type]).each(function(i, e){
+            $(this.buttons[type]).each(function (i, e) {
                 var btn = dialog.find('.modal-footer .btn.' + e);
                 btn.removeClass('hidden');
             });
@@ -180,6 +220,7 @@ var Dialog = {
      * @param callback funkcja wykonywana po zamknięciu okienka
      */
     info: function (message, title, callback) {
+        message = message || 'OK';
         callback = callback || null;
         return this.dialog('info', message, title, callback);
     },
@@ -202,7 +243,7 @@ var Dialog = {
      * @param callback funkcja wykonywana po zamknięciu okienka
      */
     input: function (message, title, callback) {
-        callback = callback || function(value) {
+        callback = callback || function (value) {
             console.log([title, message, value]);
         };
         return this.dialog('input', message, title, callback);
@@ -217,7 +258,7 @@ var Dialog = {
     question: function (message, title, callback) {
         message = message || 'Are you sure?';
         title = title || this.types.question;
-        callback = callback || function(val) {
+        callback = callback || function (val) {
             console.log([title, message, val]);
             return true;
         };
@@ -233,7 +274,7 @@ var Dialog = {
     confirmation: function (message, title, callback) {
         message = message || 'Are you sure';
         title = title || this.types.confirmation;
-        callback = callback || function(val) {
+        callback = callback || function (val) {
             console.log([title, message, val]);
             return true;
         };

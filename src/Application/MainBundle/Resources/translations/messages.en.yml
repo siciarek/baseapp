@@ -41,6 +41,8 @@ common:
     add: Add
     info: Info
     dashboard: Dashboard
+    close: Close
+    send: Send
     
 collection:
     name: Collection

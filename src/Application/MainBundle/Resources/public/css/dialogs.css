@@ -1,4 +1,21 @@
-/* Dialogs: */
+/* Window */
+
+@media only screen and (min-width : 992px) {
+
+    .w100 {
+        width: 100%;
+    }
+
+    .w75 {
+        width: 75%;
+    }
+
+    .w50 {
+        width: 50%;
+    }
+}
+
+/* Spinner */
 
 .spinner i {
     position: absolute;
@@ -8,6 +25,8 @@
     margin-left: -100px;
     margin-top: -100px;
 }
+
+/* Dialogs: */
 
 .dialog.template .modal-footer .btn {
     margin-left: 16px;
