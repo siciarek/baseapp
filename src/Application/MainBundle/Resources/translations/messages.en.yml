@@ -43,6 +43,7 @@ common:
     dashboard: Dashboard
     close: Close
     send: Send
+    submit: Submit
     
 collection:
     name: Collection

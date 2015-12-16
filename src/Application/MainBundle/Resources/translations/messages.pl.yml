@@ -44,6 +44,7 @@ common:
     dashboard: Pulpit
     close: Zamkij
     send: Wyślij
+    submit: Wyślij
 
 user:
     signin: Zaloguj się
