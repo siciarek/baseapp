@@ -11,7 +11,7 @@ parameters:
         nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
         officia deserunt mollit anim id est laborum.
 
-    database_driver:   pdo_mysql # pdo_msql,pdo_pgsql,pdo_sqlite
+    database_driver:   pdo_sqlite # pdo_msql,pdo_pgsql,pdo_sqlite
     database_host:     localhost
     database_port:     ~
     database_name:     baseapp
