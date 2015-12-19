@@ -10,6 +10,8 @@ php.ini
 /src/Application/MainBundle/Resources/views/Dummy
 /src/Application/MainBundle/Command/DummyCommand.php
 
+/app/data.db3
+
 # Cache and logs (Symfony2)
 /app/cache/*
 /app/logs/*
