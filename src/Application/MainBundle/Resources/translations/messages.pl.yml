@@ -47,6 +47,7 @@ common:
     close: Zamkij
     send: Wyślij
     submit: Wyślij
+    download: Pobierz
 
 user:
     signin: Zaloguj się
