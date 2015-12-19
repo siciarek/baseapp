@@ -1,8 +1,7 @@
 services:
     app.image.converter:
         class: Application\MainBundle\Service\ImageConverter
-        arguments:
-            - @service_container
+        arguments: [ '@service_container' ]
 
     app.common.utils.curl:
         class: Application\MainBundle\Common\Utils\Curl
@@ -12,7 +11,9 @@ services:
 
     app.common.email.sender:
         class: Application\MainBundle\Common\EmailSender
-        arguments: [ @mailer ]
+        arguments: [ '@mailer' ]
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
 
     app.common.laaf.frame:
         class: Application\MainBundle\Common\LaafFrame
@@ -25,7 +26,7 @@ services:
             
     app.twig.extension:
         class: Application\MainBundle\Twig\Extension\TwigExtension
-        arguments: [ @twig.loader, @router, @ewz_text.text_helper, @service_container ]
+        arguments: [ '@twig.loader', '@router', '@ewz_text.text_helper', '@service_container' ]
         tags:
             -
                 name:   twig.extension
