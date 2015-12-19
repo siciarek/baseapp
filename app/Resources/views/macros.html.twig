@@ -1,27 +1,19 @@
 {%- macro button(type, enabled, url) %}
-    {% set types = {
-        filter: 'btn-default',
-        info: 'btn-primary',
-        add: 'btn-success',
-        edit: 'btn-default',
-        remove: 'btn-danger',
-        details: 'btn-default',
-        dashboard: 'btn-default',
+    
+    {% set style = {
+        filter:     { type: 'btn-default',icon: 'fa-filter' },
+        info:       { type: 'btn-primary',icon: 'fa-info-circle' },
+        add:        { type: 'btn-success',icon: 'fa-plus-circle' },
+        edit:       { type: 'btn-default',icon: 'fa-edit' },
+        remove:     { type: 'btn-danger',icon: 'fa-times-circle' },
+        details:    { type: 'btn-default',icon: 'fa-list-alt' }, 
+        dashboard:  { type: 'btn-default',icon: 'fa-desktop' },
     } %}
-    {% set icons = {
-        filter: 'fa-filter',
-        info: 'fa-info-circle',
-        add: 'fa-plus-circle',
-        edit: 'fa-edit',
-        remove: 'fa-times-circle',
-        details: 'fa-list-alt',
-        dashboard: 'fa-desktop',
-    } %}
-
+    
 <a title="{{ ('common.'~type)|trans }}"
    href="{%if url is not empty%}{{ url }}{%else%}javascript:void(null){%endif%}"
-   class="{{ type }} btn btn-xs{% if enabled is sameas(false)%} btn-default disabled{%else%} {{ types[type] }}{%endif%}">
-    <i class="{{ icons[type] }} fa fa-lg"></i>
+   class="{{ type }} btn btn-xs{% if enabled is sameas(false)%} btn-default disabled{%else%} {{ style[type].type }}{%endif%}">
+    <i class="{{ style[type].icon }} fa fa-lg"></i>
 </a>
 {% endmacro -%}
 
