@@ -31,6 +31,7 @@ $(document).ready(function () {
                 value = value.length === 0 ? null : value;
 
                 Dialog.callback(value);
+                Dialog.callback = Dialog.defaultCallback;
 
                 $(this).closest('.modal').modal('hide');
             });
@@ -148,6 +149,9 @@ var Dialog = {
     value: null,
     val: function () {
         return this.value;
+    },
+    defaultCallback: function (val) {
+
     },
     callback: function (val) {
 
