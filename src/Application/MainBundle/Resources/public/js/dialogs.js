@@ -82,7 +82,7 @@ var Window = {
         }
 
         win
-                .on('click', '.send', function (e) {
+                .on('click', '.submit', function (e) {
                     win.find('form').find('*[type=submit]').trigger('click');
                 })
                 .on('submit', 'form', function (e) {
