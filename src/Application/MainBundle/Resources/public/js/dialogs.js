@@ -58,8 +58,10 @@ var Window = {
         win.find('.modal-dialog').addClass(width);
         win.find('.modal-dialog .submit').addClass('hidden');
       
+        win.find('.modal-body').html('');
+      
         if(content !== null) {
-            win.find('.modal-body .content').html($(content).html());
+            win.find('.modal-body').html($(content).html());
         }
         
         win.modal();
@@ -98,8 +100,10 @@ var Window = {
         win.find('.modal-dialog').addClass(width);
         win.find('.modal-dialog .submit').removeClass('hidden');
         
+        win.find('.modal-body').html('');
+        
         if(content !== null) {
-            win.find('.modal-body .content').html($(content).html());
+            win.find('.modal-body').html($(content).html());
         }
         
         win.modal();
