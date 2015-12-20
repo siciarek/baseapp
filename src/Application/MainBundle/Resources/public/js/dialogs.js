@@ -104,6 +104,7 @@ var Window = {
         
         if(content !== null) {
             win.find('.modal-body').html($(content).html());
+            win.find('form').find('*[type=submit]').addClass('hidden');
         }
         
         win.modal();
