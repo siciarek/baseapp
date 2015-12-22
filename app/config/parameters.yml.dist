@@ -11,7 +11,7 @@ parameters:
         nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
         officia deserunt mollit anim id est laborum.
 
-    database_driver:   pdo_mysql # pdo_msql,pdo_pgsql,pdo_sqlite
+    database_driver:   pdo_sqlite # pdo_msql,pdo_pgsql,pdo_sqlite
     database_host:     localhost
     database_port:     ~
     database_name:     baseapp
@@ -25,6 +25,7 @@ parameters:
     mailer_encryption: ssl
     mailer_auth_mode: login
     mailer_host: smtp.gmail.com
+    mailer_port: 465
     mailer_user: ~
     mailer_password: ~
 

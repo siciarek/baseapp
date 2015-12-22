@@ -44,7 +44,8 @@ common:
     close: Close
     send: Send
     submit: Submit
-    
+    download: Download
+
 collection:
     name: Collection
     name_plural: Collections
