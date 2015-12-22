@@ -40,7 +40,7 @@ $(document).ready(function () {
 var Window = {
     selector: null,
     show: function (title, content, width) {
-        
+
         title = title || null;
         content = content || null;
         width = width || 'w75';
@@ -57,22 +57,20 @@ var Window = {
 
         win.find('.modal-dialog').addClass(width);
         win.find('.modal-dialog .submit').addClass('hidden');
-      
+
         win.find('.modal-body').html('');
-      
-        if(content !== null) {
+
+        if (content !== null) {
             win.find('.modal-body').html($(content).html());
         }
-        
+
         win.modal();
     },
     form: function (title, content, callback, width) {
 
         title = title || null;
         content = content || null;
-        callback = callback || function (container) {
-            console.log(container);
-        };        
+        callback = callback || null;
         width = width || 'w75';
 
         var win = this.selector;
@@ -85,13 +83,23 @@ var Window = {
                 .on('click', '.submit', function (e) {
                     win.find('form').find('*[type=submit]').trigger('click');
                 })
-                .on('submit', 'form', function (e) {
-                    e.preventDefault();
+        if (callback !== null) {
+            win
+                    .on('submit', 'form', function (e) {
+                        e.preventDefault();
+                        Spinner.show();
+                        callback(win);
 
-                    callback(win);
+                        $(this).closest('.modal').modal('hide');
+                    });
+        } else {
+            win
+                    .on('submit', 'form', function (e) {
+                        Spinner.show();
+                        $(this).closest('.modal').modal('hide');
+                    });
 
-                    $(this).closest('.modal').modal('hide');
-                });
+        }
 
         $(['w100', 'w75', 'w50']).each(function (i, e) {
             win.find('.modal-dialog').removeClass(e);
@@ -99,14 +107,14 @@ var Window = {
 
         win.find('.modal-dialog').addClass(width);
         win.find('.modal-dialog .submit').removeClass('hidden');
-        
+
         win.find('.modal-body').html('');
-        
-        if(content !== null) {
-            win.find('.modal-body').html($(content).html());
-            win.find('form').find('*[type=submit]').addClass('hidden');
+
+        if (content !== null) {
+            $(content).find('*[type=submit]').addClass('hidden');
+            var body = win.find('.modal-body').html($(content).html());
         }
-        
+
         win.modal();
     }
 };
