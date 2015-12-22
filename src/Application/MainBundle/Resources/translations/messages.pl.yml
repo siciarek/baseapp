@@ -44,7 +44,7 @@ common:
     add: Dodaj
     info: Info
     dashboard: Pulpit
-    close: Zamkij
+    close: Zamknij
     send: Wyślij
     submit: Wyślij
     download: Pobierz

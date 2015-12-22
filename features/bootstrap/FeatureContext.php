@@ -1,7 +1,7 @@
 <?php
 
-require_once 'PHPUnit/Autoload.php';
-require_once 'PHPUnit/Framework/Assert/Functions.php';
+//require_once 'PHPUnit/Autoload.php';
+//require_once 'PHPUnit/Framework/Assert/Functions.php';
 
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Tester\Exception\PendingException;
@@ -11,25 +11,48 @@ use Behat\Gherkin\Node\TableNode;
 /**
  * Behat context class.
  */
-class FeatureContext extends Behat\MinkExtension\Context\MinkContext implements SnippetAcceptingContext
-{
+class FeatureContext extends Behat\MinkExtension\Context\MinkContext implements SnippetAcceptingContext {
 
+    /**
+     * Loading page timeout
+     * @var int
+     */
+    protected static $timeout = 30;
     protected static $clean = false;
-    
+
+    /**
+     * @When poczekam aż strona się załaduje
+     */
+    public function poczekamAzStronaSieZaladuje() {
+        $driver = $this->getSession()->getDriver();
+        if ($driver instanceof Behat\Mink\Driver\Selenium2Driver) {
+            $this->getSession()->wait(self::$timeout * 1000, 'typeof window.jQuery == "function"');
+        }
+    }
+
+    /**
+     * @When kliknę na element :element
+     */
+    public function klikneNaElement($element) {
+        if ($this->getSession()->getDriver() instanceof Behat\Mink\Driver\Selenium2Driver) {
+            $node = $this->getSession()->getPage()->find('css', $element);
+// assertTrue($node && $node->isVisible(), sprintf('Element "%s" powinien być dostępny.', $element));
+            $node->click();
+        }
+    }
+
     /**
      * @When /^(?:|że )poczekam (?P<seconds>(?:\d+)) sekund(?:|ę|y)$/
      */
-    public function poczekamSekundy($seconds)
-    {
+    public function poczekamSekundy($seconds) {
         sleep($seconds);
     }
-    
+
     /**
      * Checks, that current page response status is equal to specified.
      *
      */
-    public function assertResponseStatus($code)
-    {
+    public function assertResponseStatus($code) {
         if ($this->getSession()->getDriver() instanceof Behat\Mink\Driver\GoutteDriver) {
             $this->assertSession()->statusCodeEquals($code);
         }
@@ -39,8 +62,7 @@ class FeatureContext extends Behat\MinkExtension\Context\MinkContext implements 
      * Checks, that current page response status is not equal to specified.
      *
      */
-    public function assertResponseStatusIsNot($code)
-    {
+    public function assertResponseStatusIsNot($code) {
         if ($this->getSession()->getDriver() instanceof Behat\Mink\Driver\GoutteDriver) {
             $this->assertSession()->statusCodeNotEquals($code);
         }
@@ -54,8 +76,7 @@ class FeatureContext extends Behat\MinkExtension\Context\MinkContext implements 
      *
      * @param \Behat\Behat\Hook\Scope\AfterStepScope $scope
      */
-    public function takeScreenshotAfterFailedStep(Behat\Behat\Hook\Scope\AfterStepScope $scope)
-    {
+    public function takeScreenshotAfterFailedStep(Behat\Behat\Hook\Scope\AfterStepScope $scope) {
 
         if (!is_dir('temp')) {
             mkdir('temp');
@@ -80,4 +101,5 @@ class FeatureContext extends Behat\MinkExtension\Context\MinkContext implements 
             }
         }
     }
+
 }
