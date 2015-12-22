@@ -19,6 +19,8 @@ services:
     app.common.email.sender:
         class: Application\MainBundle\Common\EmailSender
         arguments: [ '@mailer' ]
+        calls:
+            - [ setContainer, [ '@service_container' ] ]
 
     app.common.laaf.frame:
         class: Application\MainBundle\Common\LaafFrame
