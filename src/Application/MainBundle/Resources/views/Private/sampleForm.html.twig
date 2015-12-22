@@ -1,0 +1,39 @@
+{% extends '::base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        $(document).ready(function(e) {
+            $('.display-form').on('click', function(e) {
+                e.preventDefault();
+                
+                var callback = function(win) {
+                    console.log(win);
+                };
+                
+                Window.form('Sample form', '#email-form');
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="page-header">
+        <i class="fa-list-alt fa fa-lg fa-fw text-muted"></i>
+        {{ 'Sample form'|trans }}
+    </h1>
+
+    <a href="#" class="display-form btn-default btn-large btn">
+        <i class="fa-list-alt fa fa-lg fa-fw text-muted"></i>
+        Display form
+    </a>
+    
+    <div id="email-form" class="hidden">
+        {{ form_start(form) }}
+            
+        {{ form_end(form) }}            
+    </div>
+
+{% endblock %}

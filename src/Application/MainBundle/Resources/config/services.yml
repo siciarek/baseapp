@@ -1,20 +1,11 @@
 services:
-#
-#<?php
-#$di->set('curl', function() use ($di) {
-#    $tempdir = $di->getConfig()->dirs->cache . DIRECTORY_SEPARATOR . 'curl';
-#
-#    $curl = new \Application\Common\Utils\Curl($tempdir);
-#    return $curl;
-#});
-#
-#$di->set('curlDebug', function() use ($di) {
-#    $tempdir = $di->getConfig()->dirs->cache . DIRECTORY_SEPARATOR . 'curl';
-#
-#    $curl = new \Application\Common\Utils\Curl($tempdir, 'COOKIES', true);
-#    return $curl;
-#});
 
+    app.form.email.message:
+        class: Application\MainBundle\Common\Form\EmailMessageType
+        arguments: [ ]
+        tags:
+            - { name: form.type, alias: email_message }
+            
     app.image.converter:
         class: Application\MainBundle\Service\ImageConverter
         arguments:

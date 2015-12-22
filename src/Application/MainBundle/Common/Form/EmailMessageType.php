@@ -4,6 +4,7 @@ namespace Application\MainBundle\Common\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EmailMessageType extends AbstractType {
 
@@ -25,6 +26,12 @@ class EmailMessageType extends AbstractType {
 
     public function getName() {
         return 'email_message';
+    }
+
+    public function configureOptions(OptionsResolver $resolver) {
+        $resolver->setDefaults([
+            'data_class' => null,
+        ]);
     }
 
 }

@@ -28,24 +28,36 @@ class GoCommand extends ContainerAwareCommand
         ;
     }
 
+    protected function addIdToUrl($url, $id, $idKey = '_ID') {
+
+        $temp = parse_url($url);
+
+        $params = [];
+        
+        if(array_key_exists('query', $temp)) {
+            $q = $temp['query'];
+            $q = preg_replace('|&amp;|', '&', $q);            
+            parse_str($q, $params);
+        }
+        
+        $params = array_merge($params, [ $idKey => $id ]);        
+        $query = http_build_query($params);
+        
+        $url = sprintf('%s://%s?%s', $temp['scheme'], $temp['host'], $query);
+        
+        return $url;
+    }
+    
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $msg = 'I am a command!';
+        $url = 'http://maxiehill.com?_id=777&id=&first=2334&second=456&third=444444&amp;fourth={"jeden":"dwa"}';        
+//        $url = 'http://maxiehill.com';        
+//        $url = 'http://maxiehill.com?';   
         
-        $temp = $input->getOption('msg');
-        $temp = strval($temp);
-        $temp = trim($temp);
         
-        if(empty($temp) === false) {
-            $msg = $temp;
-        }
+        $id = 'XCSD432232';
+        $url = $this->addIdToUrl($url, $id);
         
-        if ($input->getOption('yell')) {
-            $msg = strtoupper($msg);
-        }
-
-        $output->writeln(new \DateTime());
-
-        $output->writeln($msg);
+        $output->writeln($url);
     }
 }

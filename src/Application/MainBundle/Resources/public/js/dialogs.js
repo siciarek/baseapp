@@ -1,6 +1,25 @@
 $(document).ready(function () {
     Spinner.selector = $('body > div.spinner');
-    Window.selector = $('body > div.modal.window');
+    Window.selector = $('body > div.modal.window')
+            .on('click', '.submit', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var form = $(this).closest('.modal').find('form');
+                if (form.length > 0) {
+                    form.find('*[type=submit]').trigger('click');
+                }
+            })
+            .on('submit', 'form', function (e) {
+                e.preventDefault();
+                var win = $(this).closest('.modal');
+                win.modal('hide');
+                
+                if(Window.submited < 50) {
+                    Window.submited++;
+                    Window.callback(win);                    
+                }
+            })
+            ;
     Dialog.selector = $('body > div.dialog.template')
             .on('click', '.save,.yes,.no, .ok', function (e) {
                 var form = $('body > div.dialog.template form.form-horizontal');
@@ -38,8 +57,14 @@ $(document).ready(function () {
 
 var Window = {
     selector: null,
+    submited: 0,
+    callback: function (win) {
+        Spinner.show();
+        var form = $(this.selector).find('form');
+        console.log(form.submit());
+    },
     show: function (title, content, width) {
-        
+
         title = title || null;
         content = content || null;
         width = width || 'w75';
@@ -54,53 +79,48 @@ var Window = {
             win.find('.modal-dialog').removeClass(e);
         });
 
+        if (content !== null) {
+            win.find('.modal-body').find('*').remove();
+            win.find('.modal-body').append($(content).html());
+        }
+
         win.find('.modal-dialog').addClass(width);
         win.find('.modal-dialog .submit').addClass('hidden');
-      
-        if(content !== null) {
-            win.find('.modal-body').html($(content).html());
-        }
-        
+
         win.modal();
     },
     form: function (title, content, callback, width) {
 
         title = title || null;
         content = content || null;
-        callback = callback || function (container) {
-            console.log(container);
-        };        
+        callback = callback || this.callback;
         width = width || 'w75';
 
         var win = this.selector;
+        
+        this.submited = 0;
 
         if (title !== null) {
             win.find('.modal-header .title').html(title);
         }
 
-        win
-                .on('click', '.send', function (e) {
-                    win.find('form').find('*[type=submit]').trigger('click');
-                })
-                .on('submit', 'form', function (e) {
-                    e.preventDefault();
-
-                    callback(win);
-
-                    $(this).closest('.modal').modal('hide');
-                });
-
         $(['w100', 'w75', 'w50']).each(function (i, e) {
             win.find('.modal-dialog').removeClass(e);
         });
 
-        win.find('.modal-dialog').addClass(width);
-        win.find('.modal-dialog .submit').removeClass('hidden');
-        
-        if(content !== null) {
-            win.find('.modal-body').html($(content).html());
+        if (content !== null && win.find('form').length === 0) {
+            win.find('.modal-body').find('*').remove();
+            win.find('.modal-body').append($(content).html());
         }
-        
+
+        win.find('.modal-dialog').addClass(width);
+        win.find('.modal-dialog .btn.submit').removeClass('hidden');
+
+//        if (win.find('form').length > 0) {
+//            win.find('form').get(0).reset();
+//            win.find('form').find('*[type=submit]').addClass('hidden');
+//        }
+
         win.modal();
     }
 };
