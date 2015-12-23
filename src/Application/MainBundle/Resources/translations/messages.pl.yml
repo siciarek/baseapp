@@ -36,6 +36,7 @@ common:
     no: Nie
     cancel: Anuluj
     save: Zapisz
+    choose_from_the_list: Wybierz z listy
     list_is_empty: Lista jest pusta.
     filter: Filtruj
     edit: Edytuj

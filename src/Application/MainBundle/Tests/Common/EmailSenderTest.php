@@ -26,7 +26,8 @@ class EmailSenderTest extends WebTestCase {
      * @group sender
      */
     public function testSend() {
-        $command = 'php app/console --no-ansi swiftmailer:spool:send --env=test';
+
+        $command = sprintf('%s %s %s', 'c:/php/php.exe', $this->getContainer()->get('kernel')->getRootDir() . '/console', '--no-ansi swiftmailer:spool:send --env=test');
 
         `ant ccx`;
 
@@ -51,6 +52,10 @@ class EmailSenderTest extends WebTestCase {
         $this->container = self::$kernel->getContainer();
         $this->srv = $this->container->get('app.common.email.sender');
         $this->data = [];
+    }
+
+    protected function getContainer() {
+        return $this->container;
     }
 
 }

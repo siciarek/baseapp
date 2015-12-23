@@ -1,3 +1,15 @@
+
+{%- macro formFields(form, fields) %} 
+{% for f in fields %}
+    {% set field = form[f] %}
+    <div class="form-group">
+        {{ form_label(field) }}
+        {{ form_errors(field) }}
+        {{ form_widget(field, {attr: {class: 'form-control'}}) }}
+    </div>
+{% endfor %}
+{% endmacro -%}            
+
 {%- macro button(type, enabled, url) %}
     
     {% set style = {
