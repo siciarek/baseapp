@@ -1,6 +1,11 @@
 $(document).ready(function () {
     Spinner.selector = $('body > div.spinner');
-    Window.selector = $('body > div.modal.window');
+    Window.selector = $('body > div.modal.window')
+            .on('hidden.bs.modal', function (e) {
+                $(this).find(Window.contentSelector).addClass('hidden');
+                $(this).find(Window.contentSelector).detach().prependTo('body');
+            })
+            ;
     Dialog.selector = $('body > div.dialog.template')
             .on('click', '.save,.yes,.no, .ok', function (e) {
                 var form = $('body > div.dialog.template form.form-horizontal');
@@ -39,12 +44,14 @@ $(document).ready(function () {
 
 var Window = {
     selector: null,
+    contentSelector: null,
     show: function (title, content, width) {
 
         title = title || null;
         content = content || null;
         width = width || 'w75';
 
+        Window.contentSelector = content;
         var win = this.selector;
 
         if (title !== null) {
@@ -61,7 +68,7 @@ var Window = {
         win.find('.modal-body').html('');
 
         if (content !== null) {
-            win.find('.modal-body').html($(content).html());
+            $(Window.contentSelector + ' *').detach().appendTo(win.find('.modal-body'));
         }
 
         win.modal();
@@ -73,6 +80,7 @@ var Window = {
         callback = callback || null;
         width = width || 'w75';
 
+        Window.contentSelector = content;
         var win = this.selector;
 
         if (title !== null) {
@@ -111,9 +119,12 @@ var Window = {
         win.find('.modal-body').html('');
 
         if (content !== null) {
-            $(content).find('*[type=submit]').addClass('hidden');
-            var body = win.find('.modal-body').html($(content).html());
+            $(Window.contentSelector).removeClass('hidden');               
+            $(Window.contentSelector).find('*[type=submit]').addClass('hidden');
+            $(Window.contentSelector).detach().appendTo(win.find('.modal-body'));
         }
+
+        win.find('form').get(0).reset();
 
         win.modal();
     }

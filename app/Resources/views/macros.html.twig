@@ -10,19 +10,21 @@
 {% endfor %}
 {% endmacro -%}            
 
-{%- macro button(type, enabled, url) %}
+{%- macro button(type, enabled, url, target) %}
     
     {% set style = {
-        filter:     { type: 'btn-default',icon: 'fa-filter' },
-        info:       { type: 'btn-primary',icon: 'fa-info-circle' },
-        add:        { type: 'btn-success',icon: 'fa-plus-circle' },
-        edit:       { type: 'btn-default',icon: 'fa-edit' },
-        remove:     { type: 'btn-danger',icon: 'fa-times-circle' },
-        details:    { type: 'btn-default',icon: 'fa-list-alt' }, 
-        dashboard:  { type: 'btn-default',icon: 'fa-desktop' },
+        send_message:   { type: 'btn-primary', icon: 'fa-envelope-o' },
+        filter:    { type: 'btn-default', icon: 'fa-filter' },
+        info:      { type: 'btn-primary', icon: 'fa-info-circle' },
+        add:       { type: 'btn-success', icon: 'fa-plus-circle' },
+        edit:      { type: 'btn-default', icon: 'fa-edit' },
+        remove:    { type: 'btn-danger',  icon: 'fa-times-circle' },
+        details:   { type: 'btn-default', icon: 'fa-list-alt' }, 
+        dashboard: { type: 'btn-default', icon: 'fa-desktop' },
     } %}
     
 <a title="{{ ('common.'~type)|trans }}"
+   {%if target is not empty%}target="{{ target }}"{% endif %}
    href="{%if url is not empty%}{{ url }}{%else%}javascript:void(null){%endif%}"
    class="{{ type }} btn btn-xs{% if enabled is sameas(false)%} btn-default disabled{%else%} {{ style[type].type }}{%endif%}">
     <i class="{{ style[type].icon }} fa fa-lg"></i>

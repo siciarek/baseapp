@@ -12,6 +12,9 @@ Type: Typ
 Description: Opis
 Previous: Poprz.
 Next: Nast.
+Subject: Temat
+Attachments: Załączniki
+Body: Treść
 
 # Dialogs
 dialog:
@@ -49,6 +52,7 @@ common:
     send: Wyślij
     submit: Wyślij
     download: Pobierz
+    send_message: Wyślij wiadomość
 
 user:
     signin: Zaloguj się

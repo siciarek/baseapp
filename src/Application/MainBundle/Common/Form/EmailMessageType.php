@@ -13,10 +13,18 @@ class EmailMessageType extends AbstractType {
         $builder
                 ->add('name', 'text', [
                     'required' => false,
+                    'trim' => true,
                 ])
-                ->add('email', 'text')
-                ->add('subject', 'text')
-                ->add('body', 'ckeditor')
+                ->add('email', 'email', [
+                    'trim' => true,
+                ])
+                ->add('subject', 'text', [
+                    'trim' => true,
+                ])
+                ->add('body', 'ckeditor', [
+                    'config_name' => 'email',
+                    'trim' => true,
+                ])
                 ->add('attachments', 'file', [
                     'required' => false,
                 ])
