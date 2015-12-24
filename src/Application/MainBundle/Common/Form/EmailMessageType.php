@@ -26,6 +26,7 @@ class EmailMessageType extends AbstractType {
                     'trim' => true,
                 ])
                 ->add('attachments', 'file', [
+                    'multiple' => true,
                     'required' => false,
                 ])
                 ->add('save', 'submit')
