@@ -13,7 +13,7 @@
             <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/{{ bootstrapVersion }}/css/bootstrap.min.css">
             <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/{{ bootstrapVersion }}/css/bootstrap-theme.min.css">
             <link rel="stylesheet" href="//plugins.krajee.com/assets/4b1a3b2e/css/checkbox-x.min.css">
-            
+
             <link rel="stylesheet" href="{{ asset('bundles/applicationmain/css/main.css') }}">
             <link rel="stylesheet" href="{{ asset('bundles/applicationmain/css/dialogs.css') }}">
         {% endblock %}
@@ -33,32 +33,52 @@
         {{ macros.bs_menu('main') }}
 
         <div class="container">
+            {% set style = {
+                error: 'danger',
+                warning: 'warning',
+                info: 'info',
+                success: 'success'
+            } %}
+
+            {% for type in ['success', 'error', 'warning', 'info'] %}
+                {% if app.session.flashBag.has(type) %}
+                    <div class="top alert alert-{{ style[type] }}">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> 
+                        <ul>
+                            {% for msg in app.session.flashBag.get(type) %}
+                                <li>{{ msg|trans }}</li>
+                                {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            
             {% block body %}
-                 {% block fos_user_content %}{% endblock %}
-            {% endblock %}
-        </div>
-
-        {{ translations() }}
-
-        {% block javascripts %}
-            <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-            {% if app.environment == 'prod' %}
-                <script src="{{ asset('js/fos_js_routes.js') }}"></script>
-            {% else %}
-                <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-            {% endif %}
-
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/{{ jqueryVersion }}/jquery.min.js"></script>
-            <script src="//maxcdn.bootstrapcdn.com/bootstrap/{{ bootstrapVersion }}/js/bootstrap.min.js"></script>
-            <script src="//plugins.krajee.com/assets/4b1a3b2e/js/checkbox-x.min.js" type="text/javascript"></script>
-            <script src="{{ asset('bundles/ivoryckeditor/ckeditor.js') }}"></script>
-
-            <script src="{{ asset('bundles/applicationmain/js/common.js') }}"></script>
-            <script src="{{ asset('bundles/applicationmain/js/dialogs.js') }}"></script>
-
+            {% block fos_user_content %}{% endblock %}
         {% endblock %}
+    </div>
 
-        {% include '::dialogs.html.twig' %}
+    {{ translations() }}
 
-    </body>
+    {% block javascripts %}
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        {% if app.environment == 'prod' %}
+            <script src="{{ asset('js/fos_js_routes.js') }}"></script>
+        {% else %}
+            <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+        {% endif %}
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/{{ jqueryVersion }}/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/{{ bootstrapVersion }}/js/bootstrap.min.js"></script>
+        <script src="//plugins.krajee.com/assets/4b1a3b2e/js/checkbox-x.min.js" type="text/javascript"></script>
+        <script src="{{ asset('bundles/ivoryckeditor/ckeditor.js') }}"></script>
+
+        <script src="{{ asset('bundles/applicationmain/js/common.js') }}"></script>
+        <script src="{{ asset('bundles/applicationmain/js/dialogs.js') }}"></script>
+
+    {% endblock %}
+
+    {% include '::dialogs.html.twig' %}
+
+</body>
 </html>

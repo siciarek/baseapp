@@ -53,7 +53,8 @@ common:
     submit: Wyślij
     download: Pobierz
     send_message: Wyślij wiadomość
-
+    email:
+        send_successfully: Wiadomośc została nadana z powodzeniem.
 user:
     signin: Zaloguj się
     signout: Wyloguj się
