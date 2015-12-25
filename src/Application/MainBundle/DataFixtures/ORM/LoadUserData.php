@@ -25,10 +25,10 @@ class LoadUserData extends BasicFixture {
                 'lastname' => null,
                 'dob' => null,
                 'gender' => \Sonata\UserBundle\Model\UserInterface::GENDER_UNKNOWN,
-                'password' => null,
+                'password' => $this->getContainer()->getParameter('secret'),
                 'email' => 'siciarek@hotmail.com',
                 'groups' => [
-                    'Superadmins',
+
                 ]
             ],
             [

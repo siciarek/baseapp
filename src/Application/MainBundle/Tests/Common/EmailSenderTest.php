@@ -27,7 +27,7 @@ class EmailSenderTest extends WebTestCase {
      */
     public function testSend() {
 
-        $command = sprintf('%s %s %s', 'c:/php/php.exe', $this->getContainer()->get('kernel')->getRootDir() . '/console', '--no-ansi swiftmailer:spool:send --env=test');
+        $command = sprintf('%s %s %s', PHP_BINARY, $this->getContainer()->get('kernel')->getRootDir() . '/console', '--no-ansi swiftmailer:spool:send --env=test');
 
         `ant ccx`;
 
@@ -43,7 +43,7 @@ class EmailSenderTest extends WebTestCase {
     }
 
     public function tearDown() {
-
+        
     }
 
     public function setUp() {

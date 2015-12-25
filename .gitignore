@@ -2,11 +2,13 @@ nbproject
 .idea
 php.ini
 /temp*
+/doc
 
 /behat.yml
 sync
 sync.bat
 go
+go.bat
 
 /src/Application/MainBundle/Controller/TestController.php
 /src/Application/MainBundle/Resources/views/Test
