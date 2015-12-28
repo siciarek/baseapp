@@ -3,6 +3,7 @@ nbproject
 php.ini
 /temp*
 /doc
+/web/phpdoc
 
 /utils/dumpdb/dumpdb.cnf
 /utils/dumpdb/extra
