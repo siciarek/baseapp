@@ -4,9 +4,10 @@ php.ini
 /temp*
 /doc
 
-/tools/dumpdb/dumpdb.cnf
-/tools/dumpdb/extra
-/tools/dumpdb/extra.bat
+/utils/dumpdb/dumpdb.cnf
+/utils/dumpdb/extra
+/utils/dumpdb/extra.bat
+/utils/dumpdb/*.sql
 
 /behat.yml
 sync

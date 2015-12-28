@@ -1,4 +1,6 @@
 services:
+    request:
+        class: Symfony\Component\HttpFoundation\Request
 
     app.form.email.message:
         class: Application\MainBundle\Common\Form\EmailMessageType

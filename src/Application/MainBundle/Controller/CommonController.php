@@ -60,14 +60,29 @@ abstract class CommonController extends Controller {
         return $this->getJsonResponse($frame);
     }
 
+
     /**
      * Returns json response.
      */
     protected function getJsonResponse($data) {
+        $request = $this->get('request');
+        
         $json = json_encode($data, JSON_PRETTY_PRINT);
-        $response = new Response($json, 200, [ 'Content-Type' => 'application/json']);
+        
+        $contentType = 'application/json';
+        $content = $json;
+
+        // <jsonp>
+        $callback = $request->get('callback');
+
+        if ($callback !== null) {
+            $contentType = 'application/javascript';
+            $content = sprintf('%s(%s);', $callback, $json);
+        }
+        // </jsonp>
+        
+        $response = new Response($content, 200, [ 'Content-Type' => $contentType ]);
 
         return $response;
     }
-
 }
