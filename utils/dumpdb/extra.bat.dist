@@ -1,0 +1,13 @@
+@ECHO OFF
+
+set CONFIG=%~dp0dumpdb.cnf
+
+REM Read data from configuration file:
+for /f "delims=" %%x in (%CONFIG%) do (ECHO %%x)
+for /f "delims=" %%x in (%CONFIG%) do (set "%%x")
+
+echo.
+echo # EXTRA:
+echo.
+echo SOME EXTRA LOGIC
+

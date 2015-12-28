@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+CONFIG=`dirname $0`/dumpdb.cnf
+# Read data from configuration file:
+
+cat $CONFIG
+source $CONFIG
+
+echo
+echo MAKING TIDY:
+
+rm -fv *.sql
+
+echo
+echo CREATE QUERY FOR LOCAL DATABASE CREATION:
+
+echo SET NAMES utf8\; > createdb.sql
+echo >> createdb.sql
+echo use information_schema\; >> createdb.sql
+echo >> createdb.sql
+echo DROP DATABASE $TARGET_DB_NAME\; >> createdb.sql
+echo CREATE DATABASE $TARGET_DB_NAME\; >> createdb.sql
+echo >> createdb.sql
+echo use $TARGET_DB_NAME\; >> createdb.sql
+echo >> createdb.sql
+echo \\. $TARGET_DIR/$TARGET_DB_NAME.sql >> createdb.sql
+echo >> createdb.sql
+
+echo
+echo \# 1/4 DUMP DATABASE ON REMOTE SERVER:
+echo
+$SSH_CLI -p $SOURCE_PORT $SOURCE_USER@$SOURCE_HOST "mysqldump -r$SOURCE_DIR/$SOURCE_DB_NAME.sql -h$SOURCE_DB_HOST -u$SOURCE_DB_USER -p$SOURCE_DB_PASS $SOURCE_DB_NAME"
+
+echo
+echo \# 2/4 DOWNLOAD DATABASE DUMP FROM REMOTE SERVER TO LOCAL DIRECTORY:
+echo
+$SCP_CLI -P $SOURCE_PORT $SOURCE_USER@$SOURCE_HOST:$SOURCE_DIR/$SOURCE_DB_NAME.sql $TARGET_DIR/$TARGET_DB_NAME.sql
+
+echo
+echo \# 3/4 MAKE TIDY ON REMOTE SERVER:
+echo
+$SSH_CLI -p $SOURCE_PORT $SOURCE_USER@$SOURCE_HOST "rm -rfv $SOURCE_DIR/$SOURCE_DB_NAME.sql"
+
+echo
+echo # 4/4 RUN QUERY ON LOCAL DATABASE SERVER:
+echo
+$MYSQL_CLI -v -v -v --user=$TARGET_DB_USER --pass=$TARGET_DB_PASS --host=$TARGET_DB_HOST < $TARGET_DIR/createdb.sql | grep "Query OK"
+
+# Extra logic ie. Uploading files
+if [ -f extra ]; then . extra ;fi
+
+echo
+echo DONE.
+echo
