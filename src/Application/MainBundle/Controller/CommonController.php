@@ -16,7 +16,9 @@ abstract class CommonController extends Controller {
      * @param boolean $array czy zwracać jako tablicę
      * @return array|mixed
      */
-    protected function getJsonRequest(Request $request, $array = true) {
+    protected function getJsonRequest($array = true) {
+        
+        $request = $this->get('request');
         $input = $request->get('json');
 
         if ($input === null) {
