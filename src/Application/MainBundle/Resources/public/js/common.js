@@ -1,3 +1,15 @@
+Array.prototype.contains = function (e, strict) {
+    strict = strict || false;
+
+    for (var i = 0; i < this.length; i++) {
+        if (strict === true && this[i] === e || strict === false && this[i] == e) {
+            return true;
+        }
+    }
+
+    return false;
+};
+
 /**
  * Zwraca ramkę requestu
  *
@@ -10,7 +22,7 @@ function getRequestFrame(data, msg) {
     data = data || {};
     msg = msg || 'Request';
 
-    var normalize = function(e) {
+    var normalize = function (e) {
         return ('0' + e).replace(/^.*(\d\d)$/, '$1');
     };
 
@@ -25,7 +37,7 @@ function getRequestFrame(data, msg) {
         d.getMinutes(),
         d.getSeconds()
     ].map(normalize);
-    
+
     var datetime = [date.join('-'), time.join(':')].join(' ');
 
     return {
@@ -52,11 +64,11 @@ function getRequestFrameJson(data, msg) {
 
 function sendJsonp(url, data, successCallback, async) {
 
-    if(typeof async === 'undefined')  {
+    if (typeof async === 'undefined') {
         async = true;
     }
 
-    successCallback = successCallback || function(data) {};
+    successCallback = successCallback || function (data) {};
 
     return $.ajax({
         dataType: 'jsonp',
@@ -73,7 +85,7 @@ function sendJsonp(url, data, successCallback, async) {
                 Spinner.hide();
                 if (resp.type == 'error') {
                     var msg = resp.msg;
-                    if(resp.data.messages !== undefined) {
+                    if (resp.data.messages !== undefined) {
                         msg = resp.data.messages.join("\n")
                     }
                     Dialog.error(msg);
@@ -83,7 +95,7 @@ function sendJsonp(url, data, successCallback, async) {
             }
         },
         error: function (resp) {
-            if(resp.statusText == 'Forbiden') {
+            if (resp.statusText == 'Forbiden') {
                 spinner();
                 location.href = Routing.generate('fos_user_security_logout');
                 return;
