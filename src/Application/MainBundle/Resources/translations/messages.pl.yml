@@ -23,6 +23,14 @@ History: Historia
 Note: Notatka
 User: Użytkownik
 
+datetime:
+    yesterday: Wczoraj
+    lastweek: Ostatni tydzień
+    lastmonth: Ostatni miesiąc
+    lastquarter: Ostatni kwartał
+    lastyear: Ostatni rok
+    daterange: Okres od-do
+
 # Dialogs
 dialog:
     error: Błąd
@@ -41,6 +49,7 @@ person: Osoba
 organisation: Organizacja
 
 common:
+    change: Zmień
     ok: OK
     yes: Tak
     no: Nie

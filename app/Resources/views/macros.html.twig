@@ -39,7 +39,7 @@
     {% endif %}
 {% endmacro -%}
 
-{% macro bs_menu(menu) %}
+{% macro bs_menu(menu, icon) %}
 <div class="navbar navbar-inverse navbar-static-top">
     <div class="container">
         <div class="navbar-header">
@@ -50,7 +50,8 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ url('default.home') }}">
-                <i class="fa fa-hashtag fa-lg fa-fw"></i><strong>{{ app_name }}</strong>
+                {%if icon is defined %}{{ icon }}{%endif%}
+                <strong>{{ app_name }}</strong>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-navbar-{{ menu }}-collapse">
