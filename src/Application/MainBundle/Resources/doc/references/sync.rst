@@ -9,7 +9,7 @@ Excluded files list
 
 You can place following list in the file /app/config/rsync_exclude.txt
 
-..code-block:: bash
+.. code-block:: bash
 
     *~
     *bak
@@ -47,9 +47,9 @@ You can place following list in the file /app/config/rsync_exclude.txt
 Excecutable script
 ==================
 
-You can place the script in main project directory eg. `./script`
+You can place the script in main project directory eg. `./sync`
 
-..code-block:: bash
+.. code-block:: bash
 
     #!/usr/bin/env bash
 
@@ -88,3 +88,8 @@ You can place the script in main project directory eg. `./script`
     --delete \
     --exclude-from=app/config/rsync_exclude.txt \
     $SOURCE $TARGET
+
+    if [ "$1" = "--go" ]
+    then
+        ssh -p $REMOTE_PORT -i $PRIVATE_KEY $REMOTE_USER@$REMOTE_HOST "cd $REMOTE_DIR;bash ./go"
+    fi

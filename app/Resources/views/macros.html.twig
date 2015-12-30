@@ -51,7 +51,7 @@
             </button>
             <a class="navbar-brand" href="{{ url('default.home') }}">
                 {%if icon is defined %}{{ icon }}{%endif%}
-                <strong>{{ app_name }}</strong>
+                <strong>{{ app_name|trans({}, 'ApplicationMainBundle') }}</strong>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-navbar-{{ menu }}-collapse">
