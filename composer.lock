@@ -296,12 +296,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "da201c5a23b9c19e275d27937f8db221dc608bf1"
+                "reference": "bc23e0f46da064cbc53c1b1243472477487ef754"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/da201c5a23b9c19e275d27937f8db221dc608bf1",
-                "reference": "da201c5a23b9c19e275d27937f8db221dc608bf1",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/619c3d4910205255c6cc637adb97fec16eaca532",
+                "reference": "bc23e0f46da064cbc53c1b1243472477487ef754",
                 "shasum": ""
             },
             "require": {
@@ -358,7 +358,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2015-12-03 10:46:43"
+            "time": "2015-12-19 04:57:29"
         },
         {
             "name": "doctrine/collections",
@@ -436,7 +436,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/6065c0756da7dc286b8221107ade4c70298b1eba",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/773c56e51fc26ae07a47146fae31b320dd6cada3",
                 "reference": "6065c0756da7dc286b8221107ade4c70298b1eba",
                 "shasum": ""
             },
@@ -562,12 +562,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "2241ee4b3aaed07194fc44e103050dda618e93c8"
+                "reference": "de6c0bd243d058eb9f086144a6fed9d435737c78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/2241ee4b3aaed07194fc44e103050dda618e93c8",
-                "reference": "2241ee4b3aaed07194fc44e103050dda618e93c8",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/de6c0bd243d058eb9f086144a6fed9d435737c78",
+                "reference": "de6c0bd243d058eb9f086144a6fed9d435737c78",
                 "shasum": ""
             },
             "require": {
@@ -625,7 +625,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2015-11-28 01:55:57"
+            "time": "2015-12-15 18:16:51"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -633,12 +633,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "a6ef2a0c1655cb0fa0d3e8e93df908a779504e55"
+                "reference": "1b7261af4cedb10080bb56a070c16be2754c75bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/a6ef2a0c1655cb0fa0d3e8e93df908a779504e55",
-                "reference": "a6ef2a0c1655cb0fa0d3e8e93df908a779504e55",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/1b7261af4cedb10080bb56a070c16be2754c75bb",
+                "reference": "1b7261af4cedb10080bb56a070c16be2754c75bb",
                 "shasum": ""
             },
             "require": {
@@ -704,7 +704,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2015-12-05 10:23:22"
+            "time": "2015-12-17 13:17:10"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -712,12 +712,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineCacheBundle.git",
-                "reference": "030ff41ef1db66370b36467086bfb817a661fe6a"
+                "reference": "5f8a9a9c7c3395e9c5dd0562a51221d434592567"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/030ff41ef1db66370b36467086bfb817a661fe6a",
-                "reference": "030ff41ef1db66370b36467086bfb817a661fe6a",
+                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/5f8a9a9c7c3395e9c5dd0562a51221d434592567",
+                "reference": "5f8a9a9c7c3395e9c5dd0562a51221d434592567",
                 "shasum": ""
             },
             "require": {
@@ -731,6 +731,7 @@
                 "instaclick/object-calisthenics-sniffs": "dev-master",
                 "instaclick/symfony2-coding-standard": "dev-remaster",
                 "phpunit/phpunit": "~4",
+                "predis/predis": "~0.8",
                 "satooshi/php-coveralls": "~0.6.1",
                 "squizlabs/php_codesniffer": "~1.5",
                 "symfony/console": "~2.2|~3.0",
@@ -791,7 +792,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2015-11-27 04:59:07"
+            "time": "2015-12-15 19:13:11"
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",
@@ -1085,16 +1086,16 @@
         },
         {
             "name": "doctrine/migrations",
-            "version": "dev-master",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "b386d2a17634192fc406acc4090d58eb6e903ca5"
+                "reference": "57e50714fcb34235cf055edc409e169b8d7af690"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/b386d2a17634192fc406acc4090d58eb6e903ca5",
-                "reference": "b386d2a17634192fc406acc4090d58eb6e903ca5",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/57e50714fcb34235cf055edc409e169b8d7af690",
+                "reference": "57e50714fcb34235cf055edc409e169b8d7af690",
                 "shasum": ""
             },
             "require": {
@@ -1149,7 +1150,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2015-11-26 11:16:07"
+            "time": "2015-12-15 21:46:29"
         },
         {
             "name": "doctrine/orm",
@@ -1230,12 +1231,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/egeloen/IvoryCKEditorBundle.git",
-                "reference": "da7c2264ba89d834677749e4f041c6a3731eec72"
+                "reference": "f6db6290bee8d83736461245848d6f3b5f0b1925"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/da7c2264ba89d834677749e4f041c6a3731eec72",
-                "reference": "da7c2264ba89d834677749e4f041c6a3731eec72",
+                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/f6db6290bee8d83736461245848d6f3b5f0b1925",
+                "reference": "f6db6290bee8d83736461245848d6f3b5f0b1925",
                 "shasum": ""
             },
             "require": {
@@ -1280,7 +1281,7 @@
             "keywords": [
                 "CKEditor"
             ],
-            "time": "2015-12-09 10:54:32"
+            "time": "2015-12-12 16:44:59"
         },
         {
             "name": "egeloen/json-builder",
@@ -1386,12 +1387,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git",
-                "reference": "e481171a0826e9372bfec28acd6bf5fb50c4106a"
+                "reference": "d30173ee08c1b0073d000c35123fbdd227157574"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/e481171a0826e9372bfec28acd6bf5fb50c4106a",
-                "reference": "e481171a0826e9372bfec28acd6bf5fb50c4106a",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/d30173ee08c1b0073d000c35123fbdd227157574",
+                "reference": "d30173ee08c1b0073d000c35123fbdd227157574",
                 "shasum": ""
             },
             "require": {
@@ -1437,7 +1438,7 @@
                 "javascript",
                 "routing"
             ],
-            "time": "2015-11-10 12:47:06"
+            "time": "2015-12-16 08:01:24"
         },
         {
             "name": "friendsofsymfony/rest-bundle",
@@ -1446,17 +1447,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "393ab88f22486c5bfa4a146e18d7060dd6f11797"
+                "reference": "96f4876fcc18a368865b4c5411c99f7ec55a5a1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/393ab88f22486c5bfa4a146e18d7060dd6f11797",
-                "reference": "393ab88f22486c5bfa4a146e18d7060dd6f11797",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/649ea02e7b20838d8a2027819ba7ecc73431ca3a",
+                "reference": "96f4876fcc18a368865b4c5411c99f7ec55a5a1e",
                 "shasum": ""
             },
             "require": {
                 "doctrine/inflector": "~1.0",
-                "php": ">=5.3.9",
+                "php": "^5.3.9|~7.0",
                 "psr/log": "~1.0",
                 "symfony/framework-bundle": "~2.3|~3.0",
                 "symfony/http-kernel": "^2.3.24|~3.0",
@@ -1518,12 +1519,12 @@
                     "email": "ever.zet@gmail.com"
                 }
             ],
-            "description": "This Bundle provides various tools to rapidly develop RESTful API's with Symfony2",
+            "description": "This Bundle provides various tools to rapidly develop RESTful API's with Symfony",
             "homepage": "http://friendsofsymfony.github.com",
             "keywords": [
                 "rest"
             ],
-            "time": "2015-12-05 11:28:10"
+            "time": "2015-12-21 11:00:29"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -1598,12 +1599,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "b034ce065759ffb74179f9ce3873473e12854164"
+                "reference": "7e7fc55fa3fad79031727fbc7d8e418b641be875"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/b034ce065759ffb74179f9ce3873473e12854164",
-                "reference": "b034ce065759ffb74179f9ce3873473e12854164",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/f3bcda50bd6337718ac047fe1d0bd147f52e5e0a",
+                "reference": "7e7fc55fa3fad79031727fbc7d8e418b641be875",
                 "shasum": ""
             },
             "require": {
@@ -1669,7 +1670,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2015-12-01 07:05:39"
+            "time": "2015-12-18 20:34:21"
         },
         {
             "name": "gregwar/captcha",
@@ -1725,19 +1726,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Gregwar/CaptchaBundle.git",
-                "reference": "d328f215b21faa7d731bfd641cc69570473d7834"
+                "reference": "f06ff4d2c2d5aabe681f027ee179ac91fbda0e33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Gregwar/CaptchaBundle/zipball/d328f215b21faa7d731bfd641cc69570473d7834",
-                "reference": "d328f215b21faa7d731bfd641cc69570473d7834",
+                "url": "https://api.github.com/repos/Gregwar/CaptchaBundle/zipball/f06ff4d2c2d5aabe681f027ee179ac91fbda0e33",
+                "reference": "f06ff4d2c2d5aabe681f027ee179ac91fbda0e33",
                 "shasum": ""
             },
             "require": {
                 "gregwar/captcha": "~1.1",
-                "php": ">=5.5.0",
-                "symfony/form": "~2.1 || ~3.0",
-                "symfony/framework-bundle": "~2.1 || ~3.0"
+                "php": ">=5.3.9",
+                "symfony/form": "~2.1|~3.0",
+                "symfony/framework-bundle": "~2.1|~3.0"
             },
             "type": "captcha-bundle",
             "autoload": {
@@ -1771,7 +1772,7 @@
                 "spam",
                 "visual"
             ],
-            "time": "2015-12-07 13:25:30"
+            "time": "2015-12-13 11:12:45"
         },
         {
             "name": "hwi/oauth-bundle",
@@ -1783,7 +1784,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/86b5a876224b8a26707813aa94d3637886aa2041",
+                "url": "https://api.github.com/repos/hwi/HWIOAuthBundle/zipball/d008f958e99b4d45a69f7c2bdb895db28e54d521",
                 "reference": "86b5a876224b8a26707813aa94d3637886aa2041",
                 "shasum": ""
             },
@@ -2076,22 +2077,25 @@
         },
         {
             "name": "jms/aop-bundle",
-            "version": "dev-master",
-            "target-dir": "JMS/AopBundle",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSAopBundle.git",
-                "reference": "66287749c020b4c667c0ff4937b07e66c04bbe71"
+                "reference": "78000d007e74283cc564a58e184d7f62548ad394"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSAopBundle/zipball/66287749c020b4c667c0ff4937b07e66c04bbe71",
-                "reference": "66287749c020b4c667c0ff4937b07e66c04bbe71",
+                "url": "https://api.github.com/repos/schmittjoh/JMSAopBundle/zipball/78000d007e74283cc564a58e184d7f62548ad394",
+                "reference": "78000d007e74283cc564a58e184d7f62548ad394",
                 "shasum": ""
             },
             "require": {
                 "jms/cg": "^1.1",
-                "symfony/framework-bundle": "2.*"
+                "php": ">=5.3.9",
+                "symfony/framework-bundle": "^2.3|^3.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^2.7"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -2100,8 +2104,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "JMS\\AopBundle": ""
+                "psr-4": {
+                    "JMS\\AopBundle\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2119,7 +2123,7 @@
                 "annotations",
                 "aop"
             ],
-            "time": "2015-09-13 09:02:33"
+            "time": "2015-12-09 16:30:46"
         },
         {
             "name": "jms/cg",
@@ -2322,12 +2326,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSecurityExtraBundle.git",
-                "reference": "75bd0f773b1c645d70eb6174fff67ba5779a291e"
+                "reference": "bbd5eb78da4d510478f1bb60959feefac083d474"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSSecurityExtraBundle/zipball/75bd0f773b1c645d70eb6174fff67ba5779a291e",
-                "reference": "75bd0f773b1c645d70eb6174fff67ba5779a291e",
+                "url": "https://api.github.com/repos/schmittjoh/JMSSecurityExtraBundle/zipball/bbd5eb78da4d510478f1bb60959feefac083d474",
+                "reference": "bbd5eb78da4d510478f1bb60959feefac083d474",
                 "shasum": ""
             },
             "require": {
@@ -2335,6 +2339,7 @@
                 "jms/di-extra-bundle": "~1.3",
                 "jms/metadata": "~1.0",
                 "jms/parser-lib": "~1.0",
+                "php": "~5.3",
                 "symfony/framework-bundle": "~2.1",
                 "symfony/security-bundle": "*"
             },
@@ -2382,7 +2387,7 @@
                 "secure",
                 "security"
             ],
-            "time": "2015-06-25 13:44:57"
+            "time": "2015-12-17 19:00:10"
         },
         {
             "name": "jms/serializer",
@@ -2533,12 +2538,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/DoctrineBehaviors.git",
-                "reference": "a52a92a7b1a7cb37e3440c5d8456f9405be5fef1"
+                "reference": "32a022720b5c2ba1489b43af978af6b916233f2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/a52a92a7b1a7cb37e3440c5d8456f9405be5fef1",
-                "reference": "a52a92a7b1a7cb37e3440c5d8456f9405be5fef1",
+                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/32a022720b5c2ba1489b43af978af6b916233f2a",
+                "reference": "32a022720b5c2ba1489b43af978af6b916233f2a",
                 "shasum": ""
             },
             "require": {
@@ -2591,7 +2596,7 @@
                 "translatable",
                 "tree"
             ],
-            "time": "2015-11-17 13:43:51"
+            "time": "2015-12-18 13:42:46"
         },
         {
             "name": "knplabs/gaufrette",
@@ -2817,12 +2822,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
-                "reference": "675a8f87d972713b1abec06e5ed63043e7fd5aec"
+                "reference": "92e969ce3d577997f191839b5540502796216966"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/675a8f87d972713b1abec06e5ed63043e7fd5aec",
-                "reference": "675a8f87d972713b1abec06e5ed63043e7fd5aec",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/92e969ce3d577997f191839b5540502796216966",
+                "reference": "92e969ce3d577997f191839b5540502796216966",
                 "shasum": ""
             },
             "require": {
@@ -2866,7 +2871,7 @@
             "keywords": [
                 "menu"
             ],
-            "time": "2015-11-13 10:51:46"
+            "time": "2015-12-18 16:16:01"
         },
         {
             "name": "knplabs/knp-paginator-bundle",
@@ -3000,12 +3005,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpSnappyBundle.git",
-                "reference": "efda38a2f9eb47830eb2a7642541abaaf5a1d34f"
+                "reference": "ead0b44c6a9a96c1817710cd854665ee755afe04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpSnappyBundle/zipball/efda38a2f9eb47830eb2a7642541abaaf5a1d34f",
-                "reference": "efda38a2f9eb47830eb2a7642541abaaf5a1d34f",
+                "url": "https://api.github.com/repos/KnpLabs/KnpSnappyBundle/zipball/ead0b44c6a9a96c1817710cd854665ee755afe04",
+                "reference": "ead0b44c6a9a96c1817710cd854665ee755afe04",
                 "shasum": ""
             },
             "require": {
@@ -3018,7 +3023,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2.x-dev"
+                    "dev-master": "1.5.x-dev"
                 }
             },
             "autoload": {
@@ -3049,7 +3054,7 @@
                 "pdf",
                 "snappy"
             ],
-            "time": "2015-11-11 17:40:14"
+            "time": "2015-12-15 10:11:19"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -3179,16 +3184,15 @@
         {
             "name": "liuggio/ExcelBundle",
             "version": "dev-master",
-            "target-dir": "Liuggio/ExcelBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/liuggio/ExcelBundle.git",
-                "reference": "49fd57f3053e26b5a6b3917cc7f7f01e422b8ca6"
+                "reference": "a6424eef60d5a9201146d6820de7d75bb2be79bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liuggio/ExcelBundle/zipball/49fd57f3053e26b5a6b3917cc7f7f01e422b8ca6",
-                "reference": "49fd57f3053e26b5a6b3917cc7f7f01e422b8ca6",
+                "url": "https://api.github.com/repos/liuggio/ExcelBundle/zipball/a6424eef60d5a9201146d6820de7d75bb2be79bc",
+                "reference": "a6424eef60d5a9201146d6820de7d75bb2be79bc",
                 "shasum": ""
             },
             "require": {
@@ -3212,8 +3216,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Liuggio\\ExcelBundle": ""
+                "psr-4": {
+                    "Liuggio\\ExcelBundle\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3238,7 +3242,7 @@
                 "excel",
                 "xls"
             ],
-            "time": "2015-11-25 17:18:04"
+            "time": "2015-12-22 11:22:03"
         },
         {
             "name": "michelf/php-markdown",
@@ -3293,16 +3297,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "dev-master",
+            "version": "1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "cab3ff71ffc802af272928ff71341cfc51e8ee98"
+                "reference": "592af02d0c9a7f6c8a345958d8db5d068cf51147"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/cab3ff71ffc802af272928ff71341cfc51e8ee98",
-                "reference": "cab3ff71ffc802af272928ff71341cfc51e8ee98",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/592af02d0c9a7f6c8a345958d8db5d068cf51147",
+                "reference": "592af02d0c9a7f6c8a345958d8db5d068cf51147",
                 "shasum": ""
             },
             "require": {
@@ -3341,7 +3345,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.18.x-dev"
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -3367,7 +3371,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-11-26 23:48:42"
+            "time": "2015-12-18 18:24:15"
         },
         {
             "name": "nelmio/api-doc-bundle",
@@ -3376,12 +3380,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "19d4e37365edd5104e31662a2d3b510d92a7e78a"
+                "reference": "1ae2cfa9a50279d722d6b6e7b02322cef948d55d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/19d4e37365edd5104e31662a2d3b510d92a7e78a",
-                "reference": "19d4e37365edd5104e31662a2d3b510d92a7e78a",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/1ae2cfa9a50279d722d6b6e7b02322cef948d55d",
+                "reference": "1ae2cfa9a50279d722d6b6e7b02322cef948d55d",
                 "shasum": ""
             },
             "require": {
@@ -3451,7 +3455,7 @@
                 "documentation",
                 "rest"
             ],
-            "time": "2015-12-08 13:19:42"
+            "time": "2015-12-16 15:17:51"
         },
         {
             "name": "nelmio/security-bundle",
@@ -3463,7 +3467,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioSecurityBundle/zipball/bde4ac531edd8ed5db9b23142d3f2be2f70399ba",
+                "url": "https://api.github.com/repos/nelmio/NelmioSecurityBundle/zipball/4a7e83af534db04d35aa8962fee3cd7270f50231",
                 "reference": "bde4ac531edd8ed5db9b23142d3f2be2f70399ba",
                 "shasum": ""
             },
@@ -3560,7 +3564,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/6f43f0429b67c772381e64409496a7d1c77d8b66",
+                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/7eb10adb3b78292d3d3f098151f13daf1c0afbcf",
                 "reference": "6f43f0429b67c772381e64409496a7d1c77d8b66",
                 "shasum": ""
             },
@@ -3773,12 +3777,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "a79e205737b58d557c05caef6dfa8f94d8084bca"
+                "reference": "3e8936fe13aa4086644977d334d8fcd275f50357"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/a79e205737b58d557c05caef6dfa8f94d8084bca",
-                "reference": "a79e205737b58d557c05caef6dfa8f94d8084bca",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/3e8936fe13aa4086644977d334d8fcd275f50357",
+                "reference": "3e8936fe13aa4086644977d334d8fcd275f50357",
                 "shasum": ""
             },
             "require": {
@@ -3820,7 +3824,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2015-10-28 15:47:04"
+            "time": "2015-12-18 17:39:27"
         },
         {
             "name": "sensiolabs/security-checker",
@@ -3873,12 +3877,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/siciarek/SiciarekJsTransBundle.git",
-                "reference": "c8df1ae42a75f66322e37e16be54ee8d5e936397"
+                "reference": "d3407d9ed4725dd89ddad1b277c492d4e079e2b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/siciarek/SiciarekJsTransBundle/zipball/c8df1ae42a75f66322e37e16be54ee8d5e936397",
-                "reference": "c8df1ae42a75f66322e37e16be54ee8d5e936397",
+                "url": "https://api.github.com/repos/siciarek/SiciarekJsTransBundle/zipball/d3407d9ed4725dd89ddad1b277c492d4e079e2b7",
+                "reference": "d3407d9ed4725dd89ddad1b277c492d4e079e2b7",
                 "shasum": ""
             },
             "require": {
@@ -3930,7 +3934,7 @@
                 "symfony",
                 "translation"
             ],
-            "time": "2015-11-25 22:18:40"
+            "time": "2015-12-29 17:13:14"
         },
         {
             "name": "sonata-project/admin-bundle",
@@ -3938,18 +3942,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "9e8f0e60c78b6b410ed896079a6f86ecde491e42"
+                "reference": "d36d74e365b20b2cb933c3b8aaa93501ccbd6728"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/9e8f0e60c78b6b410ed896079a6f86ecde491e42",
-                "reference": "9e8f0e60c78b6b410ed896079a6f86ecde491e42",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/18c495e1f2febb8ac46065d0e4c524c3aeea99df",
+                "reference": "d36d74e365b20b2cb933c3b8aaa93501ccbd6728",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "~2.2",
                 "doctrine/inflector": "~1.0",
-                "knplabs/knp-menu-bundle": "dev-master",
+                "knplabs/knp-menu-bundle": "^2.1.1",
                 "sonata-project/block-bundle": "~2.3,>=2.3.9",
                 "sonata-project/core-bundle": "^2.3.10",
                 "sonata-project/exporter": "~1.0",
@@ -4016,7 +4020,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2015-12-09 11:12:09"
+            "time": "2015-12-18 19:48:03"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -4223,12 +4227,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "c2635cca5a907a89fde287fa7ec418e60db56e91"
+                "reference": "61ea0dc5e1e0ab7a8c2aac4f2a747e8531c2a779"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/c2635cca5a907a89fde287fa7ec418e60db56e91",
-                "reference": "c2635cca5a907a89fde287fa7ec418e60db56e91",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/61ea0dc5e1e0ab7a8c2aac4f2a747e8531c2a779",
+                "reference": "61ea0dc5e1e0ab7a8c2aac4f2a747e8531c2a779",
                 "shasum": ""
             },
             "require": {
@@ -4284,7 +4288,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2015-12-07 11:10:02"
+            "time": "2015-12-21 05:51:28"
         },
         {
             "name": "sonata-project/datagrid-bundle",
@@ -4292,12 +4296,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDatagridBundle.git",
-                "reference": "5f7106a80c318e209612fffac8c41d571e0c8770"
+                "reference": "0749e710b936bf84736c648eee16bc45e2c04607"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDatagridBundle/zipball/5f7106a80c318e209612fffac8c41d571e0c8770",
-                "reference": "5f7106a80c318e209612fffac8c41d571e0c8770",
+                "url": "https://api.github.com/repos/sonata-project/SonataDatagridBundle/zipball/0749e710b936bf84736c648eee16bc45e2c04607",
+                "reference": "0749e710b936bf84736c648eee16bc45e2c04607",
                 "shasum": ""
             },
             "require": {
@@ -4341,7 +4345,7 @@
                 "datagrid",
                 "sonata"
             ],
-            "time": "2015-12-02 22:35:45"
+            "time": "2015-12-16 08:53:13"
         },
         {
             "name": "sonata-project/doctrine-extensions",
@@ -4402,7 +4406,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/bd8fc14eba97a332fd70159f6f22cafdd5136876",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/e2044367a94de8c74239a1c987aa4c7428a2d565",
                 "reference": "bd8fc14eba97a332fd70159f6f22cafdd5136876",
                 "shasum": ""
             },
@@ -4643,12 +4647,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataIntlBundle.git",
-                "reference": "d4c23faa4c8223ce16caf526f45b1466cf5bda9e"
+                "reference": "6ba617ef740b496439b1bc84344963421174a78e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataIntlBundle/zipball/d4c23faa4c8223ce16caf526f45b1466cf5bda9e",
-                "reference": "d4c23faa4c8223ce16caf526f45b1466cf5bda9e",
+                "url": "https://api.github.com/repos/sonata-project/SonataIntlBundle/zipball/6ba617ef740b496439b1bc84344963421174a78e",
+                "reference": "6ba617ef740b496439b1bc84344963421174a78e",
                 "shasum": ""
             },
             "require": {
@@ -4699,7 +4703,7 @@
                 "sonata",
                 "time"
             ],
-            "time": "2015-12-09 10:16:43"
+            "time": "2015-12-11 14:46:42"
         },
         {
             "name": "sonata-project/media-bundle",
@@ -4707,12 +4711,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "9c58473f58c77fb864a1a9d291ee34ae1778bf1f"
+                "reference": "24b988f92272487b79fbb4ad10af7cdbe9254184"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/9c58473f58c77fb864a1a9d291ee34ae1778bf1f",
-                "reference": "9c58473f58c77fb864a1a9d291ee34ae1778bf1f",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/24b988f92272487b79fbb4ad10af7cdbe9254184",
+                "reference": "24b988f92272487b79fbb4ad10af7cdbe9254184",
                 "shasum": ""
             },
             "require": {
@@ -4791,7 +4795,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2015-12-03 16:52:47"
+            "time": "2015-12-19 05:27:06"
         },
         {
             "name": "sonata-project/notification-bundle",
@@ -5072,7 +5076,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/assetic-bundle/zipball/d444bd055c8292ad021dbca33480959281341508",
+                "url": "https://api.github.com/repos/symfony/assetic-bundle/zipball/aa5b4f8b712f38745928fa845ddb73300bb2af6d",
                 "reference": "d444bd055c8292ad021dbca33480959281341508",
                 "shasum": ""
             },
@@ -5142,7 +5146,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/7f6af1e1a519d825d8b4baf463746d6e16d4319f",
+                "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/08ac8611171df84d6c4b9d28b02e596731890600",
                 "reference": "7f6af1e1a519d825d8b4baf463746d6e16d4319f",
                 "shasum": ""
             },
@@ -5254,12 +5258,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "447ea791bed36188fbfab78916f2d726c6bfc21c"
+                "reference": "68b3d2d6a87c9c65c9de80b9949998fc861e9648"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/447ea791bed36188fbfab78916f2d726c6bfc21c",
-                "reference": "447ea791bed36188fbfab78916f2d726c6bfc21c",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/75fdcb132af70d8960eb76af8ae1fcd47ef51e01",
+                "reference": "68b3d2d6a87c9c65c9de80b9949998fc861e9648",
                 "shasum": ""
             },
             "require": {
@@ -5370,7 +5374,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-12-09 12:35:21"
+            "time": "2015-12-22 13:04:37"
         },
         {
             "name": "twig/extensions",
@@ -5434,7 +5438,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/db93842e80d758f6c74c3e1f1f088badb3fc84f0",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/7df0a5512db43c1b6adc20dfcb12f1b22d6edad7",
                 "reference": "db93842e80d758f6c74c3e1f1f088badb3fc84f0",
                 "shasum": ""
             },
@@ -5835,19 +5839,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkExtension.git",
-                "reference": "06e2b99d92e175719d7e841d5be16b7df1a233c5"
+                "reference": "296445cec02e36836a6298452631be8e00b1e13a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkExtension/zipball/06e2b99d92e175719d7e841d5be16b7df1a233c5",
-                "reference": "06e2b99d92e175719d7e841d5be16b7df1a233c5",
+                "url": "https://api.github.com/repos/Behat/MinkExtension/zipball/296445cec02e36836a6298452631be8e00b1e13a",
+                "reference": "296445cec02e36836a6298452631be8e00b1e13a",
                 "shasum": ""
             },
             "require": {
                 "behat/behat": "~3.0,>=3.0.5",
                 "behat/mink": "~1.5",
                 "php": ">=5.3.2",
-                "symfony/config": "~2.2"
+                "symfony/config": "~2.2|~3.0"
             },
             "require-dev": {
                 "behat/mink-goutte-driver": "~1.1",
@@ -5886,7 +5890,7 @@
                 "test",
                 "web"
             ],
-            "time": "2015-09-29 17:42:41"
+            "time": "2015-12-21 11:03:47"
         },
         {
             "name": "behat/mink-goutte-driver",
@@ -6593,16 +6597,16 @@
         },
         {
             "name": "raulfraile/ladybug",
-            "version": "v1.0.11",
+            "version": "v1.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/raulfraile/ladybug.git",
-                "reference": "1fb36821c3e91bd9a030335df452b264811449bf"
+                "reference": "c0d6d66fe901950d242797bfed4bc2a7846acbfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/raulfraile/ladybug/zipball/1fb36821c3e91bd9a030335df452b264811449bf",
-                "reference": "1fb36821c3e91bd9a030335df452b264811449bf",
+                "url": "https://api.github.com/repos/raulfraile/ladybug/zipball/c0d6d66fe901950d242797bfed4bc2a7846acbfa",
+                "reference": "c0d6d66fe901950d242797bfed4bc2a7846acbfa",
                 "shasum": ""
             },
             "require": {
@@ -6663,7 +6667,7 @@
                 "print_r",
                 "var_dump"
             ],
-            "time": "2014-08-23 19:43:25"
+            "time": "2015-12-21 09:07:40"
         },
         {
             "name": "raulfraile/ladybug-bundle",

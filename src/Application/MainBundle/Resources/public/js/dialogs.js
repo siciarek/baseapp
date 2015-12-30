@@ -1,6 +1,11 @@
 $(document).ready(function () {
     Spinner.selector = $('body > div.spinner');
-    Window.selector = $('body > div.modal.window');
+    Window.selector = $('body > div.modal.window')
+            .on('hidden.bs.modal', function (e) {
+                $(this).find(Window.contentSelector).addClass('hidden');
+                $(this).find(Window.contentSelector).detach().prependTo('body');
+            })
+            ;
     Dialog.selector = $('body > div.dialog.template')
             .on('click', '.save,.yes,.no, .ok', function (e) {
                 var form = $('body > div.dialog.template form.form-horizontal');
@@ -31,6 +36,7 @@ $(document).ready(function () {
                 value = value.length === 0 ? null : value;
 
                 Dialog.callback(value);
+                Dialog.callback = Dialog.defaultCallback;
 
                 $(this).closest('.modal').modal('hide');
             });
@@ -38,12 +44,14 @@ $(document).ready(function () {
 
 var Window = {
     selector: null,
+    contentSelector: null,
     show: function (title, content, width) {
-        
+
         title = title || null;
         content = content || null;
         width = width || 'w75';
 
+        Window.contentSelector = content;
         var win = this.selector;
 
         if (title !== null) {
@@ -56,22 +64,23 @@ var Window = {
 
         win.find('.modal-dialog').addClass(width);
         win.find('.modal-dialog .submit').addClass('hidden');
-      
-        if(content !== null) {
-            win.find('.modal-body').html($(content).html());
+
+        win.find('.modal-body').html('');
+
+        if (content !== null) {
+            $(Window.contentSelector + ' *').detach().appendTo(win.find('.modal-body'));
         }
-        
+
         win.modal();
     },
     form: function (title, content, callback, width) {
 
         title = title || null;
         content = content || null;
-        callback = callback || function (container) {
-            console.log(container);
-        };        
+        callback = callback || null;
         width = width || 'w75';
 
+        Window.contentSelector = content;
         var win = this.selector;
 
         if (title !== null) {
@@ -79,16 +88,26 @@ var Window = {
         }
 
         win
-                .on('click', '.send', function (e) {
+                .on('click', '.submit', function (e) {
                     win.find('form').find('*[type=submit]').trigger('click');
                 })
-                .on('submit', 'form', function (e) {
-                    e.preventDefault();
+        if (callback !== null) {
+            win
+                    .on('submit', 'form', function (e) {
+                        e.preventDefault();
+                        Spinner.show();
+                        callback(win);
 
-                    callback(win);
+                        $(this).closest('.modal').modal('hide');
+                    });
+        } else {
+            win
+                    .on('submit', 'form', function (e) {
+                        Spinner.show();
+                        $(this).closest('.modal').modal('hide');
+                    });
 
-                    $(this).closest('.modal').modal('hide');
-                });
+        }
 
         $(['w100', 'w75', 'w50']).each(function (i, e) {
             win.find('.modal-dialog').removeClass(e);
@@ -96,11 +115,17 @@ var Window = {
 
         win.find('.modal-dialog').addClass(width);
         win.find('.modal-dialog .submit').removeClass('hidden');
-        
-        if(content !== null) {
-            win.find('.modal-body').html($(content).html());
+
+        win.find('.modal-body').html('');
+
+        if (content !== null) {
+            $(Window.contentSelector).removeClass('hidden');               
+            $(Window.contentSelector).find('*[type=submit]').addClass('hidden');
+            $(Window.contentSelector).detach().appendTo(win.find('.modal-body'));
         }
-        
+
+        win.find('form').get(0).reset();
+
         win.modal();
     }
 };
@@ -148,6 +173,9 @@ var Dialog = {
     value: null,
     val: function () {
         return this.value;
+    },
+    defaultCallback: function (val) {
+
     },
     callback: function (val) {
 

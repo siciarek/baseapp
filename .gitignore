@@ -2,16 +2,28 @@ nbproject
 .idea
 php.ini
 /temp*
+/doc
+/web/phpdoc
+
+/utils/dumpdb/dumpdb.cnf
+/utils/dumpdb/extra
+/utils/dumpdb/extra.bat
+/utils/dumpdb/*.sql
+
 /behat.yml
-/go
+sync
+sync.bat
+go
+go.bat
 
 /src/Application/MainBundle/Controller/TestController.php
 /src/Application/MainBundle/Resources/views/Test
-/src/Application/MainBundle/Controller/DummyController.php
 /src/Application/MainBundle/Resources/views/Dummy
+/src/Application/MainBundle/Controller/DummyController.php
 /src/Application/MainBundle/Command/DummyCommand.php
 
 # Cache and logs (Symfony2)
+/app/data.db3
 /app/cache/*
 /app/logs/*
 !app/cache/.gitkeep

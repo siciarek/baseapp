@@ -7,6 +7,14 @@ Gallery: Gallery
 Sign in: Sign in
 Sign out: Sign out
 
+datetime:
+    yesterday: Yesterday
+    lastweek: Last week
+    lastmonth: Last month
+    lastquarter: Last quarter
+    lastyear: Last year
+    daterange: Date range
+
 # Dialogs
 dialog:
     error: Error
@@ -44,7 +52,8 @@ common:
     close: Close
     send: Send
     submit: Submit
-    
+    download: Download
+
 collection:
     name: Collection
     name_plural: Collections

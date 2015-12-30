@@ -1,27 +1,33 @@
-{%- macro button(type, enabled, url) %}
-    {% set types = {
-        filter: 'btn-default',
-        info: 'btn-primary',
-        add: 'btn-success',
-        edit: 'btn-default',
-        remove: 'btn-danger',
-        details: 'btn-default',
-        dashboard: 'btn-default',
-    } %}
-    {% set icons = {
-        filter: 'fa-filter',
-        info: 'fa-info-circle',
-        add: 'fa-plus-circle',
-        edit: 'fa-edit',
-        remove: 'fa-times-circle',
-        details: 'fa-list-alt',
-        dashboard: 'fa-desktop',
-    } %}
 
+{%- macro formFields(form, fields) %} 
+{% for f in fields %}
+    {% set field = form[f] %}
+    <div class="form-group">
+        {{ form_label(field) }}
+        {{ form_errors(field) }}
+        {{ form_widget(field, {attr: {class: 'form-control'}}) }}
+    </div>
+{% endfor %}
+{% endmacro -%}            
+
+{%- macro button(type, enabled, url, target) %}
+    
+    {% set style = {
+        send_message:   { type: 'btn-primary', icon: 'fa-envelope-o' },
+        filter:    { type: 'btn-default', icon: 'fa-filter' },
+        info:      { type: 'btn-primary', icon: 'fa-info-circle' },
+        add:       { type: 'btn-success', icon: 'fa-plus-circle' },
+        edit:      { type: 'btn-default', icon: 'fa-edit' },
+        remove:    { type: 'btn-danger',  icon: 'fa-times-circle' },
+        details:   { type: 'btn-default', icon: 'fa-list-alt' }, 
+        dashboard: { type: 'btn-default', icon: 'fa-desktop' },
+    } %}
+    
 <a title="{{ ('common.'~type)|trans }}"
+   {%if target is not empty%}target="{{ target }}"{% endif %}
    href="{%if url is not empty%}{{ url }}{%else%}javascript:void(null){%endif%}"
-   class="{{ type }} btn btn-xs{% if enabled is sameas(false)%} btn-default disabled{%else%} {{ types[type] }}{%endif%}">
-    <i class="{{ icons[type] }} fa fa-lg"></i>
+   class="{{ type }} btn btn-xs{% if enabled is sameas(false)%} btn-default disabled{%else%} {{ style[type].type }}{%endif%}">
+    <i class="{{ style[type].icon }} fa fa-lg"></i>
 </a>
 {% endmacro -%}
 
@@ -33,7 +39,7 @@
     {% endif %}
 {% endmacro -%}
 
-{% macro bs_menu(menu) %}
+{% macro bs_menu(menu, icon) %}
 <div class="navbar navbar-inverse navbar-static-top">
     <div class="container">
         <div class="navbar-header">
@@ -44,8 +50,8 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ url('default.home') }}">
-                <i class="fa fa-hashtag fa-lg fa-fw"></i>
-                <strong>{{ app_name }}</strong>
+                {%if icon is defined %}{{ icon }}{%endif%}
+                <strong>{{ app_name|trans({}, 'ApplicationMainBundle') }}</strong>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-navbar-{{ menu }}-collapse">

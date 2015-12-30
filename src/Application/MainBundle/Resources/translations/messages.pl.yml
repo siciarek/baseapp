@@ -1,5 +1,9 @@
 # Phrases
+Date: Dzień
+Time: Godzina
 Home: Str. główna
+Desktop: Pulpit
+Dashboard: Pulpit
 Info: Info
 About: O nas
 Contact: Kontakt
@@ -7,9 +11,25 @@ Gallery: Galeria
 Sign in: Zaloguj się
 Sign out: Wyloguj się
 Type: Typ
+Code: Kod
 Description: Opis
+Hidden Description: Opis ukryty
 Previous: Poprz.
 Next: Nast.
+Subject: Temat
+Attachments: Załączniki
+Body: Treść
+History: Historia
+Note: Notatka
+User: Użytkownik
+
+datetime:
+    yesterday: Wczoraj
+    lastweek: Ostatni tydzień
+    lastmonth: Ostatni miesiąc
+    lastquarter: Ostatni kwartał
+    lastyear: Ostatni rok
+    daterange: Okres od-do
 
 # Dialogs
 dialog:
@@ -29,11 +49,13 @@ person: Osoba
 organisation: Organizacja
 
 common:
+    change: Zmień
     ok: OK
     yes: Tak
     no: Nie
     cancel: Anuluj
     save: Zapisz
+    choose_from_the_list: Wybierz z listy
     list_is_empty: Lista jest pusta.
     filter: Filtruj
     edit: Edytuj
@@ -42,10 +64,13 @@ common:
     add: Dodaj
     info: Info
     dashboard: Pulpit
-    close: Zamkij
+    close: Zamknij
     send: Wyślij
     submit: Wyślij
-
+    download: Pobierz
+    send_message: Wyślij wiadomość
+    email:
+        send_successfully: Wiadomośc została nadana z powodzeniem.
 user:
     signin: Zaloguj się
     signout: Wyloguj się

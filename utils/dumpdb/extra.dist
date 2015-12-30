@@ -1,0 +1,12 @@
+@ECHO OFF
+
+CONFIG=`dirname $0`/dumpdb.cnf
+
+# Read data from configuration file:
+cat $CONFIG
+source $CONFIG
+
+echo
+echo \# EXTRA (UPLOADS):
+echo
+echo SOME EXTRA LOGIC.

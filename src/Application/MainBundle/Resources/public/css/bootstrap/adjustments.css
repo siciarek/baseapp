@@ -11,6 +11,12 @@
  * Bootstrap classes modifications.
  */
 
+.alert.top {
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+        
 .row.no-gutter [class*='col-']:not(:first-child),
 .row.no-gutter [class*='col-']:not(:last-child) {
     padding-right:5px;
@@ -18,6 +24,15 @@
 }
 
 /*GENERAL*/
+.right {
+    text-align: right!important;
+}
+.center {
+    text-align: center!important;
+}
+.left {
+    text-align: left!important;
+}
 
 body {
     font-family: 'Open Sans', sans-serif;

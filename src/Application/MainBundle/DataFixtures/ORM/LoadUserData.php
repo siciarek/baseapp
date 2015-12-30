@@ -8,7 +8,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 class LoadUserData extends BasicFixture {
 
     /**
-     * @var numeric 
+     * @var numeric
      */
     protected $order = 2;
 
@@ -18,6 +18,19 @@ class LoadUserData extends BasicFixture {
     public function load(ObjectManager $manager) {
 
         $data = [
+            [
+                'enabled' => true,
+                'username' => 'system',
+                'firstname' => null,
+                'lastname' => null,
+                'dob' => null,
+                'gender' => \Sonata\UserBundle\Model\UserInterface::GENDER_UNKNOWN,
+                'password' => $this->getContainer()->getParameter('secret'),
+                'email' => 'siciarek@hotmail.com',
+                'groups' => [
+
+                ]
+            ],
             [
                 'enabled' => true,
                 'username' => 'jsiciarek',
@@ -82,4 +95,5 @@ class LoadUserData extends BasicFixture {
             $this->setReference('user' . $user->getUsername(), $user);
         }
     }
+
 }

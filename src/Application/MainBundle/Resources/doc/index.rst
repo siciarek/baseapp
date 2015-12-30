@@ -17,4 +17,5 @@ Spis treści
     :titlesonly:
 
     references/setup
+    references/sync
     references/git

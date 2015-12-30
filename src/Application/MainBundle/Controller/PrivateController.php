@@ -11,12 +11,27 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use JMS\SecurityExtraBundle\Annotation\PreAuthorize;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 use Doctrine\ORM\Query;
+use \Application\MainBundle\Common\Form\EmailMessageType;
 
 /**
  * @Route("/private")
  */
 class PrivateController extends Controller {
 
+    /**
+     * @Secure(roles="IS_AUTHENTICATED_ANONYMOUSLY")
+     * @Route("/sample/form", name="private.sample.form")
+     * @Template()
+     */
+    public function sampleFormAction(Request $request) {
+        
+        $form = $this->createForm('email_message');
+        
+        return [
+            'form' => $form,
+        ];
+    }
+    
     /**
      * @Secure(roles="ROLE_USER")
      * @Route("/sample/list", name="private.sample.list")
