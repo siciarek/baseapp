@@ -1,4 +1,33 @@
 # Phrases
+Apply: Zastosuj
+Cancel: Anuluj
+From: Od
+To: Do
+Custom: Specjalny
+
+# http://portalwiedzy.onet.pl/140198,,,,dni_tygodnia_pisownia_skrotow,haslo.html
+
+Su: Niedz.
+Mo: Pn.
+Tu: Wt.
+We: Śr.
+Th: Czw.
+Fr: Pt.
+Sa: Sob.
+
+January: Styczeń
+February: Luty
+March: Marzec
+April: Kwiecień
+May: Maj
+June: Czerwiec
+July: Lipiec
+August: Sierpień
+September: Wrzesień
+October: Październik
+November: Listopad
+December: Grudzień
+
 Date: Dzień
 Time: Godzina
 Home: Str. główna
