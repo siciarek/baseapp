@@ -1,32 +1,40 @@
 
-        {{ form_start(form, { action:  path('fos_user_registration_register'), method: 'post', attr: { autocomplete: 'off', role: 'form', class: 'form-horizontal' }} ) }}
+{{ form_start(form, { action:  path('fos_user_registration_register'), method: 'post', attr: { autocomplete: 'off', role: 'form', class: 'form-horizontal' }} ) }}
 
-        {% for field in [ 'username', 'email' ] %}
-            
-        <div class="form-group">
-            {{ form_label(form[field], null, { label_attr: { class: 'col-sm-4 control-label' } }) }}
-            <div class="col-sm-8">{{ form_widget(form[field], { attr: { class: 'form-control' }} ) }}</div>
-            {{ form_errors(form[field]) }}
-        </div>
-        
-        {% endfor %}
+{% for field in [ 'username' ] %}
 
-        {% for field in [ 'first', 'second' ] %}
-            
-        <div class="form-group">
-            {{ form_label(form.plainPassword[field], field == 'first' ? null : ('Repeat password'|trans),
+    <div class="form-group">
+        {{ form_label(form[field], null, { label_attr: { class: 'col-sm-4 control-label' } }) }}
+        <div class="col-sm-8">{{ form_widget(form[field], { attr: { class: 'form-control' }} ) }}</div>
+        {{ form_errors(form[field]) }}
+    </div>
+
+{% endfor %}
+
+{% for field in [ 'first', 'second' ] %}
+
+    <div class="form-group">
+        {{ form_label(form.plainPassword[field], field == 'first' ? null : ('Repeat password'|trans),
 { label_attr: { class: 'col-sm-4 control-label' } }) }}
-            <div class="col-sm-8">{{ form_widget(form.plainPassword[field], { attr: { class: 'form-control' }} ) }}</div>
-            {{ form_errors(form.plainPassword[field]) }}
-        </div>
-        
-        {% endfor %}
+        <div class="col-sm-8">{{ form_widget(form.plainPassword[field], { attr: { class: 'form-control' }} ) }}</div>
+        {{ form_errors(form.plainPassword[field]) }}
+    </div>
 
-        <div class="form-group">
-            <div class="col-sm-offset-4 col-sm-8">
-                <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}"
-                       class="btn btn-default btn-lg"/>
-            </div>
-        </div>
+{% endfor %}
 
-        {{ form_end(form) }}
+{% for field in [ 'email' ] %}
+    <div class="form-group">
+        {{ form_label(form[field], null, { label_attr: { class: 'col-sm-4 control-label' } }) }}
+        <div class="col-sm-8">{{ form_widget(form[field], { attr: { class: 'form-control' }} ) }}</div>
+        {{ form_errors(form[field]) }}
+    </div>
+{% endfor %}
+
+<div class="form-group">
+    <div class="col-sm-offset-4 col-sm-8">
+        <input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}"
+               class="btn btn-default btn-lg"/>
+    </div>
+</div>
+
+{{ form_end(form) }}

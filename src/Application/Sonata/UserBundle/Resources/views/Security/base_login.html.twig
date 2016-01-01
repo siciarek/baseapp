@@ -46,6 +46,9 @@ file that was distributed with this source code.
             <div id="admin-dashboard-tab-content" class="tab-content">
 
                 <div role="tabpanel" class="tab-pane active" id="login">
+                    
+                    <br/>
+                    
                     {% block sonata_user_login %}
 
                         {% block sonata_user_login_error %}
@@ -96,6 +99,8 @@ file that was distributed with this source code.
                 </div>
 
                 <div role="tabpanel" class="tab-pane" id="registration">
+                    <br/>
+                    
                     {% block sonata_user_registration %}
                         {% render controller("SonataUserBundle:RegistrationFOSUser1:register") %}
                     {% endblock %}
