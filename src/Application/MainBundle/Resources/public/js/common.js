@@ -10,9 +10,16 @@ Array.prototype.contains = function (e, strict) {
     return false;
 };
 
-$(document).ready(function(){
-    $('a[data-toggle=tab]').on('focus', function(){
+$(document).ready(function () {
+    $('a[data-toggle=tab]').on('focus', function () {
         $(this).blur();
+    });
+
+    $('input[type="checkbox"]').on('change', function () {
+        $(this).closest('.cbx-container').find('i.glyphicon-ok')
+                .css({
+                    top: -3
+                });
     });
 });
 
