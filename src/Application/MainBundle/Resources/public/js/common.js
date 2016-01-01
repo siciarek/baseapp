@@ -10,6 +10,12 @@ Array.prototype.contains = function (e, strict) {
     return false;
 };
 
+$(document).ready(function(){
+    $('a[data-toggle=tab]').on('focus', function(){
+        $(this).blur();
+    });
+});
+
 /**
  * Zwraca ramkę requestu
  *

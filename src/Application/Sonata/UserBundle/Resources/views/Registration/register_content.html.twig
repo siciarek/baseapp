@@ -1,11 +1,3 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h2 class="panel-title">
-            <i class="fa-user-plus fa fa-lg fa-fw"></i>                        
-            {{ 'title_user_registration'|trans({}, 'SonataUserBundle') }}
-        </h2>
-    </div>
-    <div class="panel-body">
 
         {{ form_start(form, { action:  path('fos_user_registration_register'), method: 'post', attr: { autocomplete: 'off', role: 'form', class: 'form-horizontal' }} ) }}
 
@@ -22,7 +14,8 @@
         {% for field in [ 'first', 'second' ] %}
             
         <div class="form-group">
-            {{ form_label(form.plainPassword[field], null, { label_attr: { class: 'col-sm-4 control-label' } }) }}
+            {{ form_label(form.plainPassword[field], field == 'first' ? null : ('Repeat password'|trans),
+{ label_attr: { class: 'col-sm-4 control-label' } }) }}
             <div class="col-sm-8">{{ form_widget(form.plainPassword[field], { attr: { class: 'form-control' }} ) }}</div>
             {{ form_errors(form.plainPassword[field]) }}
         </div>
@@ -37,5 +30,3 @@
         </div>
 
         {{ form_end(form) }}
-    </div>
-</div>
