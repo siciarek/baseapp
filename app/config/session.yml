@@ -7,7 +7,7 @@
 
 framework:
     session:
-        name: %app_name%
+        name: %app_cookie_name%
 
 parameters:
     pdo.db_options:
