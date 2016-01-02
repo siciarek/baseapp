@@ -56,6 +56,18 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-navbar-{{ menu }}-collapse">
             {{ knp_menu_render(menu, { 'allow_safe_labels': true }) }}
+ 
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a title="{{ app.user.firstName }} {{ app.user.lastName }}"
+                       href="javascript:void(null)" onfocus="blur()">
+                        <i class="fa-user fa fa-fw"></i>
+                        {{ app.user.firstName }} {{ app.user.lastName }}
+                    </a>
+                </li>
+            </ul>
+            {% endif %}
         </div>
     </div>
 </div>
