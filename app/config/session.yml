@@ -1,0 +1,29 @@
+#CREATE TABLE session (
+#    id VARCHAR(128) NOT NULL PRIMARY KEY,
+#    data BYTEA NOT NULL,
+#    time INTEGER NOT NULL,
+#    lifetime INTEGER NOT NULL
+#);
+
+parameters:
+    pdo.db_options:
+        db_table:        session
+        db_id_col:       id
+        db_data_col:     data
+        db_time_col:     time
+        db_lifetime_col: lifetime
+
+services:
+    pdo:
+        class: PDO
+        arguments:
+            - "%database_type%:host=%database_host%;dbname=%database_name%"
+            - %database_user%
+            - %database_password%
+        calls:
+            - [setAttribute, [3, 2]] # \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION
+
+    session.handler.pdo:
+        class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+        arguments: [@pdo, %pdo.db_options%]
+
