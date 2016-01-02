@@ -5,6 +5,10 @@
 #    lifetime INTEGER NOT NULL
 #);
 
+framework:
+    session:
+        name: %app_name%
+
 parameters:
     pdo.db_options:
         db_table:        session
