@@ -3,15 +3,17 @@
 {% for f in fields %}
     {% set field = form[f] %}
     <div class="form-group">
-        {{ form_label(field) }}
+        {{ form_label(field, null, { label_attr: { class: 'col-sm-4 control-label' }}) }}
         {{ form_errors(field) }}
-        {{ form_widget(field, {attr: {class: 'form-control'}}) }}
+        <div class="col-sm-8">
+            {{ form_widget(field, {attr: { class: 'form-control'}}) }}
+        </div>
     </div>
 {% endfor %}
 {% endmacro -%}            
 
-{%- macro button(type, enabled, url, target) %}
-    
+    {%- macro button(type, enabled, url, target) %}
+
     {% set style = {
         send_message:   { type: 'btn-primary', icon: 'fa-envelope-o' },
         filter:    { type: 'btn-default', icon: 'fa-filter' },
@@ -22,53 +24,53 @@
         details:   { type: 'btn-default', icon: 'fa-list-alt' }, 
         dashboard: { type: 'btn-default', icon: 'fa-desktop' },
     } %}
-    
-<a title="{{ ('common.'~type)|trans }}"
-   {%if target is not empty%}target="{{ target }}"{% endif %}
-   href="{%if url is not empty%}{{ url }}{%else%}javascript:void(null){%endif%}"
-   class="{{ type }} btn btn-xs{% if enabled is sameas(false)%} btn-default disabled{%else%} {{ style[type].type }}{%endif%}">
-    <i class="{{ style[type].icon }} fa fa-lg"></i>
-</a>
-{% endmacro -%}
 
-{%- macro value_or_dash(value) %}
-    {% if value|trim|length > 0 %}
-        {{ value }}
-    {% else %}
-        &#0151;
-    {% endif %}
-{% endmacro -%}
+    <a title="{{ ('common.'~type)|trans }}"
+       {%if target is not empty%}target="{{ target }}"{% endif %}
+       href="{%if url is not empty%}{{ url }}{%else%}javascript:void(null){%endif%}"
+       class="{{ type }} btn btn-xs{% if enabled is sameas(false)%} btn-default disabled{%else%} {{ style[type].type }}{%endif%}">
+        <i class="{{ style[type].icon }} fa fa-lg"></i>
+    </a>
+    {% endmacro -%}
 
-{% macro bs_menu(menu, icon) %}
-<div class="navbar navbar-inverse navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-{{ menu }}-collapse" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ url('default.home') }}">
-                {%if icon is defined %}{{ icon }}{%endif%}
-                <strong>{{ app_name|trans({}, 'ApplicationMainBundle') }}</strong>
-            </a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-navbar-{{ menu }}-collapse">
-            {{ knp_menu_render(menu, { 'allow_safe_labels': true }) }}
- 
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a title="{{ app.user.firstName }} {{ app.user.lastName }}"
-                       href="javascript:void(null)" onfocus="blur()">
-                        <i class="fa-user fa fa-fw"></i>
-                        {{ app.user.firstName }} {{ app.user.lastName }}
-                    </a>
-                </li>
-            </ul>
-            {% endif %}
-        </div>
-    </div>
-</div>
-{% endmacro %}
+        {%- macro value_or_dash(value) %}
+        {% if value|trim|length > 0 %}
+            {{ value }}
+        {% else %}
+            &#0151;
+        {% endif %}
+        {% endmacro -%}
+
+            {% macro bs_menu(menu, icon) %}
+                <div class="navbar navbar-inverse navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-{{ menu }}-collapse" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="{{ url('default.home') }}">
+                                {%if icon is defined %}{{ icon }}{%endif%}
+                                <strong>{{ app_name|trans({}, 'ApplicationMainBundle') }}</strong>
+                            </a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-navbar-{{ menu }}-collapse">
+                            {{ knp_menu_render(menu, { 'allow_safe_labels': true }) }}
+
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li>
+                                        <a title="{{ app.user.firstName }} {{ app.user.lastName }}"
+                                           href="javascript:void(null)" onfocus="blur()">
+                                            <i class="fa-user fa fa-fw"></i>
+                                            {{ app.user.firstName }} {{ app.user.lastName }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endmacro %}

@@ -19,19 +19,30 @@ application_main:
             icon: envelope
         -
             label: Private
-            route: private.index
             icon: lock
             role: ROLE_USER
-        -
-            label: Gallery
-            route: private.gallery
-            icon: camera-retro
-            role: ROLE_USER
-        -
-            label: Admin
-            route: sonata_admin_dashboard
-            icon: wrench
-            role: ROLE_ADMIN
+            children: 
+                -
+                    label: User profile
+                    route: sonata_user_profile_show
+                    icon: user
+                    role: ROLE_USER
+                -
+                    label: Private
+                    route: private.index
+                    icon: lock
+                    role: ROLE_USER
+                -
+                    label: Gallery
+                    route: private.gallery
+                    icon: camera-retro
+                    role: ROLE_USER
+                -
+                    label: Admin
+                    route: sonata_admin_dashboard
+                    icon: wrench
+                    role: ROLE_ADMIN 
+
         -
             label: ~
             icon: globe
