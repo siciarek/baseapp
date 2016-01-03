@@ -1,16 +1,33 @@
 {% if settings|length > 0 %}
-<form method="post" class="form-horizontal">
+
+<form method="post" action="{{path('user.parameter.settings')}}" class="form-horizontal">
 {% for category, items in settings %}
 
 <h3>{{ ('settings.category.'~category)|trans }}</h3>
+
+{% set patterns = {
+    time: 'pattern="\\d\\d:\\d\\d"'
+} %}
 
 {% for i in items %}
     <div class="form-group">
         <label for="{{ i.name }}" class="col-sm-4 control-label">
             {{ ('settings.param.'~i.name)|trans }}
         </label>
+        {% set pattern = null %}
+        
+        {% if patterns[i.type] is defined %}
+            {% set pattern = patterns[i.type] %}
+        {% endif %}
+
         <div class="col-sm-8">
-            <input type="{{ i.type }}" value="{{ i.value }}" id="{{ i.name }}" name="{{ i.name }}" class="form-control"/>
+            <input type="text"
+            title="HH:MM - gdzie HH oznacza żądaną godzinę a MM minutę."
+            {{ pattern|raw }}
+            value="{{ i.value }}"
+            id="{{ i.name }}"
+            name="{{ i.name }}"
+            class="form-control"/>
         </div>
     </div>
 {% endfor %}

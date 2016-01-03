@@ -23,29 +23,48 @@ class UserParameterController extends CommonController
     public function settingsAction(Request $request)
     {
 
-        $temp = $this->container->getParameter('application_main.settings');
-        $entity = $this->getUser();
-        
-        $settings = [];
-        
-        ldd($settings);
-
-        foreach ($temp as $s) {
-            if(!array_key_exists($s['category'], $settings)) {
-                $settings[$s['category']] = [];
+        if ($request->isMethod('POST')) {
+            
+            $entity = $this->getUser();
+            
+            $data = $request->request->all();
+            
+            foreach($data as $name => $value) {
+                $value = trim($value);
+                $value = strlen($value) === 0 ? null : $value;
+                
+                if($value === null) {
+                    $this->get('eparam')->remove($entity, $name);
+                }
+                else {
+                    $this->get('eparam')->set($entity, $name, $value);
+                }
             }
             
-            $value = null;
-            
+            return $this->redirectToRoute('sonata_user_profile_show');
+        }
+
+        $temp = $this->container->getParameter('application_main.settings');
+        $entity = $this->getUser();
+
+        $settings = [];
+
+        foreach ($temp as $s) {
+            if (!array_key_exists($s['category'], $settings)) {
+                $settings[$s['category']] = [];
+            }
+
+            $value = $s['default'];
+
             try {
                 $value = $this->get('eparam')->get($entity, $s['name']);
             } catch (\Exception $ex) {
-
+                
             }
-            
-            
+
+
             $s['value'] = $value;
-            
+
             $settings[$s['category']][] = $s;
         }
 

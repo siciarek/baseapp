@@ -11,6 +11,17 @@ file that was distributed with this source code.
 
 {% extends "SonataUserBundle:Profile:action.html.twig" %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+            $('form.form-horizontal').on('submit', function () {
+                Spinner.show();
+            });
+        });
+    </script>
+{% endblock %}
+
 {% block sonata_profile_content %}
 
     {% include 'SonataUserBundle:Profile:tabs.html.twig' %}
@@ -25,4 +36,4 @@ file that was distributed with this source code.
         </div>
     </div>
 
-    {% endblock %}
+{% endblock %}
