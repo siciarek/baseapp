@@ -4,9 +4,9 @@
     {% set field = form[f] %}
     <div class="form-group">
         {{ form_label(field, null, { label_attr: { class: 'col-sm-4 control-label' }}) }}
-        {{ form_errors(field) }}
         <div class="col-sm-8">
             {{ form_widget(field, {attr: { class: 'form-control'}}) }}
+            {{ form_errors(field) }}
         </div>
     </div>
 {% endfor %}

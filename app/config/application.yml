@@ -23,9 +23,9 @@ application_main:
             role: ROLE_USER
             children: 
                 -
-                    label: User profile
+                    label: Settings
                     route: sonata_user_profile_show
-                    icon: user
+                    icon: cog
                     role: ROLE_USER
                 -
                     label: Private

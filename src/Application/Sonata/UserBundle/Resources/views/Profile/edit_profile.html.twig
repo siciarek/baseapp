@@ -11,16 +11,15 @@ file that was distributed with this source code.
 
 {% extends "SonataUserBundle:Profile:action.html.twig" %}
 
-{% block sonata_profile_title %}
-    {{ "title_user_account" | trans({}, 'SonataUserBundle')}} - {{ "title_user_edit_profile" | trans({}, 'SonataUserBundle')}}
-{% endblock %}
-
 {% block sonata_profile_content %}
 
-    {{ form_errors(form) }}
+    {% include 'SonataUserBundle:Profile:tabs.html.twig' %}
 
     <div class="row">
         <div class="col-lg-7">
+            
+            {{ form_errors(form) }}
+            
             <form action="{{ path('sonata_user_profile_edit') }}" method="POST" class="form-horizontal">
                 {{ form_start(form, { attr: { class: 'form-horizontal' }}) }}
 

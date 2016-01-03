@@ -13,13 +13,12 @@ file that was distributed with this source code.
 
 {% block sonata_profile_content %}
 
+    {% include 'SonataUserBundle:Profile:tabs.html.twig' %}
+    
     <div class="row">
-        <div class="col-lg-6">
-            <div class="list-group">
-                <a href="{{ url('sonata_user_profile_edit') }}" class="list-group-item">
-                    <i class="fa-user fa fa-fw"></i>
-                    Edycja profilu
-                </a>
+        <div class="col-lg-7">
+            <div class="alert alert-info">
+                Edytuj dane swojego profilu
             </div>
         </div>
     </div>

@@ -1,0 +1,44 @@
+{% set tabs = [
+    {
+        route: 'fos_user_profile_show',
+        label: ('Settings'|trans),
+        icon: 'cog', 
+    },
+    {
+        route: 'fos_user_profile_edit',
+        label: ('User profile'|trans),
+        icon: 'user', 
+    },
+    {
+        route: 'fos_user_profile_edit_authentication',
+        label: ('title_user_edit_authentication'|trans({}, 'SonataUserBundle')),
+        icon: 'unlock', 
+    },
+    {
+        route: 'fos_user_change_password',
+        label: ('sonata_change_password_link'|trans({}, 'SonataUserBundle')),
+        icon: 'edit', 
+    },
+]%}
+
+<ul role="tablist" class="nav nav-tabs" id="profile-form-tabs">
+    {% for t in tabs %}
+        {%if t.route == app.request.attributes.get('_route') %}
+            <li class="active">
+                <a href="{{ path(t.route) }}">
+                    <i class="fa-{{ t.icon }} fa fa-lg fa-fw"></i>
+                    {{ t.label }}
+                </a>
+            </li>
+        {% else %}
+            <li>
+                <a href="{{ path(t.route) }}">
+                    <i class="fa-{{ t.icon }} fa fa-lg fa-fw"></i>
+                    {{ t.label }}
+                </a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+<br/>
