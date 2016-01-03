@@ -2,6 +2,13 @@ services:
     request:
         class: Symfony\Component\HttpFoundation\Request
 
+    app.entity.parameter:
+        class: Application\MainBundle\Common\Parameter
+        arguments: [ @doctrine.orm.entity_manager ]
+    
+    eparam:
+        alias: app.entity.parameter
+     
     app.form.email.message:
         class: Application\MainBundle\Common\Form\EmailMessageType
         arguments: [ ]

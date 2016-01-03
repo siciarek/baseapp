@@ -30,4 +30,96 @@ class Session
      * @ORM\Column(type="integer")
      */
     private $lifetime;
+
+    /**
+     * Set id
+     *
+     * @param string $id
+     * @return Session
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return string 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set data
+     *
+     * @param string $data
+     * @return Session
+     */
+    public function setData($data)
+    {
+        $this->data = $data;
+
+        return $this;
+    }
+
+    /**
+     * Get data
+     *
+     * @return string 
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * Set time
+     *
+     * @param integer $time
+     * @return Session
+     */
+    public function setTime($time)
+    {
+        $this->time = $time;
+
+        return $this;
+    }
+
+    /**
+     * Get time
+     *
+     * @return integer 
+     */
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+    /**
+     * Set lifetime
+     *
+     * @param integer $lifetime
+     * @return Session
+     */
+    public function setLifetime($lifetime)
+    {
+        $this->lifetime = $lifetime;
+
+        return $this;
+    }
+
+    /**
+     * Get lifetime
+     *
+     * @return integer 
+     */
+    public function getLifetime()
+    {
+        return $this->lifetime;
+    }
 }
