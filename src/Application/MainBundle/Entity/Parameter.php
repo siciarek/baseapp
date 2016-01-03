@@ -19,6 +19,8 @@ class Parameter
         ORMBehaviors\Timestampable\Timestampable,
         ORMBehaviors\SoftDeletable\SoftDeletable;
 
+    const CATEGORY_GENERAL = 'general';
+    
     public function __toString() {
         return $this->getName() ? : '-';
     }
@@ -33,7 +35,7 @@ class Parameter
     /**
      * @ORM\Column()
      */
-    private $type;
+    private $category = self::CATEGORY_GENERAL;
 
     /**
      * @ORM\Column()
@@ -41,7 +43,7 @@ class Parameter
     private $name;
 
     /**
-     * @ORM\Column(length=255)
+     * @ORM\Column(type="json")
      */
     private $value;
 
@@ -66,26 +68,26 @@ class Parameter
     }
 
     /**
-     * Set type
+     * Set category
      *
-     * @param string $type
+     * @param string $category
      * @return Parameter
      */
-    public function setType($type)
+    public function setCategory($category)
     {
-        $this->type = $type;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Get type
+     * Get category
      *
      * @return string 
      */
-    public function getType()
+    public function getCategory()
     {
-        return $this->type;
+        return $this->category;
     }
 
     /**
@@ -114,7 +116,7 @@ class Parameter
     /**
      * Set value
      *
-     * @param string $value
+     * @param json $value
      * @return Parameter
      */
     public function setValue($value)
@@ -127,7 +129,7 @@ class Parameter
     /**
      * Get value
      *
-     * @return string 
+     * @return json 
      */
     public function getValue()
     {
@@ -179,5 +181,4 @@ class Parameter
     {
         return $this->entityId;
     }
-
 }

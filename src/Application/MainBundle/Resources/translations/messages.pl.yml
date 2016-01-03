@@ -58,6 +58,12 @@ History: Historia
 Note: Notatka
 User: Użytkownik
 
+settings:
+    category:
+        general: Ogólne
+    param:
+        reminder_at: Wysyłanie przypomnień o
+
 datetime:
     yesterday: Wczoraj
     lastweek: Ostatni tydzień

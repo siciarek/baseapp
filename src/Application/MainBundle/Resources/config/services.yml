@@ -4,7 +4,7 @@ services:
 
     app.entity.parameter:
         class: Application\MainBundle\Common\Parameter
-        arguments: [ @doctrine.orm.entity_manager ]
+        arguments: [ '@doctrine.orm.entity_manager' ]
     
     eparam:
         alias: app.entity.parameter
@@ -34,6 +34,9 @@ services:
     app.common.laaf.frame:
         class: Application\MainBundle\Common\LaafFrame
 
+    laaf:
+        alias: app.common.laaf.frame
+        
     app.locale_listener:
         class: Application\MainBundle\EventListener\LocaleListener
         arguments: [ "%kernel.default_locale%" ]

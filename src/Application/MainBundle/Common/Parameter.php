@@ -9,9 +9,6 @@ use Application\MainBundle\Entity as E;
  */
 class Parameter
 {
-
-    const TYPE_STRING = 'string';
-
     /**
      * @var \Doctrine\ORM\EntityManager
      */
@@ -29,10 +26,14 @@ class Parameter
         $criteria = [
             'entityType' => $entityType,
             'entityId' => $entityId,
-            'deletedAt' => null,
+            'deletedBy' => null,
         ];
 
-        $list = $this->em->getRepository('ApplicationMainBundle:Parameter')->findBy($criteria);
+        $orderBy = [
+            'name' => 'ASC',
+        ];
+        
+        $list = $this->em->getRepository('ApplicationMainBundle:Parameter')->findBy($criteria, $orderBy);
 
         if ($array === false) {
             return $list;
@@ -41,7 +42,11 @@ class Parameter
         $array = [];
 
         foreach ($list as $e) {
-            $array[$e->getName()] = $e->getValue();
+            $array[] = [
+                'category' => $e->getCategory(),
+                'name' => $e->getName(),
+                'value' => $e->getValue(),
+            ];
         }
 
         return $array;
@@ -53,18 +58,22 @@ class Parameter
      * @param type $entity
      * @param type $name
      */
-    public function get($entity, $name)
+    public function get($entity, $name, $scalar = true)
     {
-        $param = $this->findParameter($entity, $name);
+        $param = $this->findParameter($entity, $name, true);
 
         if (!$param instanceof \Application\MainBundle\Entity\Parameter) {
             throw new \Exception('Parameter not found.');
         }
 
+        if($scalar === false) {
+            return $param;
+        }
+
         return $param->getValue();
     }
 
-    protected function findParameter($entity, $name)
+    protected function findParameter($entity, $name, $strict = false)
     {
 
         list($entityType, $entityId) = $this->getEntityData($entity);
@@ -76,7 +85,11 @@ class Parameter
         ];
 
         $param = $this->em->getRepository('ApplicationMainBundle:Parameter')->findOneBy($criteria);
-
+        
+        if ($strict === true and $param instanceof Parameter and $param->isDeleted()) {
+            return null;
+        }
+        
         return $param;
     }
 
@@ -88,7 +101,7 @@ class Parameter
      * @param type $value
      * @param type $type parameter data type (string, integer, boolean, text)
      */
-    public function set($entity, $name, $value, $type = self::TYPE_STRING)
+    public function set($entity, $name, $value, $category = E\Parameter::CATEGORY_GENERAL)
     {
         $param = $this->findParameter($entity, $name);
 
@@ -101,16 +114,17 @@ class Parameter
             $param->setEntityType($entityType)
                     ->setEntityId($entityId)
                     ->setName($name)
-                    ->setType($type)
+                    ->setCategory($category)
             ;
         }
-
-        if ($param->isDeleted()) {
+        
+        if($param->isDeleted()) {
             $param->restore();
+            $this->em->flush();
+            $this->em->refresh($param);
         }
-
-        $param->setValue(var_export($value, true));
-
+        
+        $param->setValue($value);
         $this->em->persist($param);
         $this->em->flush();
 

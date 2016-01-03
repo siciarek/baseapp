@@ -14,13 +14,15 @@ file that was distributed with this source code.
 {% block sonata_profile_content %}
 
     {% include 'SonataUserBundle:Profile:tabs.html.twig' %}
-    
+
     <div class="row">
         <div class="col-lg-7">
-            <div class="alert alert-info">
-                Edytuj dane swojego profilu
+            <div id="profile-tab-content" class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="profile-tab-content">
+                    {{ render(url('user.parameter.settings')) }}
+                </div>
             </div>
         </div>
     </div>
 
-{% endblock %}
+    {% endblock %}

@@ -1,0 +1,30 @@
+{% if settings|length > 0 %}
+<form method="post" class="form-horizontal">
+{% for category, items in settings %}
+
+<h3>{{ ('settings.category.'~category)|trans }}</h3>
+
+{% for i in items %}
+    <div class="form-group">
+        <label for="{{ i.name }}" class="col-sm-4 control-label">
+            {{ ('settings.param.'~i.name)|trans }}
+        </label>
+        <div class="col-sm-8">
+            <input type="{{ i.type }}" value="{{ i.value }}" id="{{ i.name }}" name="{{ i.name }}" class="form-control"/>
+        </div>
+    </div>
+{% endfor %}
+
+{% endfor %}
+
+<hr/>
+
+<div class=form-action">
+<button type="submit" class="btn-default btn btn-lg pull-right">{{'common.save'|trans }}</button>
+</div>
+</form>
+{% else %}
+<div class="alert alert-info">
+    {{ 'common.list_is_empty'|trans }}
+</div>
+{% endif %}
