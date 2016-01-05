@@ -1,6 +1,6 @@
 application_main:
-    settings: ~
-
+    settings: ~    
+    user_settings: ~
     main_menu:
         -
             label: Home

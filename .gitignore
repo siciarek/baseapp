@@ -2,8 +2,6 @@ nbproject
 .idea
 php.ini
 /temp*
-/doc
-/web/phpdoc
 
 /utils/dumpdb/dumpdb.cnf
 /utils/dumpdb/extra
@@ -48,7 +46,7 @@ go.bat
 /vendor/
 
 # Assets and user uploads
-/web/doc
+/web/phpdoc/
 /web/bundles/
 /web/uploads/
 /web/js

@@ -44,7 +44,7 @@ class UserParameterController extends CommonController
             return $this->redirectToRoute('sonata_user_profile_show');
         }
 
-        $temp = $this->container->getParameter('application_main.settings');
+        $temp = $this->container->getParameter('application_main.user_settings');
         $entity = $this->getUser();
 
         $settings = [];

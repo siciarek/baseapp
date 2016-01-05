@@ -49,7 +49,8 @@ framework:
     trusted_hosts:   ~
     trusted_proxies: ~
     session:
-        # handler_id set to null will use default session handler from php.ini
+        cookie_lifetime: %app_session_cookie_lifetime%
+        gc_maxlifetime: %app_session_gc_maxlifetime%
         handler_id: %app_session_handler% 
     fragments:       ~
     http_method_override: true

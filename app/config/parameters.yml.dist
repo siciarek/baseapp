@@ -12,6 +12,8 @@ parameters:
         officia deserunt mollit anim id est laborum.
     app_session_name: BASEAPP
     app_session_handler: ~ # null, session.handler.pdo
+    app_session_cookie_lifetime: 28800
+    app_session_gc_maxlifetime: 1800
 
     database_type: mysql # msql, pgsql, sqlite
     database_driver: pdo_%database_type%

@@ -1,18 +1,23 @@
-
-{%- macro formFields(form, fields) %} 
-{% for f in fields %}
-    {% set field = form[f] %}
-    <div class="form-group">
-        {{ form_label(field, null, { label_attr: { class: 'col-sm-4 control-label' }}) }}
-        <div class="col-sm-8">
-            {{ form_widget(field, {attr: { class: 'form-control'}}) }}
-            {{ form_errors(field) }}
+{%- macro formFields(form, fields, type) %} 
+    {% for f in fields %}
+        {% set field = form[f] %}
+        <div class="form-group">
+            {% if type == null %}
+            {{ form_label(field, null, { label_attr: { class: 'col-sm-4 control-label' }}) }}
+            <div class="col-sm-8">
+                {{ form_widget(field, {attr: { class: 'form-control'}}) }}
+                {{ form_errors(field) }}
+            </div>
+            {% else %}
+                {{ form_label(field) }}
+                {{ form_errors(field) }}
+                {{ form_widget(field, {attr: {class: 'form-control'}}) }}
+            {% endif %}
         </div>
-    </div>
-{% endfor %}
-{% endmacro -%}            
+    {% endfor %}
+{% endmacro -%}           
 
-    {%- macro button(type, enabled, url, target) %}
+{%- macro button(type, enabled, url, target) %}
 
     {% set style = {
         send_message:   { type: 'btn-primary', icon: 'fa-envelope-o' },

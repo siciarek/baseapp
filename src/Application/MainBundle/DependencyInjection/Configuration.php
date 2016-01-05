@@ -25,7 +25,7 @@ class Configuration implements ConfigurationInterface {
 
         $rootNode
             ->children()
-                ->arrayNode('settings')
+                 ->arrayNode('settings')
                     ->prototype('array')
                         ->children()
                             ->scalarNode('category')->end()
@@ -35,6 +35,18 @@ class Configuration implements ConfigurationInterface {
                             ->end()
                         ->end()
                     ->end()
+                
+                ->arrayNode('user_settings')
+                    ->prototype('array')
+                        ->children()
+                            ->scalarNode('category')->end()
+                            ->scalarNode('name')->end()
+                            ->scalarNode('type')->end()
+                            ->scalarNode('default')->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                
                 ->arrayNode('main_menu')
                     ->prototype('array')
                         ->children()
