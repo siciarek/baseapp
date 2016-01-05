@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1. Set up &mdash; BaseApp 1.0 - dokumentacja</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="BaseApp 1.0 - dokumentacja" href="../index.html" />
+    <link rel="next" title="2. Synchronisation of a code with rsync" href="sync.html" />
+    <link rel="prev" title="Szablon aplikacji Symfony 2" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Nawigacja</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Indeks ogólny"
+             accesskey="I">indeks</a></li>
+        <li class="right" >
+          <a href="sync.html" title="2. Synchronisation of a code with rsync"
+             accesskey="N">dalej</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Szablon aplikacji Symfony 2"
+             accesskey="P">wstecz</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">BaseApp 1.0 - dokumentacja</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="set-up">
+<h1>1. Set up<a class="headerlink" href="#set-up" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p>Here is the sample documentation chapter.</p>
+<div class="section" id="sphinx-update">
+<h2>1.1. Sphinx update<a class="headerlink" href="#sphinx-update" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre>sudo apt-get install texlive-latex-base
+sudo apt-get install texlive-latex-recommended
+sudo apt-get install texlive-fonts-recommended
+sudo apt-get install texlive-latex-extra
+sudo apt-get install texlive-lang-polish
+sudo apt-get install dvipng
+
+sudo apt-get install xzdec
+tlmgr init-usertree
+tlmgr install titlesec
+tlmgr install framed
+tlmgr install threeparttable
+tlmgr install wrapfig
+tlmgr install upquote
+tlmgr install multirow
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-block">
+<h2>1.2. Code block<a class="headerlink" href="#code-block" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mathematical-formula">
+<h2>1.3. Mathematical formula<a class="headerlink" href="#mathematical-formula" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="math">
+<p><img src="../_images/math/c39b79ee08f6b7c6720cc5c4e066b70ab8bd628f.png" alt="\int_a^bu\frac{d^2v}{dx^2}\,dx
+=\left.u\frac{dv}{dx}\right|_a^b
+-\int_a^b\frac{du}{dx}\frac{dv}{dx}\,dx."/></p>
+</div><p>can be created with the following:</p>
+<div class="highlight-rst"><div class="highlight"><pre><span class="p">..</span> <span class="ow">math</span><span class="p">::</span>
+
+    \int_a^bu\frac{d^2v}{dx^2}\,dx
+    =\left.u\frac{dv}{dx}\right|_a^b
+    -\int_a^b\frac{du}{dx}\frac{dv}{dx}\,dx.
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-up-cloud9-environment">
+<h2>1.4. Set up Cloud9 environment<a class="headerlink" href="#set-up-cloud9-environment" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo vim /etc/apache2/sites-enabled/001-cloud9.conf
+<span class="nv">$ </span>apachectl restart
+</pre></div>
+</div>
+</div>
+<div class="section" id="useful-commands">
+<h2>1.5. Useful commands<a class="headerlink" href="#useful-commands" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="section" id="apache-commands">
+<h3>1.5.1. Apache commands<a class="headerlink" href="#apache-commands" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>apachectl start
+<span class="nv">$ </span>apachectl restart
+<span class="nv">$ </span>apachectl stop
+</pre></div>
+</div>
+<p>MySQL Database console access</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mysql-ctl cli
+</pre></div>
+</div>
+<p>PostreSQL Database console access</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo sudo -u postgres psql
+</pre></div>
+</div>
+<div class="highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">USER</span> <span class="n">root</span> <span class="n">SUPERUSER</span> <span class="n">PASSWORD</span> <span class="s1">&#39;pass&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>MySQL server commands</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mysql-ctl start
+</pre></div>
+</div>
+<p>PostgreSQL server commands</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo service postgresql start
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="deploy-symfony-application">
+<h2>1.6. Deploy Symfony Application<a class="headerlink" href="#deploy-symfony-application" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://symfony.com/doc/current/cookbook/deployment/tools.html">http://symfony.com/doc/current/cookbook/deployment/tools.html</a></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Spis treści</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. Set up</a><ul>
+<li><a class="reference internal" href="#sphinx-update">1.1. Sphinx update</a></li>
+<li><a class="reference internal" href="#code-block">1.2. Code block</a></li>
+<li><a class="reference internal" href="#mathematical-formula">1.3. Mathematical formula</a></li>
+<li><a class="reference internal" href="#set-up-cloud9-environment">1.4. Set up Cloud9 environment</a></li>
+<li><a class="reference internal" href="#useful-commands">1.5. Useful commands</a><ul>
+<li><a class="reference internal" href="#apache-commands">1.5.1. Apache commands</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deploy-symfony-application">1.6. Deploy Symfony Application</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Poprzedni temat</h4>
+  <p class="topless"><a href="../index.html"
+                        title="poprzedni rozdział">Szablon aplikacji Symfony 2</a></p>
+  <h4>Następny temat</h4>
+  <p class="topless"><a href="sync.html"
+                        title="następny rozdział">2. Synchronisation of a code with <cite>rsync</cite></a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Nawigacja</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Indeks ogólny"
+             >indeks</a></li>
+        <li class="right" >
+          <a href="sync.html" title="2. Synchronisation of a code with rsync"
+             >dalej</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Szablon aplikacji Symfony 2"
+             >wstecz</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">BaseApp 1.0 - dokumentacja</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Gdynia.
+      Utworzone przy pomocy <a href="http://sphinx-doc.org/">Sphinx</a>'a 1.3.3.
+    </div>
+  </body>
+</html>

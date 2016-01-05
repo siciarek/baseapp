@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2. Synchronisation of a code with rsync &mdash; BaseApp 1.0 - dokumentacja</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="BaseApp 1.0 - dokumentacja" href="../index.html" />
+    <link rel="next" title="3. Advanced GIT usage" href="git.html" />
+    <link rel="prev" title="1. Set up" href="setup.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Nawigacja</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Indeks ogólny"
+             accesskey="I">indeks</a></li>
+        <li class="right" >
+          <a href="git.html" title="3. Advanced GIT usage"
+             accesskey="N">dalej</a> |</li>
+        <li class="right" >
+          <a href="setup.html" title="1. Set up"
+             accesskey="P">wstecz</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">BaseApp 1.0 - dokumentacja</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="synchronisation-of-a-code-with-rsync">
+<h1>2. Synchronisation of a code with <cite>rsync</cite><a class="headerlink" href="#synchronisation-of-a-code-with-rsync" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p>Here is the description of synchronizing local code with remote server using <cite>rsync</cite>.</p>
+<div class="section" id="excluded-files-list">
+<h2>2.1. Excluded files list<a class="headerlink" href="#excluded-files-list" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>You can place following list in the file /app/config/rsync_exclude.txt</p>
+<div class="highlight-bash"><div class="highlight"><pre>*~
+*bak
+.git*
+/go
+app/data.db3
+app/bootstrap.php.cache
+app/cache
+app/logs
+app/config/parameters.yml
+app/config/rsync_exclude.txt
+features
+nbproject
+.idea
+php.ini
+bin
+temp
+behat.*
+src/Application/MainBundle/Tests
+src/Application/MainBundle/Resources/doc
+build.xml
+composer.json
+composer.lock
+composer.phar
+LICENSE
+properties.conf
+properties.conf.dist
+README.md
+sync
+go
+vendor
+web
+</pre></div>
+</div>
+</div>
+<div class="section" id="excecutable-script">
+<h2>2.2. Excecutable script<a class="headerlink" href="#excecutable-script" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>You can place the script in main project directory eg. <cite>./sync</cite></p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#!/usr/bin/env bash</span>
+
+<span class="nv">PRIVATE_KEY</span><span class="o">=</span>~/.ssh/maxie.id_rsa
+
+<span class="nv">REMOTE_USER</span><span class="o">=</span>maxie
+<span class="nv">REMOTE_HOST</span><span class="o">=</span>maxiehill.com
+<span class="nv">REMOTE_PORT</span><span class="o">=</span>22
+<span class="nv">REMOTE_DIR</span><span class="o">=</span>/home/maxie/workspace/service.maxiehill.com
+
+<span class="nv">SOURCE</span><span class="o">=</span>.
+<span class="nv">TARGET</span><span class="o">=</span><span class="nv">$REMOTE_USER</span>@<span class="nv">$REMOTE_HOST</span>:<span class="nv">$REMOTE_DIR</span>
+
+<span class="nv">MODE</span><span class="o">=</span>--dry-run
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;--go&quot;</span> <span class="o">]</span>
+<span class="k">then</span>
+    <span class="nv">MODE</span><span class="o">=</span>
+<span class="k">fi</span>
+
+clear
+
+rsync <span class="se">\</span>
+<span class="nv">$MODE</span> <span class="se">\</span>
+--rsh <span class="s2">&quot;ssh -p</span><span class="nv">$REMOTE_PORT</span><span class="s2">  -i </span><span class="nv">$PRIVATE_KEY</span><span class="s2">&quot;</span> <span class="se">\</span>
+--itemize-changes <span class="se">\</span>
+--verbose  <span class="se">\</span>
+--human-readable <span class="se">\</span>
+--times <span class="se">\</span>
+--progress <span class="se">\</span>
+--links <span class="se">\</span>
+--stats <span class="se">\</span>
+--compress <span class="se">\</span>
+--recursive <span class="se">\</span>
+--links <span class="se">\</span>
+--delete <span class="se">\</span>
+--exclude-from<span class="o">=</span>app/config/rsync_exclude.txt <span class="se">\</span>
+<span class="nv">$SOURCE</span> <span class="nv">$TARGET</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;--go&quot;</span> <span class="o">]</span>
+<span class="k">then</span>
+    ssh -p <span class="nv">$REMOTE_PORT</span> -i <span class="nv">$PRIVATE_KEY</span> <span class="nv">$REMOTE_USER</span>@<span class="nv">$REMOTE_HOST</span> <span class="s2">&quot;cd </span><span class="nv">$REMOTE_DIR</span><span class="s2">;bash ./go&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Spis treści</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2. Synchronisation of a code with <cite>rsync</cite></a><ul>
+<li><a class="reference internal" href="#excluded-files-list">2.1. Excluded files list</a></li>
+<li><a class="reference internal" href="#excecutable-script">2.2. Excecutable script</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Poprzedni temat</h4>
+  <p class="topless"><a href="setup.html"
+                        title="poprzedni rozdział">1. Set up</a></p>
+  <h4>Następny temat</h4>
+  <p class="topless"><a href="git.html"
+                        title="następny rozdział">3. Advanced GIT usage</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Nawigacja</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Indeks ogólny"
+             >indeks</a></li>
+        <li class="right" >
+          <a href="git.html" title="3. Advanced GIT usage"
+             >dalej</a> |</li>
+        <li class="right" >
+          <a href="setup.html" title="1. Set up"
+             >wstecz</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">BaseApp 1.0 - dokumentacja</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Gdynia.
+      Utworzone przy pomocy <a href="http://sphinx-doc.org/">Sphinx</a>'a 1.3.3.
+    </div>
+  </body>
+</html>

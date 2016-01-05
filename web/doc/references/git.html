@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3. Advanced GIT usage &mdash; BaseApp 1.0 - dokumentacja</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="BaseApp 1.0 - dokumentacja" href="../index.html" />
+    <link rel="prev" title="2. Synchronisation of a code with rsync" href="sync.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Nawigacja</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Indeks ogólny"
+             accesskey="I">indeks</a></li>
+        <li class="right" >
+          <a href="sync.html" title="2. Synchronisation of a code with rsync"
+             accesskey="P">wstecz</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">BaseApp 1.0 - dokumentacja</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="advanced-git-usage">
+<h1>3. Advanced GIT usage<a class="headerlink" href="#advanced-git-usage" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<div class="section" id="show-git-repo-history">
+<h2>3.1. Show git repo history<a class="headerlink" href="#show-git-repo-history" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>rich</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git log
+</pre></div>
+</div>
+<p>brief</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git log --pretty<span class="o">=</span>oneline
+</pre></div>
+</div>
+</div>
+<div class="section" id="revert-changes-in-a-single-file">
+<h2>3.2. Revert changes in a single file<a class="headerlink" href="#revert-changes-in-a-single-file" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git reset HEAD /your/path/to/the/project/Sender.php
+<span class="nv">$ </span>git checkout --  /your/path/to/the/project/Sender.php
+</pre></div>
+</div>
+</div>
+<div class="section" id="git-tags-support">
+<h2>3.3. Git tags support<a class="headerlink" href="#git-tags-support" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>Let us assume that our release has name &#8220;v1.0.0&#8221;</p>
+<div class="section" id="create-tag">
+<h3>3.3.1. Create tag<a class="headerlink" href="#create-tag" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git tag -a v1.0.0 -m <span class="s2">&quot;The very first release of the Application.&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-tags">
+<h3>3.3.2. List tags<a class="headerlink" href="#list-tags" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git tag
+</pre></div>
+</div>
+</div>
+<div class="section" id="remove-tag">
+<h3>3.3.3. Remove tag<a class="headerlink" href="#remove-tag" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<p>local</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git tag -d v1.0.1
+</pre></div>
+</div>
+<p>remote</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git push origin :refs/tags/v1.0.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="git-branches-support">
+<h2>3.4. Git branches support<a class="headerlink" href="#git-branches-support" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="section" id="clone-master">
+<h3>3.4.1. Clone master<a class="headerlink" href="#clone-master" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git clone git@git.enovatis.pl:ino
+<span class="nv">$ </span>git clone git@git.enovatis.pl:ino.git
+<span class="nv">$ </span>git clone git@git.enovatis.pl:ino ino
+<span class="nv">$ </span>git clone git@git.enovatis.pl:ino.git ino
+<span class="nv">$ </span>git clone -b master git@git.enovatis.pl:ino
+<span class="nv">$ </span>git clone -b master git@git.enovatis.pl:ino.git
+<span class="nv">$ </span>git clone -b master git@git.enovatis.pl:ino ino
+<span class="nv">$ </span>git clone -b master git@git.enovatis.pl:ino.git ino
+</pre></div>
+</div>
+</div>
+<div class="section" id="clone-branch">
+<h3>3.4.2. Clone branch<a class="headerlink" href="#clone-branch" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git clone -b devel git@git.enovatis.pl:ino
+</pre></div>
+</div>
+<p>Let us assume that branch is named &#8220;devel&#8221;.</p>
+</div>
+<div class="section" id="create-branch">
+<h3>3.4.3. Create branch<a class="headerlink" href="#create-branch" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<p>Run single command</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git checkout -b devel
+</pre></div>
+</div>
+<p>or two</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git branch devel
+<span class="nv">$ </span>git checkout devel
+</pre></div>
+</div>
+<p>then send it to remote server</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git push --set-upstream origin devel
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-branch">
+<h3>3.4.4. Delete branch<a class="headerlink" href="#delete-branch" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<p>local</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git branch -d devel
+</pre></div>
+</div>
+<p>remote</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git push origin --delete devel
+</pre></div>
+</div>
+</div>
+<div class="section" id="show-branches">
+<h3>3.4.5. Show branches<a class="headerlink" href="#show-branches" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git branch
+</pre></div>
+</div>
+</div>
+<div class="section" id="switch-to-specific-branch">
+<h3>3.4.6. Switch to specific branch<a class="headerlink" href="#switch-to-specific-branch" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git checkout devel
+<span class="nv">$ </span>git checkout master
+</pre></div>
+</div>
+</div>
+<div class="section" id="show-diff-of-previous-version">
+<h3>3.4.7. Show diff of previous version<a class="headerlink" href="#show-diff-of-previous-version" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git diff HEAD@<span class="o">{</span>1<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="show-diff-beetween-branches">
+<h3>3.4.8. Show diff beetween branches<a class="headerlink" href="#show-diff-beetween-branches" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<p>Implicit diff</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git diff master..devel
+</pre></div>
+</div>
+<p>Name and status</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git diff --name-status master..devel
+</pre></div>
+</div>
+<p>More info</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git diff --stat  master..devel
+</pre></div>
+</div>
+</div>
+<div class="section" id="merge-branch">
+<h3>3.4.9. Merge branch<a class="headerlink" href="#merge-branch" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<p>local</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git checkout master
+<span class="nv">$ </span>git merge devel
+</pre></div>
+</div>
+<p>remote</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git checkout -b master
+<span class="nv">$ </span>git checkout master
+<span class="nv">$ </span>git fetch origin
+<span class="nv">$ </span>git merge origin/devel
+</pre></div>
+</div>
+</div>
+<div class="section" id="undo-merge-branch">
+<h3>3.4.10. Undo merge branch<a class="headerlink" href="#undo-merge-branch" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git reset --hard origin/master
+</pre></div>
+</div>
+</div>
+<div class="section" id="patch-branch">
+<h3>3.4.11. Patch branch<a class="headerlink" href="#patch-branch" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git diff --no-prefix master..devel &gt; diff.patch
+<span class="nv">$ </span>patch &lt; diff.patch
+</pre></div>
+</div>
+</div>
+<div class="section" id="access-to-branches">
+<h3>3.4.12. Access to branches<a class="headerlink" href="#access-to-branches" title="Stały odnośnik do tego nagłówka">¶</a></h3>
+<blockquote>
+<div><a class="reference external" href="https://www.kernel.org/pub/software/scm/git/docs/howto/update-hook-example.txt">https://www.kernel.org/pub/software/scm/git/docs/howto/update-hook-example.txt</a></div></blockquote>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Spis treści</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. Advanced GIT usage</a><ul>
+<li><a class="reference internal" href="#show-git-repo-history">3.1. Show git repo history</a></li>
+<li><a class="reference internal" href="#revert-changes-in-a-single-file">3.2. Revert changes in a single file</a></li>
+<li><a class="reference internal" href="#git-tags-support">3.3. Git tags support</a><ul>
+<li><a class="reference internal" href="#create-tag">3.3.1. Create tag</a></li>
+<li><a class="reference internal" href="#list-tags">3.3.2. List tags</a></li>
+<li><a class="reference internal" href="#remove-tag">3.3.3. Remove tag</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#git-branches-support">3.4. Git branches support</a><ul>
+<li><a class="reference internal" href="#clone-master">3.4.1. Clone master</a></li>
+<li><a class="reference internal" href="#clone-branch">3.4.2. Clone branch</a></li>
+<li><a class="reference internal" href="#create-branch">3.4.3. Create branch</a></li>
+<li><a class="reference internal" href="#delete-branch">3.4.4. Delete branch</a></li>
+<li><a class="reference internal" href="#show-branches">3.4.5. Show branches</a></li>
+<li><a class="reference internal" href="#switch-to-specific-branch">3.4.6. Switch to specific branch</a></li>
+<li><a class="reference internal" href="#show-diff-of-previous-version">3.4.7. Show diff of previous version</a></li>
+<li><a class="reference internal" href="#show-diff-beetween-branches">3.4.8. Show diff beetween branches</a></li>
+<li><a class="reference internal" href="#merge-branch">3.4.9. Merge branch</a></li>
+<li><a class="reference internal" href="#undo-merge-branch">3.4.10. Undo merge branch</a></li>
+<li><a class="reference internal" href="#patch-branch">3.4.11. Patch branch</a></li>
+<li><a class="reference internal" href="#access-to-branches">3.4.12. Access to branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Poprzedni temat</h4>
+  <p class="topless"><a href="sync.html"
+                        title="poprzedni rozdział">2. Synchronisation of a code with <cite>rsync</cite></a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Nawigacja</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Indeks ogólny"
+             >indeks</a></li>
+        <li class="right" >
+          <a href="sync.html" title="2. Synchronisation of a code with rsync"
+             >wstecz</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">BaseApp 1.0 - dokumentacja</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Gdynia.
+      Utworzone przy pomocy <a href="http://sphinx-doc.org/">Sphinx</a>'a 1.3.3.
+    </div>
+  </body>
+</html>
