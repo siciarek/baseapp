@@ -5,6 +5,13 @@
     overflow-x: hidden;
 }
 
+/**
+ * Checkbox X
+ */
+.cbx-container i.glyphicon-ok {
+    top: -3px;
+}
+
 /*
  * Project specific twitter bootstrap adjustments
  *
@@ -79,7 +86,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 label.input-group-addon {
     min-width: 80px !important;
-    width: 130px !important;
+    width: 200px !important;
     text-align: right;
     vertical-align: top;
     padding-top: 9px;
