@@ -24,23 +24,27 @@ class UserParameterController extends CommonController
     {
 
         if ($request->isMethod('POST')) {
-            
+
             $entity = $this->getUser();
-            
+
             $data = $request->request->all();
-            
-            foreach($data as $name => $value) {
+
+            foreach ($data as $name => $value) {
                 $value = trim($value);
                 $value = strlen($value) === 0 ? null : $value;
-                
-                if($value === null) {
-                    $this->get('eparam')->remove($entity, $name);
+
+                // Dodanie zera wiodącego przy godzinach:
+                if ($name === 'reminder_at' and strlen($value) < 5) {
+                    $value = '0' . $value;
                 }
-                else {
+
+                if ($value === null) {
+                    $this->get('eparam')->remove($entity, $name);
+                } else {
                     $this->get('eparam')->set($entity, $name, $value);
                 }
             }
-            
+
             return $this->redirectToRoute('sonata_user_profile_show');
         }
 

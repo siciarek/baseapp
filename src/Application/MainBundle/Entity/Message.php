@@ -65,12 +65,12 @@ class Message
     private $data = [];
 
     /**
-     * @ORM\Column()
+     * @ORM\Column(nullable=true)
      */
     private $description;
 
     /**
-     * @ORM\Column()
+     * @ORM\Column(nullable=true)
      */
     private $info;    
 
