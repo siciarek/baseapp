@@ -62,8 +62,8 @@ settings:
     category:
         general: Ogólne
     param:
-        reminder_at: Przypominajka wysyłana o
-        reminder_enabled: Przypominajka włączona
+        reminder_enabled: Wysyłaj przypomnienie
+        reminder_at: Przypomienie o
 
 datetime:
     yesterday: Wczoraj
