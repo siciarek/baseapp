@@ -13,6 +13,8 @@ sync
 sync.bat
 go
 go.bat
+extra
+extra.bat
 
 /src/Application/MainBundle/Controller/TestController.php
 /src/Application/MainBundle/Resources/views/Test
