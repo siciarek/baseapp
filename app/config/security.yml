@@ -17,23 +17,23 @@ security:
 
     firewalls:
         # Oauth authentication:
-        secure_area:
-            pattern: ^/secure_area
-
-            oauth:
-                failure_path: /secure_area/connect
-                login_path: /secure_area/connect
-                check_path: /secure_area/connect
-                provider: fos_userbundle
-                resource_owners:
-                    github:           "/secure_area/login/check-github"
-                oauth_user_provider:
-                    service: hwi_oauth.user.provider.fosub_bridge
-
-            anonymous:    true
-            logout:
-                path:           /secure_area/logout
-                target:         /secure_area/connect #where to go after logout
+#        secure_area:
+#            pattern: ^/secure_area
+#
+#            oauth:
+#                failure_path: /secure_area/connect
+#                login_path: /secure_area/connect
+#                check_path: /secure_area/connect
+#                provider: fos_userbundle
+#                resource_owners:
+#                    github:           "/secure_area/login/check-github"
+#                oauth_user_provider:
+#                    service: hwi_oauth.user.provider.fosub_bridge
+#
+#            anonymous:    true
+#            logout:
+#                path:           /secure_area/logout
+#                target:         /secure_area/connect #where to go after logout
 
 
         # Disabling the security for the web debug toolbar, the profiler and Assetic.
