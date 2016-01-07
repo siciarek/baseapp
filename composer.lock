@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "10d56ca936e335e0cf26dd0910bf96cd",
-    "content-hash": "9faacaab531d2d7b4d360da24a2d70f5",
+    "hash": "74bd09033c41b1f9dcbc2f7e85af370c",
+    "content-hash": "cf4f0f1e2f761c7c518b768507ee3a2b",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -1085,21 +1085,22 @@
         },
         {
             "name": "doctrine/migrations",
-            "version": "1.2.x-dev",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "bffd726e2193c04f88a23154deb1c618a966996d"
+                "reference": "9aa590e072d29c5e484738dec10cd85ba2d87027"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/bffd726e2193c04f88a23154deb1c618a966996d",
-                "reference": "bffd726e2193c04f88a23154deb1c618a966996d",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/9aa590e072d29c5e484738dec10cd85ba2d87027",
+                "reference": "9aa590e072d29c5e484738dec10cd85ba2d87027",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "~2.2",
-                "php": ">=5.4.0",
+                "ocramius/proxy-manager": "^1.0",
+                "php": "^5.5|^7.0",
                 "symfony/console": "~2.3|~3.0",
                 "symfony/yaml": "~2.3|~3.0"
             },
@@ -1117,7 +1118,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "v1.1.x-dev"
+                    "dev-master": "v1.3.x-dev"
                 }
             },
             "autoload": {
@@ -1149,7 +1150,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2015-12-23 17:08:58"
+            "time": "2016-01-07 22:04:25"
         },
         {
             "name": "doctrine/orm",
@@ -1721,23 +1722,23 @@
         },
         {
             "name": "gregwar/captcha-bundle",
-            "version": "dev-master",
+            "version": "v1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Gregwar/CaptchaBundle.git",
-                "reference": "e91cb1a3b7dd79b579c93358622c8ab160d57b03"
+                "reference": "c221d9cb4216562a486b966491199e1ed462ab2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Gregwar/CaptchaBundle/zipball/e91cb1a3b7dd79b579c93358622c8ab160d57b03",
-                "reference": "e91cb1a3b7dd79b579c93358622c8ab160d57b03",
+                "url": "https://api.github.com/repos/Gregwar/CaptchaBundle/zipball/c221d9cb4216562a486b966491199e1ed462ab2f",
+                "reference": "c221d9cb4216562a486b966491199e1ed462ab2f",
                 "shasum": ""
             },
             "require": {
                 "gregwar/captcha": "~1.1",
-                "php": ">=5.3.9",
-                "symfony/form": "~2.1|~3.0",
-                "symfony/framework-bundle": "~2.1|~3.0"
+                "php": ">=5.3.0",
+                "symfony/form": "~2.1",
+                "symfony/framework-bundle": "~2.1"
             },
             "type": "captcha-bundle",
             "autoload": {
@@ -1771,7 +1772,7 @@
                 "spam",
                 "visual"
             ],
-            "time": "2015-12-30 18:19:50"
+            "time": "2015-05-13 06:42:05"
         },
         {
             "name": "hwi/oauth-bundle",
@@ -3504,6 +3505,69 @@
                 "security"
             ],
             "time": "2016-01-04 10:40:22"
+        },
+        {
+            "name": "ocramius/proxy-manager",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Ocramius/ProxyManager.git",
+                "reference": "57e9272ec0e8deccf09421596e0e2252df440e11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/57e9272ec0e8deccf09421596e0e2252df440e11",
+                "reference": "57e9272ec0e8deccf09421596e0e2252df440e11",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-code": ">2.2.5,<3.0"
+            },
+            "require-dev": {
+                "ext-phar": "*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "1.5.*"
+            },
+            "suggest": {
+                "ocramius/generated-hydrator": "To have very fast object to array to object conversion for ghost objects",
+                "zendframework/zend-json": "To have the JsonRpc adapter (Remote Object feature)",
+                "zendframework/zend-soap": "To have the Soap adapter (Remote Object feature)",
+                "zendframework/zend-stdlib": "To use the hydrator proxy",
+                "zendframework/zend-xmlrpc": "To have the XmlRpc adapter (Remote Object feature)"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "ProxyManager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "http://ocramius.github.com/"
+                }
+            ],
+            "description": "A library providing utilities to generate, instantiate and generally operate with Object Proxies",
+            "homepage": "https://github.com/Ocramius/ProxyManager",
+            "keywords": [
+                "aop",
+                "lazy loading",
+                "proxy",
+                "proxy pattern",
+                "service proxies"
+            ],
+            "time": "2015-08-09 04:28:19"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -5258,12 +5322,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "19da1850f6e1f892b9d5216a46b2daa20710017a"
+                "reference": "4d536bd09afde3e931d3beb5ca43818b9eb94b6c"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/symfony/zipball/4d536bd09afde3e931d3beb5ca43818b9eb94b6c",
-                "reference": "19da1850f6e1f892b9d5216a46b2daa20710017a",
+                "reference": "4d536bd09afde3e931d3beb5ca43818b9eb94b6c",
                 "shasum": ""
             },
             "require": {
@@ -5374,7 +5438,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-01-07 13:29:06"
+            "time": "2016-01-07 18:01:12"
         },
         {
             "name": "twig/extensions",
@@ -5434,12 +5498,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "23e47c52421999a7d02e45aa07002616a8032647"
+                "reference": "dba78c81cd04ca8d6ecdf7b2d52b9414042dbeea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/23e47c52421999a7d02e45aa07002616a8032647",
-                "reference": "23e47c52421999a7d02e45aa07002616a8032647",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/dba78c81cd04ca8d6ecdf7b2d52b9414042dbeea",
+                "reference": "dba78c81cd04ca8d6ecdf7b2d52b9414042dbeea",
                 "shasum": ""
             },
             "require": {
@@ -5487,7 +5551,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-01-03 15:37:06"
+            "time": "2016-01-07 21:43:28"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
@@ -5577,6 +5641,112 @@
                 "negotiation"
             ],
             "time": "2015-10-01 07:42:40"
+        },
+        {
+            "name": "zendframework/zend-code",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-code.git",
+                "reference": "c2b6cfdbf960ee11dd7476f9ac65ca3687b1fd42"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-code/zipball/c2b6cfdbf960ee11dd7476f9ac65ca3687b1fd42",
+                "reference": "c2b6cfdbf960ee11dd7476f9ac65ca3687b1fd42",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5",
+                "zendframework/zend-eventmanager": "^2.6|^3.0"
+            },
+            "require-dev": {
+                "doctrine/annotations": "~1.0",
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0",
+                "zendframework/zend-stdlib": "~2.7"
+            },
+            "suggest": {
+                "doctrine/annotations": "Doctrine\\Common\\Annotations >=1.0 for annotation features",
+                "zendframework/zend-stdlib": "Zend\\Stdlib component"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev",
+                    "dev-develop": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Code\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "provides facilities to generate arbitrary code using an object oriented interface",
+            "homepage": "https://github.com/zendframework/zend-code",
+            "keywords": [
+                "code",
+                "zf2"
+            ],
+            "time": "2016-01-05 06:08:38"
+        },
+        {
+            "name": "zendframework/zend-eventmanager",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-eventmanager.git",
+                "reference": "eddd25d3343a5fad708d77d0497583dd78bb58aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-eventmanager/zipball/eddd25d3343a5fad708d77d0497583dd78bb58aa",
+                "reference": "eddd25d3343a5fad708d77d0497583dd78bb58aa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "athletic/athletic": "^0.1",
+                "container-interop/container-interop": "^1.1.0",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "^2.0@dev",
+                "zendframework/zend-stdlib": "^2.7.3"
+            },
+            "suggest": {
+                "container-interop/container-interop": "^1.1.0, to use the lazy listeners feature",
+                "zendframework/zend-stdlib": "^2.7.3, to use the FilterChain feature"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev",
+                    "dev-develop": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\EventManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Trigger and listen to events within a PHP application",
+            "homepage": "https://github.com/zendframework/zend-eventmanager",
+            "keywords": [
+                "event",
+                "eventmanager",
+                "events",
+                "zf2"
+            ],
+            "time": "2015-09-29 16:54:32"
         }
     ],
     "packages-dev": [
@@ -6996,7 +7166,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "gregwar/captcha-bundle": 20,
         "nelmio/security-bundle": 20,
         "liuggio/excelbundle": 20,
         "jms/security-extra-bundle": 20,

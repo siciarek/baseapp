@@ -15,6 +15,9 @@ parameters:
     app_session_cookie_lifetime: 28800
     app_session_gc_maxlifetime: 1800
 
+    oauth_github_client_id: ~
+    oauth_github_client_secret: ~
+
     database_type: mysql # msql, pgsql, sqlite
     database_driver: pdo_%database_type%
     database_driver:   pdo_sqlite 

@@ -1,0 +1,23 @@
+hwi_oauth:
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: secure_area
+    connect:
+        confirmation: true
+        #account_connector: hwi_oauth.user.provider.fosub_bridge
+        #registration_form_handler: hwi_oauth.registration.form.handler.fosub_bridge
+        #registration_form: fos_user.registration.form
+
+    resource_owners:
+        github:
+            type:                github
+            client_id:           %oauth_github_client_id%
+            client_secret:       %oauth_github_client_secret%
+            scope:               "user:email"
+
+    fosub:
+        # try 30 times to check if a username is available (foo, foo1, foo2 etc)
+        username_iterations: 30
+
+        # mapping between resource owners (see below) and properties
+        properties:
+            github: githubID

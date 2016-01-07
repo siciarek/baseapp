@@ -21,8 +21,9 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
-            new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
 
+            new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Nelmio\SecurityBundle\NelmioSecurityBundle(),
             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
