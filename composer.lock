@@ -561,12 +561,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "ca4eea9f83cc1947f51460d5d87d0187a040ae41"
+                "reference": "df7aeeaa1fb31fc62f68687d5f1ec5fdbe5e80df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/ca4eea9f83cc1947f51460d5d87d0187a040ae41",
-                "reference": "ca4eea9f83cc1947f51460d5d87d0187a040ae41",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/df7aeeaa1fb31fc62f68687d5f1ec5fdbe5e80df",
+                "reference": "df7aeeaa1fb31fc62f68687d5f1ec5fdbe5e80df",
                 "shasum": ""
             },
             "require": {
@@ -624,7 +624,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2016-01-05 23:47:37"
+            "time": "2016-01-07 12:15:02"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -1598,12 +1598,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "518de47a502e42bc2cd8cdf6f2e934d38b900374"
+                "reference": "59b674773757bb747677da4dfe6437dad7cfb33a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/518de47a502e42bc2cd8cdf6f2e934d38b900374",
-                "reference": "518de47a502e42bc2cd8cdf6f2e934d38b900374",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/59b674773757bb747677da4dfe6437dad7cfb33a",
+                "reference": "59b674773757bb747677da4dfe6437dad7cfb33a",
                 "shasum": ""
             },
             "require": {
@@ -1669,7 +1669,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2015-12-30 09:51:54"
+            "time": "2016-01-07 09:45:25"
         },
         {
             "name": "gregwar/captcha",
@@ -3670,12 +3670,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "9e45edca52cc9c954680072c93e621f8b71fab26"
+                "reference": "d8e60a5619fff77f9669da8997697443ef1a1d7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/9e45edca52cc9c954680072c93e621f8b71fab26",
-                "reference": "9e45edca52cc9c954680072c93e621f8b71fab26",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d8e60a5619fff77f9669da8997697443ef1a1d7e",
+                "reference": "d8e60a5619fff77f9669da8997697443ef1a1d7e",
                 "shasum": ""
             },
             "require": {
@@ -3703,12 +3703,13 @@
                 }
             ],
             "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
             "keywords": [
                 "log",
                 "psr",
                 "psr-3"
             ],
-            "time": "2015-06-02 13:48:41"
+            "time": "2016-01-06 21:40:42"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -3941,12 +3942,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "2e68c08ed1d8680c64f91e90d1119effc60811dd"
+                "reference": "3e302f807e156c7eda82e5144b6400646b1e31c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/2e68c08ed1d8680c64f91e90d1119effc60811dd",
-                "reference": "2e68c08ed1d8680c64f91e90d1119effc60811dd",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/3e302f807e156c7eda82e5144b6400646b1e31c8",
+                "reference": "3e302f807e156c7eda82e5144b6400646b1e31c8",
                 "shasum": ""
             },
             "require": {
@@ -4019,7 +4020,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2015-12-30 11:13:06"
+            "time": "2016-01-07 13:55:06"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -5257,12 +5258,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "fff265d451fa27648f68aa04ef19649bcd555f79"
+                "reference": "19da1850f6e1f892b9d5216a46b2daa20710017a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/fff265d451fa27648f68aa04ef19649bcd555f79",
-                "reference": "fff265d451fa27648f68aa04ef19649bcd555f79",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/4d536bd09afde3e931d3beb5ca43818b9eb94b6c",
+                "reference": "19da1850f6e1f892b9d5216a46b2daa20710017a",
                 "shasum": ""
             },
             "require": {
@@ -5373,7 +5374,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-01-04 14:49:16"
+            "time": "2016-01-07 13:29:06"
         },
         {
             "name": "twig/extensions",
@@ -5585,12 +5586,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "ca2c78e4695ee120d44363fd8ea3b3fc28330ff7"
+                "reference": "c6dcbe4511e5881b3d62e77902bcae7b80a39ae9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/ca2c78e4695ee120d44363fd8ea3b3fc28330ff7",
-                "reference": "ca2c78e4695ee120d44363fd8ea3b3fc28330ff7",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/c6dcbe4511e5881b3d62e77902bcae7b80a39ae9",
+                "reference": "c6dcbe4511e5881b3d62e77902bcae7b80a39ae9",
                 "shasum": ""
             },
             "require": {
@@ -5657,7 +5658,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2015-12-30 14:58:16"
+            "time": "2016-01-07 12:44:46"
         },
         {
             "name": "behat/gherkin",
@@ -6231,12 +6232,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "43835130f04a51265bcf41b8d69e16a266a2485d"
+                "reference": "e2e22203de29aa644751c52619c25bc98534d729"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/43835130f04a51265bcf41b8d69e16a266a2485d",
-                "reference": "43835130f04a51265bcf41b8d69e16a266a2485d",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/e2e22203de29aa644751c52619c25bc98534d729",
+                "reference": "e2e22203de29aa644751c52619c25bc98534d729",
                 "shasum": ""
             },
             "require": {
@@ -6273,7 +6274,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-01-04 17:26:47"
+            "time": "2016-01-06 16:53:09"
         },
         {
             "name": "guzzlehttp/guzzle",

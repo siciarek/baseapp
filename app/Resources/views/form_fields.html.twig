@@ -3,7 +3,9 @@
 {%- block form_errors -%}
     {%- if errors|length > 0 -%}
         {%- for error in errors -%}
-            <div class="alert alert-warning">{{ error.message }}</div>
+            <div class="bs-callout bs-callout-danger" style="margin-top: 1px">
+                {{ error.message }}
+            </div>
         {%- endfor -%}
     {%- endif -%}
 {%- endblock form_errors -%}

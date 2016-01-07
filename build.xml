@@ -99,6 +99,9 @@
             <arg line="app/console doctrine:database:create --env=prod"/>
         </exec>
         <exec executable="${php}">
+            <arg line="app/console doctrine:schema:create --env=prod"/>
+        </exec>
+        <exec executable="${php}">
             <arg line="app/console doctrine:schema:update --env=prod --force"/>
         </exec>
         <exec executable="${php}">

@@ -1,3 +1,7 @@
 @import "fonts.css";
 @import "bootstrap/adjustments.css";
 @import "bootstrap/callouts.css";
+
+img[id^=captcha] {
+    margin-bottom: 10px;
+}

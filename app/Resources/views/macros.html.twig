@@ -1,3 +1,10 @@
+{%- macro callout(message, type) %} 
+    {% set type = type == null ? 'danger' : type %}
+    <div class="bs-callout bs-callout-{{ type }}" style="margin-top: 1px">
+        {{ message }}
+    </div>
+{% endmacro -%}
+
 {%- macro formFields(form, fields, type) %} 
     {% for f in fields %}
         {% set field = form[f] %}

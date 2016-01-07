@@ -13,6 +13,8 @@ Gallery: Gallery
 Sign in: Sign in
 Sign out: Sign out
 
+captcha: Type the characters you see in the picture above.
+
 settings:
     category:
         general: General

@@ -58,6 +58,8 @@ History: Historia
 Note: Notatka
 User: Użytkownik
 
+captcha: Wpisz znaki, które widzisz na powyższym obrazku.
+
 settings:
     category:
         general: Ogólne

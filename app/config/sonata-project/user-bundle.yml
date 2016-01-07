@@ -4,3 +4,7 @@ sonata_user:
     impersonating:
         route:      default.home
         parameters: { }
+    profile:
+        register:
+            form:
+                type: app_user_registration

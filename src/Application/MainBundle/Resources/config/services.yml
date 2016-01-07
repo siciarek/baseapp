@@ -1,4 +1,8 @@
 services:
+    app.form.registration:
+        class: Application\MainBundle\Common\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: app_user_registration }
     request:
         class: Symfony\Component\HttpFoundation\Request
 
