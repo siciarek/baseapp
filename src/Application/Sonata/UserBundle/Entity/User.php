@@ -29,6 +29,17 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * Overriden method
+     * 
+     * @return string
+     */
+    public function getFullname() {
+        $fn = parent::getFullname();
+        $fn = trim($fn);
+        return strlen($fn) > 0 ? $fn : $this->getUsername();
+    }
+    
+    /**
      * Get id
      *
      * @return integer $id

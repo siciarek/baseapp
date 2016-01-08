@@ -1,3 +1,30 @@
+{%- macro tabHeaders(tabs, id) %}
+
+    {% set id = id == null ? 'tablist-tabs' : id~'-tabs' %}
+    
+    <ul role="tablist" class="nav nav-tabs" id="{{ id }}">
+        {% for t in tabs %}
+            {%if t.route == app.request.attributes.get('_route') %}
+                <li class="active">
+                    <a href="{{ path(t.route) }}">
+                        <i class="fa-{{ t.icon }} fa fa-lg fa-fw"></i>
+                        {{ t.label }}
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{{ path(t.route) }}">
+                        <i class="fa-{{ t.icon }} fa fa-lg fa-fw"></i>
+                        {{ t.label }}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <br/>
+{% endmacro -%}
+
 {%- macro callout(message, type) %} 
     {% set type = type == null ? 'danger' : type %}
     <div class="bs-callout bs-callout-{{ type }}" style="margin-top: 1px">
@@ -43,7 +70,8 @@
        class="{{ type }} btn btn-xs{% if enabled is sameas(false)%} btn-default disabled{%else%} {{ style[type].type }}{%endif%}">
         <i class="{{ style[type].icon }} fa fa-lg"></i>
     </a>
-    {% endmacro -%}
+
+{% endmacro -%}
 
         {%- macro value_or_dash(value) %}
         {% if value|trim|length > 0 %}
@@ -53,6 +81,7 @@
         {% endif %}
         {% endmacro -%}
 
+            
             {% macro bs_menu(menu, icon) %}
                 <div class="navbar navbar-inverse navbar-static-top">
                     <div class="container">
@@ -74,10 +103,10 @@
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                 <ul class="nav navbar-nav navbar-right">
                                     <li>
-                                        <a title="{{ app.user.firstName }} {{ app.user.lastName }}"
+                                        <a title="{{ app.user.fullname }}"
                                            href="javascript:void(null)" onfocus="blur()">
                                             <i class="fa-user fa fa-fw"></i>
-                                            {{ app.user.firstName }} {{ app.user.lastName }}
+                                            {{ app.user.fullname }}
                                         </a>
                                     </li>
                                 </ul>
