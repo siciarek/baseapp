@@ -1,17 +1,14 @@
 <?php
+
 namespace Application\MainBundle\Common;
 
-use Symfony\Component\Process\ProcessBuilder;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DomCrawler\Crawler;
-
 
 class XProcess implements ContainerAwareInterface
 {
-
     /**
      * @var ContainerInterface
      */
@@ -27,7 +24,6 @@ class XProcess implements ContainerAwareInterface
 
     public function __construct(ContainerInterface $container, $name = 'ls')
     {
-
         $this->setContainer($container);
 
         $this->setApplication($name);
@@ -35,7 +31,6 @@ class XProcess implements ContainerAwareInterface
 
     public function run($command)
     {
-
         $process = new Process($command);
         $process->mustRun();
 
@@ -48,14 +43,13 @@ class XProcess implements ContainerAwareInterface
 
         $stdout = $process->getOutput();
 
-        $output = implode("\n\n", [ $stderr, $stdout ]);
+        $output = implode("\n\n", [$stderr, $stdout]);
 
         return $output;
     }
 
     public function getApplication()
     {
-
         if ($this->application === null) {
             throw new \Exception('Application is not available.');
         }
@@ -69,15 +63,14 @@ class XProcess implements ContainerAwareInterface
         $msg = 'Application is not available.';
 
         if (preg_match('/^WIN/i', PHP_OS) === 0) {
-
-            $output = $this->run('whereis ' . $name);
+            $output = $this->run('whereis '.$name);
 
             $list = explode(' ', $output);
             array_shift($list);
             $list = array_map('trim', $list);
 
             $list = array_filter($list, function ($e) use ($name) {
-                return preg_match('/\b' . $name . '$/', $e) > 0;
+                return preg_match('/\b'.$name.'$/', $e) > 0;
             });
 
             $list = array_values($list);
@@ -89,7 +82,7 @@ class XProcess implements ContainerAwareInterface
             $application = null;
 
             foreach ($list as $app) {
-                if (file_exists($app) AND is_file($app) AND is_executable($app)) {
+                if (file_exists($app) and is_file($app) and is_executable($app)) {
                     $application = $app;
                     break;
                 }
@@ -100,7 +93,7 @@ class XProcess implements ContainerAwareInterface
             }
         }
 
-        if (!file_exists($application) OR !is_file($application) OR !is_executable($application)) {
+        if (!file_exists($application) or !is_file($application) or !is_executable($application)) {
             throw new \Exception($msg);
         }
 
@@ -109,11 +102,11 @@ class XProcess implements ContainerAwareInterface
 
     public function getVersion()
     {
-        $cmd    = sprintf('%s --version', $this->getApplication());
+        $cmd = sprintf('%s --version', $this->getApplication());
         $output = $this->run($cmd);
 
         if (preg_match('/\s\d+\.\d+\.\d+\s/', $output, $match) == 0) {
-            return null;
+            return;
         }
 
         $version = trim($match[0]);
@@ -122,7 +115,7 @@ class XProcess implements ContainerAwareInterface
     }
 
     /**
-     * Gets the container
+     * Gets the container.
      *
      * @return ContainerInterface|null $container A ContainerInterface instance or null
      */
@@ -140,5 +133,4 @@ class XProcess implements ContainerAwareInterface
     {
         $this->container = $container;
     }
-
 }

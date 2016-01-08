@@ -6,10 +6,10 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class EmailMessageType extends AbstractType {
-
-    public function buildForm(FormBuilderInterface $builder, array $options) {
-
+class EmailMessageType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
         $builder
                 ->add('name', 'text', [
                     'required' => false,
@@ -33,14 +33,15 @@ class EmailMessageType extends AbstractType {
         ;
     }
 
-    public function getName() {
+    public function getName()
+    {
         return 'email_message';
     }
 
-    public function configureOptions(OptionsResolver $resolver) {
+    public function configureOptions(OptionsResolver $resolver)
+    {
         $resolver->setDefaults([
             'data_class' => null,
         ]);
     }
-
 }

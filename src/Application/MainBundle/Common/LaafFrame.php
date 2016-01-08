@@ -2,9 +2,8 @@
 
 namespace Application\MainBundle\Common;
 
-
-class LaafFrame {
-
+class LaafFrame
+{
     const TYPE_REQUEST = 'request';
     const TYPE_INFO = 'info';
     const TYPE_DATA = 'data';
@@ -13,29 +12,33 @@ class LaafFrame {
 
     const EXCEPTION_MSG_INVALID_INPUT_DATA_TYPE = 'Invalid input data type.';
 
-    
-    public function getDataFrame($msg = null, $data = [], $warningOnEmptyData = false, $auth = null) {
+    public function getDataFrame($msg = null, $data = [], $warningOnEmptyData = false, $auth = null)
+    {
         return $this->getFrame(self::TYPE_DATA, $msg, $data, $warningOnEmptyData, $auth);
     }
 
-    public function getRequestFrame($msg = null, $data = null, $auth = null) {
+    public function getRequestFrame($msg = null, $data = null, $auth = null)
+    {
         return $this->getFrame(self::TYPE_REQUEST, $msg, $data, false, $auth);
     }
 
-    public function getInfoFrame($msg = null, $data = null, $auth = null) {
+    public function getInfoFrame($msg = null, $data = null, $auth = null)
+    {
         return $this->getFrame(self::TYPE_INFO, $msg, $data, false, $auth);
     }
 
-    public function getWarningFrame($msg = null, $data = null, $auth = null) {
+    public function getWarningFrame($msg = null, $data = null, $auth = null)
+    {
         return $this->getFrame(self::TYPE_WARNING, $msg, $data, false, $auth);
     }
 
-    public function getErrorFrame($msg = null, $data = null, $auth = null) {
+    public function getErrorFrame($msg = null, $data = null, $auth = null)
+    {
         return $this->getFrame(self::TYPE_ERROR, $msg, $data, false, $auth);
     }
 
-    protected function getFrame($type = self::TYPE_INFO, $msg = null, $data = null, $warningOnEmptyData = false, $auth = null) {
-
+    protected function getFrame($type = self::TYPE_INFO, $msg = null, $data = null, $warningOnEmptyData = false, $auth = null)
+    {
         $datetime = date('Y-m-d H:i:s');
 
         $frames = [
@@ -107,18 +110,18 @@ class LaafFrame {
         }
 
         if ($type === self::TYPE_DATA) {
-
             if (!is_array($data)) {
                 throw new \Exception(self::EXCEPTION_MSG_INVALID_INPUT_DATA_TYPE);
             }
 
             $items = array_values($data);
-            
-            if($warningOnEmptyData and count($items) === 0) {
+
+            if ($warningOnEmptyData and count($items) === 0) {
                 $frame = $this->getWarningFrame('No data found.');
+
                 return $frame;
             }
-            
+
             $frame['data']['items'] = $items;
             $frame['data']['currentItemCount'] = count($items);
             $frame['data']['itemsPerPage'] = count($items);

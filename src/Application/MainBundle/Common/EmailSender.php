@@ -6,12 +6,13 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Email sender
+ * Email sender.
  */
-class EmailSender implements ContainerAwareInterface {
-
+class EmailSender implements ContainerAwareInterface
+{
     /**
-     * Container reference variable
+     * Container reference variable.
+     *
      * @var Container interface
      */
     protected $container;
@@ -21,29 +22,30 @@ class EmailSender implements ContainerAwareInterface {
      */
     protected $mailer;
 
-    public function __construct(\Swift_Mailer $mailer) {
+    public function __construct(\Swift_Mailer $mailer)
+    {
         $this->mailer = $mailer;
     }
 
     /**
-     * Main sender function
+     * Main sender function.
      *
-     * @return boolean
+     * @return bool
      */
-    public function send() {
-
+    public function send()
+    {
         $from = 'siciarek@gmail.com';
         $to = 'siciarek@gmail.com';
 
         $subject = sprintf('[%s] Test message %s', $this->getContainer()->getParameter('app_name'), date('Y-m-d H:i:s'));
 
-        $body = "
+        $body = '
 
 <h1>Test message</h1>
 
 <p>Test message.</p>
 
-";
+';
         $bodyPlainText = strip_tags($body);
 
         $message = \Swift_Message::newInstance()
@@ -57,12 +59,13 @@ class EmailSender implements ContainerAwareInterface {
         return $this->mailer->send($message) == 1;
     }
 
-    public function getContainer() {
+    public function getContainer()
+    {
         return $this->container;
     }
 
-    public function setContainer(ContainerInterface $container = null) {
+    public function setContainer(ContainerInterface $container = null)
+    {
         $this->container = $container;
     }
-
 }

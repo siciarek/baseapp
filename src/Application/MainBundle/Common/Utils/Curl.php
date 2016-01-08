@@ -3,24 +3,12 @@
  * Created by PhpStorm.
  * User: Jacek
  * Date: 09.10.14
- * Time: 11:40
+ * Time: 11:40.
  */
-
 namespace Application\MainBundle\Common\Utils;
 
 /**
- * Class Curl
- * @package Application\Common\Utils
- *
- * Uwaga:
- *
- * metody GET(),POST(),PUT() i DELETE() zwracają hasza:
- *
- * [
- *      "headers" => []    // tablica zawierająca nagłówki odpowiedzi
- *      "info" => []       // tablica zawierająca informacje curl np. czas wykonywania, dane przekierowania itp.
- *      "response" => null // Zwracana odpowiedź w postaci stringa
- * ]
+ * Class Curl.
  */
 class Curl
 {
@@ -31,7 +19,7 @@ class Curl
 
     public function __construct($tempdir = null, $name = 'COOKIES', $debug = false)
     {
-        $tempdir = $tempdir ? : sys_get_temp_dir();
+        $tempdir = $tempdir ?: sys_get_temp_dir();
 
         umask(0000);
 
@@ -39,7 +27,7 @@ class Curl
             mkdir($tempdir);
         }
 
-        $cookies = $tempdir . DIRECTORY_SEPARATOR . $name;
+        $cookies = $tempdir.DIRECTORY_SEPARATOR.$name;
 
         if (file_exists($cookies)) {
             unlink($cookies);
@@ -55,18 +43,18 @@ class Curl
         );
 
         $this->opts = array(
-            CURLOPT_HTTPHEADER     => $this->default_headers,
-            CURLOPT_COOKIEFILE     => $cookies,
-            CURLOPT_COOKIEJAR      => $cookies,
-            CURLOPT_COOKIESESSION  => false,
+            CURLOPT_HTTPHEADER => $this->default_headers,
+            CURLOPT_COOKIEFILE => $cookies,
+            CURLOPT_COOKIEJAR => $cookies,
+            CURLOPT_COOKIESESSION => false,
             CURLOPT_SSL_VERIFYPEER => false,
             CURLOPT_SSL_VERIFYHOST => false,
 
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
 
-            CURLOPT_HEADER         => $debug,
-            CURLOPT_VERBOSE        => $debug,
+            CURLOPT_HEADER => $debug,
+            CURLOPT_VERBOSE => $debug,
             CURLOPT_HEADERFUNCTION => array($this, 'headersHandler'),
         );
     }
@@ -82,7 +70,6 @@ class Curl
 
         if (!empty($data)) {
             if (preg_match('/\?$/', $url)) {
-
             } else {
                 $url .= preg_match('/\?/', $url) ? '&' : '?';
             }
@@ -93,11 +80,11 @@ class Curl
         $opts = $this->opts;
 
         $opts[CURLOPT_HTTPGET] = true;
-        $opts[CURLOPT_URL]     = $url;
+        $opts[CURLOPT_URL] = $url;
 
         if ($username != null and $password != null) {
             $opts[CURLOPT_HTTPAUTH] = $this->auth;
-            $opts[CURLOPT_USERPWD]  = sprintf('%s:%s', $username, $password);
+            $opts[CURLOPT_USERPWD] = sprintf('%s:%s', $username, $password);
         }
 
         return $this->response($opts);
@@ -109,13 +96,13 @@ class Curl
 
         $opts = $this->opts;
 
-        $opts[CURLOPT_POST]       = true;
-        $opts[CURLOPT_URL]        = $url;
+        $opts[CURLOPT_POST] = true;
+        $opts[CURLOPT_URL] = $url;
         $opts[CURLOPT_POSTFIELDS] = $data;
 
         if ($username != null and $password != null) {
             $opts[CURLOPT_HTTPAUTH] = $this->auth;
-            $opts[CURLOPT_USERPWD]  = sprintf('%s:%s', $username, $password);
+            $opts[CURLOPT_USERPWD] = sprintf('%s:%s', $username, $password);
         }
 
         return $this->response($opts);
@@ -124,20 +111,20 @@ class Curl
     public function PUT($url, $data = null, $username = null, $password = null)
     {
         $opts = $this->opts;
-        $fp   = fopen('php://temp', 'w');
+        $fp = fopen('php://temp', 'w');
         if ($data !== null) {
             fwrite($fp, $data);
         }
         fseek($fp, 0);
 
-        $opts[CURLOPT_PUT]        = true;
-        $opts[CURLOPT_URL]        = $url;
-        $opts[CURLOPT_INFILE]     = $fp;
+        $opts[CURLOPT_PUT] = true;
+        $opts[CURLOPT_URL] = $url;
+        $opts[CURLOPT_INFILE] = $fp;
         $opts[CURLOPT_INFILESIZE] = strlen($data);
 
         if ($username != null and $password != null) {
             $opts[CURLOPT_HTTPAUTH] = $this->auth;
-            $opts[CURLOPT_USERPWD]  = sprintf('%s:%s', $username, $password);
+            $opts[CURLOPT_USERPWD] = sprintf('%s:%s', $username, $password);
         }
 
         return $this->response($opts);
@@ -150,12 +137,12 @@ class Curl
         $opts = $this->opts;
 
         $opts[CURLOPT_CUSTOMREQUEST] = 'DELETE';
-        $opts[CURLOPT_URL]           = $url;
-        $opts[CURLOPT_POSTFIELDS]    = $data;
+        $opts[CURLOPT_URL] = $url;
+        $opts[CURLOPT_POSTFIELDS] = $data;
 
         if ($username != null and $password != null) {
             $opts[CURLOPT_HTTPAUTH] = $this->auth;
-            $opts[CURLOPT_USERPWD]  = sprintf('%s:%s', $username, $password);
+            $opts[CURLOPT_USERPWD] = sprintf('%s:%s', $username, $password);
         }
 
         return $this->response($opts);
@@ -171,14 +158,14 @@ class Curl
         $ch = curl_init();
         curl_setopt_array($ch, $opts);
         $response = curl_exec($ch);
-        $info     = curl_getinfo($ch);
+        $info = curl_getinfo($ch);
         $headers = $this->getHeaders();
         curl_close($ch);
 
         return array(
             'response' => $response,
-            'info'     => $info,
-            'headers'  => $headers,
+            'info' => $info,
+            'headers' => $headers,
         );
     }
 
@@ -186,6 +173,7 @@ class Curl
     {
         if ($headers === array()) {
             $this->opts[CURLOPT_HTTPHEADER] = $this->default_headers;
+
             return;
         }
 

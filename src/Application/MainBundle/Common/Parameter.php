@@ -5,7 +5,7 @@ namespace Application\MainBundle\Common;
 use Application\MainBundle\Entity as E;
 
 /**
- * Entity parameter service
+ * Entity parameter service.
  */
 class Parameter
 {
@@ -32,7 +32,7 @@ class Parameter
         $orderBy = [
             'name' => 'ASC',
         ];
-        
+
         $list = $this->em->getRepository('ApplicationMainBundle:Parameter')->findBy($criteria, $orderBy);
 
         if ($array === false) {
@@ -53,7 +53,7 @@ class Parameter
     }
 
     /**
-     * Return parameter value
+     * Return parameter value.
      * 
      * @param type $entity
      * @param type $name
@@ -66,7 +66,7 @@ class Parameter
             throw new \Exception('Parameter not found.');
         }
 
-        if($scalar === false) {
+        if ($scalar === false) {
             return $param;
         }
 
@@ -75,7 +75,6 @@ class Parameter
 
     protected function findParameter($entity, $name, $strict = false)
     {
-
         list($entityType, $entityId) = $this->getEntityData($entity);
 
         $criteria = [
@@ -85,28 +84,27 @@ class Parameter
         ];
 
         $param = $this->em->getRepository('ApplicationMainBundle:Parameter')->findOneBy($criteria);
-        
-        if ($strict === true and $param instanceof Parameter and $param->isDeleted()) {
-            return null;
+
+        if ($strict === true and $param instanceof self and $param->isDeleted()) {
+            return;
         }
-        
+
         return $param;
     }
 
     /**
-     * Set parameter value, if parameter does not exist, create one
+     * Set parameter value, if parameter does not exist, create one.
      * 
      * @param type $entity
      * @param type $name
      * @param type $value
-     * @param type $type parameter data type (string, integer, boolean, text)
+     * @param type $type   parameter data type (string, integer, boolean, text)
      */
     public function set($entity, $name, $value, $category = E\Parameter::CATEGORY_GENERAL)
     {
         $param = $this->findParameter($entity, $name);
 
         if (!$param instanceof \Application\MainBundle\Entity\Parameter) {
-
             list($entityType, $entityId) = $this->getEntityData($entity);
 
             $param = new E\Parameter();
@@ -117,13 +115,13 @@ class Parameter
                     ->setCategory($category)
             ;
         }
-        
-        if($param->isDeleted()) {
+
+        if ($param->isDeleted()) {
             $param->restore();
             $this->em->flush();
             $this->em->refresh($param);
         }
-        
+
         $param->setValue($value);
         $this->em->persist($param);
         $this->em->flush();
@@ -150,5 +148,4 @@ class Parameter
 
         return [$entityType, $entityId];
     }
-
 }

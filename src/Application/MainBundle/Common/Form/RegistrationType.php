@@ -16,7 +16,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class RegistrationType extends AbstractType
 {
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('captcha', 'captcha', [
@@ -36,5 +35,4 @@ class RegistrationType extends AbstractType
     {
         return 'app_user_registration';
     }
-
 }
