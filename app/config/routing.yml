@@ -1,13 +1,12 @@
 hwi_oauth_redirect:
     resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
-    prefix:   /connect
+    prefix:   /demo/secured/connect
 
-hwi_oauth_login:
-    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
-    prefix:   /login
+facebook_login:
+    path: /demo/secured/login_facebook
 
 owners:
-    prefix: /api
+    prefix:   /api
     resource: Application\MainBundle\Controller\OwnerController
     type:     rest
 

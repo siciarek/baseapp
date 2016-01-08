@@ -1,5 +1,48 @@
 {% extends "::base.html.twig" %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '423300004542086',
+                xfbml: true,
+                version: 'v2.5'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        function fb_login() {
+            FB.getLoginStatus(function (response) {
+                if (response.status === 'connected') {
+                    // connected
+                    alert('Already connected, redirect to login page to create token.');
+                    document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
+                } else {
+                    // not_authorized
+                    FB.login(function (response) {
+                        if (response.authResponse) {
+                            document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
+                        } else {
+                            alert('Cancelled.');
+                        }
+                    }, {scope: 'email'});
+                }
+            });
+        }
+    </script>
+{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
 
@@ -34,9 +77,9 @@
             <div id="admin-dashboard-tab-content" class="tab-content">
 
                 <div role="tabpanel" class="tab-pane active">
-                    
+
                     <br/>
-                    
+
                     {% block sonata_user_login %}
 
                         {% block sonata_user_login_error %}
@@ -88,15 +131,10 @@
             </div>
         </div>
         <div class="col-lg-5">
-            {# <ul class="list-inline">
-                {% for owner in hwi_oauth_resource_owners() %}
-                    <li>
-                        <a class="btn btn-default btn-lg" title="{{ owner }}" href="{{ hwi_oauth_login_url(owner) }}">
-                            {{ owner|trans }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>#}
+                <a class="btn btn-lg" title="Log in with Facebook" onclick="fb_login()" href="#">
+                    <i class="fa-facebook-official fa fa-fw fa-2x"></i>
+                </a>
+            </ul>
         </div>
     </div>
 {% endblock fos_user_content %}

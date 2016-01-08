@@ -16,6 +16,21 @@ security:
             id: fos_user.user_provider.username_email
 
     firewalls:
+        secured_area:
+            pattern:    ^/demo/secured/
+            oauth:
+                resource_owners:
+                    facebook:      /demo/secured/login_facebook
+                login_path:        /demo/secured/login
+                failure_path:      /demo/secured/login
+                check_path:        /demo/secured/login
+                
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.entity
+        
+        # Turn on anonymous for testings need.
+            anonymous: ~
+        
         # Disabling the security for the web debug toolbar, the profiler and Assetic.
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
@@ -60,14 +75,12 @@ security:
                 # checkbox in the login form (see below), uncomment the
                 # following line to always enable it.
                 # always_remember_me: true
-            oauth:
-                resource_owners:
-                    facebook: "/login/check-facebook"
-                login_path:   /login
-                failure_path: /login
-
-                oauth_user_provider:
-                    service: hwi_oauth.user.provider.entity
+#            oauth:
+#                resource_owners:
+#                    facebook: "/oauth/login/check-facebook"
+#                login_path:  /login
+#                oauth_user_provider:
+#                    service: hwi_oauth.user.provider.entity
                     
         # -> end default login area for standard users
         

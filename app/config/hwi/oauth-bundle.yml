@@ -1,5 +1,5 @@
 hwi_oauth:
-    firewall_name: main
+    firewall_names: [secured_area]
     resource_owners:
         facebook:
             type:          facebook
