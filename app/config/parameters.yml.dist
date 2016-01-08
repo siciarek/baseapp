@@ -6,15 +6,15 @@ parameters:
     app_description: |
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-        officia deserunt mollit anim id est laborum.
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     app_session_name: BASEAPP
     app_session_handler: ~ # null, session.handler.pdo
     app_session_cookie_lifetime: 28800
     app_session_gc_maxlifetime: 1800
 
+    oauth_facebook_client_id: ~
+    oauth_facebook_client_secret: ~
+    
     oauth_github_client_id: ~
     oauth_github_client_secret: ~
 
