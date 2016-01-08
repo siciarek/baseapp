@@ -16,31 +16,11 @@ security:
             id: fos_user.user_provider.username_email
 
     firewalls:
-        # Oauth authentication:
-#        secure_area:
-#            pattern: ^/secure_area
-#
-#            oauth:
-#                failure_path: /secure_area/connect
-#                login_path: /secure_area/connect
-#                check_path: /secure_area/connect
-#                provider: fos_userbundle
-#                resource_owners:
-#                    github:           "/secure_area/login/check-github"
-#                oauth_user_provider:
-#                    service: hwi_oauth.user.provider.fosub_bridge
-#
-#            anonymous:    true
-#            logout:
-#                path:           /secure_area/logout
-#                target:         /secure_area/connect #where to go after logout
-
-
         # Disabling the security for the web debug toolbar, the profiler and Assetic.
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
+ 
         # -> custom firewall for the admin area of the URL
         admin:
             pattern:            /admin(.*)
@@ -80,7 +60,15 @@ security:
                 # checkbox in the login form (see below), uncomment the
                 # following line to always enable it.
                 # always_remember_me: true
+            oauth:
+                resource_owners:
+                    facebook: "/login/check-facebook"
+                login_path:   /login
+                failure_path: /login
 
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.entity
+                    
         # -> end default login area for standard users
         
     access_control:
@@ -98,10 +86,6 @@ security:
         # This config requires being logged for the whole site and having the admin role for the admin part.
         # Change these rules to adapt them to your needs
         - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
-
-        - { path: ^/secure_area/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/secure_area/connect, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/secure_area, roles: ROLE_USER }
 
         - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
        

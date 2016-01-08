@@ -1,8 +1,14 @@
 hwi_oauth:
-    firewall_name: secure_area
+    firewall_name: main
     resource_owners:
         facebook:
-            type:                facebook
-            client_id:           %oauth_facebook_client_id%
-            client_secret:       %oauth_facebook_client_secret%
-            scope:               "email"
+            type:          facebook
+            client_id:     %oauth_facebook_client_id%
+            client_secret: %oauth_facebook_client_secret%
+            scope:         "email"
+            options:
+                display: popup #dialog is optimized for popup window
+
+services:
+    hwi_oauth.user.provider.entity:
+        class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider

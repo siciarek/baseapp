@@ -25,7 +25,7 @@ imports:
     - { resource: nelmio/security-bundle.yml }
     - { resource: gregwar/captcha-bundle.yml }
 
-#    - { resource: hwi/oauth-bundle.yml }
+    - { resource: hwi/oauth-bundle.yml }
     
     - { resource: session.yml }
     - { resource: application.yml }
