@@ -5,6 +5,7 @@ hwi_oauth_redirect:
 facebook_login:
     path: /demo/secured/login_facebook
 
+
 owners:
     prefix:   /api
     resource: Application\MainBundle\Controller\OwnerController

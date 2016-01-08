@@ -1,5 +1,5 @@
 hwi_oauth:
-    firewall_names: [secured_area]
+    firewall_names:        [secured_area]
     resource_owners:
         facebook:
             type:          facebook
@@ -11,4 +11,4 @@ hwi_oauth:
 
 services:
     hwi_oauth.user.provider.entity:
-        class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider
+        class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider            

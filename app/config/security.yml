@@ -23,14 +23,12 @@ security:
                     facebook:      /demo/secured/login_facebook
                 login_path:        /demo/secured/login
                 failure_path:      /demo/secured/login
-                check_path:        /demo/secured/login
-                
                 oauth_user_provider:
                     service: hwi_oauth.user.provider.entity
-        
-        # Turn on anonymous for testings need.
+
+            # Turn on anonymous for testings need.
             anonymous: ~
-        
+
         # Disabling the security for the web debug toolbar, the profiler and Assetic.
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
