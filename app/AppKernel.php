@@ -1,10 +1,12 @@
 <?php
+
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
-    public function __construct($environment, $debug) {
+    public function __construct($environment, $debug)
+    {
         date_default_timezone_set('Europe/Warsaw');
         parent::__construct($environment, $debug);
     }
@@ -53,10 +55,10 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
-            
+
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
-            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),            
+            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Application\MainBundle\ApplicationMainBundle(),
         );
 
