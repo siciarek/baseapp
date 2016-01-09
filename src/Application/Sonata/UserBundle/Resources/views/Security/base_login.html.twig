@@ -2,7 +2,7 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script>
+   {# <script>
         window.fbAsyncInit = function () {
             FB.init({
                 appId: '423300004542086',
@@ -40,7 +40,7 @@
                 }
             });
         }
-    </script>
+    </script>#}
 {% endblock %}
 
 {% block stylesheets %}
@@ -131,7 +131,9 @@
             </div>
         </div>
         <div class="col-lg-5">
-                <a class="btn btn-lg" title="Log in with Facebook" onclick="fb_login()" href="#">
+                <a class="btn btn-lg" title="Log in with Facebook"
+{#                   onclick="fb_login()"#}
+                   href="#">
                     <i class="fa-facebook-official fa fa-fw fa-2x"></i>
                 </a>
             </ul>

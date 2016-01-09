@@ -1,9 +1,9 @@
-hwi_oauth_redirect:
-    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
-    prefix:   /demo/secured/connect
-
-facebook_login:
-    path: /demo/secured/login_facebook
+#hwi_oauth_redirect:
+#    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+#    prefix:   /demo/secured/connect
+#
+#facebook_login:
+#    path: /demo/secured/login_facebook
 
 
 owners:
