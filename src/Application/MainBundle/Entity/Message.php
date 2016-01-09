@@ -1,6 +1,7 @@
 <?php
 
 namespace Application\MainBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -14,26 +15,26 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Message
 {
-    use ORMBehaviors\Blameable\Blameable;
-    use ORMBehaviors\Timestampable\Timestampable;
-    use ORMBehaviors\SoftDeletable\SoftDeletable;
+
+    use ORMBehaviors\Blameable\Blameable,
+        ORMBehaviors\Timestampable\Timestampable,
+        ORMBehaviors\SoftDeletable\SoftDeletable;
 
     const TYPE_REGULAR = 'regular';
     const TYPE_REMINDER = 'reminder';
-    
     const CHANNEL_EMAIL = 'email';
     const CHANNEL_SMS = 'sms';
     const CHANNEL_PHONE = 'phone';
     const CHANNEL_DASHBOARD = 'dashboard';
     const CHANNEL_CHAT = 'chat';
-    
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;
-   
+
     /**
      * @ORM\Column()
      */
@@ -48,12 +49,12 @@ class Message
      * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
      */
     private $sender;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
      */
     private $receiver;
-    
+
     /**
      * @ORM\Column()
      */
@@ -72,7 +73,7 @@ class Message
     /**
      * @ORM\Column(nullable=true)
      */
-    private $info;    
+    private $info;
 
     /**
      * Get id
@@ -267,4 +268,5 @@ class Message
     {
         return $this->receiver;
     }
+
 }
