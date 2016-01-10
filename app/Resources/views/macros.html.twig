@@ -1,3 +1,16 @@
+{% macro enabled(value) %}
+    <a href="javascript:void(null)" class="toggle-enabled">
+        <i class="fa-{{ value == 1 ? 'check' : '' }}-square-o fa fa-fw fa-lg"></i>
+    </a>
+{% endmacro %}
+
+{% macro listIsEmpty() %}
+    <div class="alert alert-info">
+        <i class="fa-info-circle fa fa-fw fa-lg"></i>
+        {{ 'common.list_is_empty'|trans }}
+    </div>
+{% endmacro %}
+
 {%- macro tabHeaders(tabs, id) %}
 
     {% set id = id == null ? 'tablist-tabs' : id~'-tabs' %}
@@ -73,45 +86,44 @@
 
 {% endmacro -%}
 
-        {%- macro value_or_dash(value) %}
-        {% if value|trim|length > 0 %}
-            {{ value }}
-        {% else %}
-            &#0151;
-        {% endif %}
-        {% endmacro -%}
+{%- macro value_or_dash(value) %}
+{% if value|trim|length > 0 %}
+    {{ value }}
+{% else %}
+    {{ '&#0151;' }}
+{% endif %}
+{% endmacro -%}
 
-            
-            {% macro bs_menu(menu, icon) %}
-                <div class="navbar navbar-inverse navbar-static-top">
-                    <div class="container">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-{{ menu }}-collapse" aria-expanded="false">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="{{ url('default.home') }}">
-                                {%if icon is defined %}{{ icon }}{%endif%}
-                                <strong>{{ app_name|trans({}, 'ApplicationMainBundle') }}</strong>
+{% macro bs_menu(menu, icon) %}
+    <div class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-{{ menu }}-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url('default.home') }}">
+                    {%if icon is defined %}{{ icon }}{%endif%}
+                    <strong>{{ app_name|trans({}, 'ApplicationMainBundle') }}</strong>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-navbar-{{ menu }}-collapse">
+                {{ knp_menu_render(menu, { 'allow_safe_labels': true }) }}
+
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a title="{{ app.user.fullname }}"
+                               href="javascript:void(null)" onfocus="blur()">
+                                <i class="fa-user fa fa-fw"></i>
+                                {{ app.user.fullname }}
                             </a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="bs-navbar-{{ menu }}-collapse">
-                            {{ knp_menu_render(menu, { 'allow_safe_labels': true }) }}
-
-                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li>
-                                        <a title="{{ app.user.fullname }}"
-                                           href="javascript:void(null)" onfocus="blur()">
-                                            <i class="fa-user fa fa-fw"></i>
-                                            {{ app.user.fullname }}
-                                        </a>
-                                    </li>
-                                </ul>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            {% endmacro %}
+                        </li>
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endmacro %}
