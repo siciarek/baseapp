@@ -206,7 +206,7 @@ var Dialog = {
         info: 'fa-info-circle',
         input: 'fa-edit',
         question: 'fa-question-circle',
-        confirmation: 'fa-check-square-o'
+        confirmation: 'fa-question-circle'
     },
     buttons: {
         error: ['ok'],

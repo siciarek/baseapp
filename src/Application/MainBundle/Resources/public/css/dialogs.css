@@ -57,7 +57,8 @@
 }
 
 .dialog.template .modal-body .icon i.info,
-.dialog.template .modal-body .icon i.question {
+.dialog.template .modal-body .icon i.question,
+.dialog.template .modal-body .icon i.confirmation {
     color: #2d6ca2;
 }
 

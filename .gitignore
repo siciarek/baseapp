@@ -23,7 +23,7 @@ extra.bat
 /src/Application/MainBundle/Command/DummyCommand.php
 
 # Cache and logs (Symfony2)
-/app/data.db3
+/app/*.db3
 /app/cache/*
 /app/logs/*
 !app/cache/.gitkeep
