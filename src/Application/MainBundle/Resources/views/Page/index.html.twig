@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+
+    </script>
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="page-header">{{ page.title }}</h1>
+
+    {{ page.content|raw }}
+
+{% endblock %}

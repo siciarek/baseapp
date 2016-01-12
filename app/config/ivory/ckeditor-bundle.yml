@@ -1,18 +1,13 @@
 ivory_ck_editor:
 
-#    plugins:
-#        youtube:
-#            path:     "/bundles/applicationmain/js/ckeditor/plugins/youtube/"
-#            filename: "plugin.js"
-#        colorbutton:
-#            path:     "/bundles/applicationmain/js/ckeditor/plugins/colorbutton/"
-#            filename: "plugin.js"
+    plugins:
+        youtube:
+            path:     "/bundles/applicationmain/js/ckeditor/plugins/youtube/"
+            filename: "plugin.js"
+
     toolbars:
         items:
-            basic_typography: ['Bold', 'Italic', 'Underline']
-            basic_links: ['Link', 'Unlink']
-            color: ['TextColor', 'BGColor']
-            save: ['Save', 'Maximize', 'ShowBlocks']
+            show: ['Maximize', 'ShowBlocks']
             typography: ['Bold', 'Italic', 'Underline', 'Strike', '-', 'Subscript', 'Superscript']
             edit: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'SpellChecker', 'Scayt']
             elements: ['Image', 'Flash', 'Youtube', 'Link', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar']
@@ -23,13 +18,11 @@ ivory_ck_editor:
             links: ['Link', 'Unlink', 'Anchor', 'LinkToNode', 'LinkToMenu']
         configs:
             basic:
-                - @basic_typography
-                - @basic_links
-                - @color
-            extended:
-                - @save
+                - @show
                 - @typography
-                - @color
+            extended:
+                - @show
+                - @typography
                 - @edit
                 - @elements
                 - @alignment
@@ -39,32 +32,17 @@ ivory_ck_editor:
                 - @links
 
     configs:
-        email:
-            width: 100%
-            height: 150
-            toolbar: basic
-#            contentsCss: '/bundles/applicationmain/css/ckeditor.css'
-            removePlugins: 'elementspath'
         basic:
             width: 100%
-            height: 150
+            height: 200
             toolbar: basic
+        extended:
+            width: 100%
+            height: 300
 #            contentsCss: '/bundles/applicationmain/css/ckeditor.css'
-            removePlugins: 'elementspath'
+            toolbar: extended
+            filebrowserBrowseUrl : '/bundles/applicationmain/js/pdw_file_browser/index.php'
+            filebrowserImageBrowseUrl : '/bundles/applicationmain/js/pdw_file_browser/index.php?filter=image'
+            filebrowserFlashBrowseUrl : '/bundles/applicationmain/js/pdw_file_browser/index.php?filter=flash'
+#            extraPlugins: youtube
 
-#        basic_tall:
-#            width: 100%
-#            height: 350
-#            toolbar: basic
-#            contentsCss: '/bundles/applicationmain/css/ckeditor.css'
-#            removePlugins: 'elementspath'
-#
-#        extended:
-#            width: 90%
-#            height: 300
-#            contentsCss: '/bundles/applicationmain/css/ckeditor.css'
-#            toolbar: extended
-#            filebrowserBrowseUrl : '/bundles/applicationmain/js/pdw_file_browser/index.php'
-#            filebrowserImageBrowseUrl : '/bundles/applicationmain/js/pdw_file_browser/index.php?filter=image'
-#            filebrowserFlashBrowseUrl : '/bundles/applicationmain/js/pdw_file_browser/index.php?filter=flash'
-#            removePlugins: 'elementspath'

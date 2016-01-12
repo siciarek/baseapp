@@ -9,6 +9,7 @@ php.ini
 /utils/dumpdb/*.sql
 
 /behat.yml
+/pbehat.yml
 sync
 sync.bat
 go

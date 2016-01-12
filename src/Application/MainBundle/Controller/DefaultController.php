@@ -48,6 +48,7 @@ HTML;
         return new Response($srv->getOutputFromHtml($html), 200, $headers);
     }
 
+    
     /**
      * @Route("/json-test", name="default.json.test")
      */

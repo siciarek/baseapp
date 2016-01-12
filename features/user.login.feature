@@ -22,5 +22,5 @@ Potrzeba biznesowa: Użytkownik powinien móc się zalogować
     Jeżeli wypełnię pole "_username" wartością "colak"
     I wypełnię pole "_password" wartością "pass"
     I nacisnę przycisk "_submit"
-    Wtedy powinienem być na stronie "/private/"
+    Wtedy powinienem być na stronie "/private"
     

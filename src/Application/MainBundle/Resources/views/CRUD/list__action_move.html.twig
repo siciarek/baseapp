@@ -1,0 +1,20 @@
+{% if object.getPosition is defined and (admin.getFilterParameters._sort_by == "position" and admin.getFilterParameters._sort_order == "DESC") %}
+
+    {%  if object.getPosition < admin.datagrid.pager.nbresults - 1 %}
+        <a href="{{ path("_move_object", { class: admin.getClassNameLabel, id: object.getId, direction: "up"}, true) }}"
+           style="padding-left: 7px; padding-right: 7px;" class="btn view_link move" title="{{ 'Move Up' | trans() }}">&#9650;</a>
+    {% else %}
+        <a href="javascript:void(null)"
+           style="padding-left: 7px; padding-right: 7px;" class="btn view_link move disabled">&#9650;</a>
+    {% endif %}
+
+    {% if object.getPosition > 0 %}
+        <a href="{{ path("_move_object", { class: admin.getClassNameLabel, id: object.getId, direction: "down"}, true) }}"
+           style="padding-left: 7px; padding-right: 7px;" class="btn view_link move" title="{{ 'Move Down' | trans() }}" >&#9660;</a>
+    {% else %}
+        <a href="javascript:void(null)"
+           style="padding-left: 7px; padding-right: 7px;" class="btn view_link move disabled">&#9660;</a>
+    {% endif %}
+
+{% endif %}
+

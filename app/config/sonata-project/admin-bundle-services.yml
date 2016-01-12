@@ -1,5 +1,11 @@
 services:
 
+    admin.page:
+        class: Application\MainBundle\Admin\PageAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Zarządzanie stronami, label: Strony }
+        arguments: [ ~, Application\MainBundle\Entity\Page, SonataAdminBundle:CRUD ]
+
     app.admin.collection:
         class: Application\MainBundle\Admin\CollectionAdmin
         tags:
