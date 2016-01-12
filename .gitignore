@@ -17,6 +17,7 @@ go.bat
 extra
 extra.bat
 
+/src/Application/MainBundle/tmp
 /src/Application/MainBundle/Controller/TestController.php
 /src/Application/MainBundle/Resources/views/Test
 /src/Application/MainBundle/Resources/views/Dummy
