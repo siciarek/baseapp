@@ -58,6 +58,7 @@ extra.bat
 /web/temp*
 /web/coverage
 /web/info.php
+/web/cache
 
 # PHPUnit
 /app/phpunit.xml
