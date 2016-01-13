@@ -37,6 +37,11 @@ class PageGroup
     private $enabled = true;
 
     /**
+     * @ORM\Column()
+     */
+    private $role = 'ROLE_USER';
+
+    /**
      * @ORM\Column(nullable=true)
      */
     private $icon = 'list-alt';
@@ -58,6 +63,14 @@ class PageGroup
     }
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->pages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return integer 
@@ -65,37 +78,6 @@ class PageGroup
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set icon
-     *
-     * @param string $icon
-     * @return PageGroup
-     */
-    public function setIcon($icon)
-    {
-        $this->icon = $icon;
-
-        return $this;
-    }
-
-    /**
-     * Get icon
-     *
-     * @return string 
-     */
-    public function getIcon()
-    {
-        return $this->icon;
-    }
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->pages = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -119,6 +101,52 @@ class PageGroup
     public function getEnabled()
     {
         return $this->enabled;
+    }
+
+    /**
+     * Set role
+     *
+     * @param string $role
+     * @return PageGroup
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string 
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * Set icon
+     *
+     * @param string $icon
+     * @return PageGroup
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
+    /**
+     * Get icon
+     *
+     * @return string 
+     */
+    public function getIcon()
+    {
+        return $this->icon;
     }
 
     /**
@@ -153,4 +181,5 @@ class PageGroup
     {
         return $this->pages;
     }
+
 }

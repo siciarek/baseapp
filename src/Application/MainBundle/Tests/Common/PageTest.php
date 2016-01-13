@@ -16,7 +16,7 @@ class PageTest extends WebTestCase
     protected $data = [];
 
     /**
-     * @group paget
+     * @group pages
      */
     public function testGeneral()
     {
@@ -26,14 +26,17 @@ class PageTest extends WebTestCase
     }
 
     /**
-     * @group paget
+     * @group pages
      */
     public function testGetMenu()
     {
         $this->srv = $this->getContainer()->get('pages');
         $actual = $this->srv->getMenu();
         
+        $expected = \Application\MainBundle\DataFixtures\ORM\LoadPagesData::$menu;
+        
         $this->assertTrue(is_array($actual));
+        $this->assertEquals($expected, $actual);
     }
     
     public function tearDown()

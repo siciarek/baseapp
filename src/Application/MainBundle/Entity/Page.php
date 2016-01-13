@@ -35,7 +35,7 @@ class Page
      * @ORM\Column(type="integer")
      */
     private $id;
-    
+
     /**
      * @ORM\Column(type="boolean")
      */
@@ -50,7 +50,7 @@ class Page
      * @ORM\Column(type="integer")
      */
     private $position = 1;
-    
+
     /**
      * @ORM\Column()
      */
@@ -67,14 +67,22 @@ class Page
      */
     private $group;
 
-    public function getTitle() {
+    /**
+     * @ORM\Column()
+     */
+    private $role = 'ROLE_USER';
+
+    public function getTitle()
+    {
         return $this->translate()->getTitle();
     }
-    
-    public function getContent() {
+
+    public function getContent()
+    {
         return $this->translate()->getContent();
     }
-    
+
+
     /**
      * Get id
      *
@@ -83,6 +91,52 @@ class Page
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return Page
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set displayTitle
+     *
+     * @param boolean $displayTitle
+     * @return Page
+     */
+    public function setDisplayTitle($displayTitle)
+    {
+        $this->displayTitle = $displayTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get displayTitle
+     *
+     * @return boolean 
+     */
+    public function getDisplayTitle()
+    {
+        return $this->displayTitle;
     }
 
     /**
@@ -155,26 +209,26 @@ class Page
     }
 
     /**
-     * Set enabled
+     * Set role
      *
-     * @param boolean $enabled
+     * @param string $role
      * @return Page
      */
-    public function setEnabled($enabled)
+    public function setRole($role)
     {
-        $this->enabled = $enabled;
+        $this->role = $role;
 
         return $this;
     }
 
     /**
-     * Get enabled
+     * Get role
      *
-     * @return boolean 
+     * @return string 
      */
-    public function getEnabled()
+    public function getRole()
     {
-        return $this->enabled;
+        return $this->role;
     }
 
     /**
@@ -198,28 +252,5 @@ class Page
     public function getGroup()
     {
         return $this->group;
-    }
-
-    /**
-     * Set displayTitle
-     *
-     * @param boolean $displayTitle
-     * @return Page
-     */
-    public function setDisplayTitle($displayTitle)
-    {
-        $this->displayTitle = $displayTitle;
-
-        return $this;
-    }
-
-    /**
-     * Get displayTitle
-     *
-     * @return boolean 
-     */
-    public function getDisplayTitle()
-    {
-        return $this->displayTitle;
     }
 }

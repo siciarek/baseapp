@@ -33,7 +33,29 @@ class Page implements ContainerAwareInterface
         $repo = $em->getRepository('ApplicationMainBundle:PageGroup');
         $groups = $repo->findBy($criteria);
         
-        ld($groups);
+        foreach($groups as $g) {
+            $gr = [
+                'label' => $g->getName(),
+                'translation_domain' => 'ApplicationMainBundle',
+                'icon' => $g->getIcon(),
+                'role' => $g->getRole(),
+                'children' => [],
+            ];
+            
+            foreach($g->getPages() as $p) {
+                $gr['children'][] = [
+                    'label' => $p->getTitle(),
+                    'translation_domain' => 'ApplicationMainBundle',
+                    'role' => $p->getRole(),
+                    'route' => 'page.index',
+                    'routeParameters' => [
+                        'slug' => $p->getSlug(),
+                    ]
+                ];
+            }
+
+            $config[] = $gr;
+        }
         
         return $config;
     }

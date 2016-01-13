@@ -15,10 +15,14 @@ class PageAdmin extends AdminWithPosition
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-                
                 ->add('enabled')
                 ->add('displayTitle')
-                ->add('group', 'sonata_type_model')
+                ->add('group', 'sonata_type_model', [
+                    'required' => false,
+                    'attr' => [
+                        'placeholder' => 'common.choose_from_the_list',
+                    ],
+                ])
                 ->add('name')
                 ->add('translations', 'a2lix_translations', [
                     'label' => false,
@@ -45,7 +49,7 @@ class PageAdmin extends AdminWithPosition
                 ->getSingleScalarResult();
 
         $listMapper
-                ->add('position', null, array('template' => 'ApplicationMainBundle:CRUD:list_position.html.twig'))
+                ->add('position', null, [])
                 ->add('enabled', null, ['editable' => true])
                 ->add('displayTitle', null, ['editable' => true])
                 ->add('group')
@@ -54,7 +58,7 @@ class PageAdmin extends AdminWithPosition
                 ->add('createdAt')
                 ->add('_action', 'actions', [
                     'actions' => [
-                        'move' => array('template' => 'ApplicationMainBundle:CRUD:list__action_move.html.twig'),
+                        'move' => [ 'template' => 'ApplicationMainBundle:CRUD:list__action_move.html.twig' ],
                         'edit' => [],
                         'delete' => [],
                         'show' => [],

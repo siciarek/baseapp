@@ -12,7 +12,7 @@ class LoadCollectionData extends BasicFixture {
      * @var numeric 
      */
     protected $order = 4;
-    protected $limit = 200;
+    protected $limit = 50;
 
     /**
      * {@inheritDoc}

@@ -27,6 +27,8 @@ ivory_ck_editor:
                 - @color
                 - @show
             extended:
+                - @save
+                - @show
                 - @typography
                 - @links
                 - @color
@@ -36,7 +38,7 @@ ivory_ck_editor:
                 - @find
                 - @format
                 - @lists
-                - @show
+
 
     configs:
         basic:

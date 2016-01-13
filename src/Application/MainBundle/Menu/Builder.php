@@ -50,10 +50,16 @@ class Builder implements ContainerAwareInterface {
 
     public function getMainMenu() {
 
-        // Read main menu from configuration        
+        // Read main menu from configuration:        
         $config = $this->container->getParameter('application_main.main_menu');
 
-        // Add authentication menu
+        // Add custom pages:
+        
+        $pages = $this->container->get('app.pages')->getMenu();
+        
+        $config = array_merge($config, $pages);
+        
+        // Add authentication menu:
 
         if ($this->authorizationChecker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             $config[] = [
