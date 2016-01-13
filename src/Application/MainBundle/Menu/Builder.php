@@ -57,14 +57,16 @@ class Builder implements ContainerAwareInterface {
 
         if ($this->authorizationChecker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             $config[] = [
-                'label' => 'Sign out',
+                'label' => 'layout.logout',
+                'translation_domain' => 'FOSUserBundle',
                 'route' => 'fos_user_security_logout',
                 'icon' => 'sign-out',
                 'role' => 'IS_AUTHENTICATED_REMEMBERED',
             ];
         } else {
             $config[] = [
-                'label' => 'Sign in',
+                'label' => 'layout.login',
+                'translation_domain' => 'FOSUserBundle',
                 'route' => 'fos_user_security_login',
                 'icon' => 'sign-in',
                 'role' => 'IS_AUTHENTICATED_ANONYMOUSLY',
@@ -85,7 +87,7 @@ class Builder implements ContainerAwareInterface {
 
             if (!isset($c['role']) or $c['role'] === null or $this->authorizationChecker->isGranted($c['role'])) {
 
-                $_label = $this->translator->trans($c['label']);
+                $_label = $this->translator->trans($c['label'], [], $c['translation_domain']);
 
                 $label = $_label;
 
@@ -119,7 +121,7 @@ class Builder implements ContainerAwareInterface {
 
                     $options = [
                         'label' => $label . ' <span class="caret"></span>',
-                        'extras' => [ 'safe_label' => true],
+                        'extras' => [ 'safe_label' => true ],
                         'uri' => '#',
                         'attributes' => [],
                         'linkAttributes' => [
@@ -142,7 +144,7 @@ class Builder implements ContainerAwareInterface {
 
                     if (!isset($ch['role']) or $ch['role'] === null or $this->authorizationChecker->isGranted($ch['role'])) {
 
-                        $_chlabel = $this->translator->trans($ch['label']);
+                        $_chlabel = $this->translator->trans($ch['label'], [], $ch['translation_domain']);
 
                         $chlabel = $_chlabel;
 
