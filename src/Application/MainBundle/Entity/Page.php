@@ -35,6 +35,11 @@ class Page
      * @ORM\Column(type="integer")
      */
     private $id;
+    
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $enabled = true;
 
     /**
      * @ORM\Column(type="integer")
@@ -53,10 +58,9 @@ class Page
     private $slug;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\ManyToOne(targetEntity="PageGroup", inversedBy="pages", cascade={ "all" })
      */
-    private $enabled = false;
-
+    private $group;
 
     public function getTitle() {
         return $this->translate()->getTitle();
@@ -166,5 +170,28 @@ class Page
     public function getEnabled()
     {
         return $this->enabled;
+    }
+
+    /**
+     * Set group
+     *
+     * @param \Application\MainBundle\Entity\PageGroup $group
+     * @return Page
+     */
+    public function setGroup(\Application\MainBundle\Entity\PageGroup $group = null)
+    {
+        $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * Get group
+     *
+     * @return \Application\MainBundle\Entity\PageGroup 
+     */
+    public function getGroup()
+    {
+        return $this->group;
     }
 }

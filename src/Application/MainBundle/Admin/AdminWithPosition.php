@@ -2,7 +2,7 @@
 namespace Application\MainBundle\Admin;
 use Sonata\DoctrineORMAdminBundle\Datagrid\ProxyQuery;
 
-class DefaultAdminWithPosition extends Admin
+class AdminWithPosition extends Admin
 {
     public function createQuery($context = "list")
     {

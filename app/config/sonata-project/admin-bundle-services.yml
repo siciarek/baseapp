@@ -3,8 +3,32 @@ services:
     admin.page:
         class: Application\MainBundle\Admin\PageAdmin
         tags:
-          - { name: sonata.admin, manager_type: orm, group: Zarządzanie stronami, label: Strony }
-        arguments: [ ~, Application\MainBundle\Entity\Page, SonataAdminBundle:CRUD ]
+            - 
+                name: sonata.admin
+                manager_type: orm
+                icon: '<i class="fa fa-edit"></i>'
+                label_catalogue: messages
+                group: Page management
+                label: Pages
+        arguments:
+            - ~
+            - Application\MainBundle\Entity\Page
+            - ~
+
+    admin.page.group:
+        class: Application\MainBundle\Admin\PageGroupAdmin
+        tags:
+            - 
+                name: sonata.admin
+                manager_type: orm
+                icon: '<i class="fa fa-edit"></i>'
+                label_catalogue: messages
+                group: Page management
+                label: Groups
+        arguments:
+            - ~
+            - Application\MainBundle\Entity\PageGroup
+            - ~            
 
     app.admin.collection:
         class: Application\MainBundle\Admin\CollectionAdmin
