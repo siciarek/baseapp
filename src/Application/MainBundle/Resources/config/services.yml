@@ -1,4 +1,11 @@
 services:
+    app.pages:
+        class: Application\MainBundle\Common\Page
+        arguments: [ '@service_container' ]
+
+    pages:
+        alias: app.pages
+   
     app.form.registration:
         class: Application\MainBundle\Common\Form\RegistrationType
         tags:

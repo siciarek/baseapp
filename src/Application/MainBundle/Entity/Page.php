@@ -42,6 +42,11 @@ class Page
     private $enabled = true;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $displayTitle = true;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private $position = 1;
@@ -193,5 +198,28 @@ class Page
     public function getGroup()
     {
         return $this->group;
+    }
+
+    /**
+     * Set displayTitle
+     *
+     * @param boolean $displayTitle
+     * @return Page
+     */
+    public function setDisplayTitle($displayTitle)
+    {
+        $this->displayTitle = $displayTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get displayTitle
+     *
+     * @return boolean 
+     */
+    public function getDisplayTitle()
+    {
+        return $this->displayTitle;
     }
 }

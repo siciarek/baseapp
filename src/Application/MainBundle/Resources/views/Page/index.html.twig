@@ -10,8 +10,10 @@
 
 {% block body %}
 
+    {% if page.displayTitle %}
     <h1 class="page-header">{{ page.title }}</h1>
-
+    {% endif %}
+    
     {{ page.content|raw }}
 
 {% endblock %}

@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\MainBundle\Service;
+namespace Application\MainBundle\Common;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;

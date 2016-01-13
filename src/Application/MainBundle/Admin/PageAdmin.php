@@ -17,6 +17,7 @@ class PageAdmin extends AdminWithPosition
         $formMapper
                 
                 ->add('enabled')
+                ->add('displayTitle')
                 ->add('group', 'sonata_type_model')
                 ->add('name')
                 ->add('translations', 'a2lix_translations', [
@@ -46,6 +47,7 @@ class PageAdmin extends AdminWithPosition
         $listMapper
                 ->add('position', null, array('template' => 'ApplicationMainBundle:CRUD:list_position.html.twig'))
                 ->add('enabled', null, ['editable' => true])
+                ->add('displayTitle', null, ['editable' => true])
                 ->add('group')
                 ->add('slug')
                 ->addIdentifier('name')
@@ -64,6 +66,7 @@ class PageAdmin extends AdminWithPosition
     {
         $showMapper
                 ->add('enabled')
+                ->add('displayTitle')
                 ->add('group')
                 ->add('name')
                 ->add('slug')
@@ -79,6 +82,7 @@ class PageAdmin extends AdminWithPosition
         $datagridMapper
                 ->add('enabled')
                 ->add('name')
+                ->add('group')
                 ->add('createdAt')
         ;
     }
