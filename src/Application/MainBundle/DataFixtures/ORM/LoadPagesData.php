@@ -15,12 +15,14 @@ class LoadPagesData extends BasicFixture
     protected $order = 3;
     public static $menu = [
         [
+            'enabled' => true,
             'label' => 'Help',
             'translation_domain' => 'ApplicationMainBundle',
             'icon' => 'ambulance',
             'role' => 'ROLE_USER',
             'children' => [
                 [
+                    'enabled' => true,
                     'label' => 'First aid',
                     'translation_domain' => 'ApplicationMainBundle',
                     'role' => 'ROLE_USER',
@@ -30,6 +32,7 @@ class LoadPagesData extends BasicFixture
                     ]
                 ],
                 [
+                    'enabled' => true,
                     'label' => 'Second aid',
                     'translation_domain' => 'ApplicationMainBundle',
                     'role' => 'ROLE_USER',
@@ -41,12 +44,14 @@ class LoadPagesData extends BasicFixture
             ]
         ],
         [
+            'enabled' => true,
             'label' => 'Info',
             'translation_domain' => 'ApplicationMainBundle',
             'icon' => 'info-circle',
             'role' => 'ROLE_USER',
             'children' => [
                 [
+                    'enabled' => true,
                     'label' => 'First info',
                     'translation_domain' => 'ApplicationMainBundle',
                     'role' => 'ROLE_USER',
@@ -56,6 +61,7 @@ class LoadPagesData extends BasicFixture
                     ]
                 ],
                 [
+                    'enabled' => true,
                     'label' => 'Second info',
                     'translation_domain' => 'ApplicationMainBundle',
                     'role' => 'ROLE_USER',
@@ -65,6 +71,7 @@ class LoadPagesData extends BasicFixture
                     ]
                 ],
                 [
+                    'enabled' => true,
                     'label' => 'Third info',
                     'translation_domain' => 'ApplicationMainBundle',
                     'role' => 'ROLE_USER',
@@ -114,5 +121,4 @@ class LoadPagesData extends BasicFixture
 
         $manager->flush();
     }
-
 }

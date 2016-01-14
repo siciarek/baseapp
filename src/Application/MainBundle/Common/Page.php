@@ -39,6 +39,7 @@ class Page implements ContainerAwareInterface
         
         foreach($groups as $g) {
             $gr = [
+                'enabled' => $g->getEnabled(),
                 'label' => $g->getName(),
                 'translation_domain' => 'ApplicationMainBundle',
                 'icon' => $g->getIcon(),
@@ -50,6 +51,7 @@ class Page implements ContainerAwareInterface
 
                 if($p->getEnabled()) {
                     $gr['children'][] = [
+                        'enabled' => $p->getEnabled(),
                         'label' => $p->getTitle(),
                         'translation_domain' => 'ApplicationMainBundle',
                         'role' => $p->getRole(),

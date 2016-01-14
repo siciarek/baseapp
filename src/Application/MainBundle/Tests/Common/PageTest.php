@@ -36,9 +36,7 @@ class PageTest extends WebTestCase
         $expected = \Application\MainBundle\DataFixtures\ORM\LoadPagesData::$menu;
         
         $this->assertTrue(is_array($actual));
-//        $this->assertEquals($expected, $actual);
-        
-        echo json_encode($actual, 128);
+        $this->assertEquals($expected, $actual);
     }
     
     public function tearDown()
