@@ -14,7 +14,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity(repositoryClass="PageRepository")
  * @ORM\NamedQueries({
  *   @ORM\NamedQuery(name="count", query="SELECT COUNT(o) FROM __CLASS__ o"),
- *   @ORM\NamedQuery(name="sorted", query="SELECT o FROM __CLASS__ o WHERE o.enabled = true ORDER BY o.position DESC")
+ *   @ORM\NamedQuery(name="sorted", query="SELECT o FROM __CLASS__ o WHERE o.enabled = true  BY o.position DESC")
  * })
  */
 class Page
@@ -37,6 +37,12 @@ class Page
     private $id;
 
     /**
+     * @Gedmo\SortablePosition
+     * @ORM\Column(type="integer")
+     */
+    private $position;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     private $enabled = true;
@@ -45,11 +51,6 @@ class Page
      * @ORM\Column(type="boolean")
      */
     private $displayTitle = true;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $position = 0;
 
     /**
      * @ORM\Column()
@@ -81,7 +82,6 @@ class Page
     {
         return $this->translate()->getContent();
     }
-
 
     /**
      * Get id
@@ -137,29 +137,6 @@ class Page
     public function getDisplayTitle()
     {
         return $this->displayTitle;
-    }
-
-    /**
-     * Set position
-     *
-     * @param integer $position
-     * @return Page
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-
-        return $this;
-    }
-
-    /**
-     * Get position
-     *
-     * @return integer 
-     */
-    public function getPosition()
-    {
-        return $this->position;
     }
 
     /**
@@ -252,5 +229,29 @@ class Page
     public function getGroup()
     {
         return $this->group;
+    }
+
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return Page
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer 
+     */
+    public function getPosition()
+    {
+        return $this->position;
     }
 }

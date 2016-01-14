@@ -23,6 +23,8 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
+            new Pix\SortableBehaviorBundle\PixSortableBehaviorBundle(),
+            
 //            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
 
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),

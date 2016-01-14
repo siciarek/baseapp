@@ -4,6 +4,7 @@ namespace Application\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Application\MainBundle\Entity\Session
@@ -47,12 +48,13 @@ class PageGroup
     private $icon = 'list-alt';
 
     /**
+     * @Gedmo\SortablePosition
      * @ORM\Column(type="integer")
      */
-    private $position = 0;
+    private $position;
 
     /**
-     * @ORM\OrderBy({"enabled" = "DESC", "name" = "ASC"})
+     * @ORM\OrderBy({"position" = "ASC"})
      * @ORM\OneToMany(targetEntity="Page", mappedBy="group", cascade={ "all" }, orphanRemoval=true)
      */
     private $pages;

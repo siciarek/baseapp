@@ -1,26 +1,63 @@
-{% if object.getPosition is defined and (admin.getFilterParameters._sort_by == "position" and admin.getFilterParameters._sort_order == "DESC") %}
+{% if admin.isGranted('EDIT', object) and admin.hasRoute('edit') %}
+    {% set pix_position =  sortableObjectPosition(object) %}
 
-    {%  if object.getPosition < admin.datagrid.pager.nbresults - 1 %}
-        <a href="{{ path("_move_object", { class: admin.getClassNameLabel, id: object.getId, direction: 'up'}, true) }}"
-           class="btn btn-sm btn-default move" title="{{ 'Move Up' | trans() }}">
-            <i class="fa-arrow-up fa"></i>
+    {% if pix_position > 0 %}
+        <a class="btn btn-sm btn-default"
+           href="{{ admin.generateObjectUrl('move', object, {'position': 'up'}) }}"
+           title="{{ 'move_up'|trans }}">
+            {{- 'icon_move_up'|trans|raw -}}
         </a>
     {% else %}
-        <a href="#" class="btn btn-sm btn-default move disabled" title="{{ 'Move Up' | trans() }}">
-            <i class="fa-arrow-up fa"></i>
+        <a class="btn btn-sm btn-default disabled"
+           href="#"
+           title="{{ 'move_up'|trans }}">
+            {{- 'icon_move_up'|trans|raw -}}
+        </a>
+    {% endif %}
+    
+    {% if pix_position < admin.last_position %}
+        <a class="btn btn-sm btn-default"
+           href="{{ admin.generateObjectUrl('move', object, {'position': 'down'}) }}"
+           title="{{ 'move_down'|trans }}">
+            {{- 'icon_move_down'|trans|raw -}}
+        </a>
+    {% else %}
+        <a class="btn btn-sm btn-default disabled"
+           href="#"
+           title="{{ 'move_down'|trans }}">
+            {{- 'icon_move_down'|trans|raw -}}
         </a>
     {% endif %}
 
-    {% if object.getPosition > 0 %}
-        <a href="{{ path("_move_object", { class: admin.getClassNameLabel, id: object.getId, direction: 'down'}, true) }}"
-           class="btn btn-sm btn-default move" title="{{ 'Move Down' | trans() }}">
-            <i class="fa-arrow-down fa"></i>
+    
+
+    {% if pix_position > 0 %}
+        <a class="btn btn-sm btn-default"
+           href="{{ admin.generateObjectUrl('move', object, {'position': 'top'}) }}"
+           title="{{ 'move_to_top'|trans }}">
+            {{- 'icon_move_to_top'|trans|raw -}}
         </a>
     {% else %}
-        <a href="#" class="btn btn-sm btn-default move disabled" title="{{ 'Move Down' | trans() }}">
-            <i class="fa-arrow-down fa"></i>
+        <a class="btn btn-sm btn-default disabled"
+           href="#"
+           title="{{ 'move_to_top'|trans }}">
+            {{- 'icon_move_to_top'|trans|raw -}}
         </a>
     {% endif %}
+
+    {% if pix_position < admin.last_position %}
+        <a class="btn btn-sm btn-default"
+           href="{{ admin.generateObjectUrl('move', object, {'position': 'bottom'}) }}"
+           title="{{ 'move_to_bottom'|trans }}">
+            {{- 'icon_move_to_bottom'|trans|raw -}}
+        </a>
+    {% else %}
+        <a class="btn btn-sm btn-default disabled"
+           href="#"
+           title="{{ 'move_to_bottom'|trans }}">
+            {{- 'icon_move_to_bottom'|trans|raw -}}
+        </a>
+    {% endif %}
+
 
 {% endif %}
-

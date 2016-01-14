@@ -7,10 +7,29 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\CoreBundle\Validator\ErrorElement;
-use Sonata\DoctrineORMAdminBundle\Datagrid\ProxyQuery;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 class PageGroupAdmin extends Admin
 {
+    public $last_position = 0;
+
+    private $positionService;
+
+    protected $datagridValues = array(
+        '_page' => 1,
+        '_sort_order' => 'ASC',
+        '_sort_by' => 'position',
+    );
+
+    public function setPositionService(\Pix\SortableBehaviorBundle\Services\PositionHandler $positionHandler)
+    {
+        $this->positionService = $positionHandler;
+    }
+
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->add('move', $this->getRouterIdParameter() . '/move/{position}');
+    }
 
     protected function configureFormFields(FormMapper $formMapper)
     {
@@ -51,12 +70,15 @@ class PageGroupAdmin extends Admin
 
     protected function configureListFields(ListMapper $listMapper)
     {
+        $this->last_position = $this->positionService->getLastPosition($this->getRoot()->getClass());
+
         $listMapper
                 ->add('enabled', null, ['editable' => true])
                 ->addIdentifier('name')
                 ->add('createdAt')
                 ->add('_action', 'actions', [
                     'actions' => [
+                        'move' => [ 'template' => 'ApplicationMainBundle:CRUD:list__action_move.html.twig'],
                         'edit' => [],
                         'delete' => [],
                         'show' => [],

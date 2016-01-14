@@ -10,6 +10,7 @@
     },
     "minimum-stability": "dev",
     "require": {
+        "pixassociates/sortable-behavior-bundle": "dev-master",
         "hwi/oauth-bundle": "0.4.0",
         "brandonwamboldt/utilphp": "1.1.*",
         "gregwar/captcha-bundle": "~1.1",

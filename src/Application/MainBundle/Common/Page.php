@@ -29,9 +29,13 @@ class Page implements ContainerAwareInterface
             'enabled' => true,
         ];
         
+        $order = [
+            'position' => 'ASC',
+        ];
+        
         $em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $repo = $em->getRepository('ApplicationMainBundle:PageGroup');
-        $groups = $repo->findBy($criteria);
+        $groups = $repo->findBy($criteria, $order);
         
         foreach($groups as $g) {
             $gr = [

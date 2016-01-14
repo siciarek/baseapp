@@ -72,6 +72,26 @@ User: Użytkownik
 
 captcha: Wpisz znaki, które widzisz na powyższym obrazku.
 
+
+# Sortable
+
+flash_success_position_updated: Pozycja została uaktualniona.
+
+move_to_bottom: Na koniec
+icon_move_to_bottom: '<i class="fa-arrow-circle-down fa fa-lg"></i>'
+
+move_down: Na dół
+icon_move_down: '<i class="fa-arrow-down fa"></i>'
+
+move_up: Do góry
+icon_move_up: '<i class="fa-arrow-up fa"></i>'
+
+move_to_top: Na początek
+icon_move_to_top: '<i class="fa-arrow-circle-up fa fa-lg"></i>'
+
+
+
+
 visibility:
     name: Wyświetaj
     public: Zawsze

@@ -13,8 +13,10 @@ services:
         arguments:
             - ~
             - Application\MainBundle\Entity\Page
-            - ~
-
+            - 'PixSortableBehaviorBundle:SortableAdmin'
+        calls:
+             - [ setPositionService, [@pix_sortable_behavior.position]]
+         
     admin.page.group:
         class: Application\MainBundle\Admin\PageGroupAdmin
         tags:
@@ -28,7 +30,11 @@ services:
         arguments:
             - ~
             - Application\MainBundle\Entity\PageGroup
-            - ~            
+            - 'PixSortableBehaviorBundle:SortableAdmin'
+        calls:
+             - [ setPositionService, [@pix_sortable_behavior.position]]
+
+# ------------------------------------------------------------------------------
 
     app.admin.collection:
         class: Application\MainBundle\Admin\CollectionAdmin

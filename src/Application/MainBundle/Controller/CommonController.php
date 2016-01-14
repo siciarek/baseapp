@@ -9,33 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 abstract class CommonController extends Controller {
-    
-     /**
-     * @Route("/move/{class}/{id}/{direction}.html", name="_move_object", requirements = {"id"="^[1-9]\d*$", "direction"="^(up|down)$"})
-     */
-    public function moveObjectAction($class, $id, $direction)
-    {
-        $this->em = $this->getDoctrine()->getManager();
-        $obj = $this->em
-            ->getRepository("ApplicationMainBundle:" . $class)
-            ->find($id)
-        ;
-
-        $directions = array(
-            "up" => 1,
-            "down" => -1,
-        );
-
-        $obj->setPosition($obj->getPosition() + $directions[$direction]);
-        $this->em->persist($obj);
-        $this->em->flush();
-
-        $referer = $this->getRequest()->server->get('HTTP_REFERER');
-        $referer = $referer == null ? $this->generateUrl('default.homepage') : $referer;
-
-        return $this->redirect($referer);
-    }
-    
+     
     /**
      * Zwraca dane JSON wysłane postem jako tablicę lub obiekt
      *
