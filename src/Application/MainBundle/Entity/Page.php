@@ -49,7 +49,7 @@ class Page
     /**
      * @ORM\Column(type="integer")
      */
-    private $position = 1;
+    private $position = 0;
 
     /**
      * @ORM\Column()

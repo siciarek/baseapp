@@ -47,6 +47,11 @@ class PageGroup
     private $icon = 'list-alt';
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $position = 0;
+
+    /**
      * @ORM\OrderBy({"enabled" = "DESC", "name" = "ASC"})
      * @ORM\OneToMany(targetEntity="Page", mappedBy="group", cascade={ "all" }, orphanRemoval=true)
      */
@@ -150,6 +155,29 @@ class PageGroup
     }
 
     /**
+     * Set position
+     *
+     * @param integer $position
+     * @return PageGroup
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer 
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
      * Add pages
      *
      * @param \Application\MainBundle\Entity\Page $pages
@@ -181,5 +209,4 @@ class PageGroup
     {
         return $this->pages;
     }
-
 }
