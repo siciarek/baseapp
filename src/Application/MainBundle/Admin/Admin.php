@@ -30,6 +30,10 @@ class Admin extends \Sonata\AdminBundle\Admin\Admin
 
         return $dataSourceIterator;
     }
+    
+    public function getContainer() {
+        return $this->getConfigurationPool()->getContainer();
+    }
 
     /**
      * {@inheritdoc}

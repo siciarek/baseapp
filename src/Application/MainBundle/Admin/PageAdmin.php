@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\DoctrineORMAdminBundle\Datagrid\ProxyQuery;
 
-class PageAdmin extends AdminWithPosition
+class PageAdmin extends Admin
 {
 
     protected function configureFormFields(FormMapper $formMapper)
@@ -65,24 +65,18 @@ class PageAdmin extends AdminWithPosition
     }
 
     protected function configureListFields(ListMapper $listMapper)
-    {
-        $this->count = \Application\MainBundle\ApplicationMainBundle::getContainer()
-                ->get('doctrine.orm.entity_manager')
-                ->getRepository('ApplicationMainBundle:Page')
-                ->createNamedQuery('count')
-                ->getSingleScalarResult();
-
+    {        
         $listMapper
                 ->add('position', null, [])
-                ->add('enabled', null, ['editable' => true])
-                ->add('displayTitle', null, ['editable' => true])
+                ->add('enabled', null, [ 'editable' => true ])
+                ->add('displayTitle', null, [ 'editable' => true ])
                 ->add('group')
                 ->add('slug')
                 ->addIdentifier('name')
                 ->add('createdAt')
                 ->add('_action', 'actions', [
                     'actions' => [
-                        'move' => [ 'template' => 'ApplicationMainBundle:CRUD:list__action_move.html.twig'],
+                        'move' => [ 'template' => 'ApplicationMainBundle:CRUD:list__action_move.html.twig' ],
                         'edit' => [],
                         'delete' => [],
                         'show' => [],

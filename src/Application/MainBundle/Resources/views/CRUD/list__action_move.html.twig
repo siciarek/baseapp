@@ -1,7 +1,7 @@
 {% if object.getPosition is defined and (admin.getFilterParameters._sort_by == "position" and admin.getFilterParameters._sort_order == "DESC") %}
 
     {%  if object.getPosition < admin.datagrid.pager.nbresults - 1 %}
-        <a href="{{ path("_move_object", { class: admin.getClassNameLabel, id: object.getId, direction: "up"}, true) }}"
+        <a href="{{ path("_move_object", { class: admin.getClassNameLabel, id: object.getId, direction: 'up'}, true) }}"
            class="btn btn-sm btn-default move" title="{{ 'Move Up' | trans() }}">
             <i class="fa-arrow-up fa"></i>
         </a>
@@ -12,7 +12,7 @@
     {% endif %}
 
     {% if object.getPosition > 0 %}
-        <a href="{{ path("_move_object", { class: admin.getClassNameLabel, id: object.getId, direction: "down"}, true) }}"
+        <a href="{{ path("_move_object", { class: admin.getClassNameLabel, id: object.getId, direction: 'down'}, true) }}"
            class="btn btn-sm btn-default move" title="{{ 'Move Down' | trans() }}">
             <i class="fa-arrow-down fa"></i>
         </a>
