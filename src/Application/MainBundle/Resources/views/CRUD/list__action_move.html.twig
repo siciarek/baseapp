@@ -2,18 +2,24 @@
 
     {%  if object.getPosition < admin.datagrid.pager.nbresults - 1 %}
         <a href="{{ path("_move_object", { class: admin.getClassNameLabel, id: object.getId, direction: "up"}, true) }}"
-           style="padding-left: 7px; padding-right: 7px;" class="btn view_link move" title="{{ 'Move Up' | trans() }}">&#9650;</a>
+           class="btn btn-sm btn-default move" title="{{ 'Move Up' | trans() }}">
+            <i class="fa-arrow-up fa"></i>
+        </a>
     {% else %}
-        <a href="javascript:void(null)"
-           style="padding-left: 7px; padding-right: 7px;" class="btn view_link move disabled">&#9650;</a>
+        <a href="#" class="btn btn-sm btn-default move disabled" title="{{ 'Move Up' | trans() }}">
+            <i class="fa-arrow-up fa"></i>
+        </a>
     {% endif %}
 
     {% if object.getPosition > 0 %}
         <a href="{{ path("_move_object", { class: admin.getClassNameLabel, id: object.getId, direction: "down"}, true) }}"
-           style="padding-left: 7px; padding-right: 7px;" class="btn view_link move" title="{{ 'Move Down' | trans() }}" >&#9660;</a>
+           class="btn btn-sm btn-default move" title="{{ 'Move Down' | trans() }}">
+            <i class="fa-arrow-down fa"></i>
+        </a>
     {% else %}
-        <a href="javascript:void(null)"
-           style="padding-left: 7px; padding-right: 7px;" class="btn view_link move disabled">&#9660;</a>
+        <a href="#" class="btn btn-sm btn-default move disabled" title="{{ 'Move Down' | trans() }}">
+            <i class="fa-arrow-down fa"></i>
+        </a>
     {% endif %}
 
 {% endif %}

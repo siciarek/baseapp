@@ -67,15 +67,6 @@ HTML;
     }
 
     /**
-     * @Route("/about", name="default.about")
-     * @Template()
-     */
-    public function aboutAction(Request $request)
-    {
-        return [];
-    }
-
-    /**
      * @Route("/contact", name="default.contact")
      * @Template()
      */
@@ -92,14 +83,4 @@ HTML;
     {
         return [];
     }
-
-    /**
-     * @Route("/info", name="default.info")
-     * @Template()
-     */
-    public function infoAction(Request $request)
-    {
-        return [];
-    }
-
 }
