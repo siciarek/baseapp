@@ -47,15 +47,18 @@ class Page implements ContainerAwareInterface
             ];
             
             foreach($g->getPages() as $p) {
-                $gr['children'][] = [
-                    'label' => $p->getTitle(),
-                    'translation_domain' => 'ApplicationMainBundle',
-                    'role' => $p->getRole(),
-                    'route' => 'page.index',
-                    'routeParameters' => [
-                        'slug' => $p->getSlug(),
-                    ]
-                ];
+
+                if($p->getEnabled()) {
+                    $gr['children'][] = [
+                        'label' => $p->getTitle(),
+                        'translation_domain' => 'ApplicationMainBundle',
+                        'role' => $p->getRole(),
+                        'route' => 'page.index',
+                        'routeParameters' => [
+                            'slug' => $p->getSlug(),
+                        ]
+                    ];
+                }
             }
 
             $config[] = $gr;

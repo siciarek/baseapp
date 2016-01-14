@@ -10,14 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PageController extends CommonController
 {
-    /**
-     * @Route("/page/empty", name="page.empty")
-     */
-    public function emptyAction()
-    {
-        return new Response();
-    }
-    
+   
     /**
      * @Route("/page/{slug}.html", name="page.index")
      * @Template()
@@ -27,7 +20,7 @@ class PageController extends CommonController
         /**
          * @var PageRepository $repo
          */
-        $repo = $this->getDoctrine()->getManager()->getRepository("ApplicationMainBundle:Page");
+        $repo = $this->getDoctrine()->getManager()->getRepository('ApplicationMainBundle:Page');
 
         
         $qb = $repo
@@ -56,8 +49,7 @@ class PageController extends CommonController
         $page = reset($temp);
 
         return array(
-            "page" => $page,
-            "topbanner" => $this->container->get("sonata.media.manager.media")->findOneBy(array("name" => "topbanner", "enabled" => true)),
+            'page' => $page,
         );
     }
 

@@ -103,85 +103,106 @@ class Builder implements ContainerAwareInterface
 
         foreach ($config as $key => $c) {
 
-            if (!isset($c['role']) or $c['role'] === null or $this->authorizationChecker->isGranted($c['role'])) {
+            if (!(!isset($c['role']) or $c['role'] === null or $this->authorizationChecker->isGranted($c['role']))) {
+                continue;
+            }
 
-                $_label = $this->translator->trans($c['label'], [], $c['translation_domain']);
+            $_label = $this->translator->trans($c['label'], [], $c['translation_domain']);
 
-                $label = $_label;
+            $label = $_label;
 
-                if (isset($c['icon']) and $c['icon'] != null and strlen($c['icon']) > 0) {
+            if (isset($c['icon']) and $c['icon'] != null and strlen($c['icon']) > 0) {
 
-                    if ($c['icon'] === 'globe') {
-                        $_label = LocaleController::$locales[$locale];
-                    }
-
-                    $label = sprintf('<i class="fa fa-%s fa-lg fa-fw"></i> %s', $c['icon'], $_label);
+                if ($c['icon'] === 'globe') {
+                    $_label = LocaleController::$locales[$locale];
                 }
 
-                $options = [];
+                $label = sprintf('<i class="fa fa-%s fa-lg fa-fw"></i> %s', $c['icon'], $_label);
+            }
 
-                if (!isset($c['children']) or count($c['children']) == 0) {
+            $options = [];
 
-                    $options = [
-                        'label' => $label,
-                        'extras' => [ 'safe_label' => true],
-                        'route' => isset($c['route']) ? $c['route'] : 'page.empty',
-                        'routeParameters' => (isset($c['routeParameters']) and is_array($c['routeParameters'])) ? $c['routeParameters'] : [],
-                        'attributes' => [
-                            'class' => isset($c['route']) ? '' : 'disabled',
-                        ],
-                        'linkAttributes' => [
-                            'title' => $_label,
-                        ],
-                        'childrenAttributes' => []
-                    ];
+            if(!isset($c['enabled'])) {
+                $c['enabled'] = true;
+            }
+            
+            if (!isset($c['children']) or count($c['children']) == 0) {
 
-                    $c['children'] = [];
+                $options = [
+                    'label' => $label,
+                    'extras' => [ 'safe_label' => true],
+                    'attributes' => [
+                    ],
+                    'linkAttributes' => [
+                        'title' => $_label,
+                    ],
+                    'childrenAttributes' => []
+                ];
+
+                if (isset($c['route']) and $c['enabled'] === true) {
+                    $options['route'] = $c['route'];
+                    $options['routeParameters'] = (isset($c['routeParameters']) and is_array($c['routeParameters'])) ? $c['routeParameters'] : [];
+                    
                 } else {
-
-                    $options = [
-                        'label' => $label . ' <span class="caret"></span>',
-                        'extras' => [ 'safe_label' => true],
-                        'uri' => '#',
-                        'attributes' => [],
-                        'linkAttributes' => [
-                            'title' => $_label,
-                            'class' => 'dropdown dropdown-toggle',
-                            'data-toggle' => 'dropdown',
-                            'role' => 'button',
-                            'aria-haspopup' => 'true',
-                            'aria-expanded' => 'true',
-                        ],
-                        'childrenAttributes' => [
-                            'class' => 'dropdown-menu',
-                        ],
-                    ];
+                    $options['uri'] = 'javascript:void(null)';
+                    $options['attributes']['class'] = 'disabled';                   
                 }
 
-                $menu->addChild($key, $options);
+                $c['children'] = [];
+            } else {
 
-                foreach ($c['children'] as $chkey => $ch) {
+                $options = [
+                    'label' => $label . ' <span class="caret"></span>',
+                    'extras' => [ 'safe_label' => true],
+                    'uri' => '#',
+                    'attributes' => [],
+                    'linkAttributes' => [
+                        'title' => $_label,
+                        'class' => 'dropdown dropdown-toggle',
+                        'data-toggle' => 'dropdown',
+                        'role' => 'button',
+                        'aria-haspopup' => 'true',
+                        'aria-expanded' => 'true',
+                    ],
+                    'childrenAttributes' => [
+                        'class' => 'dropdown-menu',
+                    ],
+                ];
+            }
 
-                    if (!isset($ch['role']) or $ch['role'] === null or $this->authorizationChecker->isGranted($ch['role'])) {
+            $menu->addChild($key, $options);
 
-                        $_chlabel = $this->translator->trans($ch['label'], [], $ch['translation_domain']);
+            foreach ($c['children'] as $chkey => $ch) {
 
-                        $chlabel = $_chlabel;
+                if (!isset($ch['role']) or $ch['role'] === null or $this->authorizationChecker->isGranted($ch['role'])) {
 
-                        if (isset($ch['icon']) and $ch['icon'] != null and strlen($ch['icon']) > 0) {
-                            $chlabel = sprintf('<i class="fa fa-%s fa-lg fa-fw"></i> %s', $ch['icon'], $_chlabel);
-                        }
+                    $_chlabel = $this->translator->trans($ch['label'], [], $ch['translation_domain']);
 
-                        $menu[$key]->addChild($chkey, [
-                            'label' => $chlabel,
-                            'extras' => [ 'safe_label' => true],
-                            'route' => $ch['route'],
-                            'routeParameters' => (isset($ch['routeParameters']) and is_array($ch['routeParameters'])) ? $ch['routeParameters'] : [],
-                            'linkAttributes' => [
-                                'title' => $_chlabel,
-                            ],
-                        ]);
+                    $chlabel = $_chlabel;
+
+                    if (isset($ch['icon']) and $ch['icon'] != null and strlen($ch['icon']) > 0) {
+                        $chlabel = sprintf('<i class="fa fa-%s fa-lg fa-fw"></i> %s', $ch['icon'], $_chlabel);
                     }
+                    
+                    $choptions = [
+                        'label' => $chlabel,
+                        'extras' => [ 'safe_label' => true],
+                        'attributes' => [
+                        ],
+                        'linkAttributes' => [
+                            'title' => $_chlabel,
+                        ],
+                    ];
+
+                    if (isset($ch['route']) and $ch['enabled'] === true) {
+                        $choptions['route'] = $ch['route'];
+                        $choptions['routeParameters'] = (isset($ch['routeParameters']) and is_array($ch['routeParameters'])) ? $ch['routeParameters'] : [];
+                    } else {
+                        $choptions['uri'] = 'javascript:void(null)';
+                        $choptions['attributes']['class'] = 'disabled';
+                    }
+
+                    $menu[$key]->addChild($chkey, $choptions);
                 }
             }
         }
