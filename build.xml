@@ -123,5 +123,11 @@
             <arg line="app/console swiftmailer:spool:send --env=dev"/>
         </exec>
     </target>
+    
+    <target name="dd" description="Synchronizuj zdalną bazę z lokalną">
+        <exec executable="${php}">
+            <arg line="app/console dumpdb --env=prod"/>
+        </exec>
+    </target>
 
 </project>
