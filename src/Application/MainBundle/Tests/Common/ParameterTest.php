@@ -121,7 +121,7 @@ class ParameterTest extends WebTestCase
 
             $name = array_pop($names);
             $srv->remove($entity, $name);
-        };
+        }
 
         // After the removal:
 
@@ -134,8 +134,6 @@ class ParameterTest extends WebTestCase
         $given = [];
 
         foreach ($samples as $par) {
-
-            var_dump($par['name']);
 
             $given[] = [
                 'name' => $par['name'],

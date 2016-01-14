@@ -3,6 +3,7 @@ Group: Grupa
 Groups: Grupy
 Page Group List: Lista grup stron
 Page: Strona
+Page is empty.: Strona jest pusta.
 Pages: Strony
 Page List: Lista stron
 Page management: Zarządzanie stronami
@@ -67,6 +68,12 @@ Note: Notatka
 User: Użytkownik
 
 captcha: Wpisz znaki, które widzisz na powyższym obrazku.
+
+visibility:
+    name: Wyświetaj
+    public: Zawsze
+    private: Po zalogowaniu
+    admin: Tylko uprawnionym administratorom
 
 settings:
     category:

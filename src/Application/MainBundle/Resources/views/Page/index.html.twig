@@ -11,9 +11,13 @@
 {% block body %}
 
     {% if page.displayTitle %}
-    <h1 class="page-header">{{ page.title }}</h1>
+        <h1 class="page-header">{{ page.title }}</h1>
     {% endif %}
-    
-    {{ page.content|raw }}
+
+    {% if page.content is empty %}
+        {{ macros.callout('Page is empty.', 'info') }}
+    {% else %}
+        {{ page.content|raw }}
+    {% endif %}
 
 {% endblock %}

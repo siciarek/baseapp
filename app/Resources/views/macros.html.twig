@@ -5,8 +5,7 @@
 {% endmacro %}
 
 {% macro listIsEmpty() %}
-    <div class="alert alert-info">
-        <i class="fa-info-circle fa fa-fw fa-lg"></i>
+    <div class="bs-callout bs-callout-info">
         {{ 'common.list_is_empty'|trans }}
     </div>
 {% endmacro %}
@@ -41,7 +40,7 @@
 {%- macro callout(message, type) %} 
     {% set type = type == null ? 'danger' : type %}
     <div class="bs-callout bs-callout-{{ type }}" style="margin-top: 1px">
-        {{ message }}
+        {{ message|trans }}
     </div>
 {% endmacro -%}
 

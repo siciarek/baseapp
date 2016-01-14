@@ -15,29 +15,53 @@ class PageAdmin extends AdminWithPosition
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-                ->add('enabled')
-                ->add('displayTitle')
-                ->add('group', 'sonata_type_model', [
-                    'required' => false,
-                    'attr' => [
-                        'placeholder' => 'common.choose_from_the_list',
-                    ],
-                ])
-                ->add('name')
-                ->add('translations', 'a2lix_translations', [
-                    'label' => false,
-                    'fields' => [
-                        'title' => [
-                            'field_type' => 'text',
+            ->tab('Page')
+                ->with(null, [ 'box_class' => null, ])
+                    ->add('enabled')
+                    ->add('displayTitle')
+                    ->add('group', 'sonata_type_model', [
+                        'required' => false,
+                        'attr' => [
+                            'placeholder' => 'common.choose_from_the_list',
                         ],
-                        'content' => [
-                            'field_type' => 'ckeditor',
-                            'config_name' => 'extended',
-                            'label' => false,
+                    ])
+                    ->add('name')
+                    ->add('translations', 'a2lix_translations', [
+                        'label' => false,
+                        'fields' => [
+                            'title' => [
+                                'field_type' => 'text',
+                            ],
+                            'content' => [
+                                'field_type' => 'ckeditor',
+                                'config_name' => 'extended',
+                                'label' => false,
+                            ]
                         ]
-                    ]
-                ])
-                ->end();
+                    ])
+                ->end()
+            ->end()
+            
+            ->tab('visibility.name')
+                ->with(null, [ 'box_class' => null, ])
+                    ->add('role', 'choice', [
+                        'choices' => [
+                            'IS_AUTHENTICATED_ANONYMOUSLY' => 'visibility.public',
+                            'ROLE_USER' => 'visibility.private',
+                            'ROLE_ADMIN' => 'visibility.admin',
+                        ],
+                        'label' => false,
+                        'expanded' => true,
+                        'multiple' => false,
+                        'required' => true,
+                    ])
+ 
+                ->end()
+            ->end()
+        ;
+
+
+                
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -58,7 +82,7 @@ class PageAdmin extends AdminWithPosition
                 ->add('createdAt')
                 ->add('_action', 'actions', [
                     'actions' => [
-                        'move' => [ 'template' => 'ApplicationMainBundle:CRUD:list__action_move.html.twig' ],
+                        'move' => [ 'template' => 'ApplicationMainBundle:CRUD:list__action_move.html.twig'],
                         'edit' => [],
                         'delete' => [],
                         'show' => [],

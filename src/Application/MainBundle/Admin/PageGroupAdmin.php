@@ -16,17 +16,37 @@ class PageGroupAdmin extends Admin
     {
         $formMapper
                 
-                ->add('enabled')
-                ->add('icon')
-                ->add('translations', 'a2lix_translations', [
-                    'label' => false,
-                    'fields' => [
-                        'name' => [
-                            'field_type' => 'text',
+            ->tab('Group')
+                ->with(null, [ 'box_class' => null, ])
+                    ->add('enabled')
+                    ->add('icon')
+                    ->add('translations', 'a2lix_translations', [
+                        'label' => false,
+                        'fields' => [
+                            'name' => [
+                                'field_type' => 'text',
+                            ],
+                        ]
+                    ])
+                ->end()
+            ->end()
+            
+            ->tab('visibility.name')
+                ->with(null, [ 'box_class' => null, ])
+                    ->add('role', 'choice', [
+                        'choices' => [
+                            'IS_AUTHENTICATED_ANONYMOUSLY' => 'visibility.public',
+                            'ROLE_USER' => 'visibility.private',
+                            'ROLE_ADMIN' => 'visibility.admin',
                         ],
-                    ]
-                ])
-                ->end();
+                        'label' => false,
+                        'expanded' => true,
+                        'multiple' => false,
+                        'required' => true,
+                    ])
+ 
+                ->end()
+            ->end();
     }
 
     protected function configureListFields(ListMapper $listMapper)

@@ -10,7 +10,14 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PageController extends CommonController
 {
-
+    /**
+     * @Route("/page/empty", name="page.empty")
+     */
+    public function emptyAction()
+    {
+        return new Response();
+    }
+    
     /**
      * @Route("/page/{slug}.html", name="page.index")
      * @Template()

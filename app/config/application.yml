@@ -8,14 +8,6 @@ application_main:
             routeParameters: {}
             icon: home
         -
-            label: Info
-            route: default.info
-            icon: info-circle
-        -
-            label: About
-            route: default.about
-            icon: question-circle
-        -
             label: Contact
             route: default.contact
             icon: envelope

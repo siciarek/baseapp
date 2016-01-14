@@ -11,7 +11,8 @@ use Application\MainBundle\Controller\LocaleController;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class Builder implements ContainerAwareInterface {
+class Builder implements ContainerAwareInterface
+{
 
     /**
      * @var \Symfony\Component\DependencyInjection\ConainerInterface
@@ -33,7 +34,8 @@ class Builder implements ContainerAwareInterface {
      */
     private $authorizationChecker;
 
-    public function setContainer(ContainerInterface $container = null) {
+    public function setContainer(ContainerInterface $container = null)
+    {
         $this->container = $container;
     }
 
@@ -42,50 +44,60 @@ class Builder implements ContainerAwareInterface {
      *
      * Add any other dependency you need
      */
-    public function __construct(FactoryInterface $factory, TranslatorInterface $translator, AuthorizationCheckerInterface $authorizationChecker) {
+    public function __construct(FactoryInterface $factory, TranslatorInterface $translator, AuthorizationCheckerInterface $authorizationChecker)
+    {
         $this->factory = $factory;
         $this->translator = $translator;
         $this->authorizationChecker = $authorizationChecker;
     }
 
-    public function getMainMenu() {
-
-        // Read main menu from configuration:        
-        $config = $this->container->getParameter('application_main.main_menu');
+    public function getMainMenu()
+    {
+        $config = [];
 
         // Add custom pages:
-        
-        $pages = $this->container->get('app.pages')->getMenu();
-        
-        $config = array_merge($config, $pages);
-        
-        // Add authentication menu:
+        $custom = $this->container->get('app.pages')->getMenu();
 
-        if ($this->authorizationChecker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-            $config[] = [
-                'label' => 'layout.logout',
-                'translation_domain' => 'FOSUserBundle',
-                'route' => 'fos_user_security_logout',
-                'icon' => 'sign-out',
-                'role' => 'IS_AUTHENTICATED_REMEMBERED',
-            ];
-        } else {
-            $config[] = [
+        // Read main menu from configuration:        
+        $main = $this->container->getParameter('application_main.main_menu');
+
+        // Add authentication menu:
+        $auth = [
+            [
                 'label' => 'layout.login',
                 'translation_domain' => 'FOSUserBundle',
                 'route' => 'fos_user_security_login',
                 'icon' => 'sign-in',
                 'role' => 'IS_AUTHENTICATED_ANONYMOUSLY',
+            ]
+        ];
+
+        if ($this->authorizationChecker->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            array_shift($main);
+
+            $auth = [
+                [
+                    'label' => 'layout.logout',
+                    'translation_domain' => 'FOSUserBundle',
+                    'route' => 'fos_user_security_logout',
+                    'icon' => 'sign-out',
+                    'role' => 'IS_AUTHENTICATED_REMEMBERED',
+                ]
             ];
         }
+
+        $config = array_merge($config, $custom);
+        $config = array_merge($config, $main);
+        $config = array_merge($config, $auth);
 
         return $this->generateMenu($config);
     }
 
-    protected function generateMenu($config) {
+    protected function generateMenu($config)
+    {
 
         $locale = $this->container->get('request')->getLocale();
-        
+
         $menu = $this->factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
@@ -98,11 +110,11 @@ class Builder implements ContainerAwareInterface {
                 $label = $_label;
 
                 if (isset($c['icon']) and $c['icon'] != null and strlen($c['icon']) > 0) {
-                    
-                    if($c['icon'] === 'globe') {
+
+                    if ($c['icon'] === 'globe') {
                         $_label = LocaleController::$locales[$locale];
                     }
-                    
+
                     $label = sprintf('<i class="fa fa-%s fa-lg fa-fw"></i> %s', $c['icon'], $_label);
                 }
 
@@ -113,9 +125,11 @@ class Builder implements ContainerAwareInterface {
                     $options = [
                         'label' => $label,
                         'extras' => [ 'safe_label' => true],
-                        'route' => $c['route'],
+                        'route' => isset($c['route']) ? $c['route'] : 'page.empty',
                         'routeParameters' => (isset($c['routeParameters']) and is_array($c['routeParameters'])) ? $c['routeParameters'] : [],
-                        'attributes' => [],
+                        'attributes' => [
+                            'class' => isset($c['route']) ? '' : 'disabled',
+                        ],
                         'linkAttributes' => [
                             'title' => $_label,
                         ],
@@ -127,7 +141,7 @@ class Builder implements ContainerAwareInterface {
 
                     $options = [
                         'label' => $label . ' <span class="caret"></span>',
-                        'extras' => [ 'safe_label' => true ],
+                        'extras' => [ 'safe_label' => true],
                         'uri' => '#',
                         'attributes' => [],
                         'linkAttributes' => [
