@@ -33,7 +33,7 @@ $PHPTHUMB_CONFIG['document_root'] = $_SERVER['DOCUMENT_ROOT'];
 // Note: this directory must be writable (usually chmod 777 is neccesary) for caching to work.
 // If the directory is not writable no error will be generated but caching will be disabled.
 
-define('MINIFY_CACHE_DIR', dirname(__FILE__).'/../cache/');
+define('MINIFY_CACHE_DIR', $PHPTHUMB_CONFIG['document_root'] . '/cache/');
 
 if(!(file_exists(MINIFY_CACHE_DIR) and is_dir(MINIFY_CACHE_DIR) and is_writable(MINIFY_CACHE_DIR))) {
     $oldumask = umask(0);
