@@ -12,7 +12,7 @@ class PageController extends CommonController
 {
    
     /**
-     * @Route("/page/{slug}.html", name="page.index")
+     * @Route("/page/{slug}", requirements={"slug"="[\w/\-\.]+\w+"}, name="page.index")
      * @Template()
      */
     public function indexAction(Request $request, $slug)

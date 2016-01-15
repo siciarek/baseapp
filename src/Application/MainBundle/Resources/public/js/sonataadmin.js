@@ -16,7 +16,7 @@ $(document).ready(function () {
                 var name = self.val();
                 var title = $(tit.get(0)).val();
 
-                if (name.slice(0, title.length) === title || title.slice(0, name.length) === name) {
+                    if (name.slice(0, title.length) === title || title.slice(0, name.length) === name) {
                     tit.val(name);
                 }
             })

@@ -58,8 +58,16 @@ class Page
     private $name;
 
     /**
+     * @Gedmo\Slug(
+     * handlers={
+     *      @Gedmo\SlugHandler(class="Gedmo\Sluggable\Handler\RelativeSlugHandler", options={
+     *          @Gedmo\SlugHandlerOption(name="relationField", value="group"),
+     *          @Gedmo\SlugHandlerOption(name="relationSlugField", value="slug"),
+     *          @Gedmo\SlugHandlerOption(name="separator", value="/")
+     *      })
+     * },
+     * fields={"name"}, suffix=".html")
      * @ORM\Column(name="slug", length=128, unique=true)
-     * @Gedmo\Slug(fields={"name"})
      */
     private $slug;
 

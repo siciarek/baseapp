@@ -33,6 +33,12 @@ class PageGroup
     private $id;
 
     /**
+     * @Gedmo\Slug(fields={"icon"})
+     * @ORM\Column(name="slug", length=128, unique=true)
+     */
+    private $slug;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     private $enabled = true;
@@ -55,7 +61,7 @@ class PageGroup
 
     /**
      * @ORM\OrderBy({"position" = "ASC"})
-     * @ORM\OneToMany(targetEntity="Page", mappedBy="group", cascade={ "all" }, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Page", mappedBy="group")
      */
     private $pages;
 
@@ -85,6 +91,29 @@ class PageGroup
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return PageGroup
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**
@@ -187,6 +216,7 @@ class PageGroup
      */
     public function addPage(\Application\MainBundle\Entity\Page $pages)
     {
+        $pages->setGroup($this);
         $this->pages[] = $pages;
 
         return $this;

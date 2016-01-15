@@ -49,23 +49,13 @@ class PageGroupAdmin extends Admin
                     ])
                 ->end()
             ->end()
-            
+        
             ->tab('visibility.name')
                 ->with(null, [ 'box_class' => null, ])
-                    ->add('role', 'choice', [
-                        'choices' => [
-                            'IS_AUTHENTICATED_ANONYMOUSLY' => 'visibility.public',
-                            'ROLE_USER' => 'visibility.private',
-                            'ROLE_ADMIN' => 'visibility.admin',
-                        ],
-                        'label' => false,
-                        'expanded' => true,
-                        'multiple' => false,
-                        'required' => true,
-                    ])
- 
+                    ->add('role', 'choice', self::$roles)
                 ->end()
-            ->end();
+            ->end()
+        ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -74,6 +64,8 @@ class PageGroupAdmin extends Admin
 
         $listMapper
                 ->add('enabled', null, ['editable' => true])
+                ->add('slug')
+                ->add('icon')
                 ->addIdentifier('name')
                 ->add('createdAt')
                 ->add('_action', 'actions', [
@@ -90,6 +82,7 @@ class PageGroupAdmin extends Admin
     {
         $showMapper
                 ->add('enabled')
+                ->add('slug')
                 ->add('icon')
                 ->add('name')
                 ->add('pages')
