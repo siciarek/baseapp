@@ -23,6 +23,7 @@ extra.bat
 /src/Application/MainBundle/Resources/views/Dummy
 /src/Application/MainBundle/Controller/DummyController.php
 /src/Application/MainBundle/Command/DummyCommand.php
+/src/Application/MainBundle/Resources/public/js/pdw_file_browser/config.php
 
 # Cache and logs (Symfony2)
 /app/*.db3
