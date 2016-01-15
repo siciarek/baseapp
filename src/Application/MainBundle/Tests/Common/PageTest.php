@@ -2,10 +2,9 @@
 
 namespace Application\MainBundle\Tests\Common;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Application\MainBundle\Tests\TestCase;
 
-class PageTest extends WebTestCase
+class PageTest extends TestCase
 {
 
     /**
@@ -32,36 +31,11 @@ class PageTest extends WebTestCase
     {
         $this->srv = $this->getContainer()->get('pages');
         $actual = $this->srv->getMenu();
-        
+
         $expected = \Application\MainBundle\DataFixtures\ORM\LoadPagesData::$menu;
-        
+
         $this->assertTrue(is_array($actual));
         $this->assertEquals($expected, $actual);
-    }
-    
-    public function tearDown()
-    {
-        
-    }
-
-    public function setUp()
-    {
-
-        self::bootKernel();
-        $this->container = self::$kernel->getContainer();
-        $em = $this->container->get('doctrine.orm.entity_manager');
-
-        $entity = $this->container->get('doctrine.orm.entity_manager')
-                ->getRepository('Application\Sonata\UserBundle\Entity\User')
-                ->findOneByUsername('system')
-        ;
-        $token = new UsernamePasswordToken($entity, null, 'main', $entity->getRoles());
-        $this->container->get('security.token_storage')->setToken($token);
-    }
-
-    protected function getContainer()
-    {
-        return $this->container;
     }
 
 }

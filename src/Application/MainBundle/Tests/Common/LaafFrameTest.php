@@ -1,13 +1,13 @@
 <?php
+
 namespace Application\MainBundle\Tests\Common;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Application\MainBundle\Tests\TestCase;
 use Application\MainBundle\Common\LaafFrame;
 
-class LaafFrameTest extends WebTestCase
+class LaafFrameTest extends TestCase
 {
     protected $srv;
-    protected $container;
     protected static $auth = [
         'login' => 'test',
         'password' => 'test',
@@ -136,8 +136,7 @@ class LaafFrameTest extends WebTestCase
     }
     
     public function setUp() {
-        self::bootKernel();
-        $this->container = self::$kernel->getContainer();
+        parent::setUp();
         $this->srv = $this->container->get('app.common.laaf.frame');
     }
 }

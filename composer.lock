@@ -1599,12 +1599,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "59b674773757bb747677da4dfe6437dad7cfb33a"
+                "reference": "d03892f4a697cfc743185498db900dedd0ff2c7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/59b674773757bb747677da4dfe6437dad7cfb33a",
-                "reference": "59b674773757bb747677da4dfe6437dad7cfb33a",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/d03892f4a697cfc743185498db900dedd0ff2c7d",
+                "reference": "d03892f4a697cfc743185498db900dedd0ff2c7d",
                 "shasum": ""
             },
             "require": {
@@ -1670,7 +1670,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2016-01-07 09:45:25"
+            "time": "2016-01-14 12:33:55"
         },
         {
             "name": "gregwar/captcha",
@@ -2538,12 +2538,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/DoctrineBehaviors.git",
-                "reference": "32a022720b5c2ba1489b43af978af6b916233f2a"
+                "reference": "0c12bd57ad5e96d9d51e0855355f67a9257226ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/32a022720b5c2ba1489b43af978af6b916233f2a",
-                "reference": "32a022720b5c2ba1489b43af978af6b916233f2a",
+                "url": "https://api.github.com/repos/KnpLabs/DoctrineBehaviors/zipball/0c12bd57ad5e96d9d51e0855355f67a9257226ea",
+                "reference": "0c12bd57ad5e96d9d51e0855355f67a9257226ea",
                 "shasum": ""
             },
             "require": {
@@ -2596,7 +2596,7 @@
                 "translatable",
                 "tree"
             ],
-            "time": "2015-12-18 13:42:46"
+            "time": "2016-01-14 11:10:16"
         },
         {
             "name": "knplabs/gaufrette",
@@ -3671,12 +3671,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPOffice/PHPExcel.git",
-                "reference": "6ae1056fb2145f599434c831b645adff35ebfc1a"
+                "reference": "144f57e44a7b6a5cb10fb781a718e2cd49591408"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/6ae1056fb2145f599434c831b645adff35ebfc1a",
-                "reference": "6ae1056fb2145f599434c831b645adff35ebfc1a",
+                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/144f57e44a7b6a5cb10fb781a718e2cd49591408",
+                "reference": "144f57e44a7b6a5cb10fb781a718e2cd49591408",
                 "shasum": ""
             },
             "require": {
@@ -3724,7 +3724,7 @@
                 "xls",
                 "xlsx"
             ],
-            "time": "2016-01-13 22:38:20"
+            "time": "2016-01-15 01:19:58"
         },
         {
             "name": "phpoption/phpoption",
@@ -5448,12 +5448,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/swiftmailer-bundle.git",
-                "reference": "3d21ada19f23631f558ad6df653b168e35362e78"
+                "reference": "de5a2ddcaf91d2e44c19161e0fe8ed88022ceb51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/3d21ada19f23631f558ad6df653b168e35362e78",
-                "reference": "3d21ada19f23631f558ad6df653b168e35362e78",
+                "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/de5a2ddcaf91d2e44c19161e0fe8ed88022ceb51",
+                "reference": "de5a2ddcaf91d2e44c19161e0fe8ed88022ceb51",
                 "shasum": ""
             },
             "require": {
@@ -5497,7 +5497,7 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
-            "time": "2015-11-28 10:59:29"
+            "time": "2016-01-14 10:25:38"
         },
         {
             "name": "symfony/symfony",
@@ -5505,12 +5505,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "f898fa7f538911c0fe35ba33d99764dbd1100044"
+                "reference": "07673dcd3828defb8c4d07e58c3f0983cf157be2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/f898fa7f538911c0fe35ba33d99764dbd1100044",
-                "reference": "f898fa7f538911c0fe35ba33d99764dbd1100044",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/07673dcd3828defb8c4d07e58c3f0983cf157be2",
+                "reference": "07673dcd3828defb8c4d07e58c3f0983cf157be2",
                 "shasum": ""
             },
             "require": {
@@ -5622,7 +5622,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-01-14 09:08:21"
+            "time": "2016-01-14 11:52:48"
         },
         {
             "name": "twig/extensions",

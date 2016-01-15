@@ -7,13 +7,13 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Application\MainBundle\Entity\Session
+ * Application\MainBundle\Entity\PageCategory
  *
  * @ORM\Entity
- * @ORM\Table(name="page_group")
- * @ORM\Entity(repositoryClass="PageGroupRepository")
+ * @ORM\Table(name="page_category")
+ * @ORM\Entity(repositoryClass="PageCategoryRepository")
  */
-class PageGroup
+class PageCategory
 {
 
     use ORMBehaviors\Blameable\Blameable,
@@ -33,7 +33,12 @@ class PageGroup
     private $id;
 
     /**
-     * @Gedmo\Slug(fields={"icon"})
+     * @ORM\Column()
+     */
+    private $name;
+    
+    /**
+     * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(name="slug", length=128, unique=true)
      */
     private $slug;
@@ -61,19 +66,10 @@ class PageGroup
 
     /**
      * @ORM\OrderBy({"position" = "ASC"})
-     * @ORM\OneToMany(targetEntity="Page", mappedBy="group")
+     * @ORM\OneToMany(targetEntity="Page", mappedBy="category")
      */
     private $pages;
 
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->translate()->getName();
-    }
 
     /**
      * Constructor
@@ -94,10 +90,33 @@ class PageGroup
     }
 
     /**
+     * Set name
+     *
+     * @param string $name
+     * @return PageCategory
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
      * Set slug
      *
      * @param string $slug
-     * @return PageGroup
+     * @return PageCategory
      */
     public function setSlug($slug)
     {
@@ -120,7 +139,7 @@ class PageGroup
      * Set enabled
      *
      * @param boolean $enabled
-     * @return PageGroup
+     * @return PageCategory
      */
     public function setEnabled($enabled)
     {
@@ -143,7 +162,7 @@ class PageGroup
      * Set role
      *
      * @param string $role
-     * @return PageGroup
+     * @return PageCategory
      */
     public function setRole($role)
     {
@@ -166,7 +185,7 @@ class PageGroup
      * Set icon
      *
      * @param string $icon
-     * @return PageGroup
+     * @return PageCategory
      */
     public function setIcon($icon)
     {
@@ -189,7 +208,7 @@ class PageGroup
      * Set position
      *
      * @param integer $position
-     * @return PageGroup
+     * @return PageCategory
      */
     public function setPosition($position)
     {
@@ -212,11 +231,11 @@ class PageGroup
      * Add pages
      *
      * @param \Application\MainBundle\Entity\Page $pages
-     * @return PageGroup
+     * @return PageCategory
      */
     public function addPage(\Application\MainBundle\Entity\Page $pages)
     {
-        $pages->setGroup($this);
+        $pages->setCategory($this);
         $this->pages[] = $pages;
 
         return $this;

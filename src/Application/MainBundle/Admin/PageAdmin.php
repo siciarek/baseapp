@@ -37,7 +37,7 @@ class PageAdmin extends Admin
                 ->tab('Page')
                     ->with(null, [ 'box_class' => null,])
                         ->add('name')
-                        ->add('group', 'sonata_type_model', [
+                        ->add('category', 'sonata_type_model', [
                             'required' => false,
                             'attr' => [
                                 'placeholder' => 'common.choose_from_the_list',
@@ -76,7 +76,7 @@ class PageAdmin extends Admin
 
         $listMapper
                 ->addIdentifier('name')
-                ->add('group')
+                ->add('category')
                 ->add('slug')
                 ->add('enabled', null, [ 'editable' => true])
                 ->add('displayTitle', null, [ 'editable' => true])
@@ -97,7 +97,7 @@ class PageAdmin extends Admin
                 ->add('enabled')
                 ->add('displayTitle')
                 ->add('slug')
-                ->add('group')
+                ->add('category')
                 ->add('name')
                 ->add('title')
                 ->add('content', null, [
@@ -111,7 +111,7 @@ class PageAdmin extends Admin
         $datagridMapper
                 ->add('enabled')
                 ->add('name')
-                ->add('group')
+                ->add('category')
                 ->add('createdAt')
         ;
     }

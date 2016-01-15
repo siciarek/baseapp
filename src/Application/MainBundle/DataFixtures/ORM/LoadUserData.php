@@ -73,7 +73,7 @@ class LoadUserData extends BasicFixture {
         ];
 
         /**
-         * @var Sonata\UserBundle\Entity\GroupManager $mngr
+         * @var Sonata\UserBundle\Entity\UserManager $mngr
          */
         $mngr = $this->getContainer()->get('fos_user.user_manager');
 

@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Route\RouteCollection;
 
-class PageGroupAdmin extends Admin
+class PageCategoryAdmin extends Admin
 {
     public $last_position = 0;
 
@@ -35,10 +35,11 @@ class PageGroupAdmin extends Admin
     {
         $formMapper
                 
-            ->tab('Group')
+            ->tab('Category')
                 ->with(null, [ 'box_class' => null, ])
                     ->add('enabled')
                     ->add('icon')
+                    ->add('name')
                     ->add('translations', 'a2lix_translations', [
                         'label' => false,
                         'fields' => [
@@ -67,6 +68,7 @@ class PageGroupAdmin extends Admin
                 ->add('slug')
                 ->add('icon')
                 ->addIdentifier('name')
+                ->addIdentifier('title')
                 ->add('createdAt')
                 ->add('_action', 'actions', [
                     'actions' => [

@@ -18,7 +18,7 @@ services:
              - [ setPositionService, [@pix_sortable_behavior.position]]
          
     admin.page.group:
-        class: Application\MainBundle\Admin\PageGroupAdmin
+        class: Application\MainBundle\Admin\PageCategoryAdmin
         tags:
             - 
                 name: sonata.admin
@@ -26,10 +26,10 @@ services:
                 icon: '<i class="fa fa-edit"></i>'
                 label_catalogue: messages
                 group: Page management
-                label: Groups
+                label: Categories
         arguments:
             - ~
-            - Application\MainBundle\Entity\PageGroup
+            - Application\MainBundle\Entity\PageCategory
             - 'PixSortableBehaviorBundle:SortableAdmin'
         calls:
              - [ setPositionService, [@pix_sortable_behavior.position]]

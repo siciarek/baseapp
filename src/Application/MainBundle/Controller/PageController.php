@@ -5,7 +5,6 @@ namespace Application\MainBundle\Controller;
 use Application\MainBundle\Controller\CommonController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
 class PageController extends CommonController
@@ -21,11 +20,10 @@ class PageController extends CommonController
          * @var PageRepository $repo
          */
         $repo = $this->getDoctrine()->getManager()->getRepository('ApplicationMainBundle:Page');
-
         
         $qb = $repo
                 ->createQueryBuilder('p')
-                ->select('p.enabled, p.id, p.displayTitle, t.title, t.content, t.locale')
+                ->select('p.id, p.enabled, p.displayTitle, p.role, t.title, t.content, t.locale')
                 ->leftJoin('p.translations', 't')
                 ->andWhere('t.locale = :locale')
                 ->andWhere('p.slug = :slug')
@@ -47,7 +45,9 @@ class PageController extends CommonController
         }
 
         $page = reset($temp);
-
+        
+        $this->denyAccessUnlessGranted($page['role']);
+        
         return array(
             'page' => $page,
         );

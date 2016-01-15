@@ -28,17 +28,17 @@ class LoadPagesData extends BasicFixture
                     'role' => 'ROLE_USER',
                     'route' => 'page.index',
                     'routeParameters' => [
-                        'slug' => 'first-aid',
+                        'slug' => 'help/first-aid.html',
                     ]
                 ],
                 [
                     'enabled' => true,
-                    'label' => 'Second aid',
+                    'label' => 'Last aid',
                     'translation_domain' => 'ApplicationMainBundle',
                     'role' => 'ROLE_USER',
                     'route' => 'page.index',
                     'routeParameters' => [
-                        'slug' => 'second-aid',
+                        'slug' => 'help/last-aid.html',
                     ]
                 ]
             ]
@@ -57,7 +57,7 @@ class LoadPagesData extends BasicFixture
                     'role' => 'ROLE_USER',
                     'route' => 'page.index',
                     'routeParameters' => [
-                        'slug' => 'first-info',
+                        'slug' => 'info/first-info.html',
                     ]
                 ],
                 [
@@ -67,7 +67,7 @@ class LoadPagesData extends BasicFixture
                     'role' => 'ROLE_USER',
                     'route' => 'page.index',
                     'routeParameters' => [
-                        'slug' => 'second-info',
+                        'slug' => 'info/second-info.html',
                     ]
                 ],
                 [
@@ -77,7 +77,7 @@ class LoadPagesData extends BasicFixture
                     'role' => 'ROLE_USER',
                     'route' => 'page.index',
                     'routeParameters' => [
-                        'slug' => 'third-info',
+                        'slug' => 'info/third-info.html',
                     ]
                 ],                
             ]
@@ -91,14 +91,15 @@ class LoadPagesData extends BasicFixture
     {
         $faker = \Faker\Factory::create('pl_PL');
 
-        foreach (self::$menu as $group) {
-            $g = new E\PageGroup();
-            $g->setIcon($group['icon']);
-            $g->translate('pl')->setName($group['label']);
+        foreach (self::$menu as $category) {
+            $g = new E\PageCategory();
+            $g->setIcon($category['icon']);
+            $g->setName($category['label']);
+            $g->translate('pl')->setTitle($category['label']);
             $g->mergeNewTranslations();
             $manager->persist($g);
 
-            foreach ($group['children'] as $page) {
+            foreach ($category['children'] as $page) {
                 $title = $page['label'];
 
                 $temp = array_map(function($e) {
@@ -114,7 +115,7 @@ class LoadPagesData extends BasicFixture
                 $p->translate('pl')->setTitle($title);
                 $p->translate('pl')->setContent($content);
                 $p->mergeNewTranslations();
-                $p->setGroup($g);
+                $p->setCategory($g);
                 $manager->persist($p);
             }
         }

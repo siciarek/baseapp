@@ -34,10 +34,9 @@ class Page implements ContainerAwareInterface
         ];
         
         $em = $this->getContainer()->get('doctrine.orm.entity_manager');
-        $repo = $em->getRepository('ApplicationMainBundle:PageGroup');
-        $groups = $repo->findBy($criteria, $order);
+        $repo = $em->getRepository('ApplicationMainBundle:PageCategory');
         
-        foreach($groups as $g) {
+        foreach($repo->findBy($criteria, $order) as $g) {
             $gr = [
                 'enabled' => $g->getEnabled(),
                 'label' => $g->getName(),

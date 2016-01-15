@@ -2,18 +2,15 @@
 
 namespace Application\MainBundle\Tests\Common;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Application\MainBundle\Common\Parameter;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Application\MainBundle\Tests\TestCase;
 
-class ParameterTest extends WebTestCase
+class ParameterTest extends TestCase
 {
-
+        
     /**
-     * @var \Application\MainBundle\Common\EmailSender
+     * @var \Application\MainBundle\Common\Parameter
      */
     protected $srv;
-    protected $container;
     protected $data = [];
 
     /**
@@ -38,7 +35,7 @@ class ParameterTest extends WebTestCase
         $srv = $this->container->get('eparam');
         $entity = $this->container->get('doctrine.orm.entity_manager')
                 ->getRepository('Application\Sonata\UserBundle\Entity\User')
-                ->findOneByUsername('colak')
+                ->findOneByUsername(self::TEST_USER)
         ;
         $parame = $srv->get($entity, 'dummy');
     }
@@ -53,7 +50,7 @@ class ParameterTest extends WebTestCase
         $srv = $this->container->get('eparam');
         $entity = $this->container->get('doctrine.orm.entity_manager')
                 ->getRepository('Application\Sonata\UserBundle\Entity\User')
-                ->findOneByUsername('colak')
+                ->findOneByUsername(self::TEST_USER)
         ;
 
         $this->assertInstanceOf('Application\Sonata\UserBundle\Entity\User', $entity);
@@ -73,7 +70,7 @@ class ParameterTest extends WebTestCase
         $srv = $this->container->get('eparam');
         $entity = $this->container->get('doctrine.orm.entity_manager')
                 ->getRepository('Application\Sonata\UserBundle\Entity\User')
-                ->findOneByUsername('colak')
+                ->findOneByUsername(self::TEST_USER)
         ;
         $this->assertInstanceOf('Application\Sonata\UserBundle\Entity\User', $entity);
         $samples = [
@@ -153,18 +150,15 @@ class ParameterTest extends WebTestCase
     public function setUp()
     {
 
-        self::bootKernel();
-        $this->container = self::$kernel->getContainer();
+        parent::setUp();
+        
         $em = $this->container->get('doctrine.orm.entity_manager');
         $repo = $em->getRepository('ApplicationMainBundle:Parameter');
 
         $entity = $this->container->get('doctrine.orm.entity_manager')
                 ->getRepository('Application\Sonata\UserBundle\Entity\User')
-                ->findOneByUsername('colak')
+                ->findOneByUsername(self::TEST_USER)
         ;
-
-        $token = new UsernamePasswordToken($entity, null, 'main', $entity->getRoles());
-        $this->container->get('security.token_storage')->setToken($token);
 
         $criteria = [
             'entityType' => get_class($entity),

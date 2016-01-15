@@ -61,7 +61,7 @@ class Page
      * @Gedmo\Slug(
      * handlers={
      *      @Gedmo\SlugHandler(class="Gedmo\Sluggable\Handler\RelativeSlugHandler", options={
-     *          @Gedmo\SlugHandlerOption(name="relationField", value="group"),
+     *          @Gedmo\SlugHandlerOption(name="relationField", value="category"),
      *          @Gedmo\SlugHandlerOption(name="relationSlugField", value="slug"),
      *          @Gedmo\SlugHandlerOption(name="separator", value="/")
      *      })
@@ -72,9 +72,9 @@ class Page
     private $slug;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PageGroup", inversedBy="pages")
+     * @ORM\ManyToOne(targetEntity="PageCategory", inversedBy="pages")
      */
-    private $group;
+    private $category;
 
     /**
      * @ORM\Column()
@@ -217,26 +217,26 @@ class Page
     }
 
     /**
-     * Set group
+     * Set category
      *
-     * @param \Application\MainBundle\Entity\PageGroup $group
+     * @param \Application\MainBundle\Entity\PageCategory $category
      * @return Page
      */
-    public function setGroup(\Application\MainBundle\Entity\PageGroup $group = null)
+    public function setCategory(\Application\MainBundle\Entity\PageCategory $category = null)
     {
-        $this->group = $group;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Get group
+     * Get category
      *
-     * @return \Application\MainBundle\Entity\PageGroup 
+     * @return \Application\MainBundle\Entity\PageCategory 
      */
-    public function getGroup()
+    public function getCategory()
     {
-        return $this->group;
+        return $this->category;
     }
 
 
