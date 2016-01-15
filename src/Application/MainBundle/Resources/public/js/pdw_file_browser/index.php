@@ -26,7 +26,13 @@ THE SOFTWARE.
 */
 ob_start( 'ob_gzhandler' );
 
-define('MINIFY_CACHE_DIR', dirname(__FILE__) . '/cache');
+define('MINIFY_CACHE_DIR', dirname(__FILE__) . '/../../../../tmp/cache');
+
+if(!(file_exists(MINIFY_CACHE_DIR) and is_dir(MINIFY_CACHE_DIR) and is_writable(MINIFY_CACHE_DIR))) {
+    $oldumask = umask(0);
+    mkdir(MINIFY_CACHE_DIR, 01777, true);
+    umask($oldumask);
+}
 
 require_once('functions.php');
 require_once('minify.php');

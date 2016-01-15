@@ -147,12 +147,7 @@ define('TYPE_JS', 	'text/javascript');
 class Minify {
   
   var $files = array();
-  var $type;
-
-  function Minify($type = TYPE_JS) {
-	$this->type = $type;
-  }
-  
+  var $type = TYPE_JS;
 
   /**
    * Combines, minifies, and outputs the requested files.
@@ -272,7 +267,7 @@ class Minify {
    *   Minify::TYPE_CSS or Minify::TYPE_JS)
    * @param array|string $files filename or array of filenames to be minified
    */
-  function __construct($type = TYPE_JS, $files = array()) {
+   function __construct($type = TYPE_JS, $files = array()) {
     if ($type !== TYPE_JS && $type !== TYPE_CSS) {
       die('Invalid argument ($type): '.
           $type);

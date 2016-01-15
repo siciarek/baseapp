@@ -60,7 +60,7 @@ if(!isset($_SESSION)){ session_start();}
  * $uploadpath = '/images/upload/';
  *
  */
-$uploadpath = "/path/to/upload/folder/"; // absolute path from root to upload folder (DON'T FORGET SLASHES)
+$uploadpath = "/files/"; // absolute path from root to upload folder (DON'T FORGET SLASHES)
 
 /*
  * DEFAULT TIMEZONE
@@ -152,7 +152,7 @@ define('DOCUMENTROOT', realpath((getenv('DOCUMENT_ROOT') && preg_match('#^'.preg
  * Which editor are we dealing with? PDW File Browser can be used with TinyMCE and CKEditor.
  */
 $editor = isset($_GET["editor"]) ? $_GET["editor"] : ''; // If you want to use the file browser for both editors and/or standalone
-//$editor="tinymce";
+$editor="tinymce";
 //$editor="ckeditor";
 //$editor="standalone";
 
@@ -162,7 +162,7 @@ $editor = isset($_GET["editor"]) ? $_GET["editor"] : ''; // If you want to use t
  * 
  */
 // Maximum file size
-$max_file_size_in_bytes = 1048576; // 1MB in bytes
+$max_file_size_in_bytes = 20 * 1048576; // 1MB in bytes
 
 // Characters allowed in the file name (in a Regular Expression format)               
 $valid_chars_regex = '.A-Z0-9_ !@#$%^&()+={}\[\]\',~`-';
