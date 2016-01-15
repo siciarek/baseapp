@@ -72,7 +72,7 @@ class Page
     private $slug;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PageGroup", inversedBy="pages", cascade={ "all" })
+     * @ORM\ManyToOne(targetEntity="PageGroup", inversedBy="pages")
      */
     private $group;
 
