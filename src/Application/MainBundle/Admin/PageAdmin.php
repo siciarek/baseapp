@@ -11,9 +11,22 @@ use Sonata\AdminBundle\Route\RouteCollection;
 
 class PageAdmin extends Admin
 {
-    public $last_position = 0;
 
+    public $supportsPreviewMode = true;
+    public $last_position = 0;
     private $positionService;
+
+    public function getTemplate($name)
+    {
+        switch ($name) {
+            case 'preview':
+                return 'ApplicationMainBundle:CRUD:preview.html.twig';
+                break;
+            default:
+                return parent::getTemplate($name);
+                break;
+        }
+    }
 
     protected $datagridValues = array(
         '_page' => 1,
@@ -35,43 +48,42 @@ class PageAdmin extends Admin
     {
         $formMapper
                 ->tab('Page')
-                    ->with(null, [ 'box_class' => null,])
-                        ->add('name')
-                        ->add('category', 'sonata_type_model', [
-                            'required' => false,
-                            'attr' => [
-                                'placeholder' => 'common.choose_from_the_list',
-                            ],
-                        ])
-                        ->add('translations', 'a2lix_translations', [
+                ->with(null, [ 'box_class' => null,])
+                ->add('name')
+                ->add('category', 'sonata_type_model', [
+                    'required' => false,
+                    'attr' => [
+                        'placeholder' => 'common.choose_from_the_list',
+                    ],
+                ])
+                ->add('translations', 'a2lix_translations', [
+                    'label' => false,
+                    'fields' => [
+                        'title' => [
+                            'field_type' => 'text',
+                        ],
+                        'content' => [
+                            'field_type' => 'ckeditor',
+                            'config_name' => 'extended',
                             'label' => false,
-                            'fields' => [
-                                'title' => [
-                                    'field_type' => 'text',
-                                ],
-                                'content' => [
-                                    'field_type' => 'ckeditor',
-                                    'config_name' => 'extended',
-                                    'label' => false,
-                                ]
-                            ]
-                        ])
-                        ->add('enabled')
-                        ->add('displayTitle')
-                    ->end()
+                        ]
+                    ]
+                ])
+                ->add('enabled')
+                ->add('displayTitle')
                 ->end()
-
+                ->end()
                 ->tab('visibility.name')
-                    ->with(null, [ 'box_class' => null, ])
-                        ->add('role', 'choice', self::$roles)
-                    ->end()
+                ->with(null, [ 'box_class' => null,])
+                ->add('role', 'choice', self::$roles)
+                ->end()
                 ->end()
         ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        
+
         $this->last_position = $this->positionService->getLastPosition($this->getRoot()->getClass());
 
         $listMapper
