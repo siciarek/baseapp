@@ -26,7 +26,7 @@ THE SOFTWARE.
 */
 ob_start( 'ob_gzhandler' );
 
-define('MINIFY_CACHE_DIR', dirname(__FILE__) . '/../../../../tmp/cache');
+define('MINIFY_CACHE_DIR', $_SERVER['DOCUMENT_ROOT'] . '/cache');
 
 if(!(file_exists(MINIFY_CACHE_DIR) and is_dir(MINIFY_CACHE_DIR) and is_writable(MINIFY_CACHE_DIR))) {
     $oldumask = umask(0);

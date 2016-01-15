@@ -1,31 +1,34 @@
 <?php
+
 /*
-PDW File Browser v1.3 beta
-Date: October 19, 2010
-Url: http://www.neele.name
+  PDW File Browser v1.3 beta
+  Date: October 19, 2010
+  Url: http://www.neele.name
 
-Copyright (c) 2010 Guido Neele
+  Copyright (c) 2010 Guido Neele
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-*/
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  THE SOFTWARE.
+ */
 
-if(!isset($_SESSION)){ session_start();}  
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 /*
  * Uncomment lines below to enable PHP error reporting and displaying PHP errors.
@@ -47,8 +50,7 @@ if(!isset($_SESSION)){ session_start();}
  * }
  *
  * ... where $_SESSION['IsAuthorized'] is set to "true" as soon as the user logs in to your system.
-**/
-
+ * */
 /*
  * UPLOAD PATH
  * 
@@ -105,13 +107,13 @@ $defaultLanguage = 'pl';
  */
 $allowedActions = array(
     'upload' => TRUE,
-	'settings' => TRUE,
+    'settings' => TRUE,
     'cut_paste' => TRUE,
-	'copy_paste' => TRUE,
-	'rename' => TRUE,
-	'delete' => TRUE,
-	'create_folder' => TRUE
-); 
+    'copy_paste' => TRUE,
+    'rename' => TRUE,
+    'delete' => TRUE,
+    'create_folder' => TRUE
+);
 
 /*
  * PDW File Browser depends on $_SERVER['DOCUMENT_ROOT'] to resolve path/filenames. This value is usually
@@ -153,7 +155,7 @@ $customFilters = array(
  */
 $editor = isset($_GET["editor"]) ? $_GET["editor"] : ''; // If you want to use the file browser for both editors and/or standalone
 //$editor="tinymce";
-$editor="ckeditor";
+$editor = "ckeditor";
 //$editor="standalone";
 
 
@@ -163,7 +165,6 @@ $editor="ckeditor";
  */
 // Maximum file size
 $max_file_size_in_bytes = 20 * 1048576; // 1MB in bytes
-
 // Characters allowed in the file name (in a Regular Expression format)               
 $valid_chars_regex = '.A-Z0-9_ !@#$%^&()+={}\[\]\',~`-';
 
@@ -180,13 +181,6 @@ $extension_whitelist = "7z,aiff,asf,avi,bmp,csv,doc,docx,fla,flv,gif,gz,gzip,jpe
  */
 $absolute_url = FALSE; // When FALSE url will be returned absolute without hostname, like /upload/file.jpg.
 $absolute_url_disabled = FALSE; // When TRUE changing from absolute to relative is not possible.
-
-
-
-
-
-
-
 //--------------------------DON'T EDIT BEYOND THIS LINE ----------------------------------
 
 
@@ -198,42 +192,42 @@ $absolute_url_disabled = FALSE; // When TRUE changing from absolute to relative 
 
 
 define('STARTINGPATH', DOCUMENTROOT . $uploadpath); //DON'T EDIT
-
 //Check if upload folder exists
-if(!@is_dir(STARTINGPATH)) die('Upload folder doesn\'t exist or $uploadpath in config.php is set wrong!');
+if (!@is_dir(STARTINGPATH))
+    die('Upload folder doesn\'t exist or $uploadpath in config.php is set wrong!');
 
 //Check if editor is set
-if(!isset($editor)) die('The variable $editor in config.php is not set!');
+if (!isset($editor))
+    die('The variable $editor in config.php is not set!');
 
 // Figure out which language file to load
-if(!empty($_REQUEST['language'])) {
-	$language = $_REQUEST['language'];
+if (!empty($_REQUEST['language'])) {
+    $language = $_REQUEST['language'];
 } elseif (isset($_SESSION['language'])) {
-	$language = $_SESSION['language'];
+    $language = $_SESSION['language'];
 } else {
-	$language = $defaultLanguage;
+    $language = $defaultLanguage;
 }
 
-require_once("lang/".$language.".php");
+require_once("lang/" . $language . ".php");
 $_SESSION['language'] = $language;
 
 // Get local settings from language file
-$datetimeFormat = $lang["datetime format"];				// 24 hours, AM/PM, etc...
-$dec_seperator = $lang["decimal seperator"]; 			// character in front of the decimals
-$thousands_separator = $lang["thousands separator"];	// character between every group of thousands
-
-
+$datetimeFormat = $lang["datetime format"];    // 24 hours, AM/PM, etc...
+$dec_seperator = $lang["decimal seperator"];    // character in front of the decimals
+$thousands_separator = $lang["thousands separator"]; // character between every group of thousands
 // Check post_max_size (http://us3.php.net/manual/en/features.file-upload.php#73762)
-function let_to_num($v){ //This function transforms the php.ini notation for numbers (like '2M') to an integer (2*1024*1024 in this case)
+function let_to_num($v)
+{ //This function transforms the php.ini notation for numbers (like '2M') to an integer (2*1024*1024 in this case)
     $l = substr($v, -1);
     $ret = substr($v, 0, -1);
-    switch(strtoupper($l)){
+    switch (strtoupper($l)) {
         case 'P': $ret *= 1024;
         case 'T': $ret *= 1024;
         case 'G': $ret *= 1024;
         case 'M': $ret *= 1024;
         case 'K': $ret *= 1024;
-        break;
+            break;
     }
     return $ret;
 }
