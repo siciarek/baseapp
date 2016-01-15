@@ -36,15 +36,13 @@ class PageAdmin extends Admin
         $formMapper
                 ->tab('Page')
                     ->with(null, [ 'box_class' => null,])
-                        ->add('enabled')
-                        ->add('displayTitle')
+                        ->add('name')
                         ->add('group', 'sonata_type_model', [
                             'required' => false,
                             'attr' => [
                                 'placeholder' => 'common.choose_from_the_list',
                             ],
                         ])
-                        ->add('name')
                         ->add('translations', 'a2lix_translations', [
                             'label' => false,
                             'fields' => [
@@ -58,6 +56,8 @@ class PageAdmin extends Admin
                                 ]
                             ]
                         ])
+                        ->add('enabled')
+                        ->add('displayTitle')
                     ->end()
                 ->end()
 

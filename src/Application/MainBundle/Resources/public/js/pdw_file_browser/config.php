@@ -105,12 +105,12 @@ $defaultLanguage = 'pl';
  */
 $allowedActions = array(
     'upload' => TRUE,
-	'settings' => TRUE,
+    'settings' => TRUE,
     'cut_paste' => TRUE,
-	'copy_paste' => TRUE,
-	'rename' => TRUE,
-	'delete' => TRUE,
-	'create_folder' => TRUE
+    'copy_paste' => TRUE,
+    'rename' => TRUE,
+    'delete' => TRUE,
+    'create_folder' => TRUE
 ); 
 
 /*
