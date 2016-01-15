@@ -43,7 +43,7 @@ class PageCategoryAdmin extends Admin
                     ->add('translations', 'a2lix_translations', [
                         'label' => false,
                         'fields' => [
-                            'name' => [
+                            'title' => [
                                 'field_type' => 'text',
                             ],
                         ]
