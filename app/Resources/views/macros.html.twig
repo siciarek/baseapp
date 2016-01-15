@@ -94,7 +94,7 @@
 {% endif %}
 {% endmacro -%}
 
-{% macro bs_menu(menu, icon) %}
+{% macro bs_menu(menu, iconBefore, iconAfter) %}
     <div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -105,8 +105,9 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="{{ url('default.home') }}">
-                    {%if icon is defined %}{{ icon }}{%endif%}
+                    {%if iconBefore is defined and iconBefore is not null %}{{ iconBefore|raw }}{%endif%}
                     <strong>{{ app_name|trans({}, 'ApplicationMainBundle') }}</strong>
+                    {%if iconAfter is defined and iconAfter is not null %}{{ iconAfter|raw }}{%endif%}
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="bs-navbar-{{ menu }}-collapse">
