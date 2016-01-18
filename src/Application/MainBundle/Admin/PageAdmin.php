@@ -93,6 +93,7 @@ class PageAdmin extends Admin
                 ->add('enabled', null, [ 'editable' => true])
                 ->add('displayTitle', null, [ 'editable' => true])
                 ->add('createdAt')
+                ->add('createdBy')
                 ->add('_action', 'actions', [
                     'actions' => [
                         'move' => [ 'template' => 'ApplicationMainBundle:CRUD:list__action_move.html.twig'],
@@ -112,6 +113,10 @@ class PageAdmin extends Admin
                 ->add('category')
                 ->add('name')
                 ->add('title')
+                ->add('createdAt')
+                ->add('createdBy')
+                ->add('updatedAt')
+                ->add('updatedBy')
                 ->add('content', null, [
                     'safe' => true,
                 ])

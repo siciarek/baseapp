@@ -70,6 +70,9 @@ class PageCategoryAdmin extends Admin
                 ->addIdentifier('name')
                 ->addIdentifier('title')
                 ->add('createdAt')
+                ->add('createdBy')
+                ->add('updatedAt')
+                ->add('updatedBy')
                 ->add('_action', 'actions', [
                     'actions' => [
                         'move' => [ 'template' => 'ApplicationMainBundle:CRUD:list__action_move.html.twig'],
@@ -87,6 +90,10 @@ class PageCategoryAdmin extends Admin
                 ->add('slug')
                 ->add('icon')
                 ->add('name')
+                ->add('createdAt')
+                ->add('createdBy')
+                ->add('updatedAt')
+                ->add('updatedBy')
                 ->add('pages')
         ;
     }
