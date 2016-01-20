@@ -1,11 +1,12 @@
 $(document).ready(function () {
     Spinner.selector = $('body > div.spinner');
+    
     Window.selector = $('body > div.modal.window')
             .on('hidden.bs.modal', function (e) {
-                $(this).find(Window.contentSelector).addClass('hidden');
-                $(this).find(Window.contentSelector).detach().prependTo('body');
+                $(Window.selector).find('.modal-body *').detach().prependTo(Window.contentSelector);
             })
             ;
+
     Dialog.selector = $('body > div.dialog.template')
             .on('click', '.save,.yes,.no, .ok', function (e) {
                 var form = $('body > div.dialog.template form.form-horizontal');
