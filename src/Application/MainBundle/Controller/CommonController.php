@@ -43,11 +43,11 @@ abstract class CommonController extends Controller {
     /**
      * Handles json response
      *
-     * @param type $func callable
+     * @param type $run callable
      */
-    protected function handleJsonAction($func) {
+    protected function handleJsonAction($run) {
         try {
-            $frame = $func();
+            $frame = $run();
         } catch (\Exception $e) {
 
             $frame = $this->get('app.common.laaf.frame')

@@ -1,4 +1,6 @@
 # Phrases
+Public Profile: Profil publiczny
+
 Move Up: Do góry
 Move Down: Na dół
 
@@ -72,6 +74,7 @@ History: Historia
 Note: Notatka
 User: Użytkownik
 
+
 captcha: Wpisz znaki, które widzisz na powyższym obrazku.
 
 
@@ -133,6 +136,7 @@ person: Osoba
 organisation: Organizacja
 
 common:
+    talk: Rozmawiaj
     change: Zmień
     ok: OK
     yes: Tak

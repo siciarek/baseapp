@@ -57,7 +57,7 @@
         </exec>
     </target>
     
-    <target name="fix" depends="db" description="Wprowadzenie danych domyślnych do bazy">
+    <target name="fix" description="Wprowadzenie danych domyślnych do bazy">
         <exec executable="${php}">
             <arg line="app/console doctrine:fixtures:load --env=prod --no-interaction"/>
         </exec>
