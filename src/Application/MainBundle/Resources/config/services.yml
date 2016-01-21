@@ -33,6 +33,9 @@ services:
     app.common.utils.curl:
         class: Application\MainBundle\Common\Utils\Curl
 
+    curl:
+        alias: app.common.utils.curl
+
     app.common.utils.curl.debug:
         class: Application\MainBundle\Common\Utils\Curl
 

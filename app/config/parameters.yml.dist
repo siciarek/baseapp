@@ -12,6 +12,8 @@ parameters:
     app_session_cookie_lifetime: 28800
     app_session_gc_maxlifetime: 1800
 
+    app_form_login_default_target_path: /profile/
+   
     oauth_facebook_client_id: ~
     oauth_facebook_client_secret: ~
     
