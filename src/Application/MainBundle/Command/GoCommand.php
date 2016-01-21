@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\LockHandler;
+use utilphp\util;
 
 class GoCommand extends ContainerAwareCommand
 {
@@ -34,10 +35,12 @@ class GoCommand extends ContainerAwareCommand
             return 0xFF;
         }
         
-        $messages = __METHOD__;
-        $output->writeln($messages);
+        $message = __METHOD__;
         
-        sleep(10);
+        $phrase = 'zażółć gęślą jaźń, ZAŻÓŁĆ GĘŚLĄ JAŹŃ';
+        $slug = util::slugify($phrase);
+        
+        $output->writeln($slug);
         
         // Release the lock:
         $lock->release();
