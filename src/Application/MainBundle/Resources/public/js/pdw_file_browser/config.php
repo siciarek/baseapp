@@ -84,7 +84,7 @@ $uploadpath = "/uploads/"; // absolute path from root to upload folder (DON'T FO
  * Your options are: 'large_images', 'small_images', 'list', 'content', 'tiles' and 'details'
  *
  */
-$viewLayout = 'tiles';
+$viewLayout = 'list';
 
 /*
  * DEFAULT LANGUAGE
@@ -170,8 +170,7 @@ $valid_chars_regex = '.A-Z0-9_ !@#$%^&()+={}\[\]\',~`-';
 
 // Allowed file extensions
 // Remove an extension if you don't want to allow those files to be uploaded.
-$extension_whitelist = "asf,avi,bmp,fla,flv,gif,jpeg,jpg,mov,mpeg,mpg,png,tif,tiff,wmv"; // Images, video and flash only
-$extension_whitelist = "7z,aiff,asf,avi,bmp,csv,doc,docx,fla,flv,gif,gz,gzip,jpeg,jpg,mid,mov,mp3,mp4,mpc,mpeg,mpg,ods,odt,pdf,png,ppt,pptx,pxd,qt,ram,rar,rm,rmi,rmvb,rtf,sdc,sitd,swf,sxc,sxw,tar,tgz,tif,tiff,txt,vsd,wav,wma,wmv,xls,xlsx,zip";
+$extension_whitelist = "pdf,doc,docx,xls,xlsx,ppt,pptx,png,jpg,jpeg,png,bmp,svg";
 
 
 /*
@@ -237,4 +236,3 @@ $max_upload_size = min(let_to_num(ini_get('post_max_size')), let_to_num(ini_get(
 if ($max_file_size_in_bytes > $max_upload_size) {
     $max_file_size_in_bytes = $max_upload_size;
 }
-?>
