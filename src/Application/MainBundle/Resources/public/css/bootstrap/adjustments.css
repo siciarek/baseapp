@@ -256,20 +256,6 @@ table.table td.expand {
     }
 }
 
-/* PAGINATION */
-
-.pagination > li > a {
-    color: #666666;
-}
-
-.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-    background-color: #666666;
-    border-color: #DDDDDD;
-    color: #FFFFFF;
-    cursor: default;
-    z-index: 2;
-}
-
 /* BADGE colors based on label styles */
 
 .badge-default {
