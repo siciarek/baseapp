@@ -28,13 +28,17 @@ class EmailSender implements ContainerAwareInterface
         $this->mailer = $mailer;
     }
 
-    protected function stripHtml($html)
+    protected function normalizePart($content)
     {
-        $plaintext = $html;
-        $plaintext = strip_tags($plaintext);
-        $plaintext = preg_replace('/^\s*(\S)/', '$1', $plaintext);
-
-        return $plaintext;
+        $normalized = $content;
+        // Save urls before strip_tags:
+        $normalized = preg_replace('|<a.*href="([^"]*)"[^>]*>([^>]*)</a>|mse', 'trim("\\2").sprintf(" (%s)", "\\1")', $normalized);
+        $normalized = strip_tags($normalized);
+        // Remove extra spaces:
+        $normalized = preg_replace('/\n */', "\n", $normalized);
+        $normalized = trim($normalized);
+        
+        return $normalized;
     }
 
     /**
@@ -61,7 +65,7 @@ class EmailSender implements ContainerAwareInterface
         if ($from === null) {
             $from = [
                 'name' => $data['app_name'],
-                'email' => $this->getContainer()->getParameter('mailer_user'),
+                'email' => $this->getContainer()->getParameter('mailer_default_email'),
             ];
         }
 
@@ -74,13 +78,13 @@ class EmailSender implements ContainerAwareInterface
         $html = $tmpl->renderBlock('body', $data);
         $content['html'] = trim($html);
 
-        $plaintext = $this->stripHtml($content['html']);
+        $plaintext = $this->normalizePart($content['html']);
 
         if ($tmpl->hasBlock('plaintext')) {
             $plaintext = $tmpl->renderBlock('plaintext', $data);
         }
 
-        $content['plaintext'] = $plaintext;
+        $content['plaintext'] = $this->normalizePart($plaintext);
 
         if ($message === false) {
             return $content;

@@ -44,7 +44,7 @@ class EmailSenderTest extends TestCase {
 
         $template = '::email/test.html.twig';
         $message = $this->srv->getMessage($template, $params, $to);
-                
+        
         $this->assertTrue($this->srv->send($message));
 
         $result = trim(`$command`);
