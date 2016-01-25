@@ -14,8 +14,6 @@ security:
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username_email
-#    main:
-#        entity: { class: Ekino\WordpressBundle\Entity\User, property: login }
 
     firewalls:
 #        secured_area:
@@ -35,12 +33,6 @@ security:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
- 
-        wp_secured_area:
-            pattern:    ^/wordpress/admin
-            access_denied_handler: ekino.wordpress.security.entry_point
-            entry_point: ekino.wordpress.security.entry_point
-            anonymous: ~
  
         # -> custom firewall for the admin area of the URL
         admin:

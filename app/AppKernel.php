@@ -23,7 +23,6 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
-            new Ekino\WordpressBundle\EkinoWordpressBundle(),
             new Pix\SortableBehaviorBundle\PixSortableBehaviorBundle(),
             
 //            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
