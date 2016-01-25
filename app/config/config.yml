@@ -24,6 +24,7 @@ imports:
     - { resource: jms/security-extra-bundle.yml }
     - { resource: nelmio/security-bundle.yml }
     - { resource: gregwar/captcha-bundle.yml }
+    - { resource: ekino/wordpress-bundle.yml }
     
 #    - { resource: hwi/oauth-bundle.yml }
     
@@ -109,6 +110,7 @@ doctrine:
                     ApplicationSonataUserBundle: ~
                     ApplicationSonataClassificationBundle: ~
                     ApplicationSonataMediaBundle: ~
+                    EkinoWordpressBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:

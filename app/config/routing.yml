@@ -5,6 +5,9 @@
 #facebook_login:
 #    path: /demo/secured/login_facebook
 
+ekino_wordpress:
+    prefix: /wordpress
+    resource: "@EkinoWordpressBundle/Resources/config/routing.xml"
 
 owners:
     prefix:   /api

@@ -10,6 +10,7 @@
     },
     "minimum-stability": "stable",
     "require": {
+        "ekino/wordpress-bundle": "dev-master",
         "pixassociates/sortable-behavior-bundle": "dev-master",
         "hwi/oauth-bundle": "0.4.0",
         "brandonwamboldt/utilphp": "1.1.*",

@@ -14,6 +14,8 @@ security:
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username_email
+#    main:
+#        entity: { class: Ekino\WordpressBundle\Entity\User, property: login }
 
     firewalls:
 #        secured_area:
@@ -33,6 +35,12 @@ security:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
+ 
+        wp_secured_area:
+            pattern:    ^/wordpress/admin
+            access_denied_handler: ekino.wordpress.security.entry_point
+            entry_point: ekino.wordpress.security.entry_point
+            anonymous: ~
  
         # -> custom firewall for the admin area of the URL
         admin:
@@ -101,6 +109,6 @@ security:
         # This config requires being logged for the whole site and having the admin role for the admin part.
         # Change these rules to adapt them to your needs
         - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
+        - { path: ^/wordpress/admin, roles: ROLE_ADMIN }       
 
         - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
-       
