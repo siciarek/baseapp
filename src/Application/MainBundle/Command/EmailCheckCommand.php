@@ -24,7 +24,25 @@ class EmailCheckCommand extends ContainerAwareCommand {
     protected function execute(InputInterface $input, OutputInterface $output) {
 
         $sender = $this->getContainer()->get('app.common.email.sender');
-        $sender->send();
+        
+        $to = [
+            'name' => 'Jacek Siciarek',
+            'email' => 'siciarek@gmail.com',
+        ];
+        
+        $from = [
+            'name' => 'Jacek Siciarek',
+            'email' => 'siciarek@gmail.com',
+        ];
+
+        $params = [
+            'user' => 'Czesław Olak',
+            'date' => new \DateTime('1966-10-21 15:10:00'),
+        ];
+
+        $template = '::email/test.html.twig';
+        $message = $sender->getMessage($template, $params, $to, $from);
+        $sender->send($message);
 
         $kernel = $this->getContainer()->get('kernel');
         $application = new Application($kernel);

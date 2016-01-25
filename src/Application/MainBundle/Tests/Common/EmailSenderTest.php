@@ -32,7 +32,20 @@ class EmailSenderTest extends TestCase {
 
         $this->assertRegExp('/ 0 emails sent$/', $result);
 
-        $this->assertTrue($this->srv->send());
+        $to = [
+            'name' => 'Jacek Siciarek',
+            'email' => 'siciarek@gmail.com',
+        ];
+        
+        $params = [
+            'user' => 'Czesław Olak',
+            'date' => new \DateTime('1966-10-21 15:10:00'),
+        ];
+
+        $template = '::email/test.html.twig';
+        $message = $this->srv->getMessage($template, $params, $to);
+                
+        $this->assertTrue($this->srv->send($message));
 
         $result = trim(`$command`);
 

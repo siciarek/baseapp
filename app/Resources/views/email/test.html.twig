@@ -1,0 +1,18 @@
+{%block subject %}Test email for {{ user }}{%endblock%}
+
+{%block body%}
+    <h1>Test email</h1>
+    
+    <p><b>User:</b> {{ user }}</p>
+    <p><b>Date:</b> {{ date|date('Y-m-d H:i') }}</p>
+    
+    <p>Lorem ipsum dolor sit ammet.</p>
+    <br/>
+    <br/>
+    <br/>
+    <address>
+        Best regards,<br/>
+        
+        {{ app_name }} Team
+    </address>
+{%endblock%}

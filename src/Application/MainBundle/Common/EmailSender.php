@@ -28,6 +28,15 @@ class EmailSender implements ContainerAwareInterface
         $this->mailer = $mailer;
     }
 
+    protected function stripHtml($html)
+    {
+        $plaintext = $html;
+        $plaintext = strip_tags($plaintext);
+        $plaintext = preg_replace('/^\s*(\S)/', '$1', $plaintext);
+
+        return $plaintext;
+    }
+
     /**
      * Returns ready to send
      * 
@@ -37,13 +46,24 @@ class EmailSender implements ContainerAwareInterface
      * @param array $to recipient email
      * @return \Swift_Message
      */
-    public function getMessage($template, $data = [], $from, $to, $message = true)
+    public function getMessage($template, $data = [], $to, $from = null, $message = true)
     {
         $content = [
             'subject' => null,
             'html' => null,
             'plaintext' => null,
         ];
+
+        if (!array_key_exists('app_name', $data)) {
+            $data['app_name'] = $this->getContainer()->getParameter('app_name');
+        }
+
+        if ($from === null) {
+            $from = [
+                'name' => $data['app_name'],
+                'email' => $this->getContainer()->getParameter('mailer_user'),
+            ];
+        }
 
         $twig = $this->getContainer()->get('twig');
 
@@ -54,7 +74,13 @@ class EmailSender implements ContainerAwareInterface
         $html = $tmpl->renderBlock('body', $data);
         $content['html'] = trim($html);
 
-        $content['plaintext'] = strip_tags($content['html']);
+        $plaintext = $this->stripHtml($content['html']);
+
+        if ($tmpl->hasBlock('plaintext')) {
+            $plaintext = $tmpl->renderBlock('plaintext', $data);
+        }
+
+        $content['plaintext'] = $plaintext;
 
         if ($message === false) {
             return $content;
@@ -77,37 +103,22 @@ class EmailSender implements ContainerAwareInterface
      *
      * @return bool
      */
-    public function send()
+    public function send(\Swift_Message $message)
     {
-        $from = 'siciarek@gmail.com';
-        $to = 'siciarek@gmail.com';
+        $result = $this->getMailer()->send($message, $failures) === 1;
 
-        $subject = sprintf('[%s] Test message %s', $this->getContainer()->getParameter('app_name'), date('Y-m-d H:i:s'));
-
-        $body = '
-
-<h1>Test message</h1>
-
-<p>Test message.</p>
-
-';
-        $bodyPlainText = strip_tags($body);
-
-        $message = \Swift_Message::newInstance()
-                ->setSubject($subject)
-                ->setFrom($from)
-                ->setTo($to)
-                ->setBody($body, 'text/html')
-                ->addPart($bodyPlainText, 'text/plain')
-        ;
-
-        return $this->mailer->send($message) == 1;
+        if ($result === false) {
+            throw new \Exception(json_encode($failures, JSON_PRETTY_PRINT));
+        }
+        
+        return true;
     }
 
-    public function getMailer() {
+    public function getMailer()
+    {
         return $this->mailer;
     }
-    
+
     public function getContainer()
     {
         return $this->container;
