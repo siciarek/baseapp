@@ -63,11 +63,13 @@ security:
                 always_use_default_target_path: false
                 default_target_path: %app_form_login_default_target_path%
                 provider:       fos_userbundle
-                login_path:     /login
+                login_path:     fos_user_security_login
                 use_forward:    false
-                check_path:     /login_check
+                check_path:     fos_user_security_check
                 failure_path:   null
-            logout:             true
+            logout:
+                path: fos_user_security_logout
+                target: default.home
             anonymous:          true
             remember_me:
                 key:      "%secret%"

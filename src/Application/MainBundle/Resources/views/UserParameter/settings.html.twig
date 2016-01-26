@@ -18,7 +18,23 @@
                 {% endif %}
 
 
-                {%if i.type == 'boolean' %}
+                {%if i.type == 'enum' %}
+
+                    <div class="input-group">
+                        <label for="{{ i.name }}" class="input-group-addon {{i.type}}">
+                            {{ ('settings.param.'~i.name)|trans }}
+                        </label>
+
+                        <select id="{{ i.name }}"
+                                name="{{ i.name }}"
+                                class="form-control {{i.type}}">
+                            {% for value, label in i.data %}
+                                <option value="{{value}}"{%if value == i.default%} selected{%endif%}>{{(i.name~'.'~label)|trans}}</option>
+                            {% endfor %}
+                        </select>
+
+                    </div>
+                {%elseif i.type == 'boolean' %}
 
                     <div class="input-group">
                         <label for="{{ i.name }}" class="input-group-addon {{i.type}}">

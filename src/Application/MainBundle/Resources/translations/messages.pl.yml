@@ -111,6 +111,15 @@ settings:
     param:
         reminder_enabled: Wysyłaj przypomnienie
         reminder_at: Przypomienie o
+        identification: Identyfikator publiczny
+
+identification:
+    id: ID
+    username: Nazwa użytkownika
+    nickname: Pseudonim
+    firstName: Imię
+    lastName: Nazwisko
+    fullName: Imię i nazwisko
 
 datetime:
     yesterday: Wczoraj

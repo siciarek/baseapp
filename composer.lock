@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "15d1d55a75210a727c70bcdd8623a51c",
-    "content-hash": "25e8ab9a0b9f96b50c5eb82fb2c65abb",
+    "hash": "45ad0529e135e3627755273c1642c36b",
+    "content-hash": "e33212af4d567dc5fdf41f6e370e913e",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -1336,63 +1336,6 @@
             "time": "2015-12-06 13:20:24"
         },
         {
-            "name": "ekino/wordpress-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ekino/EkinoWordpressBundle.git",
-                "reference": "7d34fe91865fcdc2aec05de68c37091babf07e1d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ekino/EkinoWordpressBundle/zipball/7d34fe91865fcdc2aec05de68c37091babf07e1d",
-                "reference": "7d34fe91865fcdc2aec05de68c37091babf07e1d",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/doctrine-bundle": "^1.0",
-                "doctrine/orm": "^2.2",
-                "hautelook/phpass": "0.3",
-                "php": "^5.4|^7.0",
-                "symfony/framework-bundle": "^2.6|^3.0",
-                "symfony/monolog-bundle": "^2.2",
-                "symfony/security-bundle": "^2.6|^3.0"
-            },
-            "suggest": {
-                "twig/twig": ""
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Ekino\\WordpressBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Vincent Composieux",
-                    "email": "composieux@ekino.com"
-                }
-            ],
-            "description": "A Symfony bundle to link Symfony with Wordpress",
-            "homepage": "http://github.com/ekino/EkinoWordpressBundle",
-            "keywords": [
-                "bundle",
-                "ekino",
-                "symfony",
-                "wordpress"
-            ],
-            "time": "2016-01-20 19:15:25"
-        },
-        {
             "name": "excelwebzone/text-bundle",
             "version": "dev-master",
             "target-dir": "EWZ/Bundle/TextBundle",
@@ -1829,50 +1772,6 @@
                 "visual"
             ],
             "time": "2015-05-13 06:42:05"
-        },
-        {
-            "name": "hautelook/phpass",
-            "version": "0.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hautelook/phpass.git",
-                "reference": "da4c2c693aa4e1c616a350015c90af0da82a0fd8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hautelook/phpass/zipball/da4c2c693aa4e1c616a350015c90af0da82a0fd8",
-                "reference": "da4c2c693aa4e1c616a350015c90af0da82a0fd8",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Hautelook": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Public Domain"
-            ],
-            "authors": [
-                {
-                    "name": "Solar Designer",
-                    "email": "solar@openwall.com",
-                    "homepage": "http://openwall.com/phpass/"
-                }
-            ],
-            "description": "Portable PHP password hashing framework",
-            "homepage": "http://github.com/hautelook/phpass/",
-            "keywords": [
-                "blowfish",
-                "crypt",
-                "password",
-                "security"
-            ],
-            "time": "2012-08-31 00:00:00"
         },
         {
             "name": "hwi/oauth-bundle",
@@ -5686,16 +5585,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.23.3",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "ae53fc2c312fdee63773b75cb570304f85388b08"
+                "reference": "3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ae53fc2c312fdee63773b75cb570304f85388b08",
-                "reference": "ae53fc2c312fdee63773b75cb570304f85388b08",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
+                "reference": "3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
                 "shasum": ""
             },
             "require": {
@@ -5708,7 +5607,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.23-dev"
+                    "dev-master": "1.24-dev"
                 }
             },
             "autoload": {
@@ -5743,7 +5642,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-01-11 14:02:19"
+            "time": "2016-01-25 21:22:18"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
@@ -7360,7 +7259,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ekino/wordpress-bundle": 20,
         "pixassociates/sortable-behavior-bundle": 20,
         "nelmio/api-doc-bundle": 20,
         "nelmio/security-bundle": 20,

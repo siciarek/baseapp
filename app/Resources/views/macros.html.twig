@@ -40,7 +40,7 @@
 {%- macro callout(message, type) %} 
     {% set type = type == null ? 'danger' : type %}
     <div class="bs-callout bs-callout-{{ type }}" style="margin-top: 1px">
-        {{ message|trans }}
+        {{ message|trans|raw }}
     </div>
 {% endmacro -%}
 

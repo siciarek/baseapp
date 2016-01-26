@@ -1,6 +1,12 @@
 application_main:
     settings: ~
-    user_settings: ~
+    user_settings:
+        -
+            category: "general"
+            name: "identification"
+            type: "enum"
+            data: {"id":"id","username":"username","nickname":"nickname","firstName":"firstName","lastName":"lastName","fullName":"fullName"}
+            default: "username"            
     main_menu:
         -
             label: Home

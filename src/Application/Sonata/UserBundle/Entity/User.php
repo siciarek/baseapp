@@ -48,4 +48,32 @@ class User extends BaseUser
     {
         return $this->id;
     }
+    /**
+     * @var string
+     */
+    private $nickname;
+
+
+    /**
+     * Set nickname
+     *
+     * @param string $nickname
+     * @return User
+     */
+    public function setNickname($nickname)
+    {
+        $this->nickname = $nickname;
+
+        return $this;
+    }
+
+    /**
+     * Get nickname
+     *
+     * @return string 
+     */
+    public function getNickname()
+    {
+        return $this->nickname;
+    }
 }

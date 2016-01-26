@@ -9,6 +9,8 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
+        
+        <field name="nickname" nullable="true"/>
 
     </entity>
 
