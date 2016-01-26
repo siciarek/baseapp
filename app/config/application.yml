@@ -5,7 +5,7 @@ application_main:
             category: "general"
             name: "identification"
             type: "enum"
-            data: {"id":"id","username":"username","nickname":"nickname","firstName":"firstName","lastName":"lastName","fullName":"fullName"}
+            data: {"username":"username","id":"id","nickname":"nickname","firstName":"firstName","lastName":"lastName","fullName":"fullName"}
             default: "username"            
     main_menu:
         -

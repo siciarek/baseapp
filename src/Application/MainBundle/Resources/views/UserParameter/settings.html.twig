@@ -10,7 +10,7 @@
         {% for category, items in settings %}
 
             <h3>{{ ('settings.category.'~category)|trans }}</h3>
-
+            
             {% for i in items %}
                 {% set pattern = null %}
                 {% if patterns[i.type] is defined %}
@@ -29,7 +29,7 @@
                                 name="{{ i.name }}"
                                 class="form-control {{i.type}}">
                             {% for value, label in i.data %}
-                                <option value="{{value}}"{%if value == i.default%} selected{%endif%}>{{(i.name~'.'~label)|trans}}</option>
+                                <option value="{{value}}"{%if value == i.value %} selected{%endif%}>{{(i.name~'.'~label)|trans}}</option>
                             {% endfor %}
                         </select>
 
