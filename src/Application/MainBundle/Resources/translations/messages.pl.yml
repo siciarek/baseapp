@@ -1,4 +1,6 @@
 # Phrases
+Nickname: Pseudonim
+
 Link: Odnośnik
 Links: Odnośniki
 Public Profile: Profil publiczny
@@ -115,6 +117,7 @@ settings:
 
 identification:
     id: ID
+    email: E-mail
     username: Nazwa użytkownika
     nickname: Pseudonim
     firstName: Imię
