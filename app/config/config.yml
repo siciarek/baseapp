@@ -25,7 +25,7 @@ imports:
     - { resource: nelmio/security-bundle.yml }
     - { resource: gregwar/captcha-bundle.yml }
     
-#    - { resource: hwi/oauth-bundle.yml }
+    #    - { resource: hwi/oauth-bundle.yml }
     
     - { resource: session.yml }
     - { resource: application.yml }
@@ -94,6 +94,8 @@ doctrine:
                 charset:  UTF8
     
     orm:
+        resolve_target_entities:
+           Cunningsoft\ChatBundle\Entity\AuthorInterface: Application\Sonata\UserBundle\Entity\User
         auto_generate_proxy_classes: "%kernel.debug%"
         entity_managers:
             default:
@@ -109,6 +111,7 @@ doctrine:
                     ApplicationSonataUserBundle: ~
                     ApplicationSonataClassificationBundle: ~
                     ApplicationSonataMediaBundle: ~
+                    SiciarekChatBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:

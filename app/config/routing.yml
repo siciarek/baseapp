@@ -5,6 +5,15 @@
 #facebook_login:
 #    path: /demo/secured/login_facebook
 
+#cunningsoft_chat_bundle:
+#    resource: "@CunningsoftChatBundle/Controller"
+#    type: annotation
+
+siciarek_chat_bundle:
+    resource: "@SiciarekChatBundle/Controller"
+    type: annotation
+    prefix: /chat
+
 owners:
     prefix:   /api
     resource: Application\MainBundle\Controller\OwnerController

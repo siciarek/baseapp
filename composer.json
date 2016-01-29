@@ -10,6 +10,8 @@
     },
     "minimum-stability": "stable",
     "require": {
+        "knplabs/knp-time-bundle": "dev-master",
+        "siciarek/chat-bundle": "dev-master",
         "pixassociates/sortable-behavior-bundle": "dev-master",
         "hwi/oauth-bundle": "0.4.0",
         "brandonwamboldt/utilphp": "1.1.*",

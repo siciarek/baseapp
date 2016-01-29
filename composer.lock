@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "45ad0529e135e3627755273c1642c36b",
-    "content-hash": "e33212af4d567dc5fdf41f6e370e913e",
+    "hash": "8c47088ba2da0148f48fd1a4d896ed3b",
+    "content-hash": "a8e1b83120e36e9667f07d2970ac0b96",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -221,6 +221,59 @@
                 "slugify"
             ],
             "time": "2015-09-29 18:26:32"
+        },
+        {
+            "name": "cunningsoft/chat-bundle",
+            "version": "dev-master",
+            "target-dir": "Cunningsoft/ChatBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dmecke/ChatBundle.git",
+                "reference": "b552987c45c2dba011f55abf6a616c769131e8e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dmecke/ChatBundle/zipball/b552987c45c2dba011f55abf6a616c769131e8e9",
+                "reference": "b552987c45c2dba011f55abf6a616c769131e8e9",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": ">=2.2.0",
+                "knplabs/knp-time-bundle": "1.3",
+                "symfony/symfony": "~2.3"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Cunningsoft\\ChatBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Mecke",
+                    "homepage": "https://github.com/dmecke"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/dmecke/ChatBundle/contributors"
+                }
+            ],
+            "description": "A chat bundle for Symfony2",
+            "homepage": "https://github.com/dmecke/ChatBundle",
+            "keywords": [
+                "chat",
+                "communication"
+            ],
+            "time": "2015-05-05 13:58:24"
         },
         {
             "name": "doctrine/annotations",
@@ -707,16 +760,16 @@
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
-            "version": "1.2.2",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineCacheBundle.git",
-                "reference": "030ff41ef1db66370b36467086bfb817a661fe6a"
+                "reference": "18c600a9b82f6454d2e81ca4957cdd56a1cf3504"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/030ff41ef1db66370b36467086bfb817a661fe6a",
-                "reference": "030ff41ef1db66370b36467086bfb817a661fe6a",
+                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/18c600a9b82f6454d2e81ca4957cdd56a1cf3504",
+                "reference": "18c600a9b82f6454d2e81ca4957cdd56a1cf3504",
                 "shasum": ""
             },
             "require": {
@@ -730,6 +783,7 @@
                 "instaclick/object-calisthenics-sniffs": "dev-master",
                 "instaclick/symfony2-coding-standard": "dev-remaster",
                 "phpunit/phpunit": "~4",
+                "predis/predis": "~0.8",
                 "satooshi/php-coveralls": "~0.6.1",
                 "squizlabs/php_codesniffer": "~1.5",
                 "symfony/console": "~2.2|~3.0",
@@ -790,7 +844,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2015-11-27 04:59:07"
+            "time": "2016-01-26 17:28:51"
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",
@@ -1594,16 +1648,16 @@
         },
         {
             "name": "gedmo/doctrine-extensions",
-            "version": "v2.4.10",
+            "version": "v2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "7e7fc55fa3fad79031727fbc7d8e418b641be875"
+                "reference": "2527d8f93779458e097447b5f92132bc65e672f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/7e7fc55fa3fad79031727fbc7d8e418b641be875",
-                "reference": "7e7fc55fa3fad79031727fbc7d8e418b641be875",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/2527d8f93779458e097447b5f92132bc65e672f4",
+                "reference": "2527d8f93779458e097447b5f92132bc65e672f4",
                 "shasum": ""
             },
             "require": {
@@ -1669,7 +1723,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2015-12-18 20:34:21"
+            "time": "2016-01-28 10:00:33"
         },
         {
             "name": "gregwar/captcha",
@@ -3055,6 +3109,65 @@
             "time": "2015-12-15 10:11:19"
         },
         {
+            "name": "knplabs/knp-time-bundle",
+            "version": "v1.3",
+            "target-dir": "Knp/Bundle/TimeBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpTimeBundle.git",
+                "reference": "abf7c17ab817d9b991445f56297c44b2217f6a5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/KnpTimeBundle/zipball/abf7c17ab817d9b991445f56297c44b2217f6a5d",
+                "reference": "abf7c17ab817d9b991445f56297c44b2217f6a5d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": "~2.0"
+            },
+            "suggest": {
+                "symfony/twig-bundle": "to use the Twig time_diff function"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Bundle\\TimeBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://github.com/KnpLabs/KnpTimeBundle/contributors"
+                }
+            ],
+            "description": "Knplabs time bundle makes your dates look sensible and descriptive",
+            "homepage": "http://github.com/KnpLabs/KnpTimeBundle",
+            "keywords": [
+                "bundle",
+                "date",
+                "descriptive time",
+                "knp",
+                "knplabs",
+                "time"
+            ],
+            "time": "2013-12-12 12:04:14"
+        },
+        {
             "name": "kriswallsmith/assetic",
             "version": "v1.3.2",
             "source": {
@@ -4026,6 +4139,77 @@
             "time": "2015-11-07 08:07:40"
         },
         {
+            "name": "siciarek/chat-bundle",
+            "version": "dev-master",
+            "target-dir": "Siciarek/ChatBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/siciarek/chat-bundle.git",
+                "reference": "7fbdc7a1c392180da9ff7c8edd39b61214c636c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/siciarek/chat-bundle/zipball/7fbdc7a1c392180da9ff7c8edd39b61214c636c1",
+                "reference": "7fbdc7a1c392180da9ff7c8edd39b61214c636c1",
+                "shasum": ""
+            },
+            "require": {
+                "friendsofsymfony/user-bundle": "~1.3",
+                "jms/security-extra-bundle": "dev-master",
+                "knplabs/doctrine-behaviors": "dev-master",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "behat/behat": "~3.0.6",
+                "behat/mink": "*",
+                "behat/mink-extension": "*",
+                "behat/mink-goutte-driver": "*",
+                "behat/mink-sahi-driver": "*",
+                "behat/mink-selenium2-driver": "*",
+                "behat/mink-zombie-driver": "*",
+                "doctrine/doctrine-bundle": "~1.6",
+                "doctrine/doctrine-fixtures-bundle": "2.2.1",
+                "doctrine/orm": "v2.4.8",
+                "incenteev/composer-parameter-handler": "~2.0",
+                "instaclick/php-webdriver": "~1.1",
+                "php": ">=5.3.9",
+                "raulfraile/ladybug-bundle": "dev-master",
+                "sensio/distribution-bundle": "~4.0",
+                "sensio/framework-extra-bundle": "^3.0.2",
+                "sensio/generator-bundle": "~2.3",
+                "symfony/assetic-bundle": "~2.3",
+                "symfony/monolog-bundle": "~2.4",
+                "symfony/swiftmailer-bundle": "~2.3",
+                "symfony/symfony": "2.7.*",
+                "willdurand/faker-bundle": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Siciarek\\ChatBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacek Siciarek",
+                    "email": "siciarek@gmail.com"
+                }
+            ],
+            "description": "Simple chat bundle",
+            "homepage": "http://github.com/siciarek/chat-bundle.git",
+            "keywords": [
+                "Symfony2",
+                "bundle",
+                "chat",
+                "simple chat"
+            ],
+            "time": "2016-01-29 02:45:50"
+        },
+        {
             "name": "siciarek/jstrans-bundle",
             "version": "dev-master",
             "target-dir": "Siciarek/JsTransBundle",
@@ -4097,12 +4281,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "fba67eeacd1c549bc209a3c5416d1594d30bcb58"
+                "reference": "750b26988c90a1004710a3d950a4caa755d55b39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/fba67eeacd1c549bc209a3c5416d1594d30bcb58",
-                "reference": "fba67eeacd1c549bc209a3c5416d1594d30bcb58",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/750b26988c90a1004710a3d950a4caa755d55b39",
+                "reference": "750b26988c90a1004710a3d950a4caa755d55b39",
                 "shasum": ""
             },
             "require": {
@@ -4175,7 +4359,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2016-01-24 12:19:41"
+            "time": "2016-01-28 15:33:52"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -5112,12 +5296,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/stof/StofDoctrineExtensionsBundle.git",
-                "reference": "6672ca37fe19a8e2a8ae52a93a7163e1b00ef7d5"
+                "reference": "4e7499d25dc5d0862da09fa8e336164948a29a25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/6672ca37fe19a8e2a8ae52a93a7163e1b00ef7d5",
-                "reference": "6672ca37fe19a8e2a8ae52a93a7163e1b00ef7d5",
+                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/4e7499d25dc5d0862da09fa8e336164948a29a25",
+                "reference": "4e7499d25dc5d0862da09fa8e336164948a29a25",
                 "shasum": ""
             },
             "require": {
@@ -5165,7 +5349,7 @@
                 "translatable",
                 "tree"
             ],
-            "time": "2015-11-26 18:29:38"
+            "time": "2016-01-26 23:58:32"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7259,6 +7443,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "siciarek/chat-bundle": 20,
+        "cunningsoft/chat-bundle": 20,
         "pixassociates/sortable-behavior-bundle": 20,
         "nelmio/api-doc-bundle": 20,
         "nelmio/security-bundle": 20,

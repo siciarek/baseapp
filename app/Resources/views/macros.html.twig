@@ -80,7 +80,7 @@
     <a title="{{ ('common.'~type)|trans }}"
        {%if target is not empty%}target="{{ target }}"{% endif %}
        href="{%if url is not empty%}{{ url }}{%else%}javascript:void(null){%endif%}"
-       class="{{ type }} btn btn-xs{% if enabled is sameas(false)%} btn-default disabled{%else%} {{ style[type].type }}{%endif%}">
+       class="{{ type }} btn btn-xs{% if enabled == false%} btn-default disabled{%else%} {{ style[type].type }}{%endif%}">
         <i class="{{ style[type].icon }} fa fa-lg"></i>
     </a>
 

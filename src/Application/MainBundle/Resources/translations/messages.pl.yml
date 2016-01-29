@@ -120,6 +120,7 @@ identification:
     email: E-mail
     username: Nazwa użytkownika
     nickname: Pseudonim
+    firstNameAndNickname: Imię + pseudonim
     firstName: Imię
     lastName: Nazwisko
     fullName: Imię i nazwisko
