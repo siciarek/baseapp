@@ -3,6 +3,8 @@ nbproject
 php.ini
 /temp*
 
+/composer.lock
+
 /utils/dumpdb/dumpdb.cnf
 /utils/dumpdb/extra
 /utils/dumpdb/extra.bat
