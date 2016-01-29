@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8c47088ba2da0148f48fd1a4d896ed3b",
-    "content-hash": "a8e1b83120e36e9667f07d2970ac0b96",
+    "hash": "28546a41cdeba2443bbebe963420705d",
+    "content-hash": "ca121c743dc030c0dd2bedc6bd8ad3f8",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -221,59 +221,6 @@
                 "slugify"
             ],
             "time": "2015-09-29 18:26:32"
-        },
-        {
-            "name": "cunningsoft/chat-bundle",
-            "version": "dev-master",
-            "target-dir": "Cunningsoft/ChatBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dmecke/ChatBundle.git",
-                "reference": "b552987c45c2dba011f55abf6a616c769131e8e9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dmecke/ChatBundle/zipball/b552987c45c2dba011f55abf6a616c769131e8e9",
-                "reference": "b552987c45c2dba011f55abf6a616c769131e8e9",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/orm": ">=2.2.0",
-                "knplabs/knp-time-bundle": "1.3",
-                "symfony/symfony": "~2.3"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.5-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Cunningsoft\\ChatBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Daniel Mecke",
-                    "homepage": "https://github.com/dmecke"
-                },
-                {
-                    "name": "Contributors",
-                    "homepage": "https://github.com/dmecke/ChatBundle/contributors"
-                }
-            ],
-            "description": "A chat bundle for Symfony2",
-            "homepage": "https://github.com/dmecke/ChatBundle",
-            "keywords": [
-                "chat",
-                "communication"
-            ],
-            "time": "2015-05-05 13:58:24"
         },
         {
             "name": "doctrine/annotations",
@@ -3110,22 +3057,28 @@
         },
         {
             "name": "knplabs/knp-time-bundle",
-            "version": "v1.3",
+            "version": "dev-master",
             "target-dir": "Knp/Bundle/TimeBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpTimeBundle.git",
-                "reference": "abf7c17ab817d9b991445f56297c44b2217f6a5d"
+                "reference": "cb9b76a477ac4b8b30ce67f6f1ba93f05cb30caa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpTimeBundle/zipball/abf7c17ab817d9b991445f56297c44b2217f6a5d",
-                "reference": "abf7c17ab817d9b991445f56297c44b2217f6a5d",
+                "url": "https://api.github.com/repos/KnpLabs/KnpTimeBundle/zipball/cb9b76a477ac4b8b30ce67f6f1ba93f05cb30caa",
+                "reference": "cb9b76a477ac4b8b30ce67f6f1ba93f05cb30caa",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "symfony/framework-bundle": "~2.0"
+                "symfony/config": "~2.3|~3.0",
+                "symfony/dependency-injection": "~2.3|~3.0",
+                "symfony/templating": "~2.3|~3.0",
+                "symfony/translation": "~2.3|~3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
             },
             "suggest": {
                 "symfony/twig-bundle": "to use the Twig time_diff function"
@@ -3165,7 +3118,7 @@
                 "knplabs",
                 "time"
             ],
-            "time": "2013-12-12 12:04:14"
+            "time": "2015-11-24 15:04:51"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -4145,12 +4098,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/siciarek/chat-bundle.git",
-                "reference": "7fbdc7a1c392180da9ff7c8edd39b61214c636c1"
+                "reference": "fa7f55eb2923b92d0720439bd990b1318e596a57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/siciarek/chat-bundle/zipball/7fbdc7a1c392180da9ff7c8edd39b61214c636c1",
-                "reference": "7fbdc7a1c392180da9ff7c8edd39b61214c636c1",
+                "url": "https://api.github.com/repos/siciarek/chat-bundle/zipball/fa7f55eb2923b92d0720439bd990b1318e596a57",
+                "reference": "fa7f55eb2923b92d0720439bd990b1318e596a57",
                 "shasum": ""
             },
             "require": {
@@ -4207,7 +4160,7 @@
                 "chat",
                 "simple chat"
             ],
-            "time": "2016-01-29 02:45:50"
+            "time": "2016-01-29 02:48:57"
         },
         {
             "name": "siciarek/jstrans-bundle",
@@ -7443,8 +7396,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "knplabs/knp-time-bundle": 20,
         "siciarek/chat-bundle": 20,
-        "cunningsoft/chat-bundle": 20,
         "pixassociates/sortable-behavior-bundle": 20,
         "nelmio/api-doc-bundle": 20,
         "nelmio/security-bundle": 20,
