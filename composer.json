@@ -10,7 +10,6 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "knplabs/knp-time-bundle": "dev-master",
         "siciarek/chat-bundle": "dev-master",
         "pixassociates/sortable-behavior-bundle": "dev-master",
         "hwi/oauth-bundle": "0.4.0",
@@ -19,7 +18,6 @@
         "nelmio/api-doc-bundle": "dev-master",
         "nelmio/security-bundle": "dev-master",
         "liuggio/excelbundle": "dev-master",
-        "jms/security-extra-bundle": "dev-master",
         "a2lix/translation-form-bundle": "dev-master",
         "excelwebzone/text-bundle": "dev-master",
         "siciarek/jstrans-bundle": "dev-master",
@@ -28,6 +26,7 @@
 
         "friendsofsymfony/jsrouting-bundle": "dev-master",
 
+        "knplabs/knp-time-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "dev-master",
         "knplabs/knp-snappy-bundle": "dev-master",
         "knplabs/doctrine-behaviors": "dev-master",

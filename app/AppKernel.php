@@ -37,7 +37,7 @@ class AppKernel extends Kernel
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new JMS\AopBundle\JMSAopBundle(),
-            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+//            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
             new Sonata\ClassificationBundle\SonataClassificationBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
