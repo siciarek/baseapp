@@ -16,7 +16,6 @@ class UserParameterController extends CommonController
 {
 
     /**
-     * @Secure(roles="ROLE_USER")
      * @Route("/settings", name="user.parameter.settings")
      * @Template()
      */
@@ -78,7 +77,6 @@ class UserParameterController extends CommonController
     }
 
     /**
-     * @Secure(roles="ROLE_USER")
      * @Route("/remove", name="user.parameter.remove")
      */
     public function removeAction(Request $request)
@@ -104,7 +102,6 @@ class UserParameterController extends CommonController
     }
 
     /**
-     * @Secure(roles="ROLE_USER")
      * @Route("/set", name="user.parameter.create")
      */
     public function setAction(Request $request)
@@ -136,7 +133,6 @@ class UserParameterController extends CommonController
     }
 
     /**
-     * @Secure(roles="ROLE_USER")
      * @Route("/list", name="user.parameter.list")
      */
     public function listAction(Request $request)

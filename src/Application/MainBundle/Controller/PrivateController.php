@@ -8,8 +8,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
-use JMS\SecurityExtraBundle\Annotation\PreAuthorize;
-use JMS\SecurityExtraBundle\Annotation\Secure;
 use Doctrine\ORM\Query;
 use \Application\MainBundle\Common\Form\EmailMessageType;
 
@@ -19,7 +17,6 @@ use \Application\MainBundle\Common\Form\EmailMessageType;
 class PrivateController extends Controller {
 
     /**
-     * @Secure(roles="IS_AUTHENTICATED_ANONYMOUSLY")
      * @Route("/sample/form", name="private.sample.form")
      * @Template()
      */
@@ -33,7 +30,6 @@ class PrivateController extends Controller {
     }
     
     /**
-     * @Secure(roles="ROLE_USER")
      * @Route("/sample/list", name="private.sample.list")
      * @Template()
      */
@@ -59,7 +55,6 @@ class PrivateController extends Controller {
     }
 
     /**
-     * @Secure(roles="IS_AUTHENTICATED_ANONYMOUSLY")
      * @Route("/gallery", name="private.gallery")
      * @Template()
      */
@@ -68,7 +63,6 @@ class PrivateController extends Controller {
     }
 
     /**
-     * @Secure(roles="ROLE_USER")
      * @Route("/", name="private.index")
      * @Template()
      */
@@ -77,7 +71,6 @@ class PrivateController extends Controller {
     }
 
     /**
-     * @Secure(roles="ROLE_USER")
      * @Route("/spreadsheet", name="private.spreadsheet")
      */
     public function spreadsheetAction(Request $request) {
