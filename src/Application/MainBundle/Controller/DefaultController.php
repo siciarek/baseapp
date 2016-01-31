@@ -39,7 +39,7 @@ HTML;
 //        $html = $this->renderView('MyBundle:Foo:bar.html.twig', array(
 //            'some' => $vars
 //        ));
-        
+
         $headers = [
             'Content-Type' => 'application/pdf',
             'Content-Disposition' => 'filename="document.pdf"'
@@ -48,7 +48,6 @@ HTML;
         return new Response($srv->getOutputFromHtml($html), 200, $headers);
     }
 
-    
     /**
      * @Route("/json-test", name="default.json.test")
      */
@@ -83,4 +82,5 @@ HTML;
     {
         return [];
     }
+
 }

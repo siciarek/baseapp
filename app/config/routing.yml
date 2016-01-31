@@ -5,10 +5,6 @@
 #facebook_login:
 #    path: /demo/secured/login_facebook
 
-#cunningsoft_chat_bundle:
-#    resource: "@CunningsoftChatBundle/Controller"
-#    type: annotation
-
 siciarek_chat_bundle:
     resource: "@SiciarekChatBundle/Controller"
     type: annotation
