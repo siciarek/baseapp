@@ -31,13 +31,16 @@ class EmailSender implements ContainerAwareInterface
     protected function normalizePart($content)
     {
         $normalized = $content;
+
         // Save urls before strip_tags:
-        $normalized = preg_replace('|<a.*href="([^"]*)"[^>]*>([^>]*)</a>|mse', 'trim("\\2").sprintf(" (%s)", "\\1")', $normalized);
+        $normalized = preg_replace_callback('|<a.*href="([^"]*)"[^>]*>([^>]*)</a>|ms', function($match) { return sprintf("%s (%s)", trim($match[2]), trim($match[1]));}, $normalized);
+
         $normalized = strip_tags($normalized);
+
         // Remove extra spaces:
         $normalized = preg_replace('/\n */', "\n", $normalized);
         $normalized = trim($normalized);
-        
+
         return $normalized;
     }
 
@@ -114,7 +117,7 @@ class EmailSender implements ContainerAwareInterface
         if ($result === false) {
             throw new \Exception(json_encode($failures, JSON_PRETTY_PRINT));
         }
-        
+
         return true;
     }
 

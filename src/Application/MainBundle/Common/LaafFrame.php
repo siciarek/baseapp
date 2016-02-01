@@ -4,12 +4,12 @@ namespace Application\MainBundle\Common;
 
 class LaafFrame
 {
+
     const TYPE_REQUEST = 'request';
     const TYPE_INFO = 'info';
     const TYPE_DATA = 'data';
     const TYPE_WARNING = 'warning';
     const TYPE_ERROR = 'error';
-
     const EXCEPTION_MSG_INVALID_INPUT_DATA_TYPE = 'Invalid input data type.';
 
     public function getDataFrame($msg = null, $data = [], $warningOnEmptyData = false, $auth = null)
@@ -110,24 +110,37 @@ class LaafFrame
         }
 
         if ($type === self::TYPE_DATA) {
-            if (!is_array($data)) {
+
+            if (!is_array($data) and !(is_object($data) and get_class($data) === 'Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination')) {
                 throw new \Exception(self::EXCEPTION_MSG_INVALID_INPUT_DATA_TYPE);
             }
 
-            $items = array_values($data);
+            if (is_object($data)) {
+                $items = $data->getItems();
+                $frame['data']['currentItemCount'] = $data->count();
+                $frame['data']['itemsPerPage'] = $data->getItemNumberPerPage();
+                $frame['data']['startIndex'] = 0;
+                $frame['data']['totalItems'] = $data->getTotalItemCount();
+                $frame['data']['pagingLinkTemplate'] = null;
+                $frame['data']['pageIndex'] = $data->getCurrentPageNumber();
+                $frame['data']['totalPages'] = $data->getPageCount();
+            } else {
+                $items = array_values($data);
+                $frame['data']['currentItemCount'] = count($items);
+                $frame['data']['itemsPerPage'] = count($items);
+                $frame['data']['totalItems'] = count($items);
+            }
 
+            
             if ($warningOnEmptyData and count($items) === 0) {
                 $frame = $this->getWarningFrame('No data found.');
 
                 return $frame;
             }
-
-            $frame['data']['items'] = $items;
-            $frame['data']['currentItemCount'] = count($items);
-            $frame['data']['itemsPerPage'] = count($items);
-            $frame['data']['totalItems'] = count($items);
+            
+            $frame['data']['items'] = $items;    
         }
-
         return $frame;
     }
+
 }
