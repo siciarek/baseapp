@@ -1,4 +1,10 @@
 services:
+    app.url:
+        class: Application\MainBundle\Common\Utils\Url
+
+    xurl:
+        alias: app.url
+   
     app.pages:
         class: Application\MainBundle\Common\Page
         arguments: [ '@service_container' ]
