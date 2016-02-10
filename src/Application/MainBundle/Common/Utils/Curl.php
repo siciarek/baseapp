@@ -1,33 +1,45 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Jacek
  * Date: 09.10.14
  * Time: 11:40.
  */
+
 namespace Application\MainBundle\Common\Utils;
 
 /**
- * Class Curl.
+ * Class Curl
+ * @package Application\Common\Utils
+ *
+ * Uwaga:
+ *
+ * metody GET(),POST(),PUT() i DELETE() zwracają hasza:
+ *
+ * [
+ *      "headers" => []    // tablica zawierająca nagłówki odpowiedzi
+ *      "info" => []       // tablica zawierająca informacje curl np. czas wykonywania, dane przekierowania itp.
+ *      "response" => null // Zwracana odpowiedź w postaci stringa
+ * ]
  */
-class Curl
-{
+class Curl {
+
     protected $opts = array();
     protected $default_headers = array();
     protected $auth = CURLAUTH_ANY;
     protected $headers = array();
 
-    public function __construct($tempdir = null, $name = 'COOKIES', $debug = false)
-    {
-        $tempdir = $tempdir ?: sys_get_temp_dir();
+    public function __construct($tempdir = null, $name = 'COOKIES', $debug = false) {
+        $tempdir = $tempdir ? : sys_get_temp_dir();
 
-        umask(0000);
-
-        if (!file_exists($tempdir)) {
-            mkdir($tempdir);
+        if (!is_dir($tempdir)) {
+            $umask = umask(0000);
+            mkdir($tempdir, 0777, true);
+            umask($umask);
         }
 
-        $cookies = $tempdir.DIRECTORY_SEPARATOR.$name;
+        $cookies = $tempdir . DIRECTORY_SEPARATOR . $name;
 
         if (file_exists($cookies)) {
             unlink($cookies);
@@ -49,27 +61,24 @@ class Curl
             CURLOPT_COOKIESESSION => false,
             CURLOPT_SSL_VERIFYPEER => false,
             CURLOPT_SSL_VERIFYHOST => false,
-
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
-
             CURLOPT_HEADER => $debug,
             CURLOPT_VERBOSE => $debug,
             CURLOPT_HEADERFUNCTION => array($this, 'headersHandler'),
         );
     }
 
-    public function getHeaders()
-    {
+    public function getHeaders() {
         return $this->headers;
     }
 
-    public function GET($url, $data = null, $username = null, $password = null)
-    {
+    public function GET($url, $data = null, $username = null, $password = null) {
         $data = is_array($data) ? http_build_query($data) : $data;
 
         if (!empty($data)) {
             if (preg_match('/\?$/', $url)) {
+                
             } else {
                 $url .= preg_match('/\?/', $url) ? '&' : '?';
             }
@@ -90,8 +99,7 @@ class Curl
         return $this->response($opts);
     }
 
-    public function POST($url, $data = null, $username = null, $password = null)
-    {
+    public function POST($url, $data = null, $username = null, $password = null) {
         $data = is_array($data) ? http_build_query($data) : $data;
 
         $opts = $this->opts;
@@ -108,8 +116,7 @@ class Curl
         return $this->response($opts);
     }
 
-    public function PUT($url, $data = null, $username = null, $password = null)
-    {
+    public function PUT($url, $data = null, $username = null, $password = null) {
         $opts = $this->opts;
         $fp = fopen('php://temp', 'w');
         if ($data !== null) {
@@ -130,8 +137,7 @@ class Curl
         return $this->response($opts);
     }
 
-    public function DELETE($url, $data = null, $username = null, $password = null)
-    {
+    public function DELETE($url, $data = null, $username = null, $password = null) {
         $data = is_array($data) ? http_build_query($data) : $data;
 
         $opts = $this->opts;
@@ -148,8 +154,7 @@ class Curl
         return $this->response($opts);
     }
 
-    public function setAuth($auth)
-    {
+    public function setAuth($auth) {
         $this->auth = $auth;
     }
 
@@ -158,19 +163,23 @@ class Curl
         $ch = curl_init();
         curl_setopt_array($ch, $opts);
         $response = curl_exec($ch);
-        $info = curl_getinfo($ch);
-        $headers = $this->getHeaders();
-        curl_close($ch);
 
+        $info     = curl_getinfo($ch);
+        $headers = $this->getHeaders();
+
+        if($response === false) {
+            throw new \Exception(curl_error($ch));
+        }
+
+        curl_close($ch);
         return array(
-            'response' => $response,
-            'info' => $info,
-            'headers' => $headers,
+            'response' => trim($response),
+            'info'     => $info,
+            'headers'  => $headers,
         );
     }
-
-    public function adjustHeaders($headers = array(), $merge = true)
-    {
+    
+    public function adjustHeaders($headers = array(), $merge = true) {
         if ($headers === array()) {
             $this->opts[CURLOPT_HTTPHEADER] = $this->default_headers;
 
@@ -182,14 +191,25 @@ class Curl
         $this->opts[CURLOPT_HTTPHEADER] = $new_headers;
     }
 
-    protected function headersHandler($ch, $header)
-    {
-        $match = 0;
+    public function adjustCookies($cookie) {
+        $this->opts[CURLOPT_COOKIE] = $cookie;
+    }
+
+    protected function headersHandler($ch, $header) {
+        $match = [];
 
         if (preg_match('/^([^:]+):\s*(.*?)$/', $header, $match)) {
-            $this->headers[$match[1]] = trim($match[2]);
+            $label = trim($match[1]);
+            $value = trim($match[2]);
+
+            if (isset($this->headers[$label])) {
+                $this->headers[$label] = array_merge((array) $this->headers[$label], (array) $value);
+            } else {
+                $this->headers[$label] = $value;
+            }
         }
 
         return strlen($header);
     }
+
 }
