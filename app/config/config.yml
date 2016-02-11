@@ -14,18 +14,18 @@ imports:
     - { resource: sonata-project/admin-bundle.yml }
     - { resource: sonata-project/admin-bundle-services.yml }
     - { resource: sonata-project/user-bundle.yml }
-    - { resource: sonata-project/media-bundle.yml }
     - { resource: knplabs/knp-snappy-bundle.yml }
     - { resource: knplabs/knp-menu-bundle.yml }
     - { resource: knplabs/knp-paginator-bundle.yml }
     - { resource: knplabs/doctrine-behaviors.yml }
     - { resource: ../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml }
     - { resource: a2lix/translation-form-bundle.yml }
-#    - { resource: jms/security-extra-bundle.yml }
     - { resource: nelmio/security-bundle.yml }
     - { resource: gregwar/captcha-bundle.yml }
     
-    #    - { resource: hwi/oauth-bundle.yml }
+#    - { resource: jms/security-extra-bundle.yml }
+#    - { resource: sonata-project/media-bundle.yml }
+#    - { resource: hwi/oauth-bundle.yml }
     
     - { resource: session.yml }
     - { resource: application.yml }
@@ -34,6 +34,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 
 framework:
+    assets: ~
     #esi:             ~
     translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
@@ -105,11 +106,11 @@ doctrine:
                     FOSUserBundle: ~
                     SonataUserBundle: ~
                     SonataClassificationBundle: ~
-                    SonataMediaBundle: ~
                     ApplicationSonataUserBundle: ~
-                    ApplicationSonataClassificationBundle: ~
-                    ApplicationSonataMediaBundle: ~
                     SiciarekChatBundle: ~
+#                    ApplicationSonataClassificationBundle: ~
+#                    ApplicationSonataMediaBundle: ~
+#                    SonataMediaBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -120,7 +121,8 @@ swiftmailer:
     port:       "%mailer_port%"
     username:   "%mailer_user%"
     password:   "%mailer_password%"
-#    spool:     { type: memory }
     spool:
         type: file
         path: %kernel.cache_dir%/swiftmailer/spool
+
+#    spool:     { type: memory }

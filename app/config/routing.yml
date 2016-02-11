@@ -31,44 +31,44 @@ fos_js_routing:
 
 # --------------------------------------------------------------------
 
-# fos_user_security:
-#     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-
-# fos_user_profile:
-#     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-#     prefix: /profile
-
-# fos_user_register:
-#     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-#     prefix: /register
-
-# fos_user_resetting:
-#     resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-#     prefix: /resetting
-
-# fos_user_change_password:
-#     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-#     prefix: /profile
+#fos_user_security:
+#    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+#
+#fos_user_profile:
+#    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+#    prefix: /profile
+#
+#fos_user_register:
+#    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+#    prefix: /register
+#
+#fos_user_resetting:
+#    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+#    prefix: /resetting
+#
+#fos_user_change_password:
+#    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+#    prefix: /profile
 
 # -------------------------------------------------------------------
 
 sonata_user_security:
-     resource: "@SonataUserBundle/Resources/config/routing/sonata_security_1.xml"
+     resource: "@SonataUserBundle/Resources/config/routing/sonata_security_2.xml"
 
 sonata_user_resetting:
-     resource: "@SonataUserBundle/Resources/config/routing/sonata_resetting_1.xml"
+     resource: "@SonataUserBundle/Resources/config/routing/sonata_resetting_2.xml"
      prefix: /resetting
 
 sonata_user_profile:
-     resource: "@SonataUserBundle/Resources/config/routing/sonata_profile_1.xml"
+     resource: "@SonataUserBundle/Resources/config/routing/sonata_profile_2.xml"
      prefix: /profile
 
 sonata_user_register:
-     resource: "@SonataUserBundle/Resources/config/routing/sonata_registration_1.xml"
+     resource: "@SonataUserBundle/Resources/config/routing/sonata_registration_2.xml"
      prefix: /register
 
 sonata_user_change_password:
-     resource: "@SonataUserBundle/Resources/config/routing/sonata_change_password_1.xml"
+     resource: "@SonataUserBundle/Resources/config/routing/sonata_change_password_2.xml"
      prefix: /profile
 
 # -------------------------------------------------------------------
@@ -84,13 +84,13 @@ _sonata_admin:
 
 # -------------------------------------------------------------------
 
-gallery:
-    resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
-    prefix: /media/gallery
-
-media:
-    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
-    prefix: /media
+#gallery:
+#    resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
+#    prefix: /media/gallery
+#
+#media:
+#    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
+#    prefix: /media
 
 # -------------------------------------------------------------------
 

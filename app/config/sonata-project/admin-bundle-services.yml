@@ -15,7 +15,7 @@ services:
             - Application\MainBundle\Entity\Page
             - 'PixSortableBehaviorBundle:SortableAdmin'
         calls:
-             - [ setPositionService, [@pix_sortable_behavior.position]]
+             - [ setPositionService, ["@pix_sortable_behavior.position"]]
          
     admin.page.group:
         class: Application\MainBundle\Admin\PageCategoryAdmin
@@ -32,7 +32,7 @@ services:
             - Application\MainBundle\Entity\PageCategory
             - 'PixSortableBehaviorBundle:SortableAdmin'
         calls:
-             - [ setPositionService, [@pix_sortable_behavior.position]]
+             - [ setPositionService, ["@pix_sortable_behavior.position"]]
 
 # ------------------------------------------------------------------------------
 

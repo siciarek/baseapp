@@ -23,7 +23,7 @@ file that was distributed with this source code.
             <form action="{{ path('sonata_user_profile_edit') }}" method="POST" class="form-horizontal">
                 {{ form_start(form, { attr: { class: 'form-horizontal' }}) }}
 
-                {{ macros.formFields(form, [
+{#                {{ macros.formFields(form, [
                     'gender',
                     'firstname',
                     'lastname',
@@ -35,7 +35,7 @@ file that was distributed with this source code.
                     'timezone',
                     'phone',
                 ]) }}
-
+#}
 
                 <div class="form-actions">
                     <button type="submit" name="submit"  class="btn btn-default btn-lg pull-right">{{ 'common.save'|trans }}</button>

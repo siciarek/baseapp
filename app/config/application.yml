@@ -24,7 +24,7 @@ application_main:
             children: 
                 -
                     label: Settings
-                    route: sonata_user_profile_show
+                    route: fos_user_profile_show
                     icon: cog
                     role: ROLE_USER
                 -

@@ -19,7 +19,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
@@ -27,22 +26,24 @@ class AppKernel extends Kernel
             new Knp\Bundle\TimeBundle\KnpTimeBundle(),
             
             new Pix\SortableBehaviorBundle\PixSortableBehaviorBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new Sonata\ClassificationBundle\SonataClassificationBundle(),
+            new Sonata\IntlBundle\SonataIntlBundle(),
             
 //            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+//            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
+//            new JMS\AopBundle\JMSAopBundle(),
+//            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+//            new EWZ\Bundle\TextBundle\EWZTextBundle(), // Temporarily
+//            new Sonata\MediaBundle\SonataMediaBundle(),
+//            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
 
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Nelmio\SecurityBundle\NelmioSecurityBundle(),
             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
-//            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
-//            new JMS\AopBundle\JMSAopBundle(),
-//            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
-            new Sonata\ClassificationBundle\SonataClassificationBundle(),
-            new Sonata\MediaBundle\SonataMediaBundle(),
-            new Sonata\IntlBundle\SonataIntlBundle(),
-            new EWZ\Bundle\TextBundle\EWZTextBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
@@ -63,7 +64,6 @@ class AppKernel extends Kernel
 
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
-            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Application\MainBundle\ApplicationMainBundle(),
         );
 
@@ -77,6 +77,21 @@ class AppKernel extends Kernel
         }
 
         return $bundles;
+    }
+
+    public function getRootDir()
+    {
+        return __DIR__;
+    }
+
+    public function getCacheDir()
+    {
+        return dirname(__DIR__).'/var/cache/'.$this->getEnvironment();
+    }
+
+    public function getLogDir()
+    {
+        return dirname(__DIR__).'/var/logs';
     }
 
     public function registerContainerConfiguration(LoaderInterface $loader)

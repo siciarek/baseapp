@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\MainBundle\Tests;
+namespace Tests\Application\MainBundle;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;

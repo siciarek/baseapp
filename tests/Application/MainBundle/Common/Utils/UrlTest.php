@@ -1,8 +1,8 @@
 <?php
 
-namespace Application\MainBundle\Tests\Common\Utils;
+namespace Tests\Application\MainBundle\Common\Utils;
 
-use Application\MainBundle\Tests\TestCase;
+use Tests\Application\MainBundle\TestCase;
 
 class UrlTest extends TestCase {
 
@@ -158,7 +158,7 @@ class UrlTest extends TestCase {
     /**
      * @group url
      * @group exception
-     * @expectedException \Exception
+     * @expectedException PHPUnit_Framework_Error
      * @expectedExceptionMessage Call to undefined method Application\MainBundle\Common\Utils\Url::getDummy
      */
     public function testInvalidMethod() {

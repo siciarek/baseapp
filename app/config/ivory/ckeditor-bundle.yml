@@ -22,22 +22,22 @@ ivory_ck_editor:
             links: ['Link', 'Unlink', 'Anchor', 'LinkToNode', 'LinkToMenu']
         configs:
             basic:
-                - @basic_typography
-                - @basic_links
-                - @color
-                - @show
+                - "@basic_typography"
+                - "@basic_links"
+                - "@color"
+                - "@show"
             extended:
-                - @save
-                - @show
-                - @typography
-                - @links
-                - @color
-                - @edit
-                - @elements
-                - @alignment
-                - @find
-                - @format
-                - @lists
+                - "@save"
+                - "@show"
+                - "@typography"
+                - "@links"
+                - "@color"
+                - "@edit"
+                - "@elements"
+                - "@alignment"
+                - "@find"
+                - "@format"
+                - "@lists"
 
 
     configs:

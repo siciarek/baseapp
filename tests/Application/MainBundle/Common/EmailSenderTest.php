@@ -1,8 +1,8 @@
 <?php
 
-namespace Application\MainBundle\Tests\Common;
+namespace Tests\Application\MainBundle\Common;
 
-use Application\MainBundle\Tests\TestCase;
+use Tests\Application\MainBundle\TestCase;
 use Application\MainBundle\Common\EmailSender;
 
 class EmailSenderTest extends TestCase {
@@ -26,7 +26,7 @@ class EmailSenderTest extends TestCase {
      */
     public function testSend() {
 
-        $command = sprintf('%s %s %s', PHP_BINARY, $this->getContainer()->get('kernel')->getRootDir() . '/console', '--no-ansi swiftmailer:spool:send --env=test');
+        $command = sprintf('%s %s %s', PHP_BINARY, $this->getContainer()->get('kernel')->getRootDir() . '/../bin/console', '--no-ansi swiftmailer:spool:send --env=test');
 
         $result = trim(`$command`);
 

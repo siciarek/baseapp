@@ -2,7 +2,7 @@
 
 namespace Application\MainBundle\Twig\Extension;
 
-use EWZ\Bundle\TextBundle\Templating\Helper\TextHelper;
+use Application\MainBundle\Common\Templating\Helper\TextHelper;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\Templating\Helper\Helper;

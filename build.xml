@@ -41,98 +41,98 @@
 
     <target name="ge" description="Generowanie encji">
         <exec executable="${php}">
-            <arg line="app/console doctrine:generate:entities ApplicationMainBundle --no-backup"/>
+            <arg line="${console} doctrine:generate:entities ApplicationMainBundle --no-backup"/>
         </exec>
     </target>
 
     <target name="as" depends="cc" description="Wygenerowanie wszystkich assetsów">
         <exec executable="${php}">
-            <arg line="app/console assets:install --env=prod --symlink"/>
+            <arg line="${console} assets:install --env=prod --symlink"/>
         </exec>
         <exec executable="${php}">
-            <arg line="app/console assetic:dump --env=prod"/>
+            <arg line="${console} assetic:dump --env=prod"/>
         </exec>
         <exec executable="${php}">
-            <arg line="app/console fos:js-routing:dump --env=prod"/>
+            <arg line="${console} fos:js-routing:dump --env=prod"/>
         </exec>
     </target>
     
     <target name="fix" description="Wprowadzenie danych domyślnych do bazy">
         <exec executable="${php}">
-            <arg line="app/console doctrine:fixtures:load --env=prod --no-interaction"/>
+            <arg line="${console} doctrine:fixtures:load --env=prod --no-interaction --verbose"/>
         </exec>
     </target>
 
     <target name="cc" description="Czyszczenie katalogu cache">
         <delete includeemptydirs="true" verbose="true" quiet="true">
-            <fileset dir="app/cache" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="var/cache" includes="**/*" excludes=".gitkeep"/>
         </delete>
     </target>
 
     <target name="ccx" description="Czyszczenie katalogów cache i logs">
         <delete includeemptydirs="true" verbose="true" quiet="true">
-            <fileset dir="app/cache/dev" includes="**/*" excludes=".gitkeep"/>
-            <fileset dir="app/cache/prod" includes="**/*" excludes=".gitkeep"/>
-            <fileset dir="app/cache/test" includes="**/*" excludes=".gitkeep"/>
-            <fileset dir="app/logs" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="var/cache/dev" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="var/cache/prod" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="var/cache/test" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="var/logs" includes="**/*" excludes=".gitkeep"/>
         </delete>
     </target>
 
     <target name="ccxm" description="Czyszczenie katalogów cache logs i uploads">
         <delete includeemptydirs="true" verbose="true" quiet="true">
-            <fileset dir="app/cache/dev" includes="**/*" excludes=".gitkeep"/>
-            <fileset dir="app/cache/prod" includes="**/*" excludes=".gitkeep"/>
-            <fileset dir="app/cache/test" includes="**/*" excludes=".gitkeep"/>
-            <fileset dir="app/logs" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="var/cache/dev" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="var/cache/prod" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="var/cache/test" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="var/logs" includes="**/*" excludes=".gitkeep"/>
             <fileset dir="web/uploads/media" includes="**/*" excludes=".gitkeep"/>
         </delete>
     </target>
 
     <target name="ccm" description="Czyszczenie katalogów cache logs i uploads">
         <delete includeemptydirs="true" verbose="true" quiet="true" >
-            <fileset dir="app/cache/dev" includes="**/*" excludes=".gitkeep"/>
-            <fileset dir="app/cache/prod" includes="**/*" excludes=".gitkeep"/>
-            <fileset dir="app/cache/test" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="var/cache/dev" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="var/cache/prod" includes="**/*" excludes=".gitkeep"/>
+            <fileset dir="var/cache/test" includes="**/*" excludes=".gitkeep"/>
             <fileset dir="web/uploads/media" includes="**/*" excludes=".gitkeep"/>
         </delete>
     </target>
 
     <target name="db" depends="ccm" description="Reset bazy danych">
         <exec executable="${php}">
-            <arg line="app/console doctrine:database:drop --env=prod --force"/>
+            <arg line="${console} doctrine:database:drop --env=prod --force"/>
         </exec>
         <exec executable="${php}">
-            <arg line="app/console doctrine:database:create --env=prod"/>
+            <arg line="${console} doctrine:database:create --env=prod"/>
         </exec>
         <exec executable="${php}">
-            <arg line="app/console doctrine:schema:create --env=prod"/>
+            <arg line="${console} doctrine:schema:create --env=prod"/>
         </exec>
         <exec executable="${php}">
-            <arg line="app/console doctrine:schema:update --env=prod --force"/>
+            <arg line="${console} doctrine:schema:update --env=prod --force"/>
         </exec>
         <exec executable="${php}">
-            <arg line="app/console doctrine:schema:validate --env=prod"/>
+            <arg line="${console} doctrine:schema:validate --env=prod"/>
         </exec>
     </target>
 
     <target name="check" description="Walidacja mappingu bazy danych">
         <exec executable="${php}">
-            <arg line="app/console doctrine:schema:validate"/>
+            <arg line="${console} doctrine:schema:validate"/>
         </exec>
     </target>
     
     <target name="send" description="Wyślij emaile ze spoola">
         <exec executable="${php}">
-            <arg line="app/console swiftmailer:spool:send --env=prod"/>
+            <arg line="${console} swiftmailer:spool:send --env=prod"/>
         </exec>
         <exec executable="${php}">
-            <arg line="app/console swiftmailer:spool:send --env=dev"/>
+            <arg line="${console} swiftmailer:spool:send --env=dev"/>
         </exec>
     </target>
     
     <target name="dd" description="Synchronizuj zdalną bazę z lokalną">
         <exec executable="${php}">
-            <arg line="app/console dumpdb --env=prod"/>
+            <arg line="${console} dumpdb --env=prod"/>
         </exec>
     </target>
 

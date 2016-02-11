@@ -1,8 +1,8 @@
 <?php
 
-namespace Application\MainBundle\Tests\Common;
+namespace Tests\Application\MainBundle\Common;
 
-use Application\MainBundle\Tests\TestCase;
+use Tests\Application\MainBundle\TestCase;
 use Application\MainBundle\Common\LaafFrame;
 
 class LaafFrameTest extends TestCase

@@ -72,7 +72,7 @@ security:
                 target: default.home
             anonymous:          true
             remember_me:
-                key:      "%secret%"
+                secret:      %secret%
                 lifetime: 604800 # 1 week in seconds
                 path:     /
                 # by default, the feature is enabled by checking a

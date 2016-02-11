@@ -1,4 +1,10 @@
 services:
+    # Temporarily until excelwebzone upgrade version:
+    ewz_text.text_helper:
+        class: Application\MainBundle\Common\Templating\Helper\TextHelper
+        tags:
+            - { name: templating.helper, alias: ewz_text }
+    
     app.url:
         class: Application\MainBundle\Common\Utils\Url
 

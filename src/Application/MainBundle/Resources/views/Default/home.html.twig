@@ -2,51 +2,89 @@
 
 {% block javascripts %}
     {{ parent() }}
-    
+    <script src = "{{ asset('https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js') }}" ></script>
+
     <script>
-        function spinnerTest() {
-            Spinner.show();
-            setTimeout(function() {
-              Spinner.hide();
-            }, 3000);
-        }
 
-        function inputTest() {
+        {% verbatim %}
 
-            var callback = function(val) {
-                Spinner.show();
-                setTimeout(function(){console.log(val);Spinner.hide()}, 4000);
+            var tmpl = '\
+{{#items.0}}\n\
+<ul class="list-group">\n\
+{{/items.0}}\n\
+{{#items}}\n\
+<li class="list-group-item">{{id}} - {{& name}}</li>\n\
+{{/items}}\n\
+{{#items.0}}\n\
+</li>\n\
+{{/items.0}}\n\
+{{^items}}\n\
+<div class="alert alert-info">The list is empty</div>\n\
+{{/items}}\n\
+    ';
+            var data = {
+                items: [
+                    { name: 'John &', id: 33 },
+                    { name: 'Paul', id: 39 },
+                    { name: 'George', id: 42 },
+                    { name: 'Ringo', id: 53 }
+                ]
             };
 
-            Dialog.input('Insert your name:', null, callback);
-        }
-
-        function questionTest() {
-
-            var callback = function(val) {
-                var answer = val == 1 ? 'Yes' : 'No';
+//            data.items = [];
             
+            $(document).ready(function(){
+               console.log(Mustache.render(tmpl, data));
+            });
+
+        {% endverbatim %}
+
+            function spinnerTest() {
                 Spinner.show();
-                setTimeout(function(){console.log(answer);Spinner.hide()}, 3000);
-            };
+                setTimeout(function () {
+                    Spinner.hide();
+                }, 3000);
+            }
 
-            Dialog.question('Czy jesteś pewien?', null, callback);
-        }
+            function inputTest() {
 
-        function confirmationTest() {
-
-            var callback = function(val) {
-                var condition = val == 1;
-                
-                if(condition === true) {
+                var callback = function (val) {
                     Spinner.show();
-                    
-                    setTimeout(function(){console.log('Confirmed');Spinner.hide()}, 3000);
-                }
-            };
+                    setTimeout(function () {
+                        console.log(val);
+                        Spinner.hide()
+                    }, 4000);
+                };
+                Dialog.input('Insert your name:', null, callback);
+            }
 
-            Dialog.confirmation('Czy jesteś pewien?', null, callback);
-        }
+            function questionTest() {
+
+                var callback = function (val) {
+                    var answer = val == 1 ? 'Yes' : 'No';
+                    Spinner.show();
+                    setTimeout(function () {
+                        console.log(answer);
+                        Spinner.hide()
+                    }, 3000);
+                };
+                Dialog.question('Czy jesteś pewien?', null, callback);
+            }
+
+            function confirmationTest() {
+
+                var callback = function (val) {
+                    var condition = val == 1;
+                    if (condition === true) {
+                        Spinner.show();
+                        setTimeout(function () {
+                            console.log('Confirmed');
+                            Spinner.hide()
+                        }, 3000);
+                    }
+                };
+                Dialog.confirmation('Czy jesteś pewien?', null, callback);
+            }
 
     </script>
 {% endblock %}
