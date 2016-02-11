@@ -19,7 +19,6 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "siciarek/chat-bundle": "dev-master",
         "stof/doctrine-extensions-bundle": "dev-master",
         "gregwar/captcha-bundle": "dev-master",        
         "symfony/assetic-bundle": "dev-master",
@@ -47,6 +46,7 @@
         "sonata-project/user-bundle": "dev-add_support_for_fos_user2",
         "sonata-project/classification-bundle": "dev-master",
         "sonata-project/media-bundle": "dev-master",
+        "siciarek/chat-bundle": "dev-master",
 
         "php": ">=5.5.9",
         "symfony/symfony": "3.0.*",
