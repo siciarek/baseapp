@@ -195,6 +195,68 @@ class Curl {
         $this->opts[CURLOPT_COOKIE] = $cookie;
     }
 
+    protected function parseCookie($string) {
+        $string = trim($string);
+        $name = null;
+        $data = [
+            'value' => null,
+            'expires' => null,
+            'path' => null,
+            'domain' => null,
+            'secure' => null,
+            'httponly' => null,
+        ];
+
+        if (preg_match('#^[^=]+=#ms', $string)) {
+            $tmp = explode('=', $string);
+            $name = array_shift($tmp);
+            $name = trim($name);
+
+            $values = implode('=', $tmp);
+            $values = explode(';', $values);
+            $values = array_map('trim', $values);
+            
+            $value = array_shift($values);
+            $data['value'] = urldecode($value);
+            
+            foreach($values as $val) {
+                $_tmp = explode('=', $val);
+                $k = array_shift($_tmp);
+                $v = trim(implode('=', $_tmp));
+                
+                if($k === 'expires') {
+                    $v = date('Y-m-d H:i:s', strtotime($v));
+                }
+                
+                if(in_array($k, [ 'secure', 'httponly' ]) and !empty($v)) {
+                    $v = ($v == 1 or $v === 'true');
+                }
+                
+                $data[$k] = $v;
+            }
+        }
+        
+        return [$name, $data];
+    }
+
+    public function getCookies() {
+        
+        $cookies = [];
+
+        if (array_key_exists('Set-Cookie', $this->headers)) {
+            $temp = $this->headers['Set-Cookie'];
+
+            foreach ($temp as $string) {
+                list($key, $data) = $this->parseCookie($string);
+                if(!empty($key)) {
+                    $cookies[$key] = $data;
+                }
+            }
+        }
+
+        return $cookies;
+    }
+    
     protected function headersHandler($ch, $header) {
         $match = [];
 
