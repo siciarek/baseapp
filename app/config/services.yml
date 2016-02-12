@@ -4,6 +4,6 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    # Quick and dirty fix for SonataUserBundle
+    fos_user.entity_manager:
+        alias: fos_user.object_manager

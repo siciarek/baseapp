@@ -119,7 +119,8 @@ class UrlTest extends TestCase {
      * @dataProvider simpleDataProvider
      */
     public function testSimple($url, $parseResult, $data) {
-        $this->assertEquals($parseResult, $this->srv->parse($url));
+        $result = $parseResult === true ? $this->srv : null;
+        $this->assertEquals($result, $this->srv->parse($url));
         $this->assertEquals($data, $this->srv->getData());
     }
 
@@ -128,7 +129,8 @@ class UrlTest extends TestCase {
      * @dataProvider complexDataProvider
      */
     public function testComplex($url, $parseResult, $expected) {
-        $this->assertEquals($parseResult, $this->srv->parse($url));
+        $result = $parseResult === true ? $this->srv : null;
+        $this->assertEquals($result, $this->srv->parse($url));
         $this->assertArrayHasKey($expected, $this->srv->getQuery());
     }
 

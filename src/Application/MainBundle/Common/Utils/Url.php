@@ -74,7 +74,7 @@ class Url {
             
         }
         
-        return count($temp) > 0;
+        return count($temp) > 0 ? $this : null;
     }
 
     /**
