@@ -37,13 +37,7 @@ services:
     
     eparam:
         alias: app.entity.parameter
-     
-    app.form.email.message:
-        class: Application\MainBundle\Common\Form\EmailMessageType
-        arguments: [ ]
-        tags:
-            - { name: form.type, alias: email_message }
-            
+
     app.image.converter:
         class: Application\MainBundle\Service\ImageConverter
         arguments: [ '@service_container' ]

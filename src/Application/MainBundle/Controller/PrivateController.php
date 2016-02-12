@@ -14,26 +14,34 @@ use \Application\MainBundle\Common\Form\EmailMessageType;
 /**
  * @Route("/private")
  */
-class PrivateController extends Controller {
+class PrivateController extends Controller
+{
 
     /**
      * @Route("/sample/form", name="private.sample.form")
      * @Template()
      */
-    public function sampleFormAction(Request $request) {
-        
-        $form = $this->createForm('email_message');
-        
+    public function sampleFormAction(Request $request)
+    {
+
+        $form = $this->createForm(EmailMessageType::class, null, ['render_submit_button' => true]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            throw new \Exception('boom');
+        }
+
         return [
             'form' => $form,
         ];
     }
-    
+
     /**
      * @Route("/sample/list", name="private.sample.list")
      * @Template()
      */
-    public function sampleListAction(Request $request) {
+    public function sampleListAction(Request $request)
+    {
 
         $em = $this->getDoctrine()->getManager();
         $repo = $em->getRepository('ApplicationMainBundle:CollectionElement');
@@ -41,7 +49,7 @@ class PrivateController extends Controller {
                 ->leftJoin('e.translations', 't')
                 ->andWhere('t.locale = :locale')
                 ->setParameter('locale', $request->getLocale());
-        
+
         $query = $qb->getQuery();
 
         $page = $request->query->getInt('page', 1);
@@ -58,7 +66,8 @@ class PrivateController extends Controller {
      * @Route("/gallery", name="private.gallery")
      * @Template()
      */
-    public function galleryAction() {
+    public function galleryAction()
+    {
         return [];
     }
 
@@ -66,14 +75,16 @@ class PrivateController extends Controller {
      * @Route("/", name="private.index")
      * @Template()
      */
-    public function indexAction() {
+    public function indexAction()
+    {
         return [];
     }
 
     /**
      * @Route("/spreadsheet", name="private.spreadsheet")
      */
-    public function spreadsheetAction(Request $request) {
+    public function spreadsheetAction(Request $request)
+    {
 
         $repository = $this->getDoctrine()
                 ->getRepository('ApplicationMainBundle:CollectionElement');
@@ -95,7 +106,8 @@ class PrivateController extends Controller {
         return $this->returnXlsResponse($data, $headers, $title, $fileName);
     }
 
-    protected function returnXlsResponse($data, $headers, $title = 'Data', $fileName = 'spreadsheet') {
+    protected function returnXlsResponse($data, $headers, $title = 'Data', $fileName = 'spreadsheet')
+    {
 
         $srv = $this->get('phpexcel');
 

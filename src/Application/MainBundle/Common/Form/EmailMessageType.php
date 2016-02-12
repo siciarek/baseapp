@@ -5,35 +5,68 @@ namespace Application\MainBundle\Common\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as C;
+use Symfony\Component\Form\Extension\Core\Type as T;
 
 class EmailMessageType extends AbstractType
 {
+    
+    public function __construct() {
+        
+    }
+    
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-                ->add('name', 'text', [
+                ->add('type', T\ChoiceType::class, [
+                    'required' => false,                    
+                ])
+                ->add('name', T\TextType::class, [
                     'required' => false,
                     'trim' => true,
+                    'constraints' => [
+                        new C\NotBlank(),
+                        new C\Length(['min' => 3, 'max' => 64]),
+                    ],
                 ])
-                ->add('email', 'email', [
+                ->add('email', T\TextType::class, [
                     'trim' => true,
+                    'constraints' => [
+                        new C\Email(),
+                    ],
                 ])
-                ->add('subject', 'text', [
+                ->add('subject', T\TextType::class, [
                     'trim' => true,
+                    'constraints' => [
+                        new C\NotBlank(),
+                        new C\Length(['min' => 3, 'max' => 255]),
+                    ],
                 ])
-                ->add('body', 'ckeditor', [
-                    'config_name' => 'email',
+                ->add('body', T\TextareaType::class, [
                     'trim' => true,
+                    'constraints' => [
+                        new C\NotBlank(),
+                        new C\Length(['min' => 1, 'max' => 10000]),
+                    ],
                 ])
-                ->add('attachments', 'file', [
+                ->add('attachments', T\FileType::class, [
                     'multiple' => true,
                     'required' => false,
                 ])
-                ->add('save', 'submit')
         ;
+
+        if (array_key_exists('render_submit_button', $options) and $options['render_submit_button'] == true) {
+            $builder
+                    ->add('save', T\SubmitType::class, [
+                        'attr' => [
+                            'class' => 'pull-right btn-default btn-lg'
+                        ]
+                    ])
+            ;
+        }
     }
 
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'email_message';
     }
@@ -42,6 +75,8 @@ class EmailMessageType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => null,
+            'render_submit_button' => false,
         ]);
     }
+
 }
