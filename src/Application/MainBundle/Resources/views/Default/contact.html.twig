@@ -2,7 +2,7 @@
 
 {% block javascripts %}
     {{ parent() }}
-    
+
     <script>
 
     </script>
@@ -14,5 +14,38 @@
         <i class="fa fa-envelope fa-lg fa-fw text-muted"></i>
         {{ 'Contact'|trans }}
     </h1>
+
+    <br/>
+    
+    <div class="col-lg-7 row">
+        <div class="col-lg-5">
+            <p><img alt="{{data.fn|first}}" title="{{data.fn|first}}" src="{{ asset(data.photo|first) }}" class="img-rounded thumbnail"/></p>
+        </div>
+
+        <div class="col-lg-7">
+            <h3 style="margin-top:0">{{data.fn|first}}</h3>
+            <p>
+                <i class="fa-star fa fa-lg fa-fw text-muted"></i>
+                {{data.bday|first}}
+            </p>
+            <p>
+                <i class="fa-phone-square fa fa-lg fa-fw text-muted"></i>
+                {{data.tel|first.Value}}
+            </p>
+            <p>
+                <i class="fa-globe fa fa-lg fa-fw text-muted"></i>
+                {{data.url|first}}
+            </p>
+            <p>
+                <i class="fa-envelope-o fa fa-lg fa-fw text-muted"></i>
+                {{data.email|first.Value}}
+            </p>
+            <p>
+                <i class="fa-home fa fa-lg fa-fw text-muted"></i>
+                {% set adr = data.adr|first %}
+                {{[adr.StreetAddress,adr.PostalCode~' '~adr.Locality,adr.Country]|join(', ')}}
+            </p>
+        </div>
+    </div>
 
 {% endblock %}

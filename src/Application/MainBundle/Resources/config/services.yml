@@ -1,3 +1,10 @@
+parameters:
+    priority:
+        highest: 1
+        high: 2
+        medium: 4 
+        low: 8
+
 services:
     # Temporarily until excelwebzone upgrade version:
     ewz_text.text_helper:
@@ -38,6 +45,12 @@ services:
     eparam:
         alias: app.entity.parameter
 
+    app.form.email.message:
+        class: Application\MainBundle\Common\Form\EmailMessageType
+        arguments: [ %priority% ]
+        tags:
+            - { name: form.type, alias: email_message }
+            
     app.image.converter:
         class: Application\MainBundle\Service\ImageConverter
         arguments: [ '@service_container' ]

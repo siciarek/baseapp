@@ -9,7 +9,7 @@ class Vcard extends \vCard
      * Get entire dataset from vCard
      * @return array
      */
-    public function getData()
+    public function getData($flat = false)
     {
 
         $data = [];
@@ -18,9 +18,21 @@ class Vcard extends \vCard
             $dat = [];
             $vcard = $this;
             do {
-                $dat[$vcard->key()] = $vcard->current();
+                $key = $vcard->key();
+                $val = $vcard->current();
+
+                if ($flat === true) {
+                    if (count($val) === 0) {
+                        $val = null;
+                    } elseif (count($val) === 1) {
+                        $val = array_pop($val);
+                    } else {
+                        $val = $val;
+                    }
+                }
+                $dat[$key] = $val;
             } while ($vcard->next());
-            
+
             return $dat;
         } else {
             foreach ($this as $vcard) {

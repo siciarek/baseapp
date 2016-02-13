@@ -10,17 +10,28 @@ use Symfony\Component\Form\Extension\Core\Type as T;
 
 class EmailMessageType extends AbstractType
 {
+    /**
+     * Priorities index
+     * @var array
+     */
+    protected $priorities = [];
     
-    public function __construct() {
-        
+    public function __construct(array $priorities = []) {
+        $this->priorities = $priorities;
     }
     
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-                ->add('type', T\ChoiceType::class, [
-                    'required' => false,                    
-                ])
+                ->add('priority', T\ChoiceType::class, [
+                    'required' => false,
+                    'trim' => true,
+                    'multiple' => false,
+                    'expanded' => true,
+                    'choices' => $this->priorities,
+                    'preferred_choices' => [4],
+                    'placeholder' => 'common.choose_from_the_list',
+                    ])
                 ->add('name', T\TextType::class, [
                     'required' => false,
                     'trim' => true,

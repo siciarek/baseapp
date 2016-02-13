@@ -71,7 +71,14 @@ HTML;
      */
     public function contactAction(Request $request)
     {
-        return [];
+        $file = $this->get('kernel')->getRootDir() . '/../src/Application/MainBundle/Resources/data/Jacek_Siciarek.vcf';
+         
+        $vcard = new \Application\MainBundle\Common\Utils\Vcard($file);
+        $data = $vcard->getData();
+        
+        return [
+            'data' => $data,
+        ];
     }
 
     /**
