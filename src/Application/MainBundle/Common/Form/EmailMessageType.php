@@ -7,38 +7,34 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as C;
 use Symfony\Component\Form\Extension\Core\Type as T;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 
 class EmailMessageType extends AbstractType
 {
+
     /**
      * Priorities index
      * @var array
      */
     protected $priorities = [];
-    
-    public function __construct(array $priorities = []) {
+
+    public function __construct(array $priorities = [])
+    {
         $this->priorities = $priorities;
     }
-    
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
                 ->add('priority', T\ChoiceType::class, [
                     'required' => false,
                     'trim' => true,
-                    'multiple' => false,
-                    'expanded' => true,
                     'choices' => $this->priorities,
-                    'preferred_choices' => [4],
                     'placeholder' => 'common.choose_from_the_list',
-                    ])
+                ])
                 ->add('name', T\TextType::class, [
                     'required' => false,
                     'trim' => true,
-                    'constraints' => [
-                        new C\NotBlank(),
-                        new C\Length(['min' => 3, 'max' => 64]),
-                    ],
                 ])
                 ->add('email', T\TextType::class, [
                     'trim' => true,
@@ -50,11 +46,12 @@ class EmailMessageType extends AbstractType
                     'trim' => true,
                     'constraints' => [
                         new C\NotBlank(),
-                        new C\Length(['min' => 3, 'max' => 255]),
+                        new C\Length(['min' => 1, 'max' => 255]),
                     ],
                 ])
-                ->add('body', T\TextareaType::class, [
+                ->add('body', CKEditorType::class, [
                     'trim' => true,
+                    'config_name' => 'email',
                     'constraints' => [
                         new C\NotBlank(),
                         new C\Length(['min' => 1, 'max' => 10000]),

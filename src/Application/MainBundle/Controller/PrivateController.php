@@ -28,7 +28,17 @@ class PrivateController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            throw new \Exception('boom');
+            $priority = $form->get('priority')->getData();
+            $name = $form->get('name')->getData();
+            $email = $form->get('email')->getData();
+            $subject = $form->get('subject')->getData();
+            $body = $form->get('body')->getData();
+            
+            $data = [$priority, $name, $email, $subject, $body];
+            ldd($data);
+            
+            throw new \Exception(json_encode($data));
+            
         }
 
         return [
