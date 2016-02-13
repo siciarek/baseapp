@@ -27,10 +27,9 @@ class EmailMessageType extends AbstractType
     {
         $builder
                 ->add('priority', T\ChoiceType::class, [
-                    'required' => false,
                     'trim' => true,
                     'choices' => $this->priorities,
-                    'placeholder' => 'common.choose_from_the_list',
+                    'data' => $this->priorities['Normal'],
                 ])
                 ->add('name', T\TextType::class, [
                     'required' => false,

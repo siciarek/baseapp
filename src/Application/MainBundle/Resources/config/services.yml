@@ -1,8 +1,8 @@
 parameters:
     priority:
-        High: 1
-        Normal: 3
         Low: 5
+        Normal: 3
+        High: 1
 
 services:
     # Temporarily until excelwebzone upgrade version:

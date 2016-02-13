@@ -42,6 +42,8 @@ ivory_ck_editor:
 
     configs:
         basic:
+            htmlEncodeOutput: false
+            entities: false
             width: 100%
             height: 200
             toolbar: basic
@@ -53,6 +55,8 @@ ivory_ck_editor:
             toolbar: basic
             removePlugins: 'elementspath'
         extended:
+            htmlEncodeOutput: false
+            entities: false
             width: 100%
             height: 300
             contentsCss: '/bundles/applicationmain/css/ckeditor.css'

@@ -28,17 +28,69 @@ class PrivateController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $priority = $form->get('priority')->getData();
-            $name = $form->get('name')->getData();
-            $email = $form->get('email')->getData();
-            $subject = $form->get('subject')->getData();
-            $body = $form->get('body')->getData();
+
+            $data = $form->getNormData();
+
+            $data['email'] = $this->get('fos_user.util.email_canonicalizer')
+                    ->canonicalize($data['email']);
+
+            $data['attachments'] = array_filter($data['attachments'], function($e) {
+                return $e instanceof \Symfony\Component\HttpFoundation\File\UploadedFile;
+            });
+
+            $to = [
+                'name' => $data['name'],
+                'email' => $data['email'],
+            ];
+
+            $from = [
+                'name' => $this->container->getParameter('app_name'),
+                'email' => $this->get('fos_user.util.email_canonicalizer')
+                    ->canonicalize($this->container->getParameter('mailer_default_email')),
+            ];
+
+            $bodyPlainText = strip_tags($data['body']);
+            $bodyPlainText = trim($bodyPlainText);
+
+            /**
+             * @var \AppKernel
+             */
+            $kernel = $this->get('kernel');
+            $tmpDir = implode(DIRECTORY_SEPARATOR, [$kernel->getCacheDir(), 'swiftmailer', 'tmp']);
+
+            if (false === is_dir($tmpDir)) {
+                mkdir($tmpDir, 0777, true);
+            }
+
+            if (false === is_writable($tmpDir)) {
+                throw new \Exception(sprintf('Directory %s is not writable.', $tmpDir));
+            }
+
+            $message = \Swift_Message::newInstance()
+                    ->setSubject($data['subject'])
+                    ->setFrom($from['email'], $from['name'])
+                    ->setTo($to['email'], $to['name'])
+                    ->setBody($data['body'], 'text/html')
+                    ->addPart($bodyPlainText, 'text/plain')
+            ;
+
+            foreach ($data['attachments'] as $a) {
+                $fname = tempnam($tmpDir, 'att');
+                copy($a->getRealPath(), $fname);
+
+                $attachment = \Swift_Attachment::fromPath($fname, $a->getMimeType())
+                        ->setFilename($a->getClientOriginalName());
+
+                $message->attach($attachment);
+            }
+
+            $result = $this->get('mailer')->send($message);
+
+            if ($result !== 1) {
+                throw new \Exception($result);
+            }
             
-            $data = [$priority, $name, $email, $subject, $body];
-            ldd($data);
-            
-            throw new \Exception(json_encode($data));
-            
+            ldd($result);
         }
 
         return [
