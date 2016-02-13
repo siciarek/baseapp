@@ -1,10 +1,12 @@
 BEGIN:VCARD
 VERSION:2.1
-FN:Jacek Siciarek
-N:Siciarek;Jacek
-ADR;WORK;PREF;ENCODING=QUOTED-PRINTABLE:;Gdańsk 03-234=0APolska;Matejki 12
-LABEL;ENCODING=QUOTED-PRINTABLE;WORK;PREF:Ejsmonda 4/35=0AŁódź 93-249=0APolska
-TEL;CELL:+48603173114
-EMAIL;INTERNET:siciarek@gmail.com
-UID:
+N;CHARSET=UTF-8:Siciarek;Jacek
+FN;CHARSET=UTF-8:Jacek Siciarek
+ADR;HOME;POSTAL;CHARSET=UTF-8:;;ul. Ejsmonda 4/35;Łódź;łódzkie;93-249;Polska
+TEL;CELL;VOICE:+48603173114
+EMAIL;PREF;INTERNET:siciarek@gmail.com
+EMAIL;INTERNET:siciarek@hotmail.com
+URL;HOME:http://siciarek.pl
+BDAY:1966-10-21
+PHOTO;VALUE=uri:http://gravatar.com/avatar/d4b77615f3bd9f43f109bee92c908e01?s=200
 END:VCARD

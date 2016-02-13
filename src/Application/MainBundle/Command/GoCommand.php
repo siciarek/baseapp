@@ -9,6 +9,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\LockHandler;
 use utilphp\util;
+use Application\MainBundle\Common\Utils\Vcard;
 
 class GoCommand extends ContainerAwareCommand
 {
@@ -36,11 +37,14 @@ class GoCommand extends ContainerAwareCommand
         }
         
         $message = __METHOD__;
+       
+        $file = realpath(__DIR__ . '/../Resources/data/Siciarek_Jacek.vcf');
+         
+        $vcard = new Vcard($file);
+        $data = $vcard->getData();
         
-        $phrase = 'zażółć gęślą jaźń, ZAŻÓŁĆ GĘŚLĄ JAŹŃ';
-        $slug = util::slugify($phrase);
-        
-        $output->writeln($slug);
+        $json = json_encode($data, JSON_PRETTY_PRINT);
+        $output->writeln($json);
         
         // Release the lock:
         $lock->release();
