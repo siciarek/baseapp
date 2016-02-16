@@ -31,4 +31,10 @@
             </exclude>
         </whitelist>
     </filter>
+    <logging>
+        <log type="coverage-html" target="./web/coverage" title="PHP Code Coverage"
+             charset="UTF-8" yui="true" highlight="true"
+             lowUpperBound="75" highLowerBound="90"/>
+    </logging>
+
 </phpunit>

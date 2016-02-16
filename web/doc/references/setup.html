@@ -146,6 +146,44 @@ tlmgr install multirow
 <li><a class="reference external" href="http://symfony.com/doc/current/cookbook/deployment/tools.html">http://symfony.com/doc/current/cookbook/deployment/tools.html</a></li>
 </ul>
 </div></blockquote>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#!/bin/bash</span>
+
+<span class="nv">HEIGHT</span><span class="o">=</span>15
+<span class="nv">WIDTH</span><span class="o">=</span>40
+<span class="nv">CHOICE_HEIGHT</span><span class="o">=</span>4
+<span class="nv">BACKTITLE</span><span class="o">=</span><span class="s2">&quot;Backtitle here&quot;</span>
+<span class="nv">TITLE</span><span class="o">=</span><span class="s2">&quot;Title here&quot;</span>
+<span class="nv">MENU</span><span class="o">=</span><span class="s2">&quot;Choose one of the following options:&quot;</span>
+
+<span class="nv">OPTIONS</span><span class="o">=(</span>
+<span class="m">1</span> <span class="s1">&#39;Zażółć gęślą jaźń&#39;</span>
+<span class="m">2</span> <span class="s1">&#39;Option 2&#39;</span>
+<span class="m">3</span> <span class="s1">&#39;Option 3&#39;</span>
+<span class="o">)</span>
+
+<span class="nv">CHOICE</span><span class="o">=</span><span class="k">$(</span>dialog --clear <span class="se">\</span>
+    --backtitle <span class="s2">&quot;</span><span class="nv">$BACKTITLE</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --title <span class="s2">&quot;</span><span class="nv">$TITLE</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --menu <span class="s2">&quot;</span><span class="nv">$MENU</span><span class="s2">&quot;</span> <span class="se">\</span>
+    <span class="nv">$HEIGHT</span> <span class="nv">$WIDTH</span> <span class="nv">$CHOICE_HEIGHT</span> <span class="se">\</span>
+    <span class="s2">&quot;</span><span class="si">${</span><span class="nv">OPTIONS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
+    2&gt;<span class="p">&amp;</span><span class="m">1</span> &gt;/dev/tty<span class="k">)</span>
+
+clear
+
+<span class="k">case</span> <span class="nv">$CHOICE</span> in
+    1<span class="o">)</span>
+        <span class="nb">echo</span> <span class="s2">&quot;You chose Option 1&quot;</span>
+        <span class="p">;;</span>
+    2<span class="o">)</span>
+        <span class="nb">echo</span> <span class="s2">&quot;You chose Option 2&quot;</span>
+        <span class="p">;;</span>
+    3<span class="o">)</span>
+        <span class="nb">echo</span> <span class="s2">&quot;You chose Option 3&quot;</span>
+        <span class="p">;;</span>
+<span class="k">esac</span>
+</pre></div>
+</div>
 </div>
 </div>
 

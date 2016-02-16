@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Guide to Symfony 3 upgrade &mdash; BaseApp 1.0 - dokumentacja</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="BaseApp 1.0 - dokumentacja" href="../index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Nawigacja</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Indeks ogólny"
+             accesskey="I">indeks</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">BaseApp 1.0 - dokumentacja</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="guide-to-symfony-3-upgrade">
+<h1>Guide to Symfony 3 upgrade<a class="headerlink" href="#guide-to-symfony-3-upgrade" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<p>Compatible Bundles List:</p>
+<p><a class="reference external" href="https://docs.google.com/spreadsheets/d/1GOxJ2lNpLxN12YyZ87Bhsxb0iLAQ7e4UDZbJSly8Sy8/edit#gid=0">https://docs.google.com/spreadsheets/d/1GOxJ2lNpLxN12YyZ87Bhsxb0iLAQ7e4UDZbJSly8Sy8/edit#gid=0</a></p>
+<ol class="arabic simple">
+<li>Update file <code class="docutils literal"><span class="pre">vendor/pixassociates/sortable-behavior-bundle/Pix/SortableBehaviorBundle/Resources/config/services.yml</span></code></li>
+</ol>
+<p>change</p>
+<p>to</p>
+<ol class="arabic simple" start="2">
+<li>Add somewhere in your project services definition:</li>
+</ol>
+<ol class="arabic simple" start="3">
+<li>Add to file <code class="docutils literal"><span class="pre">vendor/doctrine/data-fixtures/lib/Doctrine/Common/DataFixtures/Purger/ORMPurger.php</span></code> (line 148)</li>
+</ol>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Nawigacja</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Indeks ogólny"
+             >indeks</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">BaseApp 1.0 - dokumentacja</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Gdynia.
+      Utworzone przy pomocy <a href="http://sphinx-doc.org/">Sphinx</a>'a 1.3.3.
+    </div>
+  </body>
+</html>
