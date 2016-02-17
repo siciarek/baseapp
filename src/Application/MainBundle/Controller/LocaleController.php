@@ -22,20 +22,20 @@ class LocaleController extends Controller
     public static $defaultLocale = 'en';
 
     /**
-     * @Route("/switch/{locale}", name="locale.switch", requirements={"locale"="^[a-z]{2}$"})
+     * @Route("/switch/{_locale}", name="locale.switch", requirements={"_locale"="^[a-z]{2}$"})
      */
     public function changeLocaleAction(Request $request)
     {
-        $locale = $request->get('locale');
+        $locale = $request->get('_locale');
         $locale = array_key_exists($locale, self:: $locales) ? $locale : self::$defaultLocale;
 
         // Store locale in session:
-        $request->getSession()->set('locale', $locale);
+        $request->getSession()->set('_locale', $locale);
 
         // Store locale in cookie:
         $expire = new \DateTime();
         $expire->add(new \DateInterval('P1Y')); // One year expiration time
-        $cookie = new Cookie('locale', $locale, $expire, '/', null, false, false);
+        $cookie = new Cookie('_locale', $locale, $expire, '/', null, false, false);
         
         $response = new Response();
         $response->headers->setCookie($cookie);

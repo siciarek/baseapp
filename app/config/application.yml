@@ -6,7 +6,7 @@ application_main:
             name: "identification"
             type: "enum"
             data: {"username":"username","id":"id","nickname":"nickname","firstName":"firstName","lastName":"lastName","fullName":"fullName"}
-            default: "username"            
+            default: "username"
     main_menu:
         -
             label: Home
@@ -21,7 +21,7 @@ application_main:
             label: Private
             icon: lock
             role: ROLE_USER
-            children: 
+            children:
                 -
                     label: Settings
                     route: fos_user_profile_show
@@ -41,7 +41,7 @@ application_main:
                     label: Admin
                     route: sonata_admin_dashboard
                     icon: wrench
-                    role: ROLE_ADMIN 
+                    role: ROLE_ADMIN
 
         -
             label: ~
@@ -50,8 +50,8 @@ application_main:
                 -
                     label: Polski
                     route: locale.switch
-                    routeParameters: { locale: pl }
+                    routeParameters: { _locale: pl }
                 -
                     label: English
                     route: locale.switch
-                    routeParameters: { locale: en }
+                    routeParameters: { _locale: en }

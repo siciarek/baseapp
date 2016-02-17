@@ -11,16 +11,15 @@ Potrzeba biznesowa: Użytkownik powinien móc się zalogować
     I odwiedzę stronę "/locale/switch/pl"
 
   Scenariusz: Próba otwarcia aplikacji przez niezarejestrowanego użytkownika
-    Zakładając że odwiedzę stronę "/private"
+    Zakładając że odwiedzę stronę "/profile/"
     Wtedy powinienem być na stronie "/login"
     I kod statusu odpowiedzi powinien być równy 200
 
   Scenariusz: Próba otwarcia aplikacji właściwym hasłem i loginem
-    Zakładając że odwiedzę stronę "/private"
+    Zakładając że odwiedzę stronę "/profile/"
     Wtedy powinienem być na stronie "/login"
     I kod statusu odpowiedzi powinien być równy 200
     Jeżeli wypełnię pole "_username" wartością "colak"
     I wypełnię pole "_password" wartością "pass"
     I nacisnę przycisk "_submit"
-    Wtedy powinienem być na stronie "/private"
-    
+    Wtedy powinienem być na stronie "/profile/"

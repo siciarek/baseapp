@@ -42,7 +42,7 @@
         "stof/doctrine-extensions-bundle": "dev-master",
         "gregwar/captcha-bundle": "dev-master",
         "symfony/assetic-bundle": "dev-master",
-        "pixassociates/sortable-behavior-bundle": "1.0",
+        "pixassociates/sortable-behavior-bundle": "dev-master",
         "brandonwamboldt/utilphp": "1.1.*",
         "nelmio/api-doc-bundle": "dev-master",
         "nelmio/security-bundle": "dev-master",
@@ -57,8 +57,6 @@
         "knplabs/knp-snappy-bundle": "dev-master",
         "knplabs/doctrine-behaviors": "dev-master",
         "knplabs/knp-menu-bundle": "dev-master",
-        "doctrine/data-fixtures": "dev-master",
-        "doctrine/doctrine-fixtures-bundle": "dev-master",
         "doctrine/doctrine-migrations-bundle": "1.1.1",
         "sonata-project/datagrid-bundle": "dev-master",
         "sonata-project/admin-bundle": "dev-master",
@@ -79,6 +77,8 @@
         "incenteev/composer-parameter-handler": "^2.0"
     },
     "require-dev": {
+        "doctrine/data-fixtures": "dev-master",
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^2.7",
         "instaclick/php-webdriver": "~1.1",

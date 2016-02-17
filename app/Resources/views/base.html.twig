@@ -46,7 +46,7 @@
             {% for type in ['success', 'error', 'warning', 'info'] %}
                 {% if app.session.flashBag.has(type) %}
                     <div class="top alert alert-{{ style[type] }}">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> 
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <ul>
                             {% for msg in app.session.flashBag.get(type) %}
                                 <li>{{ msg|trans }}</li>
@@ -62,7 +62,10 @@
 
     </div>
 
-    {{ translations() }}
+
+    {{ translations(app.request.locale) }}
+    <script src="{{ asset('bundles/siciarekjstrans/js/lib/xregexp.min.js') }}"></script>
+    <script src="{{ asset('bundles/siciarekjstrans/js/dist/trans.min.js') }}"></script>
 
     {% block javascripts %}
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
@@ -76,7 +79,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/{{ bootstrapVersion }}/js/bootstrap.min.js"></script>
         <script src="//plugins.krajee.com/assets/4b1a3b2e/js/checkbox-x.min.js"></script>
         <script src="//cdn.jsdelivr.net/bootstrap.timepicker/0.2.6/js/bootstrap-timepicker.min.js"></script>
-        
+
         <script src="{{ asset('bundles/ivoryckeditor/ckeditor.js') }}"></script>
 
         <script src="{{ asset('bundles/applicationmain/js/common.js') }}"></script>
@@ -85,7 +88,7 @@
         <script src="{{ asset('bundles/applicationmain/js/custom.js') }}"></script>
 
         <script>
-            $(function(){
+            $(function () {
                 $('input.time').timepicker({
                     minuteStep: 5,
                     showMeridian: false
