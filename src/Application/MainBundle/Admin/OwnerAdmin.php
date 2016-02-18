@@ -9,7 +9,6 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
 class OwnerAdmin extends Admin
 {
-
     protected function configureDatagridFilters(DatagridMapper $datagrid)
     {
         $datagrid
@@ -50,9 +49,9 @@ class OwnerAdmin extends Admin
             ->add('createdAt')
             ->add('_action', 'actions', [
                 'actions' => [
-                    'edit'   => [ ],
-                    'delete' => [ ],
-                    'show'   => [ ],
+                    'edit' => [],
+                    'delete' => [],
+                    'show' => [],
                 ],
             ])
         ;

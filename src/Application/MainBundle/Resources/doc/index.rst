@@ -2,11 +2,11 @@ Szablon aplikacji Symfony 2
 ---------------------------
 
 
-.. _Docs in PDF: ../doc/baseapp.pdf
+.. _Doc in PDF: ../doc/document.pdf
 
 .. only:: html
 
-    * `Docs in PDF`_
+    * `Doc in PDF`_
 
 Spis treści
 ===========

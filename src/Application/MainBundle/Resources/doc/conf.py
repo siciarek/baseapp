@@ -7,6 +7,7 @@ project = u'BaseApp'
 author = u'Jacek Siciarek'
 copyright = u'2015, Gdynia'
 version = '1.0'
+
 release = version
 extensions = [ 'sphinx.ext.pngmath' ]
 exclude_patterns = [ 'references/includes' ]
@@ -43,7 +44,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-    (master_doc, 'baseapp.tex', project, author, 'manual', False),
+    (master_doc, 'document.tex', project, author, 'manual', False),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

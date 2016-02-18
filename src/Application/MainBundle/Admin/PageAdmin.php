@@ -8,10 +8,12 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Route\RouteCollection;
+use A2lix\TranslationFormBundle\Form\Type\TranslationsFieldsType;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
+use Sonata\AdminBundle\Form\Type\ModelType as SonataTypeModel;
 
 class PageAdmin extends Admin
 {
-
     public $supportsPreviewMode = true;
     public $last_position = 0;
     private $positionService;
@@ -41,40 +43,40 @@ class PageAdmin extends Admin
 
     protected function configureRoutes(RouteCollection $collection)
     {
-        $collection->add('move', $this->getRouterIdParameter() . '/move/{position}');
+        $collection->add('move', $this->getRouterIdParameter().'/move/{position}');
     }
 
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
                 ->tab('Page')
-                ->with(null, [ 'box_class' => null,])
+                ->with(null, ['box_class' => null])
                 ->add('name')
-                ->add('category', 'sonata_type_model', [
+                ->add('category', SonataTypeModel::class, [
                     'required' => false,
                     'attr' => [
                         'placeholder' => 'common.choose_from_the_list',
                     ],
                 ])
-                ->add('translations', 'a2lix_translations', [
+                ->add('translations', TranslationsFieldsType::class, [
                     'label' => false,
                     'fields' => [
                         'title' => [
                             'field_type' => 'text',
                         ],
                         'content' => [
-                            'field_type' => 'ckeditor',
+                            'field_type' => CKEditorType::class,
                             'config_name' => 'extended',
                             'label' => false,
-                        ]
-                    ]
+                        ],
+                    ],
                 ])
                 ->add('enabled')
                 ->add('displayTitle')
                 ->end()
                 ->end()
                 ->tab('visibility.name')
-                ->with(null, [ 'box_class' => null,])
+                ->with(null, ['box_class' => null])
                 ->add('role', 'choice', self::$roles)
                 ->end()
                 ->end()
@@ -83,25 +85,26 @@ class PageAdmin extends Admin
 
     protected function configureListFields(ListMapper $listMapper)
     {
-
         $this->last_position = $this->positionService->getLastPosition($this->getRoot()->getClass());
+
+        $actions = [
+            'actions' => [
+                'move' => ['template' => 'ApplicationMainBundle:CRUD:list__action_move.html.twig'],
+                'edit' => [],
+                'delete' => [],
+                'show' => [],
+            ],
+        ];
 
         $listMapper
                 ->addIdentifier('name')
                 ->add('category')
                 ->add('slug')
-                ->add('enabled', null, [ 'editable' => true])
-                ->add('displayTitle', null, [ 'editable' => true])
+                ->add('enabled', null, ['editable' => true])
+                ->add('displayTitle', null, ['editable' => true])
                 ->add('createdAt')
                 ->add('createdBy')
-                ->add('_action', 'actions', [
-                    'actions' => [
-                        'move' => [ 'template' => 'ApplicationMainBundle:CRUD:list__action_move.html.twig'],
-                        'edit' => [],
-                        'delete' => [],
-                        'show' => [],
-                    ],
-        ]);
+                ->add('_action', 'actions', $actions);
     }
 
     protected function configureShowFields(ShowMapper $showMapper)
@@ -138,5 +141,4 @@ class PageAdmin extends Admin
         $errorElement
                 ->end();
     }
-
 }

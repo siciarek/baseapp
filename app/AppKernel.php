@@ -44,7 +44,6 @@ class AppKernel extends Kernel
             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
-            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
@@ -74,6 +73,7 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
             $bundles[] = new Bazinga\Bundle\FakerBundle\BazingaFakerBundle();
+            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
         }
 
         return $bundles;
