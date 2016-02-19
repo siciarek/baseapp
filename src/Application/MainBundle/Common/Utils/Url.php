@@ -78,6 +78,38 @@ class Url {
     }
 
     /**
+     * Returns DNS record data of host
+     * 
+     * @return array DNS record data
+     */
+    public function getDnsRecord() {
+
+        $data = $this->getData();
+        $record = dns_get_record($data['host']);
+        
+        return $record;
+    }
+    
+    /**
+     * Returns ip address given host is assigned to
+     * 
+     * @return string  IPv4 address corresponding to a given Internet host name
+     * @throws \Exception thrown when no ip was found with gethostbyname method
+     */
+    public function getIp() {
+
+        $data = $this->getData();
+        gethostbyname($data['host']);
+        $ip = var_dump(filter_var($ip, FILTER_VALIDATE_IP));
+        
+        if($ip === false) {
+            throw new \Exception('No IPv4 address corresponding to a given Internet host name.');
+        }
+        
+        return $ip;
+    }
+    
+    /**
      * Returns entire parsed url data as array
      * 
      * @return array
