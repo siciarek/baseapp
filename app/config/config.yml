@@ -24,8 +24,8 @@ imports:
     - { resource: gregwar/captcha-bundle.yml }
     
 #    - { resource: jms/security-extra-bundle.yml }
-#    - { resource: sonata-project/media-bundle.yml }
 #    - { resource: hwi/oauth-bundle.yml }
+#    - { resource: sonata-project/media-bundle.yml }
     
     - { resource: session.yml }
     - { resource: application.yml }

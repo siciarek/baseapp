@@ -3,7 +3,7 @@ twig:
         app_name: %app_name%
         app_description: %app_description%
         bootstrapVersion: '3.3.6'
-        jqueryVersion: '2.1.4'
+        jqueryVersion: '2.2.0'
         fontAwesomeVersion: '4.5.0'
     form_themes:
         - '::form_fields.html.twig'
