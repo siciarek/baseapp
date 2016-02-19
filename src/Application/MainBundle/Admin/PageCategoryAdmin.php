@@ -8,13 +8,13 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\CoreBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Route\RouteCollection;
+use A2lix\TranslationFormBundle\Form\Type\TranslationsFieldsType;
 
 class PageCategoryAdmin extends Admin
 {
+
     public $last_position = 0;
-
     private $positionService;
-
     protected $datagridValues = array(
         '_page' => 1,
         '_sort_order' => 'ASC',
@@ -34,34 +34,41 @@ class PageCategoryAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-                
-            ->tab('Category')
-                ->with(null, [ 'box_class' => null, ])
-                    ->add('enabled')
-                    ->add('icon')
-                    ->add('name')
-                    ->add('translations', 'a2lix_translations', [
-                        'label' => false,
-                        'fields' => [
-                            'title' => [
-                                'field_type' => 'text',
-                            ],
-                        ]
-                    ])
+                ->tab('Category')
+                ->with(null, ['box_class' => null])
+                ->add('enabled')
+                ->add('icon')
+                ->add('name')
+                ->add('translations', TranslationsFieldsType::class, [
+                    'label' => false,
+                    'fields' => [
+                        'title' => [
+                            'field_type' => 'text',
+                        ],
+                    ],
+                ])
                 ->end()
-            ->end()
-        
-            ->tab('visibility.name')
-                ->with(null, [ 'box_class' => null, ])
-                    ->add('role', 'choice', self::$roles)
                 ->end()
-            ->end()
+                ->tab('visibility.name')
+                ->with(null, ['box_class' => null])
+                ->add('role', 'choice', self::$roles)
+                ->end()
+                ->end()
         ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $this->last_position = $this->positionService->getLastPosition($this->getRoot()->getClass());
+
+        $actions = [
+            'actions' => [
+                'move' => ['template' => 'ApplicationMainBundle:CRUD:list__action_move.html.twig'],
+                'edit' => [],
+                'delete' => [],
+                'show' => [],
+            ],
+        ];
 
         $listMapper
                 ->add('enabled', null, ['editable' => true])
@@ -73,14 +80,7 @@ class PageCategoryAdmin extends Admin
                 ->add('createdBy')
                 ->add('updatedAt')
                 ->add('updatedBy')
-                ->add('_action', 'actions', [
-                    'actions' => [
-                        'move' => [ 'template' => 'ApplicationMainBundle:CRUD:list__action_move.html.twig'],
-                        'edit' => [],
-                        'delete' => [],
-                        'show' => [],
-                    ],
-        ]);
+                ->add('_action', 'actions', $actions);
     }
 
     protected function configureShowFields(ShowMapper $showMapper)
@@ -100,6 +100,7 @@ class PageCategoryAdmin extends Admin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
+
     }
 
     public function validate(ErrorElement $errorElement, $object)
@@ -107,5 +108,4 @@ class PageCategoryAdmin extends Admin
         $errorElement
                 ->end();
     }
-
 }

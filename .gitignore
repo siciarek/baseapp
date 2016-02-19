@@ -2,8 +2,7 @@ nbproject
 .idea
 php.ini
 /temp*
-
-/composer.lock
+*.patch
 
 /utils/dumpdb/dumpdb.cnf
 /utils/dumpdb/extra
@@ -56,6 +55,7 @@ extra.bat
 /app/bootstrap.php.cache
 /var/bootstrap.php.cache
 /bin/*
+!bin/behat
 !bin/console
 !bin/symfony_requirements
 /vendor

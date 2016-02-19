@@ -7,9 +7,10 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
-class CollectionElementAdmin extends Admin {
-    
-    protected function configureDatagridFilters(DatagridMapper $datagrid) {
+class CollectionElementAdmin extends Admin
+{
+    protected function configureDatagridFilters(DatagridMapper $datagrid)
+    {
         $datagrid
             ->add('enabled')
             ->add('collection')
@@ -17,8 +18,9 @@ class CollectionElementAdmin extends Admin {
             ->add('type')
         ;
     }
-    
-    protected function configureShowFields(ShowMapper $showMapper) {
+
+    protected function configureShowFields(ShowMapper $showMapper)
+    {
         $showMapper
             ->add('id')
             ->add('enabled')
@@ -33,8 +35,9 @@ class CollectionElementAdmin extends Admin {
             ->add('updatedBy')
         ;
     }
-    
-    protected function configureListFields(ListMapper $listMapper) {
+
+    protected function configureListFields(ListMapper $listMapper)
+    {
         $listMapper
             ->add('enabled', 'boolean', [
                 'editable' => true,
@@ -54,8 +57,9 @@ class CollectionElementAdmin extends Admin {
                 ],
         ]);
     }
-    
-    protected function configureFormFields(FormMapper $formMapper) {
+
+    protected function configureFormFields(FormMapper $formMapper)
+    {
         $formMapper
             ->with('collection.element.name')
             ->add('enabled')
@@ -71,7 +75,7 @@ class CollectionElementAdmin extends Admin {
                 'property' => 'lastName',
                 'minimum_input_length' => 2,
                 'multiple' => 'true',
-                'by_reference' => false
+                'by_reference' => false,
             ])
             ->add('translations', 'a2lix_translations', [
                 'label' => false,
@@ -81,8 +85,8 @@ class CollectionElementAdmin extends Admin {
                     ],
                     'info' => [
                         'field_type' => 'text',
-                    ]
-                ]
+                    ],
+                ],
             ])
             ->end()
         ;

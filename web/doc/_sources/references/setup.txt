@@ -31,11 +31,11 @@ Code block
 
     #include <stdio.h>
     #include <stdlib.h>
-    
+
     int main(int argc, char** argv) {
-    
-        printf("Hello, World!\n");    
-        
+
+        printf("Hello, World!\n");
+
         return EXIT_SUCCESS;
     }
 
@@ -53,14 +53,14 @@ can be created with the following:
 .. code-block:: rst
 
     .. math::
-    
+
         \int_a^bu\frac{d^2v}{dx^2}\,dx
         =\left.u\frac{dv}{dx}\right|_a^b
         -\int_a^b\frac{du}{dx}\frac{dv}{dx}\,dx.
 
 Set up Cloud9 environment
 =========================
-        
+
 .. code-block:: bash
 
     $ sudo vim /etc/apache2/sites-enabled/001-cloud9.conf
@@ -83,7 +83,7 @@ MySQL Database console access
 .. code-block:: bash
 
     $ mysql-ctl cli
-    
+
 PostreSQL Database console access
 
 .. code-block:: bash
@@ -93,7 +93,7 @@ PostreSQL Database console access
 .. code-block:: sql
 
     CREATE USER root SUPERUSER PASSWORD 'pass';
-    
+
 
 MySQL server commands
 
@@ -111,6 +111,11 @@ Deploy Symfony Application
 ==========================
 
     * http://symfony.com/doc/current/cookbook/deployment/tools.html
+
+Use ``composer.lock``
+=====================
+
+    * https://blog.engineyard.com/2014/composer-its-all-about-the-lock-file
 
 
 .. code-block:: bash

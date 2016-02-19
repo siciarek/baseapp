@@ -8,7 +8,7 @@
     <property name="doc.source.dir" value="src/Application/MainBundle/Resources/doc"/>
     <property name="doc.html.target.dir" value="web/doc"/>
     <property name="doc.pdf.target.dir" value="web/doc/pdf"/>
-    
+
     <target name="doc" depends="doc-html, doc-pdf" description="Generowanie dokumentacji projektu"/>
 
     <target name="doc-html" description="Generowanie dokumentacji projektu w formacie HTML">
@@ -16,16 +16,16 @@
             <arg line="-E -a -b html ${doc.source.dir} ${doc.html.target.dir}"/>
         </exec>
     </target>
-    
+
     <target name="doc-pdf" description="Generowanie dokumentacji projektu w formacie PDF">
         <exec executable="${sphinx.build}">
             <arg line="-E -a -b latex ${doc.source.dir} ${doc.pdf.target.dir}"/>
         </exec>
         <exec executable="make" dir="${doc.pdf.target.dir}"/>
         <delete verbose="true" includeemptydirs="true">
-            <fileset dir="${doc.pdf.target.dir}" excludes="${ant.project.name}.pdf" includes="**/*"/>
+            <fileset dir="${doc.pdf.target.dir}" excludes="document.pdf" includes="**/*"/>
         </delete>
-        <copy file="${doc.pdf.target.dir}/${ant.project.name}.pdf" todir="${doc.html.target.dir}"/>
+        <copy file="${doc.pdf.target.dir}/document.pdf" todir="${doc.html.target.dir}"/>
         <delete includeEmptyDirs="true">
             <fileset dir="${doc.pdf.target.dir}"/>
         </delete>
@@ -56,7 +56,7 @@
             <arg line="${console} fos:js-routing:dump --env=prod"/>
         </exec>
     </target>
-    
+
     <target name="fix" description="Wprowadzenie danych domyślnych do bazy">
         <exec executable="${php}">
             <arg line="${console} doctrine:fixtures:load --env=prod --no-interaction --verbose"/>
@@ -120,7 +120,7 @@
             <arg line="${console} doctrine:schema:validate"/>
         </exec>
     </target>
-    
+
     <target name="send" description="Wyślij emaile ze spoola">
         <exec executable="${php}">
             <arg line="${console} swiftmailer:spool:send --env=prod"/>
@@ -129,7 +129,7 @@
             <arg line="${console} swiftmailer:spool:send --env=dev"/>
         </exec>
     </target>
-    
+
     <target name="dd" description="Synchronizuj zdalną bazę z lokalną">
         <exec executable="${php}">
             <arg line="${console} dumpdb --env=prod"/>

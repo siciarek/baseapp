@@ -7,9 +7,10 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
-class CollectionAdmin extends Admin {
-    
-    protected function configureDatagridFilters(DatagridMapper $datagrid) {
+class CollectionAdmin extends Admin
+{
+    protected function configureDatagridFilters(DatagridMapper $datagrid)
+    {
         $datagrid
             ->add('enabled')
             ->add('type')
@@ -17,8 +18,9 @@ class CollectionAdmin extends Admin {
             ->add('version')
         ;
     }
-    
-    protected function configureShowFields(ShowMapper $showMapper) {
+
+    protected function configureShowFields(ShowMapper $showMapper)
+    {
         $showMapper
             ->add('id')
             ->add('enabled')
@@ -32,8 +34,9 @@ class CollectionAdmin extends Admin {
             ->add('updatedBy')
         ;
     }
-    
-    protected function configureListFields(ListMapper $listMapper) {
+
+    protected function configureListFields(ListMapper $listMapper)
+    {
         $listMapper
             ->add('enabled', 'boolean', [
                 'editable' => true,
@@ -52,8 +55,9 @@ class CollectionAdmin extends Admin {
                 ],
         ]);
     }
-    
-    protected function configureFormFields(FormMapper $formMapper) {
+
+    protected function configureFormFields(FormMapper $formMapper)
+    {
         $formMapper
             ->with('collection.name')
             ->add('enabled')
@@ -75,7 +79,7 @@ class CollectionAdmin extends Admin {
                 [
                     'label' => false,
                     'required' => false,
-                    'by_reference' => false
+                    'by_reference' => false,
                 ],
                 [
                     'edit' => 'inline',
