@@ -1,0 +1,11 @@
+Group:
+    -
+        name: Users
+        roles: [ROLE_USER]
+    -
+        name: Admins
+        roles: [ROLE_ADMIN]
+    -
+        name: Superadmins
+        roles: [ROLE_SUPER_ADMIN]
+

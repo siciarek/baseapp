@@ -17,61 +17,11 @@ class LoadUserData extends BasicFixture {
      */
     public function load(ObjectManager $manager) {
 
-        $data = [
-            [
-                'enabled' => true,
-                'username' => 'system',
-                'firstname' => null,
-                'lastname' => null,
-                'dob' => null,
-                'gender' => \Sonata\UserBundle\Model\UserInterface::GENDER_UNKNOWN,
-                'password' => $this->getContainer()->getParameter('secret'),
-                'email' => 'siciarek@hotmail.com',
-                'groups' => [
-
-                ]
-            ],
-            [
-                'enabled' => true,
-                'username' => 'jsiciarek',
-                'firstname' => 'Jacek',
-                'lastname' => 'Siciarek',
-                'dob' => '1966-10-21',
-                'gender' => \Sonata\UserBundle\Model\UserInterface::GENDER_MALE,
-                'password' => 'pass',
-                'email' => 'siciarek@gmail.com',
-                'groups' => [
-                    'Superadmins',
-                ]
-            ],
-            [
-                'enabled' => true,
-                'username' => 'colak',
-                'firstname' => 'Czesław',
-                'lastname' => 'Olak',
-                'dob' => '1985-04-11',
-                'gender' => \Sonata\UserBundle\Model\UserInterface::GENDER_MALE,
-                'password' => 'pass',
-                'email' => 'colak@gmail.com',
-                'groups' => [
-                    'Admins',
-                ]
-            ],
-            [
-                'enabled' => true,
-                'username' => 'molak',
-                'firstname' => 'Marianna',
-                'lastname' => 'Olak',
-                'dob' => '1989-11-05',
-                'gender' => \Sonata\UserBundle\Model\UserInterface::GENDER_FEMALE,
-                'password' => 'pass',
-                'email' => 'molak@gmail.com',
-                'groups' => [
-                    'Users',
-                ]
-            ],
-        ];
-
+        $path = __DIR__ . '/../data/User.yml';
+        $path = realpath($path);
+        $data = \Symfony\Component\Yaml\Yaml::parse(file_get_contents($path));
+        $data = array_pop($data);
+        
         /**
          * @var Sonata\UserBundle\Entity\UserManager $mngr
          */

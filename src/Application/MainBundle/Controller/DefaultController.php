@@ -60,7 +60,7 @@ HTML;
             'password' => 'helloworld',
         ];
 
-        $frame = $this->get('app.common.laaf.frame')->getDataFrame(null, $data, true, $auth);
+        $frame = $this->getFrame()->getDataFrame(null, $data, true, $auth);
 
         return $this->getJsonResponse($frame);
     }
