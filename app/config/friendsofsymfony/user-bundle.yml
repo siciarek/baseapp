@@ -11,6 +11,10 @@ fos_user:
         user_manager: sonata.user.orm.user_manager                      # If you're using doctrine orm (use sonata.user.mongodb.group_manager for mongodb)
         mailer: fos_user.mailer.twig_swift
 
+    from_email:
+        address: %mailer_default_email%
+        sender_name: %app_name%
+
     resetting:
         email:
             template: email/password_resetting.email.twig
