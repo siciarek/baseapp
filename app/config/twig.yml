@@ -5,8 +5,10 @@ twig:
         bootstrapVersion: '3.3.6'
         jqueryVersion: '2.2.0'
         fontAwesomeVersion: '4.5.0'
-    form_themes:
-        - '::form_fields.html.twig'
+        defaultFormTheme:
+            - 'bootstrap_3_horizontal_layout.html.twig'
+            - '::form_fields.html.twig'
+    form_themes: []
     number_format:
         decimals: 2
         decimal_point: ','

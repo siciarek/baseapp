@@ -13,17 +13,18 @@ namespace Application\Sonata\UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Gregwar\CaptchaBundle\Type\CaptchaType;
 
 class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('captcha', 'captcha', [
-            'label' => ' ',
-            'attr' => [
-                'placeholder' => 'captcha',
-            ],
-        ]);
+//        $builder->add('captcha', CaptchaType::class, [
+//            'label' => ' ',
+//            'attr' => [
+//                'placeholder' => 'captcha',
+//            ],
+//        ]);
     }
 
     public function getParent()

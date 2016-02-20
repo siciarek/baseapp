@@ -9,7 +9,13 @@ fos_user:
 
     service:
         user_manager: sonata.user.orm.user_manager                      # If you're using doctrine orm (use sonata.user.mongodb.group_manager for mongodb)
+        mailer: fos_user.mailer.twig_swift
+
+    resetting:
+        email:
+            template: email/password_resetting.email.twig
 
     registration:
         confirmation:
-            enabled: false
+            enabled: true
+            template: email/registration.email.twig

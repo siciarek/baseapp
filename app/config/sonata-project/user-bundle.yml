@@ -9,4 +9,4 @@ sonata_user:
             type: app_user_profile
         register:
             form:
-                type: app_user_registration
+                type: 'Application\Sonata\UserBundle\Form\Type\RegistrationType::class'
