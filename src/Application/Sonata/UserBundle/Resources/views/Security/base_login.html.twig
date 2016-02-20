@@ -68,7 +68,7 @@
                 </li>
                 <li>
                     <a onclick="Spinner.show()" href="{{ url('fos_user_registration_register') }}">
-                        <i class="fa-user-plus fa fa-lg fa-fw"></i>                        
+                        <i class="fa-user-plus fa fa-lg fa-fw"></i>
                         {{ 'title_user_registration'|trans({}, 'SonataUserBundle') }}
                     </a>
                 </li>
@@ -84,7 +84,7 @@
 
                         {% block sonata_user_login_error %}
                             {% if error %}
-                                {{ macros.callout(error|trans({}, 'FOSUserBundle')) }}
+                                {{ macros.callout(error.message|trans({}, 'FOSUserBundle')) }}
                             {% endif %}
                         {% endblock %}
 
