@@ -1,19 +1,12 @@
 {% extends "::base.html.twig" %}
 
 {% block fos_user_content %}
-<div class="row access-row">
+    <div class="row access-row">
         <div class="col-sm-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2 class="panel-title">
-                        <i class="fa-lock fa fa-lg fa-fw"></i>
-                        {{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}
-                    </h2>
-                </div>
-                <div class="panel-body">
-                    {% include "FOSUserBundle:Resetting:reset_content.html.twig" %}
-                </div>
+            <div class="cs-callout cs-callout-info">
+                {{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}
             </div>
+            {% include "FOSUserBundle:Resetting:reset_content.html.twig" %}
         </div>
     </div>
 {% endblock fos_user_content %}

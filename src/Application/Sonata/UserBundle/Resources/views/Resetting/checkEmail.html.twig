@@ -1,7 +1,7 @@
 {% extends "::base.html.twig" %}
 
 {% block fos_user_content %}
-<div class="alert alert-info">
+<div class="bs-callout bs-callout-info">
 {{ 'resetting.check_email'|trans({'%email%': email}, 'FOSUserBundle') }}
 </div>
 {% endblock %}
