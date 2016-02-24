@@ -52,7 +52,7 @@ class PageAdmin extends Admin
                 ->tab('Page')
                 ->with(null, ['box_class' => null])
                 ->add('name')
-                ->add('category', SonataTypeModel::class, [
+                ->add('category', 'sonata_type_model', [
                     'required' => false,
                     'attr' => [
                         'placeholder' => 'common.choose_from_the_list',
