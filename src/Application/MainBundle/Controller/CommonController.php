@@ -10,13 +10,13 @@ use Symfony\Component\HttpFoundation\Request;
 
 abstract class CommonController extends Controller
 {
+
     const MESSAGE_ERROR = 'error';
     const MESSAGE_WARNING = 'warning';
     const MESSAGE_INFO = 'info';
     const MESSAGE_SUCCESS = 'success';
 
     public static $customExceptions = [
-        
     ];
 
     /**
@@ -71,7 +71,7 @@ abstract class CommonController extends Controller
         }
         // </jsonp>
 
-        $response = new Response($content, 200, [ 'Content-Type' => $contentType]);
+        $response = new Response($content, 200, [ 'Content-Type' => $contentType ]);
 
         return $response;
     }
@@ -134,7 +134,8 @@ abstract class CommonController extends Controller
 
             $this->addFlash($type, $msg);
         }
-        $url = empty($url) ? $request->headers->get('referer') : $url;        
+
+        $url = empty($url) ? $request->headers->get('referer') : $url;
         $url = empty($url) ? $request->getSchemeAndHttpHost() : $url;
 
         return $this->redirect($url);

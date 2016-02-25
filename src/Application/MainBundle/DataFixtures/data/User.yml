@@ -1,0 +1,41 @@
+User:
+    -
+        enabled: true
+        username: system
+        firstname: null
+        lastname: null
+        dob: null
+        gender: u
+        password: d0815cbf4a08ab9c9a0024ded959bd65
+        email: siciarek@hotmail.com
+        groups: []
+    -
+        enabled: true
+        username: jsiciarek
+        firstname: Jacek
+        lastname: Siciarek
+        dob: '1966-10-21'
+        gender: m
+        password: pass
+        email: siciarek@gmail.com
+        groups: [Superadmins]
+    -
+        enabled: true
+        username: colak
+        firstname: Czesław
+        lastname: Olak
+        dob: '1985-04-11'
+        gender: m
+        password: pass
+        email: colak@gmail.com
+        groups: [Admins]
+    -
+        enabled: true
+        username: molak
+        firstname: Marianna
+        lastname: Olak
+        dob: '1989-11-05'
+        gender: f
+        password: pass
+        email: molak@gmail.com
+        groups: [Users]

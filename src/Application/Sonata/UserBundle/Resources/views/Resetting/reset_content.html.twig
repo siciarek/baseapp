@@ -1,23 +1,15 @@
-<form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class="fos_user_resetting_reset form-horizontal">
-    {{ form_start(form) }}
-    
-    {{ form_errors(form) }}
+{% trans_default_domain 'FOSUserBundle' %}
 
-    {% for field in [ 'first', 'second' ] %}
-        <div class="form-group">
-            {{ form_label(form.new[field], null, { label_attr: { class: 'col-sm-4 control-label' } }) }}
-            <div class="col-sm-8">{{ form_widget(form.new[field], { attr: { class: 'form-control' }} ) }}</div>
-            {{ form_errors(form.new[field]) }}
-        </div>
-    {% endfor %}
 
-    <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-8">
-            <input type="submit" id="_submit" name="_submit"
-                   class="btn-default btn btn-lg"
-                   value="{{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}"/>
-        </div>
+{% form_theme form with defaultFormTheme %}
+
+{{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}
+{{ form_widget(form) }}
+<div class="form-group">
+    <div class="col-sm-offset-4 col-sm-8">
+        <input type="submit" id="_submit" name="_submit"
+               class="btn-default btn btn-lg pull-right"
+               value="{{ 'resetting.reset.submit'|trans }}"/>
     </div>
-    
-    {{ form_end(form) }}
-</form>
+</div>
+{{ form_end(form) }}

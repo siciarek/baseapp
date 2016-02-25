@@ -3,7 +3,7 @@ services:
     admin.page:
         class: Application\MainBundle\Admin\PageAdmin
         tags:
-            - 
+            -
                 name: sonata.admin
                 manager_type: orm
                 icon: '<i class="fa fa-edit"></i>'
@@ -16,11 +16,11 @@ services:
             - 'PixSortableBehaviorBundle:SortableAdmin'
         calls:
              - [ setPositionService, ["@pix_sortable_behavior.position"]]
-         
+
     admin.page.group:
         class: Application\MainBundle\Admin\PageCategoryAdmin
         tags:
-            - 
+            -
                 name: sonata.admin
                 manager_type: orm
                 icon: '<i class="fa fa-edit"></i>'
@@ -33,50 +33,3 @@ services:
             - 'PixSortableBehaviorBundle:SortableAdmin'
         calls:
              - [ setPositionService, ["@pix_sortable_behavior.position"]]
-
-# ------------------------------------------------------------------------------
-
-    app.admin.collection:
-        class: Application\MainBundle\Admin\CollectionAdmin
-        tags:
-            -
-                group: collection.name_plural
-                icon: '<i class="fa fa-star-o"></i>'
-                label_catalogue: messages
-                name: sonata.admin
-                manager_type: orm
-                label: collection.name_plural
-        arguments:
-            - ~
-            - Application\MainBundle\Entity\Collection
-            - ~
-
-    app.admin.owner:
-        class: Application\MainBundle\Admin\OwnerAdmin
-        tags:
-            -
-                group: collection.name_plural
-                icon: '<i class="fa fa-star-o"></i>'
-                label_catalogue: messages
-                name: sonata.admin
-                manager_type: orm
-                label: owner.name_plural
-        arguments:
-            - ~
-            - Application\MainBundle\Entity\Owner
-            - ~
-            
-    app.admin.collection.element:
-        class: Application\MainBundle\Admin\CollectionElementAdmin
-        tags:
-            -
-                group: collection.name_plural
-                icon: '<i class="fa fa-star-o"></i>'
-                label_catalogue: messages
-                name: sonata.admin
-                manager_type: orm
-                label: collection.element.name_plural
-        arguments:
-            - ~
-            - Application\MainBundle\Entity\CollectionElement
-            - ~            

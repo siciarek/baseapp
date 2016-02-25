@@ -59,7 +59,7 @@
 
     <target name="fix" description="Wprowadzenie danych domyślnych do bazy">
         <exec executable="${php}">
-            <arg line="${console} doctrine:fixtures:load --env=prod --no-interaction --verbose"/>
+            <arg line="${console} doctrine:fixtures:load --no-interaction --verbose"/>
         </exec>
     </target>
 

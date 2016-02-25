@@ -17,26 +17,10 @@ class LoadGroupData extends BasicFixture {
      */
     public function load(ObjectManager $manager)
     {
-        $data = [
-            [
-                'name' => 'Users',
-                'roles' => [
-                    'ROLE_USER',
-                ]
-            ],
-            [
-                'name' => 'Admins',
-                'roles' => [
-                    'ROLE_ADMIN',
-                ]
-            ],
-            [
-                'name' => 'Superadmins',
-                'roles' => [
-                    'ROLE_SUPER_ADMIN',
-                ]
-            ],
-        ];
+        $path = __DIR__ . '/../data/Group.yml';
+        $path = realpath($path);
+        $data = \Symfony\Component\Yaml\Yaml::parse(file_get_contents($path));
+        $data = array_pop($data);
         
         /**
          * @var Sonata\UserBundle\Entity\GroupManager $mngr

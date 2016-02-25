@@ -1,0 +1,10 @@
+{% extends "::base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+{% block fos_user_content %}
+    <div class="bs-callout bs-callout-info">
+        {{ 'registration.check_email'|trans({'%email%': user.email}) }}
+    </div>
+{% endblock fos_user_content %}
