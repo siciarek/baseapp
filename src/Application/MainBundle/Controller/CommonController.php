@@ -28,7 +28,7 @@ abstract class CommonController extends Controller
     protected function getJsonRequest($array = true)
     {
 
-        $request = $this->get('request')->createFromGlobals();
+        $request = $this->get('request_stack')->getCurrentRequest();
         $input = $request->get('json');
 
         if ($input === null) {
@@ -55,8 +55,8 @@ abstract class CommonController extends Controller
      */
     protected function getJsonResponse($data)
     {
-        $request = $this->get('request')->createFromGlobals();
-
+        $request = $this->get('request_stack')->getCurrentRequest();
+        
         $json = json_encode($data, JSON_PRETTY_PRINT);
 
         $contentType = 'application/json';
@@ -77,7 +77,7 @@ abstract class CommonController extends Controller
     }
 
     /**
-     * Handles json action
+     * Handle json action
      *
      * @param type $run callable
      */
@@ -110,14 +110,15 @@ abstract class CommonController extends Controller
     }
 
     /**
-     * Handles html action
+     * Handle html action
      *
      * @param type $run callable
      */
-    protected function handleHtmlAction($run, Request $request)
+    protected function handleHtmlAction($run)
     {
         $url = null;
-
+        $request = $this->get('request_stack')->getCurrentRequest();
+        
         try {
             $url = $run();
         } catch (\Exception $e) {
