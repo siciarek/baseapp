@@ -28,7 +28,7 @@ abstract class CommonController extends Controller
     protected function getJsonRequest($array = true)
     {
 
-        $request = $this->get('request');
+        $request = $this->get('request')->createFromGlobals();
         $input = $request->get('json');
 
         if ($input === null) {
@@ -55,7 +55,7 @@ abstract class CommonController extends Controller
      */
     protected function getJsonResponse($data)
     {
-        $request = $this->get('request');
+        $request = $this->get('request')->createFromGlobals();
 
         $json = json_encode($data, JSON_PRETTY_PRINT);
 
