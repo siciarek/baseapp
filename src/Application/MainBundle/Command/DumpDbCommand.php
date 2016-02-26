@@ -28,14 +28,14 @@ class DumpDbCommand extends ContainerAwareCommand
             'utils',
             'dumpdb',
         ]);
-        
+
         $command = implode(DIRECTORY_SEPARATOR, [
             $dir,
             'dumpdb',
         ]);
 
         chdir($dir);
-        
+
         $process = new \Symfony\Component\Process\Process($command);
         $process->mustRun();
 
@@ -43,8 +43,7 @@ class DumpDbCommand extends ContainerAwareCommand
             throw new ProcessFailedException($process);
         }
 
-        $stderr = $process->getErrorOutput();
-        $stderr = trim($stderr);
+        $stderr = trim($process->getErrorOutput());
 
         $stdout = $process->getOutput();
 

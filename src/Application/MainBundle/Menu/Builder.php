@@ -58,7 +58,7 @@ class Builder implements ContainerAwareInterface
         // Add custom pages:
         $custom = $this->container->get('app.pages')->getMenu();
 
-        // Read main menu from configuration:        
+        // Read main menu from configuration:
         $main = $this->container->getParameter('application_main.main_menu');
 
         // Add authentication menu:
@@ -117,7 +117,7 @@ class Builder implements ContainerAwareInterface
             if(!isset($c['enabled'])) {
                 $c['enabled'] = true;
             }
-            
+
             if (!isset($c['children']) or count($c['children']) == 0) {
 
                 $options = [
@@ -134,10 +134,10 @@ class Builder implements ContainerAwareInterface
                 if (isset($c['route']) and $c['enabled'] === true) {
                     $options['route'] = $c['route'];
                     $options['routeParameters'] = (isset($c['routeParameters']) and is_array($c['routeParameters'])) ? $c['routeParameters'] : [];
-                    
+
                 } else {
                     $options['uri'] = 'javascript:void(null)';
-                    $options['attributes']['class'] = 'disabled';                   
+                    $options['attributes']['class'] = 'disabled';
                 }
 
                 $c['children'] = [];
@@ -175,7 +175,7 @@ class Builder implements ContainerAwareInterface
                     if (isset($ch['icon']) and $ch['icon'] != null and strlen($ch['icon']) > 0) {
                         $chlabel = sprintf('<i class="fa fa-%s fa-lg fa-fw"></i> %s', $ch['icon'], $_chlabel);
                     }
-                    
+
                     $choptions = [
                         'label' => $chlabel,
                         'extras' => [ 'safe_label' => true],

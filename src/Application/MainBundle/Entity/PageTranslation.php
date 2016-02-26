@@ -1,6 +1,7 @@
 <?php
 
 namespace Application\MainBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
@@ -39,7 +40,7 @@ class PageTranslation
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -62,7 +63,7 @@ class PageTranslation
     /**
      * Get content
      *
-     * @return string 
+     * @return string
      */
     public function getContent()
     {

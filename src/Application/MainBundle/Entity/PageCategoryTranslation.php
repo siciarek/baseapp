@@ -35,7 +35,7 @@ class PageCategoryTranslation
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {

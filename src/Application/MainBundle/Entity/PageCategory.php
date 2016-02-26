@@ -36,7 +36,7 @@ class PageCategory
      * @ORM\Column()
      */
     private $name;
-    
+
     /**
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(name="slug", length=128, unique=true)
@@ -82,7 +82,7 @@ class PageCategory
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -105,7 +105,7 @@ class PageCategory
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -128,7 +128,7 @@ class PageCategory
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -151,7 +151,7 @@ class PageCategory
     /**
      * Get enabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnabled()
     {
@@ -174,7 +174,7 @@ class PageCategory
     /**
      * Get role
      *
-     * @return string 
+     * @return string
      */
     public function getRole()
     {
@@ -197,7 +197,7 @@ class PageCategory
     /**
      * Get icon
      *
-     * @return string 
+     * @return string
      */
     public function getIcon()
     {
@@ -220,7 +220,7 @@ class PageCategory
     /**
      * Get position
      *
-     * @return integer 
+     * @return integer
      */
     public function getPosition()
     {
@@ -254,7 +254,7 @@ class PageCategory
     /**
      * Get pages
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getPages()
     {

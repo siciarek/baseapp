@@ -94,7 +94,7 @@ class Page
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -117,7 +117,7 @@ class Page
     /**
      * Get enabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnabled()
     {
@@ -140,7 +140,7 @@ class Page
     /**
      * Get displayTitle
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getDisplayTitle()
     {
@@ -163,7 +163,7 @@ class Page
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -186,7 +186,7 @@ class Page
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -209,7 +209,7 @@ class Page
     /**
      * Get role
      *
-     * @return string 
+     * @return string
      */
     public function getRole()
     {
@@ -232,7 +232,7 @@ class Page
     /**
      * Get category
      *
-     * @return \Application\MainBundle\Entity\PageCategory 
+     * @return \Application\MainBundle\Entity\PageCategory
      */
     public function getCategory()
     {
@@ -256,7 +256,7 @@ class Page
     /**
      * Get position
      *
-     * @return integer 
+     * @return integer
      */
     public function getPosition()
     {

@@ -1,5 +1,6 @@
 <?php
 namespace Application\MainBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,12 +21,12 @@ class Session
      * @ORM\Column(type="text")
      */
     private $data;
-    
+
     /**
      * @ORM\Column(type="integer")
      */
     private $time;
-    
+
     /**
      * @ORM\Column(type="integer")
      */
@@ -47,7 +48,7 @@ class Session
     /**
      * Get id
      *
-     * @return string 
+     * @return string
      */
     public function getId()
     {
@@ -70,7 +71,7 @@ class Session
     /**
      * Get data
      *
-     * @return string 
+     * @return string
      */
     public function getData()
     {
@@ -93,7 +94,7 @@ class Session
     /**
      * Get time
      *
-     * @return integer 
+     * @return integer
      */
     public function getTime()
     {
@@ -116,7 +117,7 @@ class Session
     /**
      * Get lifetime
      *
-     * @return integer 
+     * @return integer
      */
     public function getLifetime()
     {

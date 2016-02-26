@@ -9,7 +9,12 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
  * Application\MainBundle\Entity\Session
  *
  * @ORM\Entity
- * @ORM\Table(name="parameter", uniqueConstraints={@ORM\UniqueConstraint(name="parameter_unique_idx", columns={"name", "entity_type", "entity_id"})})
+ * @ORM\Table(
+ *      name="parameter",
+ *      uniqueConstraints={
+ *          @ORM\UniqueConstraint(name="parameter_unique_idx", columns={"name", "entity_type", "entity_id"})
+ *      }
+ * )
  * @ORM\Entity(repositoryClass="ParameterRepository")
  */
 class Parameter
@@ -20,11 +25,12 @@ class Parameter
         ORMBehaviors\SoftDeletable\SoftDeletable;
 
     const CATEGORY_GENERAL = 'general';
-    
-    public function __toString() {
+
+    public function __toString()
+    {
         return $this->getName() ? : '-';
     }
-    
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -60,7 +66,7 @@ class Parameter
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -83,7 +89,7 @@ class Parameter
     /**
      * Get category
      *
-     * @return string 
+     * @return string
      */
     public function getCategory()
     {
@@ -106,7 +112,7 @@ class Parameter
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -129,7 +135,7 @@ class Parameter
     /**
      * Get value
      *
-     * @return json 
+     * @return json
      */
     public function getValue()
     {
@@ -152,7 +158,7 @@ class Parameter
     /**
      * Get entityType
      *
-     * @return string 
+     * @return string
      */
     public function getEntityType()
     {
@@ -175,7 +181,7 @@ class Parameter
     /**
      * Get entityId
      *
-     * @return integer 
+     * @return integer
      */
     public function getEntityId()
     {
