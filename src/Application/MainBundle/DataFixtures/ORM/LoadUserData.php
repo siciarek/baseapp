@@ -4,6 +4,7 @@ namespace Application\MainBundle\DataFixtures\ORM;
 
 use Application\MainBundle\DataFixtures\BasicFixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class LoadUserData extends BasicFixture {
 
@@ -22,6 +23,10 @@ class LoadUserData extends BasicFixture {
         $data = \Symfony\Component\Yaml\Yaml::parse(file_get_contents($path));
         $data = array_pop($data);
         
+        $this->getContainer()
+            ->get('security.token_storage')
+            ->setToken(new UsernamePasswordToken('system', null, 'main'));
+
         /**
          * @var Sonata\UserBundle\Entity\UserManager $mngr
          */

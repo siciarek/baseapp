@@ -45,5 +45,4 @@ abstract class BasicFixture extends AbstractFixture implements OrderedFixtureInt
     public function setContainer(ContainerInterface $container = null) {
         $this->container = $container;
     }
-
 }

@@ -99,7 +99,6 @@ class PageAdmin extends Admin
         $listMapper
                 ->addIdentifier('name')
                 ->add('category')
-                ->add('slug')
                 ->add('enabled', null, ['editable' => true])
                 ->add('displayTitle', null, ['editable' => true])
                 ->add('createdAt')

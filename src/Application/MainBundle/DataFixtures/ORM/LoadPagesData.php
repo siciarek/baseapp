@@ -79,7 +79,7 @@ class LoadPagesData extends BasicFixture
                     'routeParameters' => [
                         'slug' => 'info/third-info.html',
                     ]
-                ],                
+                ],
             ]
         ],
     ];
@@ -89,6 +89,7 @@ class LoadPagesData extends BasicFixture
      */
     public function load(ObjectManager $manager)
     {
+        
         $faker = \Faker\Factory::create('pl_PL');
 
         foreach (self::$menu as $category) {
@@ -105,11 +106,11 @@ class LoadPagesData extends BasicFixture
                 $temp = array_map(function($e) {
                     $temp = explode(' ', $e);
                     $header = reset($temp);
-                    
+
                     return sprintf('<h3>%s</h3><p>%s</p>', $header, $e);
                 }, $faker->paragraphs(5));
                 $content = implode("\n", $temp);
-                
+
                 $p = new E\Page();
                 $p->setName($page['label']);
                 $p->translate('pl')->setTitle($title);
