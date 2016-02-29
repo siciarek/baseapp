@@ -10,9 +10,9 @@ class Admin extends \Sonata\AdminBundle\Admin\Admin
     protected $supportsPreviewMode = false;
     protected static $roles = [
         'choices' => [
-            'IS_AUTHENTICATED_ANONYMOUSLY' => 'visibility.public',
-            'ROLE_USER' => 'visibility.private',
-            'ROLE_ADMIN' => 'visibility.admin',
+            'visibility.public' => 'IS_AUTHENTICATED_ANONYMOUSLY',
+            'visibility.private' => 'ROLE_USER',
+            'visibility.admin' => 'ROLE_ADMIN',
         ],
         'label' => false,
         'expanded' => true,

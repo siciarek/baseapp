@@ -37,5 +37,4 @@ class PageTest extends TestCase
         $this->assertTrue(is_array($actual));
         $this->assertEquals($expected, $actual);
     }
-
 }

@@ -231,7 +231,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/07a9af2d4de5f9ef0bf2d9ae94421e5fc50d7859",
                 "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
                 "shasum": ""
             },
@@ -1130,7 +1130,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/27f369373c957a42081e1bdd771ae9d1cfcc4470",
+                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/d51a29b9deec725b286fa38e1312802a6041bb95",
                 "reference": "27f369373c957a42081e1bdd771ae9d1cfcc4470",
                 "shasum": ""
             },
@@ -1456,7 +1456,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/1e3ee30d1f636b38a78cb1372aaa72a2ba769929",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/006472c0763fc994a7cd699e468ec049717a535b",
                 "reference": "1e3ee30d1f636b38a78cb1372aaa72a2ba769929",
                 "shasum": ""
             },
@@ -3067,7 +3067,7 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
+                "psr-0": {
                     "": "/"
                 }
             },
@@ -5015,7 +5015,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/3392ea0037a4bf9230b81363145776e4fdce66a9",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/8328069d9f5322f0e7b3c3518485acfdc94c3942",
                 "reference": "3392ea0037a4bf9230b81363145776e4fdce66a9",
                 "shasum": ""
             },
@@ -5417,7 +5417,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/6782cfa01159afbaa0ab083c262677941f00b388",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/809723fe1fe77da3509bf9d61816f1d82db4cc06",
                 "reference": "6782cfa01159afbaa0ab083c262677941f00b388",
                 "shasum": ""
             },
@@ -5854,7 +5854,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/ZendDiagnostics/zipball/6ffffbeec9a9d69aad394a9ceee55cf4bcdd4b2d",
+                "url": "https://api.github.com/repos/zendframework/ZendDiagnostics/zipball/2eeb413cc12f04abb30e18ca37090b43ec72906a",
                 "reference": "6ffffbeec9a9d69aad394a9ceee55cf4bcdd4b2d",
                 "shasum": ""
             },
@@ -6057,7 +6057,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/Mink/zipball/309421c76ce991dbaad91baab07f7fafec761c7e",
+                "url": "https://api.github.com/repos/minkphp/Mink/zipball/fa2216de9527dcbaef695aec8d3700facf8c9afc",
                 "reference": "309421c76ce991dbaad91baab07f7fafec761c7e",
                 "shasum": ""
             },
@@ -6115,7 +6115,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/MinkBrowserKitDriver/zipball/2650f5420e713e3807c7f09a07370a4f48367bf9",
+                "url": "https://api.github.com/repos/minkphp/MinkBrowserKitDriver/zipball/10aacb4350d258e53a0f7a4ff86d6e362660224f",
                 "reference": "2650f5420e713e3807c7f09a07370a4f48367bf9",
                 "shasum": ""
             },
@@ -6171,7 +6171,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkExtension/zipball/5b4bda64ff456104564317e212c823e45cad9d59",
+                "url": "https://api.github.com/repos/Behat/MinkExtension/zipball/c9adb3230128ef91fde624f91b551a672f835e9e",
                 "reference": "5b4bda64ff456104564317e212c823e45cad9d59",
                 "shasum": ""
             },
@@ -6230,7 +6230,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/MinkGoutteDriver/zipball/c8e254f127d6f2242b994afd4339fb62d471df3f",
+                "url": "https://api.github.com/repos/minkphp/MinkGoutteDriver/zipball/7179e086894ad53c51a0e3c1ecb3568ab0f61154",
                 "reference": "c8e254f127d6f2242b994afd4339fb62d471df3f",
                 "shasum": ""
             },
@@ -6285,7 +6285,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/minkphp/MinkSelenium2Driver/zipball/943536170fe63e6a9ead12b7ac0b17560664d3cf",
+                "url": "https://api.github.com/repos/minkphp/MinkSelenium2Driver/zipball/cddf497cbec8ab60897340802ab265beda9fdfa9",
                 "reference": "943536170fe63e6a9ead12b7ac0b17560664d3cf",
                 "shasum": ""
             },
@@ -6509,7 +6509,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/66ea6b0334813292af03ffbb8c0ee6beee65fd89",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/737e5e42c2320c9ccb7c314e5e2a387fe7381536",
                 "reference": "66ea6b0334813292af03ffbb8c0ee6beee65fd89",
                 "shasum": ""
             },
@@ -6621,7 +6621,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/dc03e97371e37172ff94547980f898659de76ffc",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/976e0f50981f845dcee1c25bfcac2304a7bb5583",
                 "reference": "dc03e97371e37172ff94547980f898659de76ffc",
                 "shasum": ""
             },
@@ -7175,7 +7175,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/ad8b147af196c8ddf19662db14336f93f8c0e514",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/ac91535054d025937d897d78ebb5fc2da5e955a4",
                 "reference": "ad8b147af196c8ddf19662db14336f93f8c0e514",
                 "shasum": ""
             },

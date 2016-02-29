@@ -14,8 +14,8 @@
             {{- 'icon_move_up'|trans|raw -}}
         </a>
     {% endif %}
-    
-    {% if pix_position < admin.last_position %}
+
+    {% if pix_position < admin.lastPosition %}
         <a class="btn btn-sm btn-default"
            href="{{ admin.generateObjectUrl('move', object, {'position': 'down'}) }}"
            title="{{ 'move_down'|trans }}">
@@ -29,7 +29,7 @@
         </a>
     {% endif %}
 
-    
+
 
     {% if pix_position > 0 %}
         <a class="btn btn-sm btn-default"
@@ -45,7 +45,7 @@
         </a>
     {% endif %}
 
-    {% if pix_position < admin.last_position %}
+    {% if pix_position < admin.lastPosition %}
         <a class="btn btn-sm btn-default"
            href="{{ admin.generateObjectUrl('move', object, {'position': 'bottom'}) }}"
            title="{{ 'move_to_bottom'|trans }}">

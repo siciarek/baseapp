@@ -38,7 +38,7 @@ class Page implements ContainerAwareInterface
         
         foreach($repo->findBy($criteria, $order) as $g) {
             $gr = [
-                'enabled' => $g->isEnabled(),
+                'enabled' => $g->getEnabled(),
                 'label' => $g->getName(),
                 'translation_domain' => 'ApplicationMainBundle',
                 'icon' => $g->getIcon(),
@@ -47,10 +47,10 @@ class Page implements ContainerAwareInterface
             ];
             
             foreach($g->getPages() as $p) {
-
-                if($p->isEnabled()) {
+                $enabled = $p->getEnabled();
+                if($enabled === true) {
                     $gr['children'][] = [
-                        'enabled' => $p->isEnabled(),
+                        'enabled' => $enabled,
                         'label' => $p->getTitle(),
                         'translation_domain' => 'ApplicationMainBundle',
                         'role' => $p->getRole(),

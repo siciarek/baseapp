@@ -15,7 +15,7 @@ class PageTranslation
     use ORMBehaviors\Translatable\Translation;
 
     /**
-     * @ORM\Column(length=255)
+     * @ORM\Column(length=255, nullable=true)
      */
     private $title;
 

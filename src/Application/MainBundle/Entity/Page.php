@@ -119,7 +119,7 @@ class Page
      *
      * @return boolean
      */
-    public function isEnabled()
+    public function getEnabled()
     {
         return $this->enabled;
     }
@@ -140,7 +140,7 @@ class Page
     /**
      * Get displayTitle
      *
-     * @return string
+     * @return boolean
      */
     public function getDisplayTitle()
     {
