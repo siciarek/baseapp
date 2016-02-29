@@ -13,7 +13,7 @@ use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
 class PageCategoryAdmin extends Admin
 {
 
-    public $last_position = 0;
+    public $lastPosition = 0;
     private $positionService;
     protected $datagridValues = array(
         '_page' => 1,
@@ -59,7 +59,7 @@ class PageCategoryAdmin extends Admin
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $this->last_position = $this->positionService->getLastPosition($this->getRoot()->getClass());
+        $this->lastPosition = $this->positionService->getLastPosition($this->getRoot()->getClass());
 
         $actions = [
             'actions' => [

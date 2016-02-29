@@ -15,7 +15,7 @@ use Sonata\AdminBundle\Form\Type\ModelType as SonataTypeModel;
 class PageAdmin extends Admin
 {
     public $supportsPreviewMode = true;
-    public $last_position = 0;
+    public $lastPosition = 0;
     private $positionService;
 
     public function getTemplate($name)
@@ -85,7 +85,7 @@ class PageAdmin extends Admin
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $this->last_position = $this->positionService->getLastPosition($this->getRoot()->getClass());
+        $this->lastPosition = $this->positionService->getLastPosition($this->getRoot()->getClass());
 
         $actions = [
             'actions' => [
