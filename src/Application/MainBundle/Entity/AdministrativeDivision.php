@@ -55,6 +55,20 @@ class AdministrativeDivision implements \Knp\DoctrineBehaviors\Model\Tree\NodeIn
     private $places;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Country", inversedBy="administrativeDivisions")
+     * @ORM\JoinColumn(name="country_code", referencedColumnName="code")
+     */
+    private $country;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->places = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * Set id
      *
      * @param int $id
@@ -173,13 +187,6 @@ class AdministrativeDivision implements \Knp\DoctrineBehaviors\Model\Tree\NodeIn
     {
         return $this->data;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->places = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add place
@@ -215,5 +222,29 @@ class AdministrativeDivision implements \Knp\DoctrineBehaviors\Model\Tree\NodeIn
     public function getPlaces()
     {
         return $this->places;
+    }
+
+    /**
+     * Set country
+     *
+     * @param \Application\MainBundle\Entity\Country $country
+     *
+     * @return AdministrativeDivision
+     */
+    public function setCountry(\Application\MainBundle\Entity\Country $country = null)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return \Application\MainBundle\Entity\Country
+     */
+    public function getCountry()
+    {
+        return $this->country;
     }
 }

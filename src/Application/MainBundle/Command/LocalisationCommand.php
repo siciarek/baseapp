@@ -15,6 +15,8 @@ use Application\MainBundle\Entity as E;
 class LocalisationCommand extends ContainerAwareCommand
 {
 
+    const STEP = 5000;
+
     /**
      * @source: http://ksng.gugik.gov.pl/urzedowe_nazwy_miejscowosci.php
      * @geo: http://cybermoon.pl/wiedza/wspolrzedne/wspolrzedne_polskich_miejscowosci_a.html
@@ -23,24 +25,39 @@ class LocalisationCommand extends ContainerAwareCommand
     {
         $this
                 ->setName('loc')
-                ->setDescription('Get Poland localisation list.')
+                ->setDescription('Create localisation list of Poland administrative divisions and places.')
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         $em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $filename = __DIR__ . '/../Resources/data/places.csv';
 
         $adr = $em->getRepository('ApplicationMainBundle:AdministrativeDivision');
         $plr = $em->getRepository('ApplicationMainBundle:Place');
+        $cr = $em->getRepository('ApplicationMainBundle:Country');
 
         $handle = fopen("$filename", "r");
         $headers = [];
 
         $counter = 0;
         $adx = 1;
+
+        $temp = $cr->findByCode('PL');
+        $country = new E\Country();
+
+        if (count($temp) > 0) {
+            $country = $temp[0];
+        }
+
+        $country->setCode('PL');
+        $country->setName('Poland');
+        $country->setLanguage('PL_pl');
+        $country->setCurrency('PLN');
+        $em->persist($country);
+        $em->flush();
+        $em->refresh($country);
 
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 
@@ -70,6 +87,7 @@ class LocalisationCommand extends ContainerAwareCommand
             } else {
                 $adw->setId($adx++);
             }
+            $adw->setCountry($country);
 
             $adw->setDescription('województwo');
             $adw->setName($data[4]);
@@ -87,6 +105,7 @@ class LocalisationCommand extends ContainerAwareCommand
             } else {
                 $adp->setId($adx++);
             }
+            $adp->setCountry($country);
 
             $adp->setDescription('powiat');
             $adp->setName($data[3]);
@@ -106,6 +125,7 @@ class LocalisationCommand extends ContainerAwareCommand
             } else {
                 $adg->setId($adx++);
             }
+            $adg->setCountry($country);
 
             $adg->setDescription('gmina');
             $adg->setName($data[2]);
@@ -122,7 +142,6 @@ class LocalisationCommand extends ContainerAwareCommand
             ]);
 
             if (count($pl) === 0) {
-                $place = $pl[0];
                 $place->setAdministrativeDivision($adp);
                 $place->setId($data[5]);
                 $place->setName($data[0]);
@@ -134,7 +153,7 @@ class LocalisationCommand extends ContainerAwareCommand
                 $counter++;
             }
 
-            if ($counter >= 5000) {
+            if ($counter >= self::STEP) {
                 $em->flush();
                 $counter = 0;
                 $output->write('.');
