@@ -44,6 +44,11 @@ class Place {
     private $data = [];
 
     /**
+     * @ORM\ManyToOne(targetEntity="AdministrativeDivision", inversedBy="places")
+     */
+    private $administrativeDivision;
+
+    /**
      * Set id
      *
      * @param int $id
@@ -161,5 +166,29 @@ class Place {
     public function getData()
     {
         return $this->data;
+    }
+
+    /**
+     * Set administrativeDivision
+     *
+     * @param \Application\MainBundle\Entity\AdministrativeDivision $administrativeDivision
+     *
+     * @return Place
+     */
+    public function setAdministrativeDivision(\Application\MainBundle\Entity\AdministrativeDivision $administrativeDivision = null)
+    {
+        $this->administrativeDivision = $administrativeDivision;
+
+        return $this;
+    }
+
+    /**
+     * Get administrativeDivision
+     *
+     * @return \Application\MainBundle\Entity\AdministrativeDivision
+     */
+    public function getAdministrativeDivision()
+    {
+        return $this->administrativeDivision;
     }
 }

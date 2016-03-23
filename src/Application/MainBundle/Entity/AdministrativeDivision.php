@@ -12,17 +12,18 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
  * @ORM\Table(name="administrative_division")
  * @ORM\Entity(repositoryClass="AdministrativeDivisionRepository")
  */
-class AdministrativeDivision {
+class AdministrativeDivision implements \Knp\DoctrineBehaviors\Model\Tree\NodeInterface
+{
 
     use ORMBehaviors\Tree\Node;
-                 
-    public function __toString() {
+
+    public function __toString()
+    {
         return $this->getName()? : '-';
     }
 
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -42,12 +43,16 @@ class AdministrativeDivision {
      */
     private $info;
 
-    
     /**
      * @ORM\Column(type="json")
      */
     private $data = [];
 
+    /**
+     * @ORM\OrderBy({"name" = "ASC"})
+     * @ORM\OneToMany(targetEntity="Place", mappedBy="administrativeDivision")
+     */
+    private $places;
 
     /**
      * Set id
@@ -167,5 +172,48 @@ class AdministrativeDivision {
     public function getData()
     {
         return $this->data;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->places = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add place
+     *
+     * @param \Application\MainBundle\Entity\Place $place
+     *
+     * @return AdministrativeDivision
+     */
+    public function addPlace(\Application\MainBundle\Entity\Place $place)
+    {
+        $this->places[] = $place;
+
+        return $this;
+    }
+
+    /**
+     * Remove place
+     *
+     * @param \Application\MainBundle\Entity\Place $place
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removePlace(\Application\MainBundle\Entity\Place $place)
+    {
+        return $this->places->removeElement($place);
+    }
+
+    /**
+     * Get places
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPlaces()
+    {
+        return $this->places;
     }
 }
